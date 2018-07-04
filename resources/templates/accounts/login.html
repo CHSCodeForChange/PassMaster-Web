@@ -1,0 +1,40 @@
+<head>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <link href="/static/css/login.css" rel="stylesheet" type="text/css">
+   <link href="/static/css/alert.css" rel="stylesheet" type="text/css">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="login">
+      <h1 class="display-1">Login</h1>
+      <form method="post">
+        <div class="row">
+          <div class="col-md-9">
+            {% csrf_token %}
+            {% for field in form %}
+                {{field}}
+            {% endfor %}
+            <p class="signup"> Dont have an account? <a href="/accounts/signup" class="">Sign up</a></p>
+
+          </div>
+          <div class="col-md-3">
+            <button type="submit" class="button"><i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+
+      </form>
+    </div>
+    {% csrf_token %}
+    {% for field in form %}
+      {% ifnotequal field.errors None %}
+        {% for error in field.errors %}
+          <div class="alert alert-info" role="alert">
+            <strong>{{field.label}}:</strong> {{error}}
+          </div>
+        {% endfor %}
+      {% endifnotequal %}
+    {% endfor %}
+
+</body>
