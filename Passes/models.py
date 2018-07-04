@@ -9,17 +9,19 @@ from Teacher.models import Teacher
 class Pass(models.Model):
     objects = models.Manager()
 
-    approved = models.BooleanField(default=False) """always needed"""
+    approved = models.BooleanField(default=False) #"""always needed"""
 
-    timeOfRequest = models.DateTimeField() """always needed"""
-    timeLeftOrigin = models.DateTimeField(null=True) """always needed"""
+    startTimeRequested = models.DateTimeField() #"""always needed"""
+    endTimeRequested = models.DateTimeField() #"""always needed"""
+
+    timeLeftOrigin = models.DateTimeField(null=True) #"""always needed"""
     timeArrivedDestination = models.DateTimeField(null=True) # needed only for pass type #1
     #timeDepartedDestination = models.DateTimeField(null=True) # needed only for pass type #1
     #timeReturnedOrigin = models.DateTimeField(null=True) # needed only for session 1 SRT passes and other passes
 
 
-    """A teacher pass is where a teacher is at the destination to record the student's arrival (also applicable to things like the nurse's office)
-    An 'other' pass is where there is no one to sign student's in, such as the restroom"""
+    #"""A teacher pass is where a teacher is at the destination to record the student's arrival (also applicable to things like the nurse's office)
+    #An 'other' pass is where there is no one to sign student's in, such as the restroom"""
     PASS_TYPE_CHOICES = ((1, "Teacher Pass"), (2, "Other Pass"),)# (3, "Destination Pass"))
     type = models.CharField(max_length=48, choices=PASS_TYPE_CHOICES)
 
@@ -38,8 +40,8 @@ class Pass(models.Model):
         related_name="pass_origin_teacher"
     )
 
-    """ Basically the location and destinationTeacher are interchangeable. There will only be one or the other --
-    a location if the pass is an other pass and a destinationTeacher if the pass is a teacher pass"""
+    #""" Basically the location and destinationTeacher are interchangeable. There will only be one or the other --
+    #a location if the pass is an other pass and a destinationTeacher if the pass is a teacher pass"""
 
     location = models.CharField(max_length=12, null=True)
 
@@ -50,8 +52,8 @@ class Pass(models.Model):
         related_name="destinationTeacher"
     )
 
-    """ The String description of the reason for the pass. This is mainly just for the destination teacher to know what the
-    student will need from them. """
+    #""" The String description of the reason for the pass. This is mainly just for the destination teacher to know what the
+    #student will need from them. """
     description = models.CharField(max_length=960, null=True)
 
 
@@ -65,7 +67,7 @@ class Pass(models.Model):
         self.timeLeft = datetime.now()
 
     def arrive(self):
-        if (self.type = '1')
+        if (self.type == '1'):
             self.timeArrived = datetime.now()
 
     #def return(self):
