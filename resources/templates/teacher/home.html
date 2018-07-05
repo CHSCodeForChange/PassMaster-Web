@@ -1,0 +1,129 @@
+<head>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <link href="/static/css/student/home.css" rel="stylesheet" type="text/css">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+</head>
+
+<body>
+  <h1 class="display-1">Passes</h1>
+
+  {% ifnotequal incoming.count 0 %}
+    <h1 class="pass-type">Incomming Students</h1>
+    {% for pass in incoming %}
+     {% ifequal pass.type '1' %}
+       <div class="card" style="max-width: 18rem;">
+         <div class="card-body">
+           <h5 class="card-title">{{pass.student.profile.name}}</h5>
+           <h6 class="card-subtitle mb-2 text-muted">{{pass.startTimeRequested}} - {{pass.endTimeRequested}}</h6>
+           <p class="card-text">{{pass.description}}</p>
+         </div>
+         <ul class="list-group list-group-flush">
+           <li class="list-group-item">Time Left: {{pass.timeLeftOrigin}}</li>
+           <li class="list-group-item">Time Arrived:
+             {% ifequal timeArrivedDestination None %}
+                <a hef=""><button>Check In</button></a>
+             {% else %}
+                {{pass.timeArrivedDestination}}
+             {% endifequal %}
+           </li>
+         </ul>
+       </div>
+     {% endifequal %}
+    {% endfor %}
+  {% endifnotequal %}
+
+  {% ifnotequal outgoing.count 0 %}
+    <h1 class="pass-type">Outgoing Students</h1>
+    {% for pass in outgoing %}
+      {% ifequal pass.type '1' %}
+        <div class="card" style="max-width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{pass.student.profile.name}} to {{pass.destinationTeacher}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{pass.startTimeRequested}} - {{pass.endTimeRequested}}</h6>
+            <p class="card-text">{{pass.description}}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Time Left:
+              {% ifequal timeLeftOrigin None %}
+                 <a hef=""><button>Check Out</button></a>
+              {% else %}
+                 {{pass.timeLeftOrigin}}
+              {% endifequal %}
+            </li>
+            <li class="list-group-item">Time Arrived: {{pass.timeArrivedDestination}}</li>
+          </ul>
+        </div>
+      {% else %}
+       <div class="card" style="max-width: 18rem;">
+         <div class="card-body">
+           <h5 class="card-title">{{pass.student.profile.name}} to {{pass.location}}</h5>
+           <h6 class="card-subtitle mb-2 text-muted">{{pass.startTimeRequested}} - {{pass.endTimeRequested}}</h6>
+           <p class="card-text">{{pass.description}}</p>
+         </div>
+         <ul class="list-group list-group-flush">
+           <li class="list-group-item">Time Left: {{pass.timeLeftOrigin}}</li>
+         </ul>
+       </div>
+      {% endifequal %}
+    {% endfor %}
+  {% endifnotequal %}
+
+  {% ifnotequal unapproved.count 0 %}
+    <h1 class="pass-type">Unapproved</h1>
+    {% for pass in unapproved %}
+      {% ifequal pass.type '1' %}
+        <div class="card" style="max-width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{pass.student.profile.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{pass.startTimeRequested}} - {{pass.endTimeRequested}}</h6>
+            <p class="card-text">{{pass.description}}</p>
+            <a href="#" class="btn btn-primary">Approve</a>
+          </div>
+      {% else %}
+       <div class="card" style="max-width: 18rem;">
+         <div class="card-body">
+           <h5 class="card-title">{{pass.student.profile.name}} to {{pass.location}}</h5>
+           <h6 class="card-subtitle mb-2 text-muted">{{pass.startTimeRequested}} - {{pass.endTimeRequested}}</h6>
+           <p class="card-text">{{pass.description}}</p>
+           <a href="#" class="btn btn-primary">Approve</a>
+         </div>
+       </div>
+      {% endifequal %}
+    {% endfor %}
+  {% endifnotequal %}
+
+  {% ifnotequal old.count 0 %}
+    <h1 class="pass-type">Old</h1>
+    {% for pass in old %}
+      {% ifequal pass.type '1' %}
+        <div class="card" style="max-width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{pass.student.profile.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{pass.startTimeRequested}} - {{pass.endTimeRequested}}</h6>
+            <p class="card-text">{{pass.description}}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Time Left: {{pass.timeLeftOrigin}}</li>
+            <li class="list-group-item">Time Arrived: {{pass.timeArrivedDestination}}</li>
+            <li class="list-group-item">Origin Teacher: {{pass.originTeacher.profile.name}}</li>
+            <li class="list-group-item">Destination Teacher: {{pass.destinationTeacher.profile.name}}</li>
+          </ul>
+        </div>
+      {% else %}
+        <div class="card" style="max-width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{pass.student.profile.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{pass.startTimeRequested}} - {{pass.endTimeRequested}}</h6>
+            <p class="card-text">{{pass.description}}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Time Left: {{pass.timeLeftOrigin}}</li>
+            <li class="list-group-item">Time Arrived: {{pass.timeArrivedDestination}}</li>
+            <li class="list-group-item">Origin Teacher: {{pass.originTeacher.profile.name}}</li>
+            <li class="list-group-item">Location: {{pass.location}}</li>
+          </ul>
+        </div>
+      {% endifequal %}
+    {% endfor %}
+  {% endifnotequal %}
+</body>

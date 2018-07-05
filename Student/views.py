@@ -12,6 +12,4 @@ def home(request):
         pending = Pass.get_students_pending_passes(request.user)
         old = Pass.get_students_old_passes(request.user)
 
-        print(pending)
-
         return render(request, "student/home.html", {'active': active, 'pending': pending, 'old': old})

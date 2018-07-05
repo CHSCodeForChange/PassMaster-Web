@@ -1,0 +1,25 @@
+body {
+  background-color: #F29D39;
+  margin: 5%;
+}
+
+.display-1 {
+  color: white !important;
+  text-align: center;
+}
+
+.plus {
+  color: white !important;
+  text-decoration: none;
+}
+
+.plus:hover {
+  color: #eee !important;
+  text-decoration: none;
+}
+
+.pass-type {
+  padding-left: 5%;
+  text-decoration: underline;
+  color: white;
+}

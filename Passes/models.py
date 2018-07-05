@@ -9,7 +9,7 @@ from Teacher.models import Teacher
 class Pass(models.Model):
     objects = models.Manager()
 
-    approved = models.BooleanField(default=False) #"""always needed"""
+    approved = models.BooleanField(default=False) #"""always needed, will be approved by destination teacher if its a teacher pass, or the origin teacher if its an other pass"""
 
     startTimeRequested = models.DateTimeField() #"""always needed"""
     endTimeRequested = models.DateTimeField() #"""always needed"""
@@ -105,5 +105,43 @@ class Pass(models.Model):
         if profile.is_student:
             student = profile.student
             return Pass.objects.filter(student=student, approved=True).exclude(timeArrivedDestination=None)
+        else:
+            return None
+
+    def get_teachers_incomming_student_passes(user):
+        profile = user.profile
+        if profile.is_teacher:
+            teacher = profile.teacher
+            return Pass.objects.filter(approved=True, timeArrivedDestination=None, destinationTeacher=teacher)
+        else:
+            return None
+
+    def get_teachers_outgoing_student_passes(user):
+        profile = user.profile
+        if profile.is_teacher:
+            teacher = profile.teacher
+            return Pass.objects.filter(approved=True, timeArrivedDestination=None, originTeacher=teacher)
+        else:
+            return None
+
+
+    def get_teachers_unapproved_passes(user):
+        profile = user.profile
+        if profile.is_teacher:
+            teacher = profile.teacher
+            teacher_passes = Pass.objects.filter(type='1', approved=False, timeLeftOrigin=None, timeArrivedDestination=None, destinationTeacher=teacher)
+            other_passes = Pass.objects.filter(type='2', approved=False, timeLeftOrigin=None, timeArrivedDestination=None, originTeacher=teacher)
+
+            passes = teacher_passes | other_passes
+            return passes
+        else:
+            return None
+
+    def get_teachers_old_passes(user):
+        profile = user.profile
+        if profile.is_teacher:
+            teacher = profile.teacher
+            passes = Pass.objects.filter(approved=True, destinationTeacher=teacher).exclude(timeArrivedDestination=None) | Pass.objects.filter(approved=True, originTeacher=teacher).exclude(timeArrivedDestination=None)
+            return passes
         else:
             return None

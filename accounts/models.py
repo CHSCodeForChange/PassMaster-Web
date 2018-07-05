@@ -29,3 +29,6 @@ class Profile(models.Model):
 
     def is_administrator(profile):
         return profile.member_type == '3'
+
+    def name(profile):
+        return (profile.user.first_name + ' ' + profile.user.last_name)
