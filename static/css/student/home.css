@@ -1,0 +1,65 @@
+body {
+  background-color: #F29D39;
+  margin: 5%;
+}
+
+.display-1 {
+  color: white !important;
+  text-align: center;
+}
+
+.plus {
+  color: white !important;
+  text-decoration: none;
+}
+
+.plus:hover {
+  color: #eee !important;
+  text-decoration: none;
+}
+
+.pass-type {
+  padding-left: 5%;
+  text-decoration: underline;
+  color: white;
+}
+
+/*.form {
+    border-radius: 25px;
+    border-color: #F29D39;
+    font-size: 180% !important;
+}
+
+.inline > input {
+    margin-left: 0% !important;
+    margin-right: 0% !important;
+    padding: 0% !important;
+}
+
+.inline-right > input {
+    margin-left: 0% !important;
+    margin-right: 31% !important;
+    padding: 0% !important;
+}
+
+.inline-left > input {
+    margin-left: 31% !important;
+    margin-right: 0% !important;
+    padding: 0% !important;
+}
+
+.inline {
+    padding: .6% !important;
+}
+
+
+
+.form:focus {
+    color: #F29D39;
+    -webkit-box-shadow:  none !important;
+    -moz-box-shadow:  none !important; ;
+}
+
+.form:focus::placeholder {
+    color: #F29D39;
+}*/

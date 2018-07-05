@@ -1,0 +1,51 @@
+<head>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <link href="/static/css/student/home.css" rel="stylesheet" type="text/css">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+</head>
+
+<body>
+  <h1 class="display-1">Passes <a class="plus" href="">+</a></h1>
+
+  {% ifnotequal active.count 0 %}
+    <h1 class="pass-type">Active</h1>
+    {% for pass in active %}
+     {% ifequal pass.type '1' %}
+     <div class="card bg-light mb-3" style="max-width: 18rem;">
+      <div class="card-header">{{pass.}}</div>
+      <div class="card-body">
+        <h5 class="card-title">Light card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>
+     {% else %}
+      <div class="card" style="max-width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{pass.location}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{pass.startTimeRequested}} - {{pass.endTimeRequested}}</h6>
+          <p class="card-text">{{pass.description}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Time Left: {{pass.timeLeft}}</li>
+          <li class="list-group-item">Time Arrived: {{pass.timeArrived}}</li>
+          <li class="list-group-item">Origin Teacher: {{pass.originTeacher.profile.user.first_name}} {{pass.originTeacher.profile.user.last_name}}</li>
+        </ul>
+      </div>
+     {% endifequal %}
+    {% endfor %}
+  {% endifnotequal %}
+
+  {% ifnotequal pending.count 0 %}
+    <h1 class="pass-type">Pending</h1>
+    {% for pass in pending %}
+      <p>{{pass.description}}</p>
+    {% endfor %}
+  {% endifnotequal %}
+
+  {% ifnotequal old.count 0 %}
+    <h1 class="pass-type">Old</h1>
+    {% for pass in old %}
+      <p>{{pass.description}}</p>
+    {% endfor %}
+  {% endifnotequal %}
+</body>
