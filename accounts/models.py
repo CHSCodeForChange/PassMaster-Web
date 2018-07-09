@@ -19,8 +19,6 @@ class Profile(models.Model):
     CHOICES = (('1', 'Student',), ('2', 'Teacher',), ('3', 'Administrator'))
     member_type = models.CharField(max_length=50, choices=CHOICES)
 
-
-
     def is_student(profile):
         return profile.member_type == '1'
 

@@ -7,5 +7,16 @@ class Student (models.Model):
 
     teachers = models.ManyToManyField(Teacher, related_name="teacher_list")
 
+    defaultOrgin = models.ForeignKey(
+        Teacher,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="srt_teacher"
+    )
+
     def __str__(self):
         return self.profile.user.username
+
+    def get_deforgin(self):
+        return self.defaultOrgin
