@@ -108,7 +108,7 @@ class Pass(models.Model):
         else:
             return None
 
-    def get_teachers_incomming_student_passes(user):
+    def get_teachers_incoming_student_passes(user):
         profile = user.profile
         if profile.is_teacher:
             teacher = profile.teacher
