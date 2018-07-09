@@ -21,7 +21,7 @@
            <li class="list-group-item">Time Left: {{pass.timeLeftOrigin}}</li>
            <li class="list-group-item">Time Arrived:
              {% ifequal timeArrivedDestination None %}
-                <a hef=""><button>Check In</button></a>
+                <a href="/teacher/checkin/{{ pass.id }}"><button>Check In</button></a>
              {% else %}
                 {{pass.timeArrivedDestination}}
              {% endifequal %}
@@ -45,7 +45,7 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Time Left:
               {% ifequal timeLeftOrigin None %}
-                 <a hef=""><button>Check Out</button></a>
+                 <a href="/teacher/checkout/{{ pass.id }}"><button>Check Out</button></a>
               {% else %}
                  {{pass.timeLeftOrigin}}
               {% endifequal %}
@@ -77,7 +77,7 @@
             <h5 class="card-title">{{pass.student.profile.name}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{pass.startTimeRequested}} - {{pass.endTimeRequested}}</h6>
             <p class="card-text">{{pass.description}}</p>
-            <a href="/teacher/{{ pass.id }}" class="btn btn-primary">Approve</a>
+            <a href="/teacher/approve/{{ pass.id }}" class="btn btn-primary">Approve</a>
           </div>
       {% else %}
        <div class="card" style="max-width: 18rem;">

@@ -3,6 +3,7 @@ import datetime
 
 from Student.models import Student
 from Teacher.models import Teacher
+from django.utils.timezone import now
 
 
 # Create your models here.
@@ -66,12 +67,13 @@ class Pass(models.Model):
         self.save()
 
     def leave(self):
-        self.timeLeft = datetime.now()
+        self.timeLeft = now().strftime("%Y-%m-%dT%H:%M:%S")
+        self.save()
 
     def arrive(self):
         if (self.type == '1'):
-            self.timeArrived = datetime.now()
-
+            self.timeArrived = now().strftime("%Y-%m-%dT%H:%M:%S")
+        self.save()
     #def return(self):
     #    self.timeReturned = datetime.now()
 
