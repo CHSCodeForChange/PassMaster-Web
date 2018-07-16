@@ -8,14 +8,23 @@ from Passes.models import Pass
 class NewPassForm(forms.Form):
     description = forms.CharField(label='Description', max_length=960, widget=forms.TextInput(
         attrs={'type': 'text',
-               'class': 'form-control'}))
+               'class': 'form-control form'}))
 
     student = models.User()
-    destinationTeacher = forms.ModelChoiceField(queryset=User.objects.all(), empty_label=None)
-    originTeacher = forms.ModelChoiceField(queryset=User.objects.all(), empty_label=None)
+    destinationTeacher = forms.ModelChoiceField(queryset=User.objects.all(), empty_label=None, widget=forms.Select(
+        attrs={'type': 'text',
+               'class': 'form-control form'})))
+    originTeacher = forms.ModelChoiceField(queryset=User.objects.all(), empty_label=None, widget=forms.Select(
+        attrs={'type': 'text',
+               'class': 'form-control form'}))))
 
-    timeOfSession = forms.DateTimeField()
-    timeOfRequest = datetime.now()
+    timeOfSession = forms.DateTimeField(widget=forms.Select(
+        attrs={'type': 'text',
+               'class': 'form-control form'}))
+
+    timeOfRequest = datetime.now(widget=forms.Select(
+        attrs={'type': 'text',
+               'class': 'form-control form'}))
 
     session = forms.ChoiceField(label="",
                                 initial='',

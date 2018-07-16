@@ -13,6 +13,8 @@ def home(request):
         unapproved = Pass.get_teachers_unapproved_passes(request.user)
         old = Pass.get_teachers_old_passes(request.user)
 
+        print(Pass.objects.filter(originTeacher=request.user.profile.teacher))
+
         return render(request, "teacher/home.html",
             {'incoming': incoming, 'outgoing': outgoing,
             'unapproved': unapproved, 'old': old})

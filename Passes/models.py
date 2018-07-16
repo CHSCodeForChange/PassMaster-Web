@@ -59,7 +59,10 @@ class Pass(models.Model):
     description = models.CharField(max_length=960, null=True)
 
     def __str__(self):
-        return self.description
+        if self.description != None:
+            return self.description
+        else:
+            return 'None'
 
 
     def approve(self):
