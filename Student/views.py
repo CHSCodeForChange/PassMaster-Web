@@ -26,6 +26,9 @@ def viewPass(request):
 
 @login_required
 def requestPass(request):
+    if not request.user.is_authenticated():
+        return redirect('/login')
+
     if request.method == 'GET':
         form = RequestForm(user=request.user)
         return render(request, 'student/request_pass.html', {'form': form})
