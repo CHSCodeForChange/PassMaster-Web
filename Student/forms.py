@@ -24,6 +24,12 @@ class RequestForm(forms.Form):
                               widget=forms.DateTimeInput(
                                   attrs={'type': 'datetime-local',
                                          'class': 'form-control'}))
+
+    reason = forms.CharField(label='', required=True, max_length=240, widget=forms.TextInput(
+        attrs={'type': 'text',
+               'class': 'form-control',
+               'placeholder': 'Why'}))
+
     user = models.User()
 
     def __init__(self, *args, **kwargs):
@@ -50,7 +56,7 @@ class RequestForm(forms.Form):
         student = Student.objects.get(profile=self.user.profile)
 
         newPass = Pass(approved=False, startTimeRequested=self.cleaned_data['start'],
-                       endTimeRequested=self.cleaned_data['end'],
+                       endTimeRequested=self.cleaned_data['end'], description=self.cleaned_data['reason'],
                        student=student, destinationTeacher=Teacher.objects.get(idName=self.cleaned_data['location']),
                        originTeacher=Teacher.objects.get(idName=self.cleaned_data['sending']))
         return newPass
