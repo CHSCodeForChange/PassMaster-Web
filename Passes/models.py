@@ -1,5 +1,5 @@
 from django.db import models
-import datetime
+from datetime import datetime
 
 from Student.models import Student
 from Teacher.models import Teacher
@@ -67,13 +67,13 @@ class Pass(models.Model):
         self.save()
 
     def leave(self):
-        self.timeLeft = now().strftime("%Y-%m-%dT%H:%M:%S")
+        self.timeLeftOrigin = datetime.now()
         self.save()
 
     def arrive(self):
         if (self.type == '1'):
-            self.timeArrived = now().strftime("%Y-%m-%dT%H:%M:%S")
-        self.save()
+            self.timeArrivedDestination = datetime.now()
+            self.save()
     #def return(self):
     #    self.timeReturned = datetime.now()
 
