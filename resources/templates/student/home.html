@@ -14,7 +14,7 @@
      {% ifequal pass.type '1' %}
        <div class="card" style="max-width: 18rem;">
          <div class="card-body">
-           <h5 class="card-title">{{pass.destinationTeacher}}</h5>
+           <h5 class="card-title">{{pass.destinationTeacher.profile.name}}</h5>
            <h6 class="card-subtitle mb-2 text-muted">{{pass.startTimeRequested}} - {{pass.endTimeRequested}}</h6>
            <p class="card-text">{{pass.description}}</p>
          </div>
@@ -47,7 +47,7 @@
       {% ifequal pass.type '1' %}
         <div class="card" style="max-width: 18rem;">
           <div class="card-body">
-            <h5 class="card-title">{{pass.destinationTeacher}}</h5>
+            <h5 class="card-title">{{pass.destinationTeacher.profile.name}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{pass.startTimeRequested}} - {{pass.endTimeRequested}}</h6>
             <p class="card-text">{{pass.description}}</p>
           </div>
@@ -80,7 +80,7 @@
       {% ifequal pass.type '1' %}
         <div class="card" style="max-width: 18rem;">
           <div class="card-body">
-            <h5 class="card-title">{{pass.destinationTeacher}}</h5>
+            <h5 class="card-title">{{pass.destinationTeacher.profile.name}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{pass.startTimeRequested}} - {{pass.endTimeRequested}}</h6>
             <p class="card-text">{{pass.description}}</p>
           </div>
