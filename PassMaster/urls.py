@@ -19,8 +19,8 @@ from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
-    url(r'^api/', include('api.urls', namespace='api')),
     url(r'^admin/', admin.site.urls),
+    url(r'^api/', include('api.urls', namespace='api')),
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
     url(r'^student/', include('Student.urls', namespace='student')),
     url(r'^teacher/', include('Teacher.urls', namespace='teacher')),

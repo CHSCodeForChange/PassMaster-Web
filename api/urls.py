@@ -1,10 +1,7 @@
-from django.conf.urls import url, include
+from django.conf.urls import url
 from . import views
-from rest_framework import routers
-
-router = routers.DefaultRouter()
-router.register('passes', views.PassView)
 
 urlpatterns = [
-    url('', include(router.urls))
+    url(r'^hello/(?P<stuff>[\w\-]+)/$', views.home),
+    url(r'^login_api/(?P<username>[\w\-]+)/(?P<password>[\w\-]+)', views.post),
 ]
