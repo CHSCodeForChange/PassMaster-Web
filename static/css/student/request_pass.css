@@ -43,6 +43,38 @@ input:-webkit-autofill {
     -webkit-box-shadow: inset 0 0 0px 9999px #f6b26bff;
 }
 
+select {
+  border-radius: 250px !important;
+  background-color: #f6b26bff !important;
+  border-style: solid;
+  width: 100%;
+  border-color: white !important;
+  margin-top: 1.5vh;
+  color: white !important;
+  -webkit-padding-start: 3%;
+
+}
+
+select::placeholder {
+    color: white !important;
+}
+
+select:focus {
+  color: white;
+  border-radius: 250px !important;
+  background-color: #f6b26bff !important;
+  border-color: white;
+}
+
+select:focus::placeholder {
+    color: #f6b26bff;
+}
+
+select:-webkit-autofill {
+    -webkit-padding-start: 3%;
+    -webkit-text-fill-color: white !important;
+    -webkit-box-shadow: inset 0 0 0px 9999px #f6b26bff;
+}
 .button {
   margin-top: 3vh;
   font-size: 400%;

@@ -29,20 +29,27 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+LIB_APPS = [
+    'rest_framework'
+]
+MY_APPS = [
     'accounts',
     'Student',
     'Teacher',
     'Administrator',
     'Passes',
+    'api'
 ]
+
+INSTALLED_APPS = DJANGO_APPS + LIB_APPS + MY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

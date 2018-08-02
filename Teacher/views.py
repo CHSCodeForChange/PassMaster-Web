@@ -13,6 +13,8 @@ def home(request):
         unapproved = Pass.get_teachers_unapproved_passes(request.user)
         old = Pass.get_teachers_old_passes(request.user)
 
+        print(Pass.objects.filter(originTeacher=request.user.profile.teacher))
+
         return render(request, "teacher/home.html",
             {'incoming': incoming, 'outgoing': outgoing,
             'unapproved': unapproved, 'old': old})
@@ -25,14 +27,9 @@ def approve(request, pass_id):
     else:
         thepass = Pass.objects.get(id=pass_id)
         thepass.approve()
-        incoming = Pass.get_teachers_incoming_student_passes(request.user)
-        outgoing = Pass.get_teachers_outgoing_student_passes(request.user)
-        unapproved = Pass.get_teachers_unapproved_passes(request.user)
-        old = Pass.get_teachers_old_passes(request.user)
 
-        return render(request, "teacher/home.html",
-            {'incoming': incoming, 'outgoing': outgoing,
-            'unapproved': unapproved, 'old': old})
+
+        return redirect('/teacher')
 
 def checkin(request, pass_id):
     if not request.user.is_authenticated():
@@ -42,15 +39,9 @@ def checkin(request, pass_id):
     else:
         thepass = Pass.objects.get(id=pass_id)
         thepass.arrive()
-        print(thepass.timeArrived)
-        incoming = Pass.get_teachers_incoming_student_passes(request.user)
-        outgoing = Pass.get_teachers_outgoing_student_passes(request.user)
-        unapproved = Pass.get_teachers_unapproved_passes(request.user)
-        old = Pass.get_teachers_old_passes(request.user)
 
-        return render(request, "teacher/home.html",
-            {'incoming': incoming, 'outgoing': outgoing,
-            'unapproved': unapproved, 'old': old})
+        return redirect('/teacher')
+
 
 def checkout(request, pass_id):
     if not request.user.is_authenticated():
@@ -60,15 +51,9 @@ def checkout(request, pass_id):
     else:
         thepass = Pass.objects.get(id=pass_id)
         thepass.leave()
-        print(thepass.timeLeft)
-        incoming = Pass.get_teachers_incoming_student_passes(request.user)
-        outgoing = Pass.get_teachers_outgoing_student_passes(request.user)
-        unapproved = Pass.get_teachers_unapproved_passes(request.user)
-        old = Pass.get_teachers_old_passes(request.user)
 
-        return render(request, "teacher/home.html",
-            {'incoming': incoming, 'outgoing': outgoing,
-            'unapproved': unapproved, 'old': old})
+        return redirect('/teacher')
+
 
 
     #return redirect('teacher/home.html"' + str(slot.id))

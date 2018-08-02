@@ -30,3 +30,6 @@ class Profile(models.Model):
 
     def name(profile):
         return (profile.user.first_name + ' ' + profile.user.last_name)
+
+    def __str__(self):
+        return self.user.username
