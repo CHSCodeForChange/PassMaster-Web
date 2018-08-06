@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from Passes.models import Pass
-
+from Teacher.models import Teacher
 
 
 
@@ -12,7 +12,8 @@ class PassSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Pass
-        fields = ('approved',
+        fields = ('pk', 
+                  'approved',
                   'startTimeRequested',
                   'endTimeRequested',
                   'timeLeftOrigin',
@@ -25,3 +26,13 @@ class PassSerializer(serializers.ModelSerializer):
                   'destinationTeacher',
                   'destinationTeacher_name',
                   'description')
+
+
+class TeacherSerializer(serializers.ModelSerializer):
+    name = serializers.CharField(source='__str__')
+
+    class Meta:
+
+        model = Teacher
+        fields = ('pk', 
+                  'name',)
