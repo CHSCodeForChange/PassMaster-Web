@@ -16,7 +16,12 @@ class TeacherView(viewsets.ModelViewSet):
 
     def get_queryset(self):
         name = self.request.query_params.get('name', None)
+        count = self.request.query_params.get('count', None)
+
+        teachers = Teacher.objects.all()
         if name is not None:
-            return Teacher.objects.filter(profile__user__username__contains=name)
-        else: 
-            return Teacher.objects.all()
+            teachers = teachers.filter(profile__user__username__contains=name)
+        if count is not None:
+            teachers = teachers[:int(count)]
+
+        return teachers
