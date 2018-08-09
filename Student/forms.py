@@ -9,8 +9,8 @@ from Teacher.models import Teacher
 
 
 class RequestForm(forms.Form):
-    destinationTeacher = forms.ModelChoiceField(queryset=Teacher.objects.all(), empty_label=None)
-    originTeacher = forms.ModelChoiceField(queryset=Teacher.objects.all(), empty_label=None)
+    destinationTeacher = forms.ModelChoiceField(queryset=Teacher.objects.all(), empty_label=None, label="Destination Teacher")
+    originTeacher = forms.ModelChoiceField(queryset=Teacher.objects.all(), empty_label=None, label="Origin Teacher")
 
     start = forms.DateTimeField(label='Start time', input_formats=['%Y-%m-%dT%H:%M'],
                                 widget=forms.DateTimeInput(

@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.contrib.auth import models
 from datetime import datetime, timezone
@@ -13,18 +14,16 @@ class NewPassForm(forms.Form):
     student = models.User()
     destinationTeacher = forms.ModelChoiceField(queryset=User.objects.all(), empty_label=None, widget=forms.Select(
         attrs={'type': 'text',
-               'class': 'form-control form'})))
+               'class': 'form-control form'}))
     originTeacher = forms.ModelChoiceField(queryset=User.objects.all(), empty_label=None, widget=forms.Select(
         attrs={'type': 'text',
-               'class': 'form-control form'}))))
+               'class': 'form-control form'}))
 
     timeOfSession = forms.DateTimeField(widget=forms.Select(
         attrs={'type': 'text',
                'class': 'form-control form'}))
 
-    timeOfRequest = datetime.now(widget=forms.Select(
-        attrs={'type': 'text',
-               'class': 'form-control form'}))
+    timeOfRequest = datetime.now()
 
     session = forms.ChoiceField(label="",
                                 initial='',

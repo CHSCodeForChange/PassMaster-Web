@@ -1,29 +1,35 @@
 <head>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-   <link href="/static/css/student/request_pass.css" rel="stylesheet" type="text/css">
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="/static/css/student/request_pass.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+          integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 </head>
 
 <body>
-  <div class="request">
+<div class="request">
     <h1 class="display-1 text-center">Request Pass</h1>
     <form method="post">
-      {% csrf_token %}
+        {% csrf_token %}
         {% for field in form %}
-        <p align="left">
-          <div> {{ field }} </div>
-          {% if field.help_text %}
-            <small style="display: none">{{ field.help_text }}</small>
-          {% endif %}
-          {% for error in field.errors %}
-            <p style="color: red">{{ error }}</p>
-          {% endfor %}
-        </p>
+            <p align="left">
+            <div class="form-label">{{ field.label }}</div>
+            <div> {{ field }} </div>
+            {% if field.help_text %}
+                <small style="display: none">{{ field.help_text }}</small>
+            {% endif %}
+            {% for error in field.errors %}
+                <p style="color: red">{{ error }}</p>
+            {% endfor %}
+            </p>
         {% endfor %}
 
         <div class="form-group row">
-          <div class="col-sm-2"></div>
-          <div class="col-sm-8"><button class="btn btn-info btn-block" type="submit">Request</button></div>
-        </div>  </form>
-  </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <button class="btn btn-info btn-block" type="submit">Request</button>
+            </div>
+        </div>
+    </form>
+</div>
 </body>

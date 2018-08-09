@@ -1,129 +1,161 @@
 <head>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-   <link href="/static/css/student/home.css" rel="stylesheet" type="text/css">
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="/static/css/teacher/home.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+          integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <h1 class="display-1">Passes</h1>
+<h1 class="display-1">Passes <a class="plus" data-toggle="collapse" href="#collapseNewPassForm" aria-pressed="true"
+                                role="button" aria-expanded="false" aria-controls="collapseNewPassForm">+</a></h1>
 
-  {% ifnotequal incoming.count 0 %}
+<div class="collapse" id="collapseNewPassForm">
+    {% include 'teacher/new_pass_fragment.html' %}
+</div>
+{% ifnotequal incoming.count 0 %}
     <h1 class="pass-type">Incoming Students</h1>
     {% for pass in incoming %}
-     {% ifequal pass.type '1' %}
-       <div class="card" style="max-width: 18rem;">
-         <div class="card-body">
-           <h5 class="card-title">{{pass.student.profile.name}}</h5>
-           <h6 class="card-subtitle mb-2 text-muted">{{pass.startTimeRequested}} - {{pass.endTimeRequested}}</h6>
-           <p class="card-text">{{pass.description}}</p>
-         </div>
-         <ul class="list-group list-group-flush">
-           <li class="list-group-item">Time Left: {{pass.timeLeftOrigin}}</li>
-           <li class="list-group-item">Time Arrived:
-             {% ifequal timeArrivedDestination None %}
-                <a href="/teacher/checkin/{{ pass.id }}"><button class="btn btn-info">Check In</button></a>
-             {% else %}
-                {{pass.timeArrivedDestination}}
-             {% endifequal %}
-           </li>
-         </ul>
-       </div>
-     {% endifequal %}
+        {% ifequal pass.type '1' %}
+            <div class="card" style="max-width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ pass.student.profile.name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ pass.startTimeRequested }}
+                        - {{ pass.endTimeRequested }}</h6>
+                    <p class="card-text">{{ pass.description }}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Time Left: {{ pass.timeLeftOrigin }}</li>
+                    <li class="list-group-item">Time Arrived:
+                        {% ifequal timeArrivedDestination None %}
+                            <a href="/teacher/checkin/{{ pass.id }}">
+                                <button class="btn btn-info">Check In</button>
+                            </a>
+                        {% else %}
+                            {{ pass.timeArrivedDestination }}
+                        {% endifequal %}
+                    </li>
+                </ul>
+            </div>
+        {% endifequal %}
     {% endfor %}
-  {% endifnotequal %}
+{% else %}
+    <h1 class="pass-type mb-4">No Incoming Passes</h1>
+{% endifnotequal %}
 
-  {% ifnotequal outgoing.count 0 %}
+{% ifnotequal outgoing.count 0 %}
     <h1 class="pass-type">Outgoing Students</h1>
     {% for pass in outgoing %}
-      {% ifequal pass.type '1' %}
-        <div class="card" style="max-width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">{{pass.student.profile.name}} to {{pass.destinationTeacher}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{pass.startTimeRequested}} - {{pass.endTimeRequested}}</h6>
-            <p class="card-text">{{pass.description}}</p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Time Left:
-              {% ifequal pass.timeLeftOrigin None %}
-                 <a href="/teacher/checkout/{{ pass.id }}"><button class="btn btn-info">Check Out</button></a>
-              {% else %}
-                 {{pass.timeLeftOrigin}}
-              {% endifequal %}
-            </li>
-            <li class="list-group-item">Time Arrived: {{pass.timeArrivedDestination}}</li>
-          </ul>
-        </div>
-      {% else %}
-       <div class="card" style="max-width: 18rem;">
-         <div class="card-body">
-           <h5 class="card-title">{{pass.student.profile.name}} to {{pass.location}}</h5>
-           <h6 class="card-subtitle mb-2 text-muted">{{pass.startTimeRequested}} - {{pass.endTimeRequested}}</h6>
-           <p class="card-text">{{pass.description}}</p>
-         </div>
-         <ul class="list-group list-group-flush">
-           <li class="list-group-item">Time Left: {{pass.timeLeftOrigin}}</li>
-         </ul>
-       </div>
-      {% endifequal %}
+        {% ifequal pass.type '1' %}
+            <div class="card" style="max-width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ pass.student.profile.name }} to {{ pass.destinationTeacher }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ pass.startTimeRequested }}
+                        - {{ pass.endTimeRequested }}</h6>
+                    <p class="card-text">{{ pass.description }}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Time Left:
+                        {% ifequal pass.timeLeftOrigin None %}
+                            <a href="/teacher/checkout/{{ pass.id }}">
+                                <button class="btn btn-info">Check Out</button>
+                            </a>
+                        {% else %}
+                            {{ pass.timeLeftOrigin }}
+                        {% endifequal %}
+                    </li>
+                    <li class="list-group-item">Time Arrived: {{ pass.timeArrivedDestination }}</li>
+                </ul>
+            </div>
+        {% else %}
+            <div class="card" style="max-width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ pass.student.profile.name }} to {{ pass.location }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ pass.startTimeRequested }}
+                        - {{ pass.endTimeRequested }}</h6>
+                    <p class="card-text">{{ pass.description }}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Time Left: {{ pass.timeLeftOrigin }}</li>
+                </ul>
+            </div>
+        {% endifequal %}
     {% endfor %}
-  {% endifnotequal %}
+{% else %}
+    <h1 class="pass-type mb-4">No Outgoing Passes</h1>
+{% endifnotequal %}
 
-  {% ifnotequal unapproved.count 0 %}
+{% ifnotequal unapproved.count 0 %}
     <h1 class="pass-type">Unapproved</h1>
     {% for pass in unapproved %}
-      {% ifequal pass.type '1' %}
-        <div class="card" style="max-width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">{{pass.student.profile.name}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{pass.startTimeRequested}} - {{pass.endTimeRequested}}</h6>
-            <p class="card-text">{{pass.description}}</p>
-            <a href="/teacher/approve/{{ pass.id }}" class="btn btn-primary">Approve</a>
-          </div>
-      {% else %}
-       <div class="card" style="max-width: 18rem;">
-         <div class="card-body">
-           <h5 class="card-title">{{pass.student.profile.name}} to {{pass.location}}</h5>
-           <h6 class="card-subtitle mb-2 text-muted">{{pass.startTimeRequested}} - {{pass.endTimeRequested}}</h6>
-           <p class="card-text">{{pass.description}}</p>
-           <a href="/teacher/approve/{{ pass.id }}" class="btn btn-primary">Approve</a>
-         </div>
-       </div>
-      {% endifequal %}
+        {% ifequal pass.type '1' %}
+            <div class="card" style="max-width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ pass.student.profile.name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ pass.startTimeRequested }}
+                    - {{ pass.endTimeRequested }}</h6>
+                <p class="card-text">{{ pass.description }}</p>
+                <a href="/teacher/approve/{{ pass.id }}" class="btn btn-primary">Approve</a>
+            </div>
+        {% else %}
+            <div class="card" style="max-width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ pass.student.profile.name }} to {{ pass.location }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ pass.startTimeRequested }}
+                        - {{ pass.endTimeRequested }}</h6>
+                    <p class="card-text">{{ pass.description }}</p>
+                    <a href="/teacher/approve/{{ pass.id }}" class="btn btn-primary">Approve</a>
+                </div>
+            </div>
+        {% endifequal %}
     {% endfor %}
-  {% endifnotequal %}
+{% else %}
+    <h1 class="pass-type mb-4">No Unapproved Passes</h1>
+{% endifnotequal %}
 
-  {% ifnotequal old.count 0 %}
+{% ifnotequal old.count 0 %}
     <h1 class="pass-type">Old</h1>
     {% for pass in old %}
-      {% ifequal pass.type '1' %}
-        <div class="card" style="max-width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">{{pass.student.profile.name}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{pass.startTimeRequested}} - {{pass.endTimeRequested}}</h6>
-            <p class="card-text">{{pass.description}}</p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Time Left: {{pass.timeLeftOrigin}}</li>
-            <li class="list-group-item">Time Arrived: {{pass.timeArrivedDestination}}</li>
-            <li class="list-group-item">Origin Teacher: {{pass.originTeacher.profile.name}}</li>
-            <li class="list-group-item">Destination Teacher: {{pass.destinationTeacher.profile.name}}</li>
-          </ul>
-        </div>
-      {% else %}
-        <div class="card" style="max-width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">{{pass.student.profile.name}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{pass.startTimeRequested}} - {{pass.endTimeRequested}}</h6>
-            <p class="card-text">{{pass.description}}</p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Time Left: {{pass.timeLeftOrigin}}</li>
-            <li class="list-group-item">Time Arrived: {{pass.timeArrivedDestination}}</li>
-            <li class="list-group-item">Origin Teacher: {{pass.originTeacher.profile.name}}</li>
-            <li class="list-group-item">Location: {{pass.location}}</li>
-          </ul>
-        </div>
-      {% endifequal %}
+        {% ifequal pass.type '1' %}
+            <div class="card" style="max-width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ pass.student.profile.name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ pass.startTimeRequested }}
+                        - {{ pass.endTimeRequested }}</h6>
+                    <p class="card-text">{{ pass.description }}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Time Left: {{ pass.timeLeftOrigin }}</li>
+                    <li class="list-group-item">Time Arrived: {{ pass.timeArrivedDestination }}</li>
+                    <li class="list-group-item">Origin Teacher: {{ pass.originTeacher.profile.name }}</li>
+                    <li class="list-group-item">Destination Teacher: {{ pass.destinationTeacher.profile.name }}</li>
+                </ul>
+            </div>
+        {% else %}
+            <div class="card" style="max-width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ pass.student.profile.name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ pass.startTimeRequested }}
+                        - {{ pass.endTimeRequested }}</h6>
+                    <p class="card-text">{{ pass.description }}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Time Left: {{ pass.timeLeftOrigin }}</li>
+                    <li class="list-group-item">Time Arrived: {{ pass.timeArrivedDestination }}</li>
+                    <li class="list-group-item">Origin Teacher: {{ pass.originTeacher.profile.name }}</li>
+                    <li class="list-group-item">Location: {{ pass.location }}</li>
+                </ul>
+            </div>
+        {% endifequal %}
     {% endfor %}
-  {% endifnotequal %}
+{% else %}
+    <h1 class="pass-type mb-4">No Old Passes</h1>
+{% endifnotequal %}
 </body>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>

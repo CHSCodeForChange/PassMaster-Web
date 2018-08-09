@@ -3,26 +3,6 @@ from django.shortcuts import render, redirect
 from Passes.models import Pass
 
 
-def join(request, group_id):
-    group = Group.objects.get(id=group_id)
-    if (group.get_is_member(request.user) == False):
-        if (group.approvalNeeded):
-            group.pendingUsers.add(request.user)
-            group.save()
-
-            alert = Alert(user=request.user, text="Requested to join "+str(group.name)+", wating for organizer approval", color=Alert.getGreen())
-            alert.saveIP(request)
-
-        else:
-            group.volunteers.add(request.user)
-            group.save()
-
-            alert = Alert(user=request.user, text="Joined "+str(group.name), color=Alert.getGreen())
-            alert.saveIP(request)
-
-    return redirect('/groups/'+str(group_id))
-
-
 def requestPass(request):
     pass
 

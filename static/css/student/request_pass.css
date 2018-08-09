@@ -93,6 +93,11 @@ select:-webkit-autofill {
   border-radius: 250px !important;
 }
 
+.form-label {
+	color: #ffffff;
+	margin-bottom: 0;
+}
+
 /*.form {
     border-radius: 25px;
     border-color: #F29D39;
