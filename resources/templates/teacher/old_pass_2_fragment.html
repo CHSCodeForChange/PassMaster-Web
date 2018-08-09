@@ -1,0 +1,14 @@
+<div class="card" style="max-width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{ pass.student.profile.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ pass.startTimeRequested }}
+            - {{ pass.endTimeRequested }}</h6>
+        <p class="card-text">{{ pass.description }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Time Left: {{ pass.timeLeftOrigin }}</li>
+        <li class="list-group-item">Time Arrived: {{ pass.timeArrivedDestination }}</li>
+        <li class="list-group-item">Origin Teacher: {{ pass.originTeacher.profile.name }}</li>
+        <li class="list-group-item">Location: {{ pass.location }}</li>
+    </ul>
+</div>

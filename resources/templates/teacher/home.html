@@ -20,26 +20,7 @@
     <h1 class="pass-type">Incoming Students</h1>
     {% for pass in incoming %}
         {% ifequal pass.type '1' %}
-            <div class="card" style="max-width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{ pass.student.profile.name }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ pass.startTimeRequested }}
-                        - {{ pass.endTimeRequested }}</h6>
-                    <p class="card-text">{{ pass.description }}</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Time Left: {{ pass.timeLeftOrigin }}</li>
-                    <li class="list-group-item">Time Arrived:
-                        {% ifequal timeArrivedDestination None %}
-                            <a href="/teacher/checkin/{{ pass.id }}">
-                                <button class="btn btn-info">Check In</button>
-                            </a>
-                        {% else %}
-                            {{ pass.timeArrivedDestination }}
-                        {% endifequal %}
-                    </li>
-                </ul>
-            </div>
+            {% include 'teacher/incoming_pass_1_fragment.html' %}
         {% endifequal %}
     {% endfor %}
 {% else %}
@@ -50,38 +31,9 @@
     <h1 class="pass-type">Outgoing Students</h1>
     {% for pass in outgoing %}
         {% ifequal pass.type '1' %}
-            <div class="card" style="max-width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{ pass.student.profile.name }} to {{ pass.destinationTeacher }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ pass.startTimeRequested }}
-                        - {{ pass.endTimeRequested }}</h6>
-                    <p class="card-text">{{ pass.description }}</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Time Left:
-                        {% ifequal pass.timeLeftOrigin None %}
-                            <a href="/teacher/checkout/{{ pass.id }}">
-                                <button class="btn btn-info">Check Out</button>
-                            </a>
-                        {% else %}
-                            {{ pass.timeLeftOrigin }}
-                        {% endifequal %}
-                    </li>
-                    <li class="list-group-item">Time Arrived: {{ pass.timeArrivedDestination }}</li>
-                </ul>
-            </div>
+            {% include 'teacher/outgoing_pass_1_fragment.html' %}
         {% else %}
-            <div class="card" style="max-width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{ pass.student.profile.name }} to {{ pass.location }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ pass.startTimeRequested }}
-                        - {{ pass.endTimeRequested }}</h6>
-                    <p class="card-text">{{ pass.description }}</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Time Left: {{ pass.timeLeftOrigin }}</li>
-                </ul>
-            </div>
+            {% include 'teacher/outgoing_pass_2_fragment.html' %}
         {% endifequal %}
     {% endfor %}
 {% else %}
@@ -92,24 +44,9 @@
     <h1 class="pass-type">Unapproved</h1>
     {% for pass in unapproved %}
         {% ifequal pass.type '1' %}
-            <div class="card" style="max-width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{ pass.student.profile.name }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{ pass.startTimeRequested }}
-                    - {{ pass.endTimeRequested }}</h6>
-                <p class="card-text">{{ pass.description }}</p>
-                <a href="/teacher/approve/{{ pass.id }}" class="btn btn-primary">Approve</a>
-            </div>
+            {% include 'teacher/unapproved_pass_1_fragment.html' %}
         {% else %}
-            <div class="card" style="max-width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{ pass.student.profile.name }} to {{ pass.location }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ pass.startTimeRequested }}
-                        - {{ pass.endTimeRequested }}</h6>
-                    <p class="card-text">{{ pass.description }}</p>
-                    <a href="/teacher/approve/{{ pass.id }}" class="btn btn-primary">Approve</a>
-                </div>
-            </div>
+            {% include 'teacher/unapproved_pass_2_fragment.html' %}
         {% endifequal %}
     {% endfor %}
 {% else %}
@@ -120,35 +57,9 @@
     <h1 class="pass-type">Old</h1>
     {% for pass in old %}
         {% ifequal pass.type '1' %}
-            <div class="card" style="max-width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{ pass.student.profile.name }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ pass.startTimeRequested }}
-                        - {{ pass.endTimeRequested }}</h6>
-                    <p class="card-text">{{ pass.description }}</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Time Left: {{ pass.timeLeftOrigin }}</li>
-                    <li class="list-group-item">Time Arrived: {{ pass.timeArrivedDestination }}</li>
-                    <li class="list-group-item">Origin Teacher: {{ pass.originTeacher.profile.name }}</li>
-                    <li class="list-group-item">Destination Teacher: {{ pass.destinationTeacher.profile.name }}</li>
-                </ul>
-            </div>
+            {% include 'teacher/old_pass_1_fragment.html' %}
         {% else %}
-            <div class="card" style="max-width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{ pass.student.profile.name }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ pass.startTimeRequested }}
-                        - {{ pass.endTimeRequested }}</h6>
-                    <p class="card-text">{{ pass.description }}</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Time Left: {{ pass.timeLeftOrigin }}</li>
-                    <li class="list-group-item">Time Arrived: {{ pass.timeArrivedDestination }}</li>
-                    <li class="list-group-item">Origin Teacher: {{ pass.originTeacher.profile.name }}</li>
-                    <li class="list-group-item">Location: {{ pass.location }}</li>
-                </ul>
-            </div>
+            {% include 'teacher/old_pass_2_fragment.html' %}
         {% endifequal %}
     {% endfor %}
 {% else %}

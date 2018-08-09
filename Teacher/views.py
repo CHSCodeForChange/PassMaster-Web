@@ -22,6 +22,7 @@ def home(request):
         create_form = CreatePass(request.POST, user=request.user)
         if create_form.is_valid():
             create_form.save()
+            return redirect('/teacher')
 
     return render(request, "teacher/home.html",
                   {'incoming': incoming, 'outgoing': outgoing,
