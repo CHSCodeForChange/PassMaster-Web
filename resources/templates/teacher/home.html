@@ -18,52 +18,60 @@
 </div>
 {% ifnotequal incoming.count 0 %}
     <h1 class="pass-type">Incoming Students</h1>
-    {% for pass in incoming %}
-        {% ifequal pass.type '1' %}
-            {% include 'teacher/incoming_pass_1_fragment.html' %}
-        {% endifequal %}
-    {% endfor %}
+    <div style="width: 100%;">
+        {% for pass in incoming %}
+            {% ifequal pass.type '1' %}
+                {% include 'teacher/incoming_pass_1_fragment.html' %}
+            {% endifequal %}
+        {% endfor %}
+    </div>
 {% else %}
     <h1 class="pass-type mb-4">No Incoming Passes</h1>
 {% endifnotequal %}
 
 {% ifnotequal outgoing.count 0 %}
     <h1 class="pass-type">Outgoing Students</h1>
-    {% for pass in outgoing %}
-        {% ifequal pass.type '1' %}
-            {% include 'teacher/outgoing_pass_1_fragment.html' %}
-        {% else %}
-            {% include 'teacher/outgoing_pass_2_fragment.html' %}
-        {% endifequal %}
-    {% endfor %}
+    <div class="card-container">
+        {% for pass in outgoing %}
+            {% ifequal pass.type '1' %}
+                {% include 'teacher/outgoing_pass_1_fragment.html' %}
+            {% else %}
+                {% include 'teacher/outgoing_pass_2_fragment.html' %}
+            {% endifequal %}
+        {% endfor %}
+    </div>
 {% else %}
-    <h1 class="pass-type mb-4">No Outgoing Passes</h1>
+    <h1 class="pass-type mb-4 float-none">No Outgoing Passes</h1>
 {% endifnotequal %}
 
 {% ifnotequal unapproved.count 0 %}
     <h1 class="pass-type">Unapproved</h1>
-    {% for pass in unapproved %}
-        {% ifequal pass.type '1' %}
-            {% include 'teacher/unapproved_pass_1_fragment.html' %}
-        {% else %}
-            {% include 'teacher/unapproved_pass_2_fragment.html' %}
-        {% endifequal %}
-    {% endfor %}
+    <div class="card-container">
+        {% for pass in unapproved %}
+            {% ifequal pass.type '1' %}
+                {% include 'teacher/unapproved_pass_1_fragment.html' %}
+            {% else %}
+                {% include 'teacher/unapproved_pass_2_fragment.html' %}
+            {% endifequal %}
+        {% endfor %}
+    </div>
 {% else %}
-    <h1 class="pass-type mb-4">No Unapproved Passes</h1>
+    <h1 class="pass-type mb-4 float-none">No Unapproved Passes</h1>
 {% endifnotequal %}
 
 {% ifnotequal old.count 0 %}
     <h1 class="pass-type">Old</h1>
-    {% for pass in old %}
-        {% ifequal pass.type '1' %}
-            {% include 'teacher/old_pass_1_fragment.html' %}
-        {% else %}
-            {% include 'teacher/old_pass_2_fragment.html' %}
-        {% endifequal %}
-    {% endfor %}
+    <div class="card-container">
+        {% for pass in old %}
+            {% ifequal pass.type '1' %}
+                {% include 'teacher/old_pass_1_fragment.html' %}
+            {% else %}
+                {% include 'teacher/old_pass_2_fragment.html' %}
+            {% endifequal %}
+        {% endfor %}
+    </div>
 {% else %}
-    <h1 class="pass-type mb-4">No Old Passes</h1>
+    <h1 class="pass-type mb-4 float-none">No Old Passes</h1>
 {% endifnotequal %}
 </body>
 

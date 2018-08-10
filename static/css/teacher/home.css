@@ -131,6 +131,35 @@ select:-webkit-autofill {
 	border-radius: 20px;
 }
 
+.pass-card {
+	float: left;
+	margin: 10px;
+	height: 350px;
+}
+
+.float-none {
+	float: none;
+}
+
+/*.card-container {*/
+	/*padding-left: 60px;*/
+	/*padding-right: 60px;*/
+	/*overflow: auto;*/
+	/*width: 100%;*/
+/*}*/
+
+.card-container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.card-container {
+	margin-top: 20px;
+	width: 100%;
+	padding-left: 64px;
+	padding-right: 64px;
+}
+
 /*.form {
     border-radius: 25px;
     border-color: #F29D39;
