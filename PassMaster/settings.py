@@ -45,6 +45,7 @@ MY_APPS = [
     'Administrator',
     'Passes',
     'api',
+    'chat',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LIB_APPS + MY_APPS
