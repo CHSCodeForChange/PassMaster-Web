@@ -1,0 +1,51 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="/static/css/student/home.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/chat/search.css">
+ </head>
+
+ <body>
+    
+    <h1 class="display-1"></h1>
+    <input class="searchbar" placeholder="Search">
+
+    {% for user in users %}
+        <a href="{{user.id}}" class="user">
+            <div>
+                <p>{{user.username}}<p>
+            </div>
+        </a>
+    {% endfor %}
+
+ </body>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+        
+        createUserObject = function(obj) {
+            $('body').append(
+                `<a href="${obj.pk}" class="user">
+                    <div>
+                        <p>${obj.username}</p>
+                    </div>
+                 </a>`
+            );
+        }
+        
+        $('input').keydown(function() {
+            var username = $(this).val();
+            var url = "/api/users/?format=json&username="+username;
+            $.ajax({url: url, success: function(response) {
+                console.log(response);
+                $('.user').remove();
+                response.forEach(createUserObject);
+            }})
+        });
+       
+    });
+</script>

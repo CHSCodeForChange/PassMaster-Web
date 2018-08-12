@@ -29,6 +29,9 @@ class Conversation(models.Model):
         if self.is_user(user):
             return self.messages.exclude(sender=user)
 
+    def get_conversations(user):
+        return Conversation.objects.filter(userOne=user) | Conversation.objects.filter(userTwo=user)
+
 
 
 class Message(models.Model):

@@ -37,6 +37,7 @@ DJANGO_APPS = [
 ]
 LIB_APPS = [
     'rest_framework',
+    'django_filters'
 ]
 MY_APPS = [
     'accounts',
@@ -143,3 +144,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_PASSWORD = 'TandemTricycle'
 EMAIL_PORT = 587
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
+}
