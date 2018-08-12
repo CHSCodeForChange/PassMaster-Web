@@ -14,10 +14,21 @@ class Conversation(models.Model):
         related_name='userTwo'
     )
 
+    # returns a conversation given two users
+    def get_two_user_conversation(userOne, userTwo):
+        combination1 = Conversation.objects.filter(userOne=userOne, userTwo=userTwo)
+        combination2 = Conversation.objects.filter(userOne=userTwo, userTwo=userOne)
+        return (combination1 | combination2).first()
+
+    # returns if a conversation between given two users exists
+    def two_user_conversation_exists(userOne, userTwo):
+        return Conversation.get_two_user_conversation(userOne, userTwo) != None
+
     # returns whether of not a specified user is part of a chat
     def is_member(self, user):
         return self.userOne == user or self.userTwo == user
 
+    # returns all messages in a conversation
     def get_messages(self, user):
         if self.is_member(user):
             return self.messages
@@ -32,6 +43,7 @@ class Conversation(models.Model):
         if self.is_user(user):
             return self.messages.exclude(sender=user)
 
+    # returns all conversations a user belongs to
     def get_user_conversations(user):
         return Conversation.objects.filter(userOne=user) | Conversation.objects.filter(userTwo=user)
 

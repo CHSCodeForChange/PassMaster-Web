@@ -39,7 +39,7 @@
         
         $('input').keydown(function() {
             var username = $(this).val();
-            var url = "/api/users/?format=json&username="+username;
+            var url = "/chat/api/users/?format=json&username="+username;
             $.ajax({url: url, success: function(response) {
                 console.log(response);
                 $('.user').remove();

@@ -1,9 +1,6 @@
-from django.shortcuts import render
 from rest_framework import viewsets
-from Passes.models import Pass
 from .serializers import *
 from Teacher.models import Teacher
-from django.contrib.auth.models import User
 
 # Create your views here.
 class PassView(viewsets.ModelViewSet):
@@ -26,16 +23,3 @@ class TeacherView(viewsets.ModelViewSet):
             teachers = teachers[:int(count)]
 
         return teachers
-
-
-class UserView(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-    def get_queryset(self):
-        queryset = self.queryset.exclude(id=self.request.user.id)
-        username = self.request.query_params.get('username', None)
-        if username is not None:
-            queryset = queryset.filter(username__icontains=username)
-        return queryset
-    

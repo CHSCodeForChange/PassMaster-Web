@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from Passes.models import Pass
 from Teacher.models import Teacher
-from django.contrib.auth.models import User
 
 
 class PassSerializer(serializers.ModelSerializer):
@@ -36,11 +35,3 @@ class TeacherSerializer(serializers.ModelSerializer):
         model = Teacher
         fields = ('pk', 
                   'name',)
-
-
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-
-        model = User
-        fields = ('pk', 
-                  'username',)

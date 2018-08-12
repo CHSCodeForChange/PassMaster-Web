@@ -8,15 +8,22 @@
  
  <body>
  
-     <h1 class="display-1">{{conversation.userTwo}}</h1>
-     {% for conversation in conversations %}
-        <a href="{{conversation.id}}" class="conversation-link"> 
-            <div class="conversation">
-                <h1>{{conversation.userTwo}}</h1>
-            </div>
-        </a>
-     {% endfor %}
- 
-   
+     <div class="header-box">
+        <h1 class="display-1">{{conversation.userTwo}}</h1>
+     </div>
+     
+     <div class="messages-box">
+         {% for conversation in conversations %}
+            <a href="{{conversation.id}}" class="conversation-link"> 
+                <div class="conversation">
+                    <h1>{{conversation.userTwo}}</h1>
+                </div>
+            </a>
+         {% endfor %}
+     </div>
+     
+    <div class="input-box">
+         <input placeholder="Send a message">
+    </div>
  </body>
  
