@@ -18,6 +18,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.home),
-    url(r'^new/', views.new),
+    url(r'^new/$', views.new),
+    url(r'^new/(?P<user_id>[0-9]+)/$', views.create_conversation),
     url(r'^(?P<conversation_id>[0-9]+)/', views.conversation),
 ]

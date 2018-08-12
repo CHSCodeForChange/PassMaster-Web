@@ -18,6 +18,9 @@ class Conversation(models.Model):
     def is_member(self, user):
         return self.userOne == user or self.userTwo == user
 
+    def get_messages(self, user):
+        if self.is_member(user):
+            return self.messages
 
     # returns the messages a user sent
     def sent_messages(self, user):
@@ -29,14 +32,14 @@ class Conversation(models.Model):
         if self.is_user(user):
             return self.messages.exclude(sender=user)
 
-    def get_conversations(user):
+    def get_user_conversations(user):
         return Conversation.objects.filter(userOne=user) | Conversation.objects.filter(userTwo=user)
 
 
 
 class Message(models.Model):
     conversation = models.ForeignKey( # the conversation objejct that the message is connected to
-        User, 
+        Conversation,
         related_name='messages',
         on_delete=models.CASCADE,
     )
