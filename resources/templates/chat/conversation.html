@@ -60,18 +60,34 @@
         }
         
         var createMessage = function(text) {
+            var data = {
+                'conversation': {{conversation.id}},
+                'sender': 17, 
+                'datetime': new Date($.now()).toISOString(),
+                'message': text,
+            };
+            var data = JSON.stringify(data);
+            console.log(data);
             $.ajax({
                 url: postUrl,
-                type: "POST",
-                dataType: "json",
-                data: {
-                    'conversation': {{conversation.id}},
-                    'sender': null, 
-                    'datetime': null,
-                    'message': text,
-                }
+                type: 'POST',
+                dataType: 'json',
+                data: data,
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                beforeSend: function (xhr, settings) {
+                    xhr.setRequestHeader("X-CSRFToken", '{{ csrf_token }}');
+                },
+                success: function(response){
+                    console.log(response);
+                },
+                failure: function(errMsg) {
+                    console.log(errMsg);
+                },
             });
-        }
+        };
         
         $('.input-box button').click(function () {
             var text = $('.input-box input').val();
