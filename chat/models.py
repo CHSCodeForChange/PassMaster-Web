@@ -28,8 +28,18 @@ class Conversation(models.Model):
     def is_member(self, user):
         return self.userOne == user or self.userTwo == user
 
+    def get_messages(user):
+        conversations = Conversation.get_user_conversations(user)
+        messages = None
+        for conversation in conversations:
+            if messages is None:
+                messages = conversation.messages.all()
+            else:
+                messages = messages | conversation.messages.all()
+
+        return messages
     # returns all messages in a conversation
-    def get_messages(self, user):
+    def get_conversation_messages(self, user):
         if self.is_member(user):
             return self.messages
 

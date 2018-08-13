@@ -13,12 +13,12 @@
      </div>
      
      <div class="messages-box">
-         {% for conversation in conversations %}
-            <a href="{{conversation.id}}" class="conversation-link"> 
-                <div class="conversation">
-                    <h1>{{conversation.userTwo}}</h1>
-                </div>
-            </a>
+         {% for message in conversation.messages.all %}
+            <div class="message">
+                <h1 class="sender">{{message.sender}}</h1>
+                <h1 class="datetime">{{message.datetime}}</h1>
+                <p class="text">{{message.message}}</p>
+            </div>
          {% endfor %}
      </div>
      
@@ -26,4 +26,28 @@
          <input placeholder="Send a message">
     </div>
  </body>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script> 
+    $(document).ready(function() {
+        var getUrl = "/chat/api/messages/?format=json&conversation={{conversation.id}}";
+        var getNewMessages = function() {
+            $.ajax({
+                url: getUrl,
+                success: function(response) {
+                    console.log(response);
+                },
+            });
+        }
+        
+        var scrollAmount = $('.messages-box .anitem:last-child').position().top;
+        console.log(scrollAmount);
+        $('.messages-box').css({'scrollTop': scrollAmount});
+                
+//        setInterval(getNewMessages, 2000);
+    });
+</script>
  

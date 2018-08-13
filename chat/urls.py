@@ -4,6 +4,7 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register('users', views.UserView)
+router.register('messages', views.MessageView)
 
 urlpatterns = [
     url(r'^api/', include(router.urls)),

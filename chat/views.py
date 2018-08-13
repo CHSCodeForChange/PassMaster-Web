@@ -1,8 +1,10 @@
+from datetime import datetime
+
 from django.shortcuts import render, redirect
+from rest_framework import viewsets, permissions
+
+from .serializers import *
 from .models import Conversation
-from django.contrib.auth.models import User
-from rest_framework import viewsets
-from .serializers import UserSerializer
 
 def home(request):
     if request.user.is_authenticated:
@@ -38,9 +40,10 @@ def conversation(request, conversation_id):
     return redirect('/login')
 
 
-class UserView(viewsets.ModelViewSet):
+class UserView(viewsets.ReadOnlyModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         queryset = self.queryset.exclude(id=self.request.user.id)
@@ -48,3 +51,22 @@ class UserView(viewsets.ModelViewSet):
         if username is not None:
             queryset = queryset.filter(username__icontains=username)
         return queryset
+
+class MessageView(viewsets.ModelViewSet):
+    queryset = Message.objects.all()
+    serializer_class = MessageSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        conversation = self.request.query_params.get('conversation', None)
+        if conversation is not None:
+            conversation = Conversation.objects.get(id=conversation)
+            queryset = conversation.messages
+        else:
+            queryset = Conversation.get_messages(self.request.user)
+        return queryset
+
+    def perform_create(self, serializer):
+        conversation = Conversation.objects.get(id=int(self.request.data['conversation']))
+        if conversation.is_member(self.request.user):
+            serializer.save(sender=self.request.user, datetime=datetime.now())
