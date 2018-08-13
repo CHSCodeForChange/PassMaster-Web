@@ -23,7 +23,10 @@
      </div>
      
     <div class="input-box">
-         <input placeholder="Send a message">
+        <input placeholder="Message">
+        <button class="btn btn-info">
+            <i class="fas fa-paper-plane"></i>
+        </button>
     </div>
  </body>
 
@@ -34,20 +37,53 @@
 <script> 
     $(document).ready(function() {
         var getUrl = "/chat/api/messages/?format=json&conversation={{conversation.id}}";
-        var getNewMessages = function() {
+        var postUrl = "/chat/api/messages/"
+        var displayMessage = function(obj) {
+            $('.messages-box').append(
+            `
+                <div class="message"> 
+                    <h1 class="sender">${obj.sender}</h1>  
+                    <h1 class="datetime">${obj.datetime}</h1>  
+                    <p class="text">${obj.message}</p> \
+                </div>
+            `
+            );
+        }
+        var getMessages = function() {
             $.ajax({
                 url: getUrl,
                 success: function(response) {
-                    console.log(response);
+                    $('.message').remove()
+                    response.forEach(displayMessage);
                 },
             });
         }
         
-        var scrollAmount = $('.messages-box .anitem:last-child').position().top;
-        console.log(scrollAmount);
-        $('.messages-box').css({'scrollTop': scrollAmount});
+        var createMessage = function(text) {
+            $.ajax({
+                url: postUrl,
+                type: "POST",
+                dataType: "json",
+                data: {
+                    'conversation': {{conversation.id}},
+                    'sender': null, 
+                    'datetime': null,
+                    'message': text,
+                }
+            });
+        }
+        
+        $('.input-box button').click(function () {
+            var text = $('.input-box input').val();
+            console.log(text);
+            createMessage(text);
+        });
+        
+//        var scrollAmount = $('.messages-box .anitem:last-child').position().top;
+//        console.log(scrollAmount);
+//        $('.messages-box').css({'scrollTop': scrollAmount});
                 
-//        setInterval(getNewMessages, 2000);
+        setInterval(getMessages, 2000);
     });
 </script>
  
