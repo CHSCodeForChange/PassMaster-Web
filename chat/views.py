@@ -13,7 +13,7 @@ def home(request):
             'conversations': conversations
         }
 
-        return render(request, 'chat/home.html', context)
+        return render(request, 'chat/chat_home.html', context)
     return redirect('/login')
 
 # screeen for selecting a new conversation

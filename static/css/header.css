@@ -146,6 +146,7 @@ select:-webkit-autofill {
 	border: none;
 	background-color: #5dc6b5;
 	color: white;
+	text-align: center;
 }
 
 .card-container::after {

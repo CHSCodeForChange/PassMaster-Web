@@ -29,21 +29,27 @@
         {% endfor %}
         {# Start and end time #}
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
+                <div class="form-label">{{ create_form.date.label }}</div>
+                <div> {{ create_form.date }} </div>
+                {% for error in create_form.date.errors %}
+                    <p style="color: red">{{ error }}</p>
+                {% endfor %}
+                </p>
+            </div>
+            <div class="col-md-4">
                 <div class="form-label">{{ create_form.start.label }}</div>
                 <div> {{ create_form.start }} </div>
                 {% for error in create_form.start.errors %}
                     <p style="color: red">{{ error }}</p>
                 {% endfor %}
-                </p>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-label">{{ create_form.end.label }}</div>
                 <div> {{ create_form.end }} </div>
                 {% for error in create_form.end.errors %}
                     <p style="color: red">{{ error }}</p>
                 {% endfor %}
-                </p>
             </div>
         </div>
         {# Reason #}
@@ -78,5 +84,11 @@
         $('#id_location').show();
         $(this).removeClass('btn-secondary').addClass('btn-primary');
         $('#set_type_teacher').removeClass('btn-primary').addClass('btn-secondary');
+    });
+    $(document).ready(function() {
+        var d = new Date();
+        $('#id_start').val(d.getHours()+":"+d.getMinutes());
+        $('#id_end').val(d.getHours()+1+":"+d.getMinutes());
+
     });
 </script>

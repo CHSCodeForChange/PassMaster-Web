@@ -22,13 +22,18 @@ class CreatePass(forms.Form):
 
 	students = forms.ModelMultipleChoiceField(queryset=Student.objects.all(), label="Student(s)", required=True)
 
-	start = forms.DateTimeField(label='Start time', required=True, input_formats=['%Y-%m-%dT%H:%M'],
-								initial=datetime.now, widget=forms.DateTimeInput(
-								attrs={'type': 'datetime-local',
+	date = forms.DateField(label='Date', required=True, input_formats=['%Y-%m-%d'],
+	                       initial=datetime.now, widget=forms.DateInput(
+							attrs={'type': 'date',
+							       'class': 'form-control'}))
+
+	start = forms.TimeField(label='Start time', required=True, input_formats=['%H:%M'],
+								widget=forms.TimeInput(
+								attrs={'type': 'time',
 										'class': 'form-control'}))
-	end = forms.DateTimeField(label='End time', required=True, input_formats=['%Y-%m-%dT%H:%M'],
-								widget=forms.DateTimeInput(
-								attrs={'type': 'datetime-local',
+	end = forms.TimeField(label='End time', required=True, input_formats=['%H:%M'],
+								widget=forms.TimeInput(
+								attrs={'type': 'time',
 										'class': 'form-control'}))
 
 	reason = forms.CharField(label='', required=True, max_length=240, widget=forms.TextInput(
@@ -44,10 +49,13 @@ class CreatePass(forms.Form):
 
 	def save(self, commit=True):
 		originTeacher = Teacher.objects.get(profile=self.user.profile)
+		startDateTime = datetime.combine(self.cleaned_data['date'], self.cleaned_data['start'])
+		endDateTime = datetime.combine(self.cleaned_data['date'], self.cleaned_data['end'])
+
 		if self.cleaned_data['pass_type'] == '1':
 			for student in self.cleaned_data['students']:
-				newPass = Pass(type='1', approved=True, startTimeRequested=self.cleaned_data['start'],
-								endTimeRequested=self.cleaned_data['end'], description=self.cleaned_data['reason'],
+				newPass = Pass(type='1', approved=True, startTimeRequested=startDateTime,
+								endTimeRequested=endDateTime, description=self.cleaned_data['reason'],
 								student=student, destinationTeacher=self.cleaned_data['destinationTeacher'],
 								originTeacher=originTeacher)
 				newPass.save()

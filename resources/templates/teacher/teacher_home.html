@@ -15,15 +15,13 @@
 
 {% ifnotequal incoming.count 0 %}
     <h1 class="pass-type">Incoming Students</h1>
-    <div style="width: 100%;">
+    <div class="card-container">
         {% for pass in incoming %}
             {% ifequal pass.type '1' %}
                 {% include 'teacher/incoming_pass_1_fragment.html' %}
             {% endifequal %}
         {% endfor %}
     </div>
-{% else %}
-    <h1 class="pass-type mb-4">No Incoming Passes</h1>
 {% endifnotequal %}
 
 {% ifnotequal outgoing.count 0 %}
@@ -37,8 +35,6 @@
             {% endifequal %}
         {% endfor %}
     </div>
-{% else %}
-    <h1 class="pass-type mb-4 float-none">No Outgoing Passes</h1>
 {% endifnotequal %}
 
 {% ifnotequal unapproved.count 0 %}
@@ -52,8 +48,6 @@
             {% endifequal %}
         {% endfor %}
     </div>
-{% else %}
-    <h1 class="pass-type mb-4 float-none">No Unapproved Passes</h1>
 {% endifnotequal %}
 
 {% ifnotequal old.count 0 %}
@@ -67,9 +61,11 @@
             {% endifequal %}
         {% endfor %}
     </div>
-{% else %}
-    <h1 class="pass-type mb-4 float-none">No Old Passes</h1>
 {% endifnotequal %}
+
+{% if incoming.count == 0 and outgoing.count == 0 and unapproved.count == 0 and old.count == 0 %}
+    <h1 class="pass-type text-center mt-5">No passes. Add one with the plus button above or wait for a student to request one.</h1>
+{% endif %}
 </body>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"

@@ -24,7 +24,7 @@ def home(request):
             create_form.save()
             return redirect('/teacher')
 
-    return render(request, "teacher/home.html",
+    return render(request, "teacher/teacher_home.html",
                   {'incoming': incoming, 'outgoing': outgoing,
                    'unapproved': unapproved, 'old': old,
                    'create_form': create_form})
@@ -66,4 +66,4 @@ def checkout(request, pass_id):
 
 
 
-    #return redirect('teacher/home.html"' + str(slot.id))
+    #return redirect('teacher/teacher_home.html"' + str(slot.id))

@@ -17,12 +17,12 @@ def home(request):
         pending = Pass.get_students_pending_passes(request.user)
         old = Pass.get_students_old_passes(request.user)
 
-        return render(request, "student/home.html", {'active': active, 'pending': pending, 'old': old})
+        return render(request, "student/student_home.html", {'active': active, 'pending': pending, 'old': old})
 
 
 def viewPass(request):
     studentPasses = Pass.objects.get(student=request.user)
-    return render(request, "student/home.html", {'passes': studentPasses})
+    return render(request, "student/student_home.html", {'passes': studentPasses})
 
 @login_required
 def requestPass(request):
@@ -42,5 +42,5 @@ def requestPass(request):
             pending = Pass.get_students_pending_passes(request.user)
             old = Pass.get_students_old_passes(request.user)
 
-            return render(request, "student/home.html", {'active': active, 'pending': pending, 'old': old})
+            return render(request, "student/student_home.html", {'active': active, 'pending': pending, 'old': old})
         return render(request, 'student/request_pass.html', {'form': form})

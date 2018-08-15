@@ -1,0 +1,51 @@
+{% include 'header.html' %}
+{% include 'navbar.html' %}
+
+<body>
+
+<h1 class="display-1">Passes <a class="plus" href="./request">+</a></h1>
+
+{% ifnotequal active.count 0 %}
+    <h1 class="pass-type">Active</h1>
+    <div class="card-container">
+        {% for pass in active %}
+            {% ifequal pass.type '1' %}
+                {% include 'student/student_pass_1_fragment.html' %}
+            {% else %}
+                {% include 'student/student_pass_2_fragment.html' %}
+            {% endifequal %}
+        {% endfor %}
+    </div>
+{% endifnotequal %}
+
+{% ifnotequal pending.count 0 %}
+    <h1 class="pass-type">Pending</h1>
+    <div class="card-container">
+        {% for pass in pending %}
+            {% ifequal pass.type '1' %}
+                {% include 'student/student_pass_1_fragment.html' %}
+            {% else %}
+                {% include 'student/student_pass_2_fragment.html' %}
+            {% endifequal %}
+        {% endfor %}
+    </div>
+{% endifnotequal %}
+
+{% ifnotequal old.count 0 %}
+    <h1 class="pass-type">Old</h1>
+    <div class="card-container">
+        {% for pass in old %}
+            {% ifequal pass.type '1' %}
+                {% include 'student/student_pass_1_fragment.html' %}
+            {% else %}
+                {% include 'student/student_pass_2_fragment.html' %}
+            {% endifequal %}
+        {% endfor %}
+    </div>
+{% endifnotequal %}
+
+{% if active.count == 0 and pending.count == 0 and old.count == 0 %}
+    <h1 class="pass-type text-center mt-5">No passes. Add one with the plus button above or wait for a teacher to send one.</h1>
+{% endif %}
+
+</body>
