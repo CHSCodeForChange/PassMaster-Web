@@ -1,40 +1,39 @@
-<head>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-   <link href="/static/css/signup.css" rel="stylesheet" type="text/css">
-   <link href="/static/css/alert.css" rel="stylesheet" type="text/css">
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-</head>
-
+{% include 'header.html' %}
 <body>
-    <div class="signup">
-      <h1 class="display-1">Sign Up</h1>
-      <form method="post">
+<div class="signup">
+    <h1 class="display-1">Sign Up</h1>
+    <form method="post">
         <div class="row">
-          <div class="col-md-9">
-            {% csrf_token %}
-            {% for field in form %}
-                {{field}}
-            {% endfor %}
-            <p class="login"> Have an account? <a href="/login" class="">Login</a></p>
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-11">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            {{ field }}
+                        {% endfor %}
+                    </div>
+                    <div class="col-md-1 login-col">
+                        <button type="submit" class="button"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                <p class="login"> Have an account? <a href="/login" class="">Login</a></p>
+            </div>
 
-          </div>
-          <div class="col-md-3">
-            <button type="submit" class="button"><i class="fas fa-arrow-right"></i></button>
-          </div>
         </div>
 
 
-      </form>
-    </div>
-    {% csrf_token %}
-    {% for field in form %}
-      {% ifnotequal field.errors None %}
+    </form>
+</div>
+{% csrf_token %}
+{% for field in form %}
+    {% ifnotequal field.errors None %}
         {% for error in field.errors %}
-          <div class="alert alert-info" role="alert">
-            <strong>{{field.label}}:</strong> {{error}}
-          </div>
+            <div class="alert alert-info" role="alert">
+                <strong>{{ field.label }}:</strong> {{ error }}
+            </div>
         {% endfor %}
-      {% endifnotequal %}
-    {% endfor %}
+    {% endifnotequal %}
+{% endfor %}
 
 </body>

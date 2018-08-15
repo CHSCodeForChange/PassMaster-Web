@@ -1,9 +1,4 @@
-<head>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-   <link href="/static/css/login.css" rel="stylesheet" type="text/css">
-   <link href="/static/css/alert.css" rel="stylesheet" type="text/css">
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-</head>
+{% include 'header.html' %}
 
 <body>
     <div class="login">
@@ -18,7 +13,7 @@
             <p class="signup"> Dont have an account? <a href="/accounts/signup" class="">Sign up</a></p>
 
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 login-col">
             <button type="submit" class="button"><i class="fas fa-arrow-right"></i></button>
           </div>
         </div>

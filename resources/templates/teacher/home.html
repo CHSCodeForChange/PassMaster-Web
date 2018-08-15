@@ -1,23 +1,18 @@
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="/static/css/teacher/home.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
-          integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-</head>
+{% include 'header.html' %}
 
 {% include 'navbar.html' %}
 
 <body>
 <h1 class="display-1">Passes <a class="plus" data-toggle="collapse" href="#collapseNewPassForm" aria-pressed="true"
                                 role="button" aria-expanded="false" aria-controls="collapseNewPassForm">+</a></h1>
-
-<div class="collapse" id="collapseNewPassForm">
-    {% include 'teacher/new_pass_fragment.html' %}
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 collapse" id="collapseNewPassForm">
+        {% include 'teacher/new_pass_fragment.html' %}
+    </div>
 </div>
+
+
 {% ifnotequal incoming.count 0 %}
     <h1 class="pass-type">Incoming Students</h1>
     <div style="width: 100%;">
