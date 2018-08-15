@@ -59,48 +59,34 @@ def post(request):
             content_type="application/json"
         )
 
-@csrf_exempt  # DOESN'T WORK WITHOUT (NEED FOR EVERYTHING)
-def model_update(request):
-    print('here')
-    print(request.POST.get('id'), request.POST.get('type'), request.POST.get('obj'))
-    objType = request.POST.get('type')
 
-    #try:
-    print('there')
-    if objType == 'student':
-        obj = Student.objects.get(pk=request.POST.get('id'))
-        serializers.deserialize('json', request.POST.get('obj'))
-    elif objType == 'teacher':
-        obj = Teacher.objects.get(pk=request.POST.get('id'))
-        print('enw thing', serializers.deserialize('json', json.loads(request.POST.get('obj'))))
-    elif objType == 'pass':
-        print('anywhere')
-        #PROBLEM SECTION: THE OBJ_GENERATOR WON'T ITERATE OR ANYTHING (I THINK IT ISN'T CREATING AN OBJECT BUT IDK)
-        #TEST LINE (BASH): curl -d 'type=pass&id=10&obj={"model": "Passes.pass", "pk": 10, "fields": {"timeLeftOrigin": null, "destinationTeacher": 1, "description": "1", "location": null, "approved": true, "student": 2, "startTimeRequested": "2018-07-16T03:36:03Z", "type": "1", "endTimeRequested": "2018-07-16T03:36:04Z", "originTeacher": 1, "timeArrivedDestination": "2018-07-16T03:36:41.956Z"}}' -X POST http://127.0.0.1:8000/api/model_update/
-        obj = Pass.objects.get(pk=request.POST.get('id'))
-        obj_generator = serializers.json.Deserializer(json.loads(request.POST.get('obj')))
-        print(obj_generator)
-        for obja in obj_generator:
-            print('booooo')
+@csrf_exempt
+def model_update(request):
+    try:
+        obj_generator = serializers.json.Deserializer('[' + request.POST.get('obj') + ']', )
+        for obja in iter(obj_generator):
             obja.save()
-    '''except:
+    except:
         return HttpResponse(
             json.dumps({'Error': "Invalid request"}),
             status=400,
             content_type="application/json"
-        )'''
+        )
 
     return HttpResponse(
         json.dumps({'Good': "good"}),
         status=200,
         content_type="application/json"
     )
+
 '''
 Takes a string of type = (student, teacher, pass) as string
 and id of the element you want
 
 returns the json form of the object you want
 '''
+
+
 @csrf_exempt  # DOESN'T WORK WITHOUT (NEED FOR EVERYTHING)
 def model_request(request):
     print(request.POST.get('id'), request.POST.get('type'))
@@ -122,6 +108,7 @@ def model_request(request):
         )
 
     data = serializers.serialize('json', [obj, ])
+    print(data)
     struct = json.loads(data)
     data = json.dumps(struct[0])
     return HttpResponse(data, content_type='application/json')
