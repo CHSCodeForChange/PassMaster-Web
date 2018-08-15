@@ -37,6 +37,7 @@ input {
 	margin-bottom: 1.5vh;
 	color: white !important;
 	-webkit-padding-start: 3%;
+	outline: none;
 
 }
 
@@ -49,6 +50,7 @@ input:focus {
 	border-radius: 250px !important;
 	background-color: #f6b26bff !important;
 	border-color: white;
+	outline: none;
 }
 
 input:focus::placeholder {
@@ -70,6 +72,8 @@ select {
 	margin-bottom: 1.5vh;
 	color: white !important;
 	-webkit-padding-start: 3%;
+	outline: none;
+	height: auto;
 
 }
 
@@ -82,6 +86,7 @@ select:focus {
 	border-radius: 250px !important;
 	background-color: #f6b26bff !important;
 	border-color: white;
+	outline: none;
 }
 
 select:focus::placeholder {
@@ -104,7 +109,8 @@ select:-webkit-autofill {
 }
 
 .signup {
-	margin-top: 5%;
+	margin-top: 20px;
+	margin-bottom: 20px;
 	color: white;
 	text-align: center;
 }
@@ -162,75 +168,6 @@ select:-webkit-autofill {
 	padding-right: 96px;
 }
 
-/*.form {
-    border-radius: 25px;
-    border-color: #F29D39;
-    font-size: 180% !important;
-}
-
-.inline > input {
-    margin-left: 0% !important;
-    margin-right: 0% !important;
-    padding: 0% !important;
-}
-
-.inline-right > input {
-    margin-left: 0% !important;
-    margin-right: 31% !important;
-    padding: 0% !important;
-}
-
-.inline-left > input {
-    margin-left: 31% !important;
-    margin-right: 0% !important;
-    padding: 0% !important;
-}
-
-.inline {
-    padding: .6% !important;
-}
-
-.searchbar {
-    width: 100%;
-    border-style: solid;
-    border-color: white;
-    border-radius: 25px;
-    height: 4vh;
-}
-
-.searchbar::placeholder {
-    padding: 1vw;
-}
-
-.user {
-    text-decoration: none !important;
-}
-
-.user > div {
-    margin-top: 2%;
-    height: 8vh;
-    border-radius: 25px;
-    background-color: white;
-    width: 100%;
-}
-
-
-.user p {
-    font-size: 2.5vw;
-    padding-left: 1vw;
-    color: black;
-}
-
-
-.form:focus {
-    color: #F29D39;
-    -webkit-box-shadow:  none !important;
-    -moz-box-shadow:  none !important; ;
-}
-
-.form:focus::placeholder {
-    color: #F29D39;
-}*/
 .conversation {
 	background-color: white;
 	border-radius: 25px;
@@ -297,48 +234,10 @@ body {
 	color: white;
 }
 
-input {
-	border-radius: 250px !important;
-	background-color: #f6b26bff !important;
-	border-style: solid;
-	width: 100%;
-	border-color: white !important;
-	margin-top: 1.5vh;
-	color: white !important;
-	-webkit-padding-start: 3%;
-
-}
-
-input::placeholder {
-	color: white;
-}
-
-input:focus {
-	color: white;
-	border-radius: 250px !important;
-	background-color: #f6b26bff !important;
-	border-color: white;
-	outline: none;
-}
-
-input:focus::placeholder {
-	color: #f6b26bff;
-}
-
-input:-webkit-autofill {
-	-webkit-padding-start: 3%;
-	-webkit-text-fill-color: white !important;
-	-webkit-box-shadow: inset 0 0 0px 9999px #f6b26bff;
-}
 
 .display-1 {
 	color: white;
 }
-
-.signup {
-	margin: 100px auto;
-}
-
 .form {
 	border-radius: 250px !important;
 	background-color: #f6b26bff !important;

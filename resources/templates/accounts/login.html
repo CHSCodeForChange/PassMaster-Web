@@ -1,35 +1,37 @@
 {% include 'header.html' %}
 
 <body>
-    <div class="login">
-      <h1 class="display-1">Login</h1>
-      <form method="post">
+<div class="login">
+    <h1 class="display-1">Login</h1>
+    <form method="post">
         <div class="row">
-          <div class="col-md-9">
-            {% csrf_token %}
-            {% for field in form %}
-                {{field}}
-            {% endfor %}
-            <p class="signup"> Dont have an account? <a href="/accounts/signup" class="">Sign up</a></p>
+            <div class="col-md-4"></div>
+            <div class="col-md-3">
+                {% csrf_token %}
+                {% for field in form %}
+                    {{ field }}
+                {% endfor %}
 
-          </div>
-          <div class="col-md-3 login-col">
-            <button type="submit" class="button"><i class="fas fa-arrow-right"></i></button>
-          </div>
+            </div>
+            <div class="col-md-1 login-col">
+                <button type="submit" class="button"><i class="fas fa-arrow-right"></i></button>
+            </div>
         </div>
+        <p class="signup"> Dont have an account? <a href="/accounts/signup" class="">Sign up</a></p>
 
 
-      </form>
-    </div>
-    {% csrf_token %}
-    {% for field in form %}
-      {% ifnotequal field.errors None %}
+
+    </form>
+</div>
+{% csrf_token %}
+{% for field in form %}
+    {% ifnotequal field.errors None %}
         {% for error in field.errors %}
-          <div class="alert alert-info" role="alert">
-            <strong>{{field.label}}:</strong> {{error}}
-          </div>
+            <div class="alert alert-info" role="alert">
+                <strong>{{ field.label }}:</strong> {{ error }}
+            </div>
         {% endfor %}
-      {% endifnotequal %}
-    {% endfor %}
+    {% endifnotequal %}
+{% endfor %}
 
 </body>
