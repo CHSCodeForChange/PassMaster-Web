@@ -139,13 +139,6 @@ select:-webkit-autofill {
 	float: none;
 }
 
-/*.card-container {*/
-/*padding-left: 60px;*/
-/*padding-right: 60px;*/
-/*overflow: auto;*/
-/*width: 100%;*/
-/*}*/
-
 .alert {
 	border-radius: 250px;
 	margin-left: 30%;
@@ -282,4 +275,15 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.form-errors {
+	color: #ffffff;
+	text-align: center;
+	margin-top: 15%;
+	list-style: none;
 }
