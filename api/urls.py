@@ -1,11 +1,8 @@
-from django.conf.urls import url, include
+from django.conf.urls import url
 from . import views
-from rest_framework import routers
-
-router = routers.DefaultRouter()
-router.register('passes', views.PassView)
-router.register('teachers', views.TeacherView)
 
 urlpatterns = [
-    url('', include(router.urls))
+    url(r'^login_api/', views.post),
+    url(r'^model_request/', views.model_request),
+    url(r'^model_update/', views.model_update),
 ]
