@@ -1,6 +1,6 @@
 body {
 	background-color: #F29D39;
-	margin: 5%;
+	/*margin: 5%;*/
 }
 
 .display-1 {
@@ -156,8 +156,8 @@ select:-webkit-autofill {
 .card-container {
 	margin-top: 20px;
 	width: 100%;
-	padding-left: 64px;
-	padding-right: 64px;
+	padding-left: 96px;
+	padding-right: 96px;
 }
 
 /*.form {

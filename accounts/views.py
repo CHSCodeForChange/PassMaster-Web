@@ -21,13 +21,10 @@ def home(request):
 # The profile page for the current user
 def profile(request):
     if request.user.is_authenticated():
-        # This line breaks the code: "'int' is not iterable"
         user = request.user
         profile = user.profile
-        groups = Group.get_is_member_list(request.user)
 
-        feed_entries = Feed_Entry.objects.filter(user=user).order_by('-datetime')[:10]
-        return render(request, "accounts/profile.html", {'user':user, 'profile':profile,'feed_entries':feed_entries, 'this_user':True, 'groups':groups})
+        return render(request, "accounts/profile.html", {'user': user, 'profile': profile, 'this_user': True})
     else:
         return redirect('/login')
 
