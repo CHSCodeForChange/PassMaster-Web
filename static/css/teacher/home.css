@@ -131,11 +131,6 @@ select:-webkit-autofill {
 	border-radius: 20px;
 }
 
-.pass-card {
-	float: left;
-	margin: 10px;
-	height: 350px;
-}
 
 .float-none {
 	float: none;
@@ -148,17 +143,6 @@ select:-webkit-autofill {
 	/*width: 100%;*/
 /*}*/
 
-.card-container::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-.card-container {
-	margin-top: 20px;
-	width: 100%;
-	padding-left: 96px;
-	padding-right: 96px;
-}
 
 /*.form {
     border-radius: 25px;
@@ -199,3 +183,7 @@ select:-webkit-autofill {
 .form:focus::placeholder {
     color: #F29D39;
 }*/
+
+.pass-type {
+    margin-top: 5vh;
+}

@@ -129,11 +129,6 @@ select:-webkit-autofill {
 	border-radius: 20px;
 }
 
-.pass-card {
-	float: left;
-	margin: 10px;
-	height: 350px;
-}
 
 .float-none {
 	float: none;

@@ -1,7 +1,8 @@
+<link rel="stylesheet" href="/static/css/pass.css">
 <div class="pass-card card" style="max-width: 18rem;">
     <div class="card-body">
         {% ifequal pass.type '1' %}
-            <h5 class="card-title">{{ pass.student.profile.name }} to {{ pass.destinationTeacher }}</h5>
+            <h5 class="card-title">{{ pass.student.profile.name }}</h5>
         {% else %}
             <h5 class="card-title">{{ pass.student.profile.name }} to {{ pass.location }}</h5>
         {% endifequal %}
