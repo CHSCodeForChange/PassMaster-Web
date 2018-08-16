@@ -1,9 +1,9 @@
 from django.db import models
-from accounts.models import Profile
 from Teacher.models import Teacher
-# Create your models here.
+
+
 class Student (models.Model):
-    profile = models.OneToOneField(Profile, on_delete=models.CASCADE)
+    profile = models.OneToOneField('accounts.Profile', on_delete=models.CASCADE)
 
     teachers = models.ManyToManyField(Teacher, related_name="teacher_list")
 

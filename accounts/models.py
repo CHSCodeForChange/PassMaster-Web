@@ -5,6 +5,11 @@ from django.dispatch import receiver
 
 
 # Create your models here.
+from Administrator.models import Administrator
+from Student.models import Student
+from Teacher.models import Teacher
+
+
 class Profile(models.Model):
     # The manager to get Profile objects
     objects = models.Manager()
@@ -27,6 +32,15 @@ class Profile(models.Model):
 
     def is_administrator(profile):
         return profile.member_type == '3'
+
+    def get_student(profile):
+        return Student.objects.filter(profile=profile).first()
+
+    def get_teacher(profile):
+        return Teacher.objects.filter(profile=profile).first()
+
+    def get_administrator(profile):
+        return Administrator.objects.filter(profile=profile).first()
 
     def name(profile):
         return (profile.user.first_name + ' ' + profile.user.last_name)

@@ -1,0 +1,33 @@
+<div class="pass-card card" style="max-width: 18rem;">
+    <div class="card-body">
+        {% ifequal pass.type '1' %}
+            <h5 class="card-title">{{ pass.student.profile.name }} to {{ pass.destinationTeacher }}</h5>
+        {% else %}
+            <h5 class="card-title">{{ pass.student.profile.name }} to {{ pass.location }}</h5>
+        {% endifequal %}
+        <h5 class="card-subtitle mb-2 text-muted">{{ pass.startTimeRequested|date:"N j Y" }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+            {{ pass.startTimeRequested|date:"P" }}
+            - {{ pass.endTimeRequested|date:"P" }}
+        </h6>
+        <p class="card-text">{{ pass.description }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        {% if not pass.approved %}
+            <li class="list-group-item">
+                <a href="/teacher/approve/{{ pass.id }}" class="btn btn-primary">Approve</a>
+            </li>
+        {% else %}
+            <li class="list-group-item">Time Left:
+                {% if user.profile.is_teacher and pass.originTeacher == user.profile.get_teacher and pass.timeLeftOrigin == None %}
+                    <a href="/teacher/checkout/{{ pass.id }}">
+                        <button class="btn btn-info">Check Out</button>
+                    </a>
+                {% else %}
+                    {{ pass.timeLeftOrigin|default:"N/A" }}
+                {% endif %}
+            </li>
+            <li class="list-group-item">Time Arrived: {{ pass.timeArrivedDestination|default:"N/A" }}</li>
+        {% endif %}
+    </ul>
+</div>

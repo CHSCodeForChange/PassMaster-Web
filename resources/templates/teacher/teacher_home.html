@@ -19,9 +19,7 @@
     <h1 class="pass-type">Incoming Students</h1>
     <div class="card-container">
         {% for pass in incoming %}
-            {% ifequal pass.type '1' %}
-                {% include 'teacher/incoming_pass_1_fragment.html' %}
-            {% endifequal %}
+            {% include 'teacher/teacher_pass_fragment.html' %}
         {% endfor %}
     </div>
 {% endifnotequal %}
@@ -30,11 +28,7 @@
     <h1 class="pass-type">Outgoing Students</h1>
     <div class="card-container">
         {% for pass in outgoing %}
-            {% ifequal pass.type '1' %}
-                {% include 'teacher/outgoing_pass_1_fragment.html' %}
-            {% else %}
-                {% include 'teacher/outgoing_pass_2_fragment.html' %}
-            {% endifequal %}
+            {% include 'teacher/teacher_pass_fragment.html' %}
         {% endfor %}
     </div>
 {% endifnotequal %}
@@ -43,11 +37,7 @@
     <h1 class="pass-type">Unapproved</h1>
     <div class="card-container">
         {% for pass in unapproved %}
-            {% ifequal pass.type '1' %}
-                {% include 'teacher/unapproved_pass_1_fragment.html' %}
-            {% else %}
-                {% include 'teacher/unapproved_pass_2_fragment.html' %}
-            {% endifequal %}
+            {% include 'teacher/teacher_pass_fragment.html' %}
         {% endfor %}
     </div>
 {% endifnotequal %}
@@ -56,11 +46,7 @@
     <h1 class="pass-type">Old</h1>
     <div class="card-container">
         {% for pass in old %}
-            {% ifequal pass.type '1' %}
-                {% include 'teacher/old_pass_1_fragment.html' %}
-            {% else %}
-                {% include 'teacher/old_pass_2_fragment.html' %}
-            {% endifequal %}
+            {% include 'teacher/teacher_pass_fragment.html' %}
         {% endfor %}
     </div>
 {% endifnotequal %}
