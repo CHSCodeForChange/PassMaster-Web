@@ -48,8 +48,11 @@ class UserView(viewsets.ReadOnlyModelViewSet):
     def get_queryset(self):
         queryset = self.queryset.exclude(id=self.request.user.id)
         username = self.request.query_params.get('username', None)
+        count = self.request.query_params.get('count', None)
         if username is not None:
             queryset = queryset.filter(username__icontains=username)
+        if count is not None: 
+            queryset = queryset[:int(count)]
         return queryset
 
 class MessageView(viewsets.ModelViewSet):

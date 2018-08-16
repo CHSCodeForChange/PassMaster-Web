@@ -1,8 +1,31 @@
 {% include 'header.html' %}
+
+<link rel="stylesheet" href="/static/css/search_popup.css">
+
  
- <body>
+<body>
  
-     <h1 class="display-1">Chat <a class="plus" href="new">+</a></h1>
+    <h1 class="display-1">Chat 
+        <a id="new-chat" class="plus" href="new" data-toggle="modal" data-target=".modal">+</a>
+    </h1>
+
+<!-- Modal -->
+    <div class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body row">
+                <div class="col-md-10">
+                    <input class="search" placeholder="Search for user">
+                </div>
+                <div class="col-md-2">
+                  <button class="btn btn-danger btn-block" data-dismiss="modal" aria-label="Close">Cancel</button>
+                </div>
+            </div>
+            <div class="search-results"></div>
+        </div>
+      </div>
+    </div>
+     
      {% for conversation in conversations %}
         <a href="{{conversation.id}}" class="conversation-link"> 
             <div class="conversation">
@@ -14,3 +37,39 @@
    
  </body>
  
+
+{% include 'scripts.html' %}
+
+<script>
+    $(document).ready(function() {
+        
+        var createUserObject = function(obj) {
+            $('.search-results').append(
+                `<a href="new/${obj.pk}"  class="search-result">
+                    <div>
+                        <h1>${obj.username}</h1>
+                    </div>
+                 </a>`
+            );
+        }
+        
+        var getUsers = function(url) {
+           $.ajax({url: url, success: function(response) {
+                $('.search-result').remove();
+                response.forEach(createUserObject);
+            }}) 
+        }
+        
+        $('input').keydown(function() {
+            var username = $(this).val();
+            var url = "/chat/api/users/?format=json&username="+username;
+            getUsers(url);
+        });
+        
+        $('#new-chat').click(function() {
+                var url = "/chat/api/users/?format=json&count=10";
+                getUsers(url);
+            }
+        );
+    });
+</script>
