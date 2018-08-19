@@ -1,0 +1,94 @@
+<link rel="stylesheet" href="/static/css/student/request_pass.css">
+<div class="card card-body card-form" style="width: 100%;">
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <button class="btn btn-primary btn-block" id="set_type_teacher">Teacher</button>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-secondary btn-block" id="set_type_destination">Destination</button>
+        </div>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <div>{{ request_form.pass_type }}</div>
+        {# Destination Teacher Field #}
+        <div class="form-label" id="destinationTeacherLabel">{{ request_form.destinationTeacher.label }}</div>
+        <div> {{ request_form.destinationTeacher }} </div>
+        {% for error in request_form.destinationTeacher.errors %}
+            <p style="color: red">{{ error }}</p>
+        {% endfor %}
+        {# Location #}
+        <div> {{ request_form.location }} </div>
+        {% for error in request_form.location.errors %}
+            <p style="color: red">{{ error }}</p>
+        {% endfor %}
+        {# Origin Teacher Field #}
+        <div class="form-label" id="originTeacherLabel">{{ request_form.originTeacher.label }}</div>
+        <div> {{ request_form.originTeacher }} </div>
+        {% for error in request_form.originTeacher.errors %}
+            <p style="color: red">{{ error }}</p>
+        {% endfor %}
+        {# Start and end time #}
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-label">{{ request_form.date.label }}</div>
+                <div> {{ request_form.date }} </div>
+                {% for error in request_form.date.errors %}
+                    <p style="color: red">{{ error }}</p>
+                {% endfor %}
+                </p>
+            </div>
+            <div class="col-md-4">
+                <div class="form-label">{{ request_form.start.label }}</div>
+                <div> {{ request_form.start }} </div>
+                {% for error in request_form.start.errors %}
+                    <p style="color: red">{{ error }}</p>
+                {% endfor %}
+            </div>
+            <div class="col-md-4">
+                <div class="form-label">{{ request_form.end.label }}</div>
+                <div> {{ request_form.end }} </div>
+                {% for error in request_form.end.errors %}
+                    <p style="color: red">{{ error }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        {# Reason #}
+        <div class="form-label">{{ request_form.reason.label }}</div>
+        <div> {{ request_form.reason }} </div>
+        {% for error in request_form.reason.errors %}
+            <p style="color: red">{{ error }}</p>
+        {% endfor %}
+        {# Submit button #}
+        <div class="form-group row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <button class="btn btn-info btn-block" type="submit">Create</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    $('#set_type_teacher').click(function(e) {
+        $('#id_pass_type').val("1");
+        $('#id_destinationTeacher').show();
+        $('#destinationTeacherLabel').show();
+        $('#id_location').hide();
+        $(this).removeClass('btn-secondary').addClass('btn-primary');
+        $('#set_type_destination').removeClass('btn-primary').addClass('btn-secondary');
+    });
+    $('#set_type_destination').click(function(e) {
+        $('#id_pass_type').val("2");
+        $('#id_destinationTeacher').hide();
+        $('#destinationTeacherLabel').hide();
+        $('#id_location').show();
+        $(this).removeClass('btn-secondary').addClass('btn-primary');
+        $('#set_type_teacher').removeClass('btn-primary').addClass('btn-secondary');
+    });
+    $(document).ready(function() {
+        var d = new Date();
+        $('#id_start').val(d.getHours()+":"+d.getMinutes());
+        $('#id_end').val(d.getHours()+1+":"+d.getMinutes());
+    });
+</script>

@@ -1,6 +1,10 @@
 <div class="pass-card card" style="max-width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title">{{ pass.location }}</h5>
+        {% ifequal pass.type '1' %}
+            <h5 class="card-title">{{ pass.destinationTeacher }}</h5>
+        {% else %}
+            <h5 class="card-title">{{ pass.location }}</h5>
+        {% endifequal %}
         <h5 class="card-subtitle mb-2 text-muted">{{ pass.startTimeRequested|date:"N j Y" }}</h5>
         <h6 class="card-subtitle mb-2 text-muted">
             {{ pass.startTimeRequested|date:"P" }}

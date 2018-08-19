@@ -3,17 +3,23 @@
 
 <body>
 
-<h1 class="display-1">Passes <a class="plus" href="./request">+</a></h1>
+<h1 class="display-1">Passes
+    <div class="expand" style="display: inline-block">
+        <a class="plus" data-toggle="collapse" href="#collapseNewPassForm" aria-pressed="true" role="button" aria-expanded="false" aria-controls="collapseNewPassForm">+</a>
+    </div>
+</h1>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 collapse" id="collapseNewPassForm">
+        {% include 'student/request_pass_fragment.html' %}
+    </div>
+</div>
 
 {% ifnotequal active.count 0 %}
     <h1 class="pass-type">Active</h1>
     <div class="card-container">
         {% for pass in active %}
-            {% ifequal pass.type '1' %}
-                {% include 'student/student_pass_1_fragment.html' %}
-            {% else %}
-                {% include 'student/student_pass_2_fragment.html' %}
-            {% endifequal %}
+                {% include 'student/student_pass_fragment.html' %}
         {% endfor %}
     </div>
 {% endifnotequal %}
@@ -22,11 +28,7 @@
     <h1 class="pass-type">Pending</h1>
     <div class="card-container">
         {% for pass in pending %}
-            {% ifequal pass.type '1' %}
-                {% include 'student/student_pass_1_fragment.html' %}
-            {% else %}
-                {% include 'student/student_pass_2_fragment.html' %}
-            {% endifequal %}
+            {% include 'student/student_pass_fragment.html' %}
         {% endfor %}
     </div>
 {% endifnotequal %}
@@ -35,11 +37,7 @@
     <h1 class="pass-type">Old</h1>
     <div class="card-container">
         {% for pass in old %}
-            {% ifequal pass.type '1' %}
-                {% include 'student/student_pass_1_fragment.html' %}
-            {% else %}
-                {% include 'student/student_pass_2_fragment.html' %}
-            {% endifequal %}
+            {% include 'student/student_pass_fragment.html' %}
         {% endfor %}
     </div>
 {% endifnotequal %}
@@ -49,3 +47,5 @@
 {% endif %}
 
 </body>
+
+{% include 'scripts.html' %}

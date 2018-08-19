@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from Passes.models import Pass
 
 # Create your views here.
-from Teacher.forms import CreatePass
+from Teacher.forms import CreatePassForm
 
 
 def home(request):
@@ -16,10 +16,10 @@ def home(request):
     old = Pass.get_teachers_old_passes(request.user)
     print(Pass.objects.filter(originTeacher=request.user.profile.teacher))
     if request.method == "GET":
-        create_form = CreatePass(user=request.user)
+        create_form = CreatePassForm(user=request.user)
 
     else:
-        create_form = CreatePass(request.POST, user=request.user)
+        create_form = CreatePassForm(request.POST, user=request.user)
         if create_form.is_valid():
             create_form.save()
             return redirect('/teacher')

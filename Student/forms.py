@@ -8,51 +8,57 @@ from django.contrib.auth.models import User
 from Teacher.models import Teacher
 
 
-class RequestForm(forms.Form):
-    destinationTeacher = forms.ModelChoiceField(queryset=Teacher.objects.all(), empty_label=None, label="Destination Teacher")
+class RequestPassForm(forms.Form):
+    pass_type = forms.CharField(max_length=1, widget=forms.HiddenInput(), initial="1")
+
+    destinationTeacher = forms.ModelChoiceField(queryset=Teacher.objects.all(), empty_label=None,
+                                                label="Destination teacher", required=False, )
+
+    location = forms.CharField(max_length=12, required=False, widget=forms.TextInput(
+        attrs={'type': 'text',
+               'class': 'form-control',
+               'placeholder': 'Location',
+               'style': 'display: none;'}))
+
     originTeacher = forms.ModelChoiceField(queryset=Teacher.objects.all(), empty_label=None, label="Origin Teacher")
 
-    start = forms.DateTimeField(label='Start time', input_formats=['%Y-%m-%dT%H:%M'],
-                                widget=forms.DateTimeInput(
-                                    attrs={'type': 'datetime-local',
-                                           'class': 'form-control'}))
-    end = forms.DateTimeField(label='End time', input_formats=['%Y-%m-%dT%H:%M'],
-                              widget=forms.DateTimeInput(
-                                  attrs={'type': 'datetime-local',
-                                         'class': 'form-control'}))
+    date = forms.DateField(label='Date', required=True, input_formats=['%Y-%m-%d'],
+                           initial=datetime.now, widget=forms.DateInput(
+            attrs={'type': 'date',
+                   'class': 'form-control'}))
+
+    start = forms.TimeField(label='Start time', required=True, input_formats=['%H:%M'],
+                            widget=forms.TimeInput(
+                                attrs={'type': 'time',
+                                       'class': 'form-control'}))
+    end = forms.TimeField(label='End time', required=True, input_formats=['%H:%M'],
+                          widget=forms.TimeInput(
+                              attrs={'type': 'time',
+                                     'class': 'form-control'}))
 
     reason = forms.CharField(label='', required=True, max_length=240, widget=forms.TextInput(
         attrs={'type': 'text',
                'class': 'form-control',
-               'placeholder': 'Why'}))
+               'placeholder': 'Reason for pass'}))
 
     user = models.User()
 
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user')
-        super(RequestForm, self).__init__(*args, **kwargs)
+        super(RequestPassForm, self).__init__(*args, **kwargs)
 
-    def clean_sending(self):
-        b = self.cleaned_data['sending']
-
-        if Teacher.objects.filter(idName=b).exists():
-            return b
-        else:
-            raise ValidationError('orgin teacher is invalid')
-
-    def clean_location(self):
-        b = self.cleaned_data['location']
-
-        if Teacher.objects.filter(idName=b).exists():
-            return b
-        else:
-            raise ValidationError('recieving teacher is invalid')
     def save(self, commit=True):
-        print(self.user)
         student = Student.objects.get(profile=self.user.profile)
-
-        newPass = Pass(type='1', approved=False, startTimeRequested=self.cleaned_data['start'],
-                       endTimeRequested=self.cleaned_data['end'], description=self.cleaned_data['reason'],
-                       student=student, destinationTeacher=self.cleaned_data['destinationTeacher'],
-                       originTeacher=self.cleaned_data['originTeacher'])
-        return newPass
+        startDateTime = datetime.combine(self.cleaned_data['date'], self.cleaned_data['start'])
+        endDateTime = datetime.combine(self.cleaned_data['date'], self.cleaned_data['end'])
+        if self.cleaned_data['pass_type'] == '1':
+            newPass = Pass(type='1', approved=False, startTimeRequested=startDateTime,
+                           endTimeRequested=endDateTime, description=self.cleaned_data['reason'],
+                           student=student, destinationTeacher=self.cleaned_data['destinationTeacher'],
+                           originTeacher=self.cleaned_data['originTeacher'])
+        else:
+            newPass = Pass(type='2', approved=False, startTimeRequested=startDateTime,
+                           endTimeRequested=endDateTime, description=self.cleaned_data['reason'],
+                           student=student, location=self.cleaned_data['location'],
+                           originTeacher=self.cleaned_data['originTeacher'])
+        newPass.save()
