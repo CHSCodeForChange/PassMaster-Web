@@ -8,7 +8,7 @@ from Student.models import Student
 from Teacher.models import Teacher
 
 
-class CreatePass(forms.Form):
+class CreatePassForm(forms.Form):
 	pass_type = forms.CharField(max_length=1, widget=forms.HiddenInput(), initial="1")
 
 	destinationTeacher = forms.ModelChoiceField(queryset=Teacher.objects.all(), empty_label=None,
@@ -45,7 +45,7 @@ class CreatePass(forms.Form):
 
 	def __init__(self, *args, **kwargs):
 		self.user = kwargs.pop('user')
-		super(CreatePass, self).__init__(*args, **kwargs)
+		super(CreatePassForm, self).__init__(*args, **kwargs)
 
 	def save(self, commit=True):
 		originTeacher = Teacher.objects.get(profile=self.user.profile)

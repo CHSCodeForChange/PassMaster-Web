@@ -31,3 +31,7 @@
     width: 10vw !important;
     border-radius: 250px;
 }
+
+.form-label {
+    color: #5c98f9;
+}
