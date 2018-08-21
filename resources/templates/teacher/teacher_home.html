@@ -19,6 +19,15 @@
     </div>
 </div>
 
+{% if unapproved %}
+        <h1 class="pass-type">Unapproved</h1>
+        <div class="card-container">
+            {% for pass in unapproved %}
+                {% include 'teacher/teacher_pass_fragment.html' %}
+            {% endfor %}
+        </div>
+{% endif %}
+
 {% if incoming %}
     <h1 class="pass-type">Incoming Students</h1>
     <div class="card-container">
@@ -32,15 +41,6 @@
     <h1 class="pass-type">Outgoing Students</h1>
     <div class="card-container">
         {% for pass in outgoing %}
-            {% include 'teacher/teacher_pass_fragment.html' %}
-        {% endfor %}
-    </div>
-{% endif %}
-
-{% if unapproved %}
-    <h1 class="pass-type">Unapproved</h1>
-    <div class="card-container">
-        {% for pass in unapproved %}
             {% include 'teacher/teacher_pass_fragment.html' %}
         {% endfor %}
     </div>

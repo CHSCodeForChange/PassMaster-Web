@@ -116,8 +116,11 @@ class Pass(models.Model):
 		profile = user.profile
 		if profile.is_teacher:
 			teacher = user.profile.teacher
-			return TeacherPass.objects.filter(approved=False, originTeacher=teacher).exclude(
-				timeArrivedDestination=None)
+			teacher_passes = TeacherPass.objects.filter(approved=False, originTeacher=teacher)
+			location_passes = LocationPass.objects.filter(approved=False, originTeacher=teacher)
+			srt_passes = SRTPass.objects.filter(approved=False, originTeacher=teacher)
+			return list(chain(teacher_passes, location_passes, srt_passes))
+
 		else:
 			return None
 

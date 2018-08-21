@@ -184,3 +184,7 @@ select:-webkit-autofill {
 .form:focus::placeholder {
     color: #F29D39;
 }*/
+
+.dark-bg {
+	background-color: #dc8b2a;
+}

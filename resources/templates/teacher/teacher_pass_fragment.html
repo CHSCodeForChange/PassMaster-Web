@@ -10,7 +10,7 @@
         {% elif pass|get_class == 'LocationPass' %}
             <h5 class="card-title">{{ pass.student.profile.name }} to {{ pass.location }}</h5>
         {% endif %}
-        <h5 class="card-subtitle mb-2 text-muted">{{ pass.startTimeRequested|date:"N j Y" }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ pass.date|date:"N j Y" }}</h6>
         <h6 class="card-subtitle mb-2 text-muted">
             {{ pass.startTimeRequested|date:"P" }}
             - {{ pass.endTimeRequested|date:"P" }}
@@ -20,7 +20,7 @@
     <ul class="list-group list-group-flush">
         {% if not pass.approved %}
             <li class="list-group-item">
-                <a href="/teacher/approve/{{ pass.id }}" class="btn btn-primary">Approve</a>
+                <a href="/teacher/approve/{{ pass.id }}" class="btn btn-primary btn-block">Approve</a>
             </li>
         {% else %}
             <li class="list-group-item">Time Left:
