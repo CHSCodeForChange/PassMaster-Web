@@ -1,6 +1,5 @@
 body {
   background-color: #F29D39;
-  margin: 5%;
 }
 
 .display-1 {
@@ -19,8 +18,9 @@ body {
 }
 
 .pass-type {
+  margin-top: 5vh;
   padding-left: 5%;
-  text-decoration: underline;
+  text-decoration: none;
   color: white;
 }
 

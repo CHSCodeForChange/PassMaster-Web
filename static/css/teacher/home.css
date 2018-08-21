@@ -19,6 +19,7 @@ body {
 }
 
 .pass-type {
+	margin-top: 5vh;
 	padding-left: 5%;
 	text-decoration: none;
 	color: white;
@@ -183,7 +184,3 @@ select:-webkit-autofill {
 .form:focus::placeholder {
     color: #F29D39;
 }*/
-
-.pass-type {
-    margin-top: 5vh;
-}

@@ -1,11 +1,15 @@
+{% load standard_tags %}
 <link rel="stylesheet" href="/static/css/pass.css">
 <div class="pass-card card" style="max-width: 18rem;">
     <div class="card-body">
-        {% ifequal pass.type '1' %}
+
+        {% if pass|get_class == 'TeacherPass' %}
             <h5 class="card-title">{{ pass.student.profile.name }}</h5>
-        {% else %}
+        {% elif pass|get_class == 'SRTPass' %}
+            <h5 class="card-title">{{ pass.student.profile.name }}</h5>
+        {% elif pass|get_class == 'LocationPass' %}
             <h5 class="card-title">{{ pass.student.profile.name }} to {{ pass.location }}</h5>
-        {% endifequal %}
+        {% endif %}
         <h5 class="card-subtitle mb-2 text-muted">{{ pass.startTimeRequested|date:"N j Y" }}</h5>
         <h6 class="card-subtitle mb-2 text-muted">
             {{ pass.startTimeRequested|date:"P" }}

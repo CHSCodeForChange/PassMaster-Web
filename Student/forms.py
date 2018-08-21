@@ -3,7 +3,7 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth import models
 from datetime import datetime, timezone
 from Student.models import Student
-from Passes.models import Pass
+from Passes.models import Pass, LocationPass, TeacherPass
 from django.contrib.auth.models import User
 from Teacher.models import Teacher
 
@@ -49,16 +49,14 @@ class RequestPassForm(forms.Form):
 
     def save(self, commit=True):
         student = Student.objects.get(profile=self.user.profile)
-        startDateTime = datetime.combine(self.cleaned_data['date'], self.cleaned_data['start'])
-        endDateTime = datetime.combine(self.cleaned_data['date'], self.cleaned_data['end'])
         if self.cleaned_data['pass_type'] == '1':
-            newPass = Pass(type='1', approved=False, startTimeRequested=startDateTime,
-                           endTimeRequested=endDateTime, description=self.cleaned_data['reason'],
+            new_pass = TeacherPass(approved=False, date=self.cleaned_data['date'], startTimeRequested=self.cleaned_data['start'],
+                           endTimeRequested=self.cleaned_data['end'], description=self.cleaned_data['reason'],
                            student=student, destinationTeacher=self.cleaned_data['destinationTeacher'],
                            originTeacher=self.cleaned_data['originTeacher'])
         else:
-            newPass = Pass(type='2', approved=False, startTimeRequested=startDateTime,
-                           endTimeRequested=endDateTime, description=self.cleaned_data['reason'],
+            new_pass = LocationPass(approved=False,  date=self.cleaned_data['date'],startTimeRequested=self.cleaned_data['start'],
+                           endTimeRequested=self.cleaned_data['end'], description=self.cleaned_data['reason'],
                            student=student, location=self.cleaned_data['location'],
                            originTeacher=self.cleaned_data['originTeacher'])
-        newPass.save()
+        new_pass.save()

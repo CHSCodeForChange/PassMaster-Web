@@ -1,6 +1,8 @@
 {% include 'header.html' %}
 {% include 'navbar.html' %}
 
+<link rel="stylesheet" href="/static/css/student/home.css">
+
 <body>
 
 <h1 class="display-1">Passes
@@ -15,34 +17,34 @@
     </div>
 </div>
 
-{% ifnotequal active.count 0 %}
+{% if active %}
     <h1 class="pass-type">Active</h1>
     <div class="card-container">
         {% for pass in active %}
                 {% include 'student/student_pass_fragment.html' %}
         {% endfor %}
     </div>
-{% endifnotequal %}
+{% endif %}
 
-{% ifnotequal pending.count 0 %}
+{% if pending %}
     <h1 class="pass-type">Pending</h1>
     <div class="card-container">
         {% for pass in pending %}
             {% include 'student/student_pass_fragment.html' %}
         {% endfor %}
     </div>
-{% endifnotequal %}
+{% endif %}
 
-{% ifnotequal old.count 0 %}
+{% if old %}
     <h1 class="pass-type">Old</h1>
     <div class="card-container">
         {% for pass in old %}
             {% include 'student/student_pass_fragment.html' %}
         {% endfor %}
     </div>
-{% endifnotequal %}
+{% endif %}
 
-{% if active.count == 0 and pending.count == 0 and old.count == 0 %}
+{% if active and pending and old %}
     <h1 class="pass-type text-center mt-5">No passes. Add one with the plus button above or wait for a teacher to send one.</h1>
 {% endif %}
 

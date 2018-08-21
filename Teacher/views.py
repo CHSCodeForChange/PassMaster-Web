@@ -12,9 +12,9 @@ def home(request):
         return redirect('/student')
     incoming = Pass.get_teachers_incoming_student_passes(request.user)
     outgoing = Pass.get_teachers_outgoing_student_passes(request.user)
+    print(outgoing)
     unapproved = Pass.get_teachers_unapproved_passes(request.user)
     old = Pass.get_teachers_old_passes(request.user)
-    print(Pass.objects.filter(originTeacher=request.user.profile.teacher))
     if request.method == "GET":
         create_form = CreatePassForm(user=request.user)
 

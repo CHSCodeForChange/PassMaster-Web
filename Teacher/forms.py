@@ -3,7 +3,7 @@ from datetime import datetime
 from django import forms
 from django.contrib.auth import models
 
-from Passes.models import Pass
+from Passes.models import Pass, TeacherPass, LocationPass
 from Student.models import Student
 from Teacher.models import Teacher
 
@@ -49,20 +49,18 @@ class CreatePassForm(forms.Form):
 
 	def save(self, commit=True):
 		originTeacher = Teacher.objects.get(profile=self.user.profile)
-		startDateTime = datetime.combine(self.cleaned_data['date'], self.cleaned_data['start'])
-		endDateTime = datetime.combine(self.cleaned_data['date'], self.cleaned_data['end'])
 
 		if self.cleaned_data['pass_type'] == '1':
 			for student in self.cleaned_data['students']:
-				newPass = Pass(type='1', approved=True, startTimeRequested=startDateTime,
-								endTimeRequested=endDateTime, description=self.cleaned_data['reason'],
+				new_pass = TeacherPass(approved=True, date=self.cleaned_data['date'], startTimeRequested=self.cleaned_data['start'],
+								endTimeRequested=self.cleaned_data['end'], description=self.cleaned_data['reason'],
 								student=student, destinationTeacher=self.cleaned_data['destinationTeacher'],
 								originTeacher=originTeacher)
-				newPass.save()
+				new_pass.save()
 		else:
 			for student in self.cleaned_data['students']:
-				newPass = Pass(type='2', approved=True, startTimeRequested=self.cleaned_data['start'],
+				new_pass = LocationPass(approved=True, date=self.cleaned_data['date'], startTimeRequested=self.cleaned_data['start'],
 				               endTimeRequested=self.cleaned_data['end'], description=self.cleaned_data['reason'],
 				               student=student, location=self.cleaned_data['location'],
 				               originTeacher=originTeacher)
-				newPass.save()
+				new_pass.save()

@@ -2,6 +2,8 @@
     border-radius: 25px;
     height: 40vh;
     width: 50vw !important;
+    float: left;
+    margin-right: 20px;
 }
 
 .pass-card .card-title {
