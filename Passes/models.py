@@ -69,18 +69,14 @@ class Pass(models.Model):
 
 	
 	def get_student_passes(user):
-		return Pass.get_students_active_passes(user) + Pass.get_students_pending_passes(user) + Pass.get_students_old_passes(user)
+		return Pass.get_students_active_passes(user) | Pass.get_students_pending_passes(user) | Pass.get_students_old_passes(user)
 
 	@staticmethod
 	def get_students_active_passes(user):
 		profile = user.profile
 		if profile.is_student:
 			student = profile.student
-			teacher_passes_o = TeacherPass.objects.filter(student=student, approved=True, timeArrivedDestination=None)
-			teacher_passes_d = TeacherPass.objects.filter(student=student, approved=True, timeArrivedDestination=None)
-			location_passes = LocationPass.objects.filter(student=student, approved=True, timeArrivedDestination=None)
-			srt_passes = SRTPass.objects.filter(student=student, approved=True, timeArrivedDestination=None)
-			return list(chain(teacher_passes_o, teacher_passes_d, location_passes, srt_passes))
+			return Pass.objects.filter(student=student, approved=True, timeArrivedDestination=None)
 		else:
 			return None
 
@@ -89,11 +85,7 @@ class Pass(models.Model):
 		profile = user.profile
 		if profile.is_student:
 			student = profile.student
-			teacher_passes_o = TeacherPass.objects.filter(student=student, approved=False, timeArrivedDestination=None)
-			teacher_passes_d = TeacherPass.objects.filter(student=student, approved=False, timeArrivedDestination=None)
-			location_passes = LocationPass.objects.filter(student=student, approved=False, timeArrivedDestination=None)
-			srt_passes = SRTPass.objects.filter(student=student, approved=False, timeArrivedDestination=None)
-			return list(chain(teacher_passes_o, teacher_passes_d, location_passes, srt_passes))
+			return Pass.objects.filter(student=student, approved=False, timeArrivedDestination=None)
 		else:
 			return None
 
@@ -102,30 +94,20 @@ class Pass(models.Model):
 		profile = user.profile
 		if profile.is_student:
 			student = profile.student
-			teacher_passes_o = TeacherPass.objects.filter(student=student, approved=True).exclude(
+			return Pass.objects.filter(student=student, approved=True).exclude(
 				timeArrivedDestination=None)
-			teacher_passes_d = TeacherPass.objects.filter(student=student, approved=True).exclude(
-				timeArrivedDestination=None)
-			location_passes = LocationPass.objects.filter(student=student, approved=True).exclude(
-				timeArrivedDestination=None)
-			srt_passes = SRTPass.objects.filter(student=student, approved=True).exclude(
-				timeArrivedDestination=None)
-			return list(chain(teacher_passes_o, teacher_passes_d, location_passes, srt_passes))
 		else:
 			return None
 
 	def get_teacher_passes(user):
-		return Pass.get_teachers_unapproved_passes(user) + Pass.get_teachers_old_passes(user) + Pass.get_teachers_incoming_student_passes(user) + Pass.get_teachers_outgoing_student_passes(user)
+		return Pass.get_teachers_unapproved_passes(user) | Pass.get_teachers_old_passes(user) | Pass.get_teachers_incoming_student_passes(user) | Pass.get_teachers_outgoing_student_passes(user)
 
 	@staticmethod
 	def get_teachers_unapproved_passes(user):
 		profile = user.profile
 		if profile.is_teacher:
 			teacher = user.profile.teacher
-			teacher_passes = TeacherPass.objects.filter(approved=False, originTeacher=teacher)
-			location_passes = LocationPass.objects.filter(approved=False, originTeacher=teacher)
-			srt_passes = SRTPass.objects.filter(approved=False, originTeacher=teacher)
-			return list(chain(teacher_passes, location_passes, srt_passes))
+			return Pass.objects.filter(approved=False, originTeacher=teacher)
 
 		else:
 			return None
@@ -135,11 +117,8 @@ class Pass(models.Model):
 		profile = user.profile
 		if profile.is_teacher:
 			teacher = profile.teacher
-			teacher_passes_o = TeacherPass.objects.filter(approved=True, originTeacher=teacher).exclude(timeArrivedDestination=None)
-			teacher_passes_d = TeacherPass.objects.filter(approved=True, destinationTeacher=teacher).exclude(timeArrivedDestination=None)
-			srt_passes_o = SRTPass.objects.filter(approved=True, originTeacher=teacher).exclude(timeArrivedDestination=None)
-			srt_passes_d = SRTPass.objects.filter(approved=True, destinationTeacher=teacher).exclude(timeArrivedDestination=None)
-			return list(chain(teacher_passes_o, teacher_passes_d, srt_passes_o, srt_passes_d))
+			query = Q(approved=True, originTeacher=teacher) | Q(approved=True, teacherpass__destinationTeacher=teacher)
+			return Pass.objects.filter(query).exclude(timeArrivedDestination=None)
 		else:
 			return None
 
@@ -148,7 +127,7 @@ class Pass(models.Model):
 		profile = user.profile
 		if profile.is_teacher:
 			teacher = profile.teacher
-			return TeacherPass.objects.filter(approved=True, timeArrivedDestination=None, destinationTeacher=teacher)
+			return Pass.objects.filter(approved=True, timeArrivedDestination=None, teacherpass__destinationTeacher=teacher)
 		else:
 			return None
 
@@ -157,12 +136,7 @@ class Pass(models.Model):
 		profile = user.profile
 		if profile.is_teacher:
 			teacher = profile.teacher
-			teacher_passes_o = TeacherPass.objects.filter(approved=True, timeArrivedDestination=None, originTeacher=teacher)
-			teacher_passes_d = TeacherPass.objects.filter(approved=True, timeArrivedDestination=None, destinationTeacher=teacher)
-			location_passes = LocationPass.objects.filter(approved=True, timeArrivedDestination=None, originTeacher=teacher)
-			srt_passes_o = SRTPass.objects.filter(approved=True, timeArrivedDestination=None, originTeacher=teacher)
-			srt_passes_d = SRTPass.objects.filter(approved=True, timeArrivedDestination=None, destinationTeacher=teacher)
-			return list(chain(teacher_passes_o, teacher_passes_d, srt_passes_o, srt_passes_d, location_passes))
+			return Pass.objects.filter(approved=True, timeArrivedDestination=None, originTeacher=teacher)
 		else:
 			return None
 
