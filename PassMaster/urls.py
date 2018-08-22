@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^chat/', include('chat.urls')),
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
+    url(r'^pass/', include('Passes.urls')),
     url(r'^student/', include('Student.urls', namespace='student')),
     url(r'^teacher/', include('Teacher.urls', namespace='teacher')),
     url(r'^login/$', auth_views.login, {'template_name':'accounts/login.html'}),

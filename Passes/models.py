@@ -67,6 +67,10 @@ class Pass(models.Model):
 	def has_arrived(self):
 		return self.timeArrivedDestination is not None
 
+	
+	def get_student_passes(user):
+		return Pass.get_students_active_passes(user) + Pass.get_students_pending_passes(user) + Pass.get_students_old_passes(user)
+
 	@staticmethod
 	def get_students_active_passes(user):
 		profile = user.profile
@@ -109,6 +113,9 @@ class Pass(models.Model):
 			return list(chain(teacher_passes_o, teacher_passes_d, location_passes, srt_passes))
 		else:
 			return None
+
+	def get_teacher_passes(user):
+		return Pass.get_teachers_unapproved_passes(user) + Pass.get_teachers_old_passes(user) + Pass.get_teachers_incoming_student_passes(user) + Pass.get_teachers_outgoing_student_passes(user)
 
 	@staticmethod
 	def get_teachers_unapproved_passes(user):

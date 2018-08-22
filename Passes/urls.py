@@ -1,18 +1,14 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 
 from . import views
+from . import api
+
+from rest_framework import routers
 
 urlpatterns = [
-    url(r'^$', views.list, name='list'),
-    url(r'^add/', views.add, name='add'),
-    url(r'^(?P<group_id>[0-9]+)/update/', views.update, name='update'),
-    url(r'^(?P<group_id>[0-9]+)/join/$', views.join, name='joinGroup'),
-    url(r'^(?P<group_id>[0-9]+)/approve/(?P<user_id>[0-9]+)/$', views.approve, name='approve'),
-    url(r'^(?P<group_id>[0-9]+)/leave/$', views.leave, name='leaveGroup'),
-    url(r'^(?P<group_id>[0-9]+)/leave/(?P<new_owner_id>[0-9]+)/$', views.pickNewOwner, name='pickNewOwner'),
-    url(r'^(?P<group_id>[0-9]+)/$', views.group, name='groupView'),
-    url(r'^(?P<group_id>[0-9]+)/console/$', views.console, name='consoleView'),
-    url(r'^(?P<group_id>[0-9]+)/chat/$', views.chat, name='groupChat'),
-    url(r'^(?P<group_id>[0-9]+)/switchPermissionLevel/(?P<user_id>[0-9]+)/$', views.changePermissionLevel, name='switchPermissionLevel'),
+    url(r'^api/passes/$', api.PassList.as_view()),
+    url(r'^api/passes/(?P<pk>[0-9]+)/$', api.PassGet.as_view()),
+    url(r'^api/passes/update/(?P<pk>[0-9]+)/$', api.PassUpdate.as_view()),
+    url(r'^api/passes/create/$', api.PassCreate.as_view()),
 
 ]
