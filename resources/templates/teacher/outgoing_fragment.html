@@ -1,0 +1,9 @@
+{% if outgoing %}
+    <div class="card-container">
+        {% for pass in outgoing %}
+            {% include 'teacher/teacher_pass_fragment.html' %}
+        {% endfor %}
+    </div>
+{% else %}
+    <h1 class="pass-type text-center mt-5">No outgoing passes. Add one with the plus button above or wait for a student to request one.</h1>
+{% endif %}

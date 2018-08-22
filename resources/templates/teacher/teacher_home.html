@@ -19,45 +19,47 @@
     </div>
 </div>
 
-{% if unapproved %}
-        <h1 class="pass-type">Unapproved</h1>
-        <div class="card-container">
-            {% for pass in unapproved %}
-                {% include 'teacher/teacher_pass_fragment.html' %}
-            {% endfor %}
-        </div>
-{% endif %}
-
-{% if incoming %}
-    <h1 class="pass-type">Incoming Students</h1>
-    <div class="card-container">
-        {% for pass in incoming %}
-            {% include 'teacher/teacher_pass_fragment.html' %}
-        {% endfor %}
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <a class="btn btn-primary btn-block" id="home-button" href="#">Home</a>
     </div>
-{% endif %}
-
-{% if outgoing %}
-    <h1 class="pass-type">Outgoing Students</h1>
-    <div class="card-container">
-        {% for pass in outgoing %}
-            {% include 'teacher/teacher_pass_fragment.html' %}
-        {% endfor %}
+    <div class="col-md-2">
+        <a class="btn btn-secondary btn-block" id="unapproved-button" href="#">Unapproved</a>
     </div>
-{% endif %}
-
-{% if old %}
-    <h1 class="pass-type">Old</h1>
-    <div class="card-container">
-        {% for pass in old %}
-            {% include 'teacher/teacher_pass_fragment.html' %}
-        {% endfor %}
+    <div class="col-md-2">
+        <a class="btn btn-secondary btn-block" id="incoming-button" href="#">Incoming</a>
     </div>
-{% endif %}
+    <div class="col-md-2">
+        <a class="btn btn-secondary btn-block" id="outgoing-button" href="#">Outgoing</a>
+    </div>
+    <div class="col-md-2">
+        <a class="btn btn-secondary btn-block" id="all-button" href="#">All</a>
+    </div>
+    <div class="col-md-1"></div>
 
-{% if incoming and outgoing and unapproved and old %}
-    <h1 class="pass-type text-center mt-5">No passes. Add one with the plus button above or wait for a student to request one.</h1>
-{% endif %}
+</div>
+
+<div id="home-fragment">
+    {% include 'teacher/home_fragment.html' %}
+</div>
+
+<div id="all-fragment" style="display: none;">
+    {% include 'teacher/all_fragment.html' %}
+</div>
+
+<div id="outgoing-fragment" style="display: none;">
+    {% include 'teacher/outgoing_fragment.html' %}
+</div>
+
+<div id="incoming-fragment" style="display: none;">
+    {% include 'teacher/incoming_fragment.html' %}
+</div>
+
+<div id="unapproved-fragment" style="display: none;">
+    {% include 'teacher/unapproved_fragment.html' %}
+</div>
+
 </body>
 
 {% include 'scripts.html' %}
@@ -72,5 +74,61 @@
             }
             expanded = !expanded;
         });
+    });
+    var $home_button = $('#home-button');
+    var $all_button = $('#all-button');
+    var $outgoing_button = $('#outgoing-button');
+    var $incoming_button = $('#incoming-button');
+    var $unapproved_button = $('#unapproved-button');
+
+    var $home_fragment = $('#home-fragment');
+    var $all_fragment = $('#all-fragment');
+    var $outgoing_fragment = $('#outgoing-fragment');
+    var $incoming_fragment = $('#incoming-fragment');
+    var $unapproved_fragment = $('#unapproved-fragment');
+    function activate(elem, frag) {
+        frag.show();
+        elem.removeClass('btn-secondary');
+        elem.addClass('btn-primary');
+    }
+    function deactivate(elem, frag) {
+        frag.hide();
+        elem.addClass('btn-secondary');
+        elem.removeClass('btn-primary');
+    }
+    $home_button.click(function(e){
+        activate($home_button, $home_fragment);
+        deactivate($all_button, $all_fragment);
+        deactivate($outgoing_button, $outgoing_fragment);
+        deactivate($incoming_button, $incoming_fragment);
+        deactivate($unapproved_button, $unapproved_fragment);
+    });
+    $all_button.click(function(e){
+        deactivate($home_button, $home_fragment);
+        activate($all_button, $all_fragment);
+        deactivate($outgoing_button, $outgoing_fragment);
+        deactivate($incoming_button, $incoming_fragment);
+        deactivate($unapproved_button, $unapproved_fragment);
+    });
+    $outgoing_button.click(function(e){
+        deactivate($home_button, $home_fragment);
+        deactivate($all_button, $all_fragment);
+        activate($outgoing_button, $outgoing_fragment);
+        deactivate($incoming_button, $incoming_fragment);
+        deactivate($unapproved_button, $unapproved_fragment);
+    });
+    $incoming_button.click(function(e){
+        deactivate($home_button, $home_fragment);
+        deactivate($all_button, $all_fragment);
+        deactivate($outgoing_button, $outgoing_fragment);
+        activate($incoming_button, $incoming_fragment);
+        deactivate($unapproved_button, $unapproved_fragment);
+    });
+    $unapproved_button.click(function(e){
+        deactivate($home_button, $home_fragment);
+        deactivate($all_button, $all_fragment);
+        deactivate($outgoing_button, $outgoing_fragment);
+        deactivate($incoming_button, $incoming_fragment);
+        activate($unapproved_button, $unapproved_fragment);
     });
 </script>

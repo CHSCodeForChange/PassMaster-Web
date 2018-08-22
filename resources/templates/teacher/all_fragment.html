@@ -1,0 +1,39 @@
+{% if unapproved %}
+        <h1 class="pass-type">Unapproved</h1>
+        <div class="card-container">
+            {% for pass in unapproved %}
+                {% include 'teacher/teacher_pass_fragment.html' %}
+            {% endfor %}
+        </div>
+{% endif %}
+
+{% if incoming %}
+    <h1 class="pass-type">Incoming Students</h1>
+    <div class="card-container">
+        {% for pass in incoming %}
+            {% include 'teacher/teacher_pass_fragment.html' %}
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% if outgoing %}
+    <h1 class="pass-type">Outgoing Students</h1>
+    <div class="card-container">
+        {% for pass in outgoing %}
+            {% include 'teacher/teacher_pass_fragment.html' %}
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% if old %}
+    <h1 class="pass-type">Old</h1>
+    <div class="card-container">
+        {% for pass in old %}
+            {% include 'teacher/teacher_pass_fragment.html' %}
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% if incoming and outgoing and unapproved and old %}
+    <h1 class="pass-type text-center mt-5">No passes. Add one with the plus button above or wait for a student to request one.</h1>
+{% endif %}

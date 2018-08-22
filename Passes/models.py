@@ -55,9 +55,8 @@ class Pass(models.Model):
 		self.save()
 
 	def arrive(self):
-		if (self.type == '1'):
-			self.timeArrivedDestination = datetime.now()
-			self.save()
+		self.timeArrivedDestination = datetime.now()
+		self.save()
 
 	# def return(self):
 	#    self.timeReturned = datetime.now()
