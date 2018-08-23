@@ -8,7 +8,7 @@ from .models import *
 
 class PassList(generics.ListAPIView):
     queryset = Pass.objects.all()
-    serializer_class = PassSerializer
+    serializer_class = Read_PassSerializer
     permission_classes = ()
 
     # def get_queryset(self):
@@ -22,16 +22,25 @@ class PassList(generics.ListAPIView):
 
 class PassGet(generics.RetrieveAPIView):
     queryset = Pass.objects.all()
-    serializer_class = PassSerializer
+    serializer_class = Read_PassSerializer
     permission_classes = ()
 
 class PassUpdate(generics.UpdateAPIView):
     queryset = Pass.objects.all()
-    serializer_class = PassSerializer
+    serializer_class = StudentCreate_LocationPassSerializer
     permission_classes = ()
 
 
-class PassCreate(generics.CreateAPIView):
-    queryset = Pass.objects.all()
-    serializer_class = PassSerializer
+
+class LocationPassCreate(generics.CreateAPIView):
+    serializer_class = StudentCreate_LocationPassSerializer
+    permission_classes = ()
+
+
+class SRTPassCreate(generics.CreateAPIView):
+    serializer_class = StudentCreate_SRTPassSerializer
+    permission_classes = ()
+
+class TeacherPassCreate(generics.CreateAPIView):
+    serializer_class = StudentCreate_TeacherPassSerializer
     permission_classes = ()
