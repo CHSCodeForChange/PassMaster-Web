@@ -77,6 +77,14 @@ class Pass(models.Model):
 		except:
 			return False
 
+	def child(self):
+		if (self.is_location_pass()):
+			return self.locationpass
+		elif (self.is_srt_pass()):
+			return self.srtpass
+		elif (self.is_teacher_pass()):
+			return self.teacherpass
+
 	# methods that change pass fields
 	def approve(self):
 		self.approved = True
