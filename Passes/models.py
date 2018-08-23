@@ -40,12 +40,44 @@ class Pass(models.Model):
 	# student will need from them. """
 	description = models.CharField(max_length=960, null=True)
 
+
+
 	def __str__(self):
 		if self.description != None:
 			return self.description
 		else:
 			return 'None'
 
+			
+
+	# methods related to type of pass
+	def pass_type(self):
+		if (self.is_location_pass()):
+			return 'LocationPassi'
+		elif (self.is_srt_pass()):
+			return 'SRTPass'
+		elif (self.is_teacher_pass()):
+			return 'TeacherPass'
+	
+	def is_location_pass(self):
+		try:
+			return self.locationpass != None
+		except:
+			return False
+
+	def is_srt_pass(self):
+		try:
+			return self.srtpass != None
+		except:
+			return False
+
+	def is_teacher_pass(self):
+		try:
+			return self.teacherpass != None
+		except:
+			return False
+
+	# methods that change pass fields
 	def approve(self):
 		self.approved = True
 		self.save()
