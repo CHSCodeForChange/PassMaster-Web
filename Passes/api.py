@@ -33,8 +33,19 @@ class PassUpdate(generics.UpdateAPIView):
 
 
 class LocationPassCreate(generics.CreateAPIView):
-    serializer_class = StudentCreate_LocationPassSerializer
     permission_classes = ()
+
+    def get_serializer_class(self):
+        if (self.request.user.profile.is_teacher()):
+            return TeacherCreate_LocationPassSerializer
+        else: 
+            return StudentCreate_LocationPassSerializer
+
+    def perform_create(self, serializer):
+        if (self.request.user.profile.is_teacher()):
+            new_pass = serializer.save(approved=True, originTeacher=self.request.user.profile.teacher)
+        else: 
+            serializer.save(student=self.request.user.profile.student)
 
 
 class SRTPassCreate(generics.CreateAPIView):
@@ -42,5 +53,19 @@ class SRTPassCreate(generics.CreateAPIView):
     permission_classes = ()
 
 class TeacherPassCreate(generics.CreateAPIView):
-    serializer_class = StudentCreate_TeacherPassSerializer
     permission_classes = ()
+
+    def get_serializer_class(self):
+        if (self.request.user.profile.is_teacher()):
+            return TeacherCreate_TeacherPassSerializer
+        else: 
+            return StudentCreate_TeacherPassSerializer
+
+    def perform_create(self, serializer):
+        if (self.request.user.profile.is_teacher()):
+            new_pass = serializer.save(approved=True)
+            if (new_pass.destinationTeacher == self.request.user.profile.teacher):
+                new_pass.approved = True
+                new_pass.save()
+        else: 
+            serializer.save(student=self.request.user.profile.student)

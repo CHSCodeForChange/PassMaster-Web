@@ -25,8 +25,17 @@ class StudentCreate_LocationPassSerializer(serializers.ModelSerializer):
         fields = ('date',
                     'startTimeRequested',
                     'endTimeRequested',
-                    'student',
                     'originTeacher',
+                    'description',
+                    'location')
+
+class TeacherCreate_LocationPassSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LocationPass
+        fields = ('date',
+                    'startTimeRequested',
+                    'endTimeRequested',
+                    'student',
                     'description',
                     'location')
 
@@ -48,8 +57,19 @@ class StudentCreate_TeacherPassSerializer(serializers.ModelSerializer):
         fields = ('date',
                     'startTimeRequested',
                     'endTimeRequested',
-                    'student',
+                    # 'student',
                     'originTeacher',
                     'description',
                     'destinationTeacher')
 
+
+class TeacherCreate_TeacherPassSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TeacherPass
+        fields = ('date',
+                    'startTimeRequested',
+                    'endTimeRequested',
+                    'student',
+                    'originTeacher',
+                    'description',
+                    'destinationTeacher')
