@@ -19,6 +19,51 @@ class Read_PassSerializer(serializers.ModelSerializer):
                     'description',
                     'type')
 
+class Read_LocationPassSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pass
+        fields = ('approved',
+                    'date',
+                    'startTimeRequested',
+                    'endTimeRequested',
+                    'timeLeftOrigin',
+                    'timeArrivedDestination',
+                    'student',
+                    'originTeacher',
+                    'description',
+                    'location')
+
+class Read_SRTPassSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pass
+        fields = ('approved',
+                    'date',
+                    'startTimeRequested',
+                    'endTimeRequested',
+                    'timeLeftOrigin',
+                    'timeArrivedDestination',
+                    'student',
+                    'originTeacher',
+                    'description',
+                    'destinationTeacher',
+                    'session',
+                    'timeLeftDestination',
+                    'timeArrivedOrigin')
+
+class Read_TeacherPassSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pass
+        fields = ('approved',
+                    'date',
+                    'startTimeRequested',
+                    'endTimeRequested',
+                    'timeLeftOrigin',
+                    'timeArrivedDestination',
+                    'student',
+                    'originTeacher',
+                    'description',
+                    'destinationTeacher')
+
 class StudentCreate_LocationPassSerializer(serializers.ModelSerializer):
     class Meta:
         model = LocationPass

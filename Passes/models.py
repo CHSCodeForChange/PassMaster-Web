@@ -107,6 +107,17 @@ class Pass(models.Model):
 	def has_arrived(self):
 		return self.timeArrivedDestination is not None
 
+
+	def is_permitted(self, user):
+		return self in Pass.get_passes(user)
+
+	def get_passes(user):
+		if (user.profile.is_student()):
+			student = user.profile.student
+			return Pass.get_student_passes(student)
+		elif (user.profile.is_teacher()):
+			teacher = user.profile.teacher
+			return Pass.get_teacher_passes(teacher)			
 	
 	def get_student_passes(user):
 		return Pass.get_students_active_passes(user) | Pass.get_students_pending_passes(user) | Pass.get_students_old_passes(user)
