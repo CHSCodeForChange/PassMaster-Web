@@ -1,10 +1,8 @@
 from django.contrib.auth.models import User
 from rest_framework import generics
-from rest_framework.permissions import IsAdminUser
 
 from .serializers import *
 from .models import *
-
 
 class PassList(generics.ListAPIView):
     queryset = Pass.objects.all()
@@ -22,13 +20,28 @@ class PassList(generics.ListAPIView):
 
 class PassGet(generics.RetrieveAPIView):
     serializer_class = Read_PassSerializer
-    permission_classes = ()
-        
+    
+    def get_queryset(self):
+        return Pass.get_passes(self.request.user)
 
+class LocationPassGet(generics.RetrieveAPIView):
+    queryset = LocationPass.objects.all()
+    serializer_class = Read_LocationPassSerializer
+
+class SRTPassGet(generics.RetrieveAPIView):
+    queryset = SRTPass.objects.all()
+    serializer_class = Read_SRTPassSerializer
+
+class TeacherPassGet(generics.RetrieveAPIView):
+    queryset = TeacherPass.objects.all()
+    serializer_class = Read_TeacherPassSerializer
+        
 class PassUpdate(generics.UpdateAPIView):
-    queryset = Pass.objects.all()
     serializer_class = StudentCreate_LocationPassSerializer
-    permission_classes = ()
+
+    def get_queryset(self):
+        return Pass.get_passes(self.request.user)
+
 
 
 

@@ -8,7 +8,8 @@ class Read_PassSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Pass
-        fields = ('approved',
+        fields = ('pk',
+                    'approved',
                     'date',
                     'startTimeRequested',
                     'endTimeRequested',
@@ -21,8 +22,9 @@ class Read_PassSerializer(serializers.ModelSerializer):
 
 class Read_LocationPassSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Pass
-        fields = ('approved',
+        model = LocationPass
+        fields = ('pk',
+                    'approved',
                     'date',
                     'startTimeRequested',
                     'endTimeRequested',
@@ -35,8 +37,9 @@ class Read_LocationPassSerializer(serializers.ModelSerializer):
 
 class Read_SRTPassSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Pass
-        fields = ('approved',
+        model = SRTPass
+        fields = ('pk',
+                    'approved',
                     'date',
                     'startTimeRequested',
                     'endTimeRequested',
@@ -52,8 +55,9 @@ class Read_SRTPassSerializer(serializers.ModelSerializer):
 
 class Read_TeacherPassSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Pass
-        fields = ('approved',
+        model = TeacherPass
+        fields = ('pk',
+                    'approved',
                     'date',
                     'startTimeRequested',
                     'endTimeRequested',
