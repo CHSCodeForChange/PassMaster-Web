@@ -228,7 +228,3 @@ class TeacherPass(Pass):
 		blank=True,
 		related_name="destinationTeacher"
 	)
-	pass_ptr = models.OneToOneField(
-		Pass, on_delete=models.CASCADE,
-		parent_link=True,
-	)
