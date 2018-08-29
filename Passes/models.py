@@ -217,6 +217,39 @@ class SRTPass(Pass):
 	timeLeftDestination = models.TimeField(null=True, blank=True)
 
 	timeArrivedOrigin = models.TimeField(null=True, blank=True)
+	
+	@classmethod
+	def create(date, student, originTeacher, description, 	destinationTeacher, session):
+		if session == '1':
+			startTimeRequested = datetime.time(9, 50)
+			endTimeRequested = datetime.time(10, 20)
+		else if session == '2': 
+			startTimeRequested = datetime.time(10, 20)
+			endTimeRequested = datetime.time(11, 00)
+		else if session == '3':
+			startTimeRequested = datetime.time(9, 50)
+			endTimeRequested = datetime.time(11, 00)
+
+
+  		return SRTPass(date=date, 
+		  				student=student,
+						originTeacher=originTeacher,
+						description=description,
+						destinationTeacher=destinationTeacher,
+						session=session,
+						startTimeRequested=startTimeRequested,
+						endTimeRequested=endTimeRequested)
+
+	def leaveDestination(self):
+		if self.session == '1':
+			self.timeLeftDestination = datetime.now()
+			self.save()
+
+	def arriveOrigin(self):
+		if self.session == '1':
+			self.timeArrivedOrigin = datetime.now()
+			self.save()
+		
 
 
 class TeacherPass(Pass):
