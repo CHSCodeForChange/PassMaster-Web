@@ -218,20 +218,18 @@ class SRTPass(Pass):
 
 	timeArrivedOrigin = models.TimeField(null=True, blank=True)
 	
-	@classmethod
-	def create(date, student, originTeacher, description, 	destinationTeacher, session):
+	def create(date, student, originTeacher, description, destinationTeacher, session):
 		if session == '1':
 			startTimeRequested = datetime.time(9, 50)
 			endTimeRequested = datetime.time(10, 20)
-		else if session == '2': 
+		elif session == '2': 
 			startTimeRequested = datetime.time(10, 20)
 			endTimeRequested = datetime.time(11, 00)
-		else if session == '3':
+		elif session == '3':
 			startTimeRequested = datetime.time(9, 50)
 			endTimeRequested = datetime.time(11, 00)
-
-
-  		return SRTPass(date=date, 
+		
+		return SRTPass(date=date, 
 		  				student=student,
 						originTeacher=originTeacher,
 						description=description,

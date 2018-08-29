@@ -27,19 +27,21 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-DJANGO_APPS = [
+INSTALLED_APPS = [
+    'dal',
+    'dal_select2',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-]
-LIB_APPS = [
+
     'rest_framework',
-    'django_filters'
-]
-MY_APPS = [
+    'django_filters',
+    'searchableselect',
+    
     'accounts',
     'Student',
     'Teacher',
@@ -49,7 +51,6 @@ MY_APPS = [
     'chat',
 ]
 
-INSTALLED_APPS = DJANGO_APPS + LIB_APPS + MY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

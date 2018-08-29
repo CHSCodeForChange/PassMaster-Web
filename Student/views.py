@@ -3,9 +3,8 @@ from Passes.models import Pass
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-from Student.forms import RequestPassForm
-from Student.models import Student
-
+from Student.forms import *
+from Student.models import Student 
 
 def home(request):
     if not request.user.is_authenticated():
@@ -51,9 +50,19 @@ def requestPass(request):
             data = form.save(commit=False)
             data.save()
 
-            active = Pass.get_students_active_passes(request.user)
-            pending = Pass.get_students_pending_passes(request.user)
-            old = Pass.get_students_old_passes(request.user)
-
-            return render(request, "student/student_home.html", {'active': active, 'pending': pending, 'old': old})
+            return redirect('/student')
         return render(request, 'student/request_pass.html', {'form': form})
+
+@login_required
+def requestTeacherPass(request):
+    if request.method == 'GET':
+        form = TeacherPassForm()
+        return render(request, 'student/test_request.html', {'form': form})
+    else:
+        form = TeacherPassForm(request.POST)
+        if form.is_valid():
+            data = form.save(commit=False)
+            data.save()
+
+            return redirect('/student')
+        return render(request, 'student/test_request.html', {'form': form})

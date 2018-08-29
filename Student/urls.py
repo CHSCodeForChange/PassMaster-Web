@@ -5,4 +5,5 @@ urlpatterns = [
     url(r'^$', views.home),
     url(r'^request/', views.requestPass),
     url(r'^viewPass', views.viewPass),
+    url(r'^requestTeacherPass/', views.requestTeacherPass),
 ]

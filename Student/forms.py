@@ -1,11 +1,28 @@
+from datetime import datetime, timezone
+
 from django import forms
 from django.core.exceptions import ValidationError
 from django.contrib.auth import models
-from datetime import datetime, timezone
+
+from dal import autocomplete
+
 from Student.models import Student
 from Passes.models import Pass, LocationPass, TeacherPass
 from django.contrib.auth.models import User
 from Teacher.models import Teacher
+
+from Teacher import urls
+
+class TeacherPassForm(forms.ModelForm):
+
+    originTeacher = forms.ModelChoiceField(
+        queryset=Teacher.objects.all(),
+        widget=autocomplete.ModelSelect2(url='/teacher/autocomplete')
+    )
+
+    class Meta:
+        model = TeacherPass
+        fields = ('__all__')
 
 
 class RequestPassForm(forms.Form):
@@ -20,7 +37,10 @@ class RequestPassForm(forms.Form):
                'placeholder': 'Location',
                'style': 'display: none;'}))
 
-    originTeacher = forms.ModelChoiceField(queryset=Teacher.objects.all(), empty_label=None, label="Origin Teacher")
+    originTeacher = forms.ModelChoiceField(
+        queryset=Teacher.objects.all(),
+        widget=autocomplete.ModelSelect2(url='/teacher/autocomplete')
+    )
 
     date = forms.DateField(label='Date', required=True, input_formats=['%Y-%m-%d'],
                            initial=datetime.now, widget=forms.DateInput(
@@ -39,6 +59,7 @@ class RequestPassForm(forms.Form):
     reason = forms.CharField(label='', required=True, max_length=240, widget=forms.TextInput(
         attrs={'type': 'text',
                'class': 'form-control',
+            #    'rows': '3'
                'placeholder': 'Reason for pass'}))
 
     user = models.User()

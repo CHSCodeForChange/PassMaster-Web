@@ -20,6 +20,8 @@ from . import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^searchableselect/', include('searchableselect.urls')),
+
     url(r'^chat/', include('chat.urls')),
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
     url(r'^pass/', include('Passes.urls')),

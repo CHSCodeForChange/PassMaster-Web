@@ -7,6 +7,9 @@ name = "pypi"
 djangorestframework = "*"
 django = "==1.11.9"
 django-filter = "*"
+django-searchable-select = "*"
+django-autocomplete-light = "==3.2.10"
+six = "*"
 
 [dev-packages]
 

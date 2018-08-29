@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="/static/css/student/request_pass.css">
+
+{% load static %}
 <div class="card card-body card-form" style="width: 100%;">
     <div class="row mb-4">
         <div class="col-md-6">
@@ -10,6 +12,7 @@
     </div>
     <form method="post">
         {% csrf_token %}
+        
         <div>{{ request_form.pass_type }}</div>
         {# Destination Teacher Field #}
         <div class="form-label" id="destinationTeacherLabel">{{ request_form.destinationTeacher.label }}</div>
@@ -68,6 +71,13 @@
         </div>
     </form>
 </div>
+
+
+{% block footer %}
+    <script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
+
+    {{ form.media }}
+{% endblock %}
 
 <script>
     $('#set_type_teacher').click(function(e) {
