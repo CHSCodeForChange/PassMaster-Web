@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'searchableselect',
     
     'accounts',
-    'passes',
+	'server',
     'chat',
 ]
 

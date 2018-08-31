@@ -54,7 +54,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('pass_ptr',
                  models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True,
-                                      primary_key=True, serialize=False, to='passes.Pass')),
+                                      primary_key=True, serialize=False, to='server.Pass')),
                 ('location', models.CharField(blank=True, max_length=12, null=True)),
             ],
             bases=('Passes.pass',),
@@ -64,13 +64,13 @@ class Migration(migrations.Migration):
             fields=[
                 ('pass_ptr',
                  models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True,
-                                      primary_key=True, serialize=False, to='passes.Pass')),
+                                      primary_key=True, serialize=False, to='server.Pass')),
                 ('session', models.CharField(blank=True, max_length=1, null=True)),
                 ('timeLeftDestination', models.TimeField(blank=True, null=True)),
                 ('timeArrivedOrigin', models.TimeField(blank=True, null=True)),
                 ('destinationTeacher',
                  models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE,
-                                   related_name='destinationTeacherSRT', to='passes.Teacher')),
+                                   related_name='destinationTeacherSRT', to='server.Teacher')),
             ],
             bases=('Passes.pass',),
         ),
@@ -79,10 +79,10 @@ class Migration(migrations.Migration):
             fields=[
                 ('pass_ptr',
                  models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True,
-                                      primary_key=True, serialize=False, to='passes.Pass')),
+                                      primary_key=True, serialize=False, to='server.Pass')),
                 ('destinationTeacher',
                  models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE,
-                                   related_name='destinationTeacher', to='passes.Teacher')),
+                                   related_name='destinationTeacher', to='server.Teacher')),
             ],
             bases=('Passes.pass',),
         ),
@@ -90,7 +90,7 @@ class Migration(migrations.Migration):
             model_name='student',
             name='defaultOrgin',
             field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE,
-                                    related_name='srt_teacher', to='passes.Teacher'),
+                                    related_name='srt_teacher', to='server.Teacher'),
         ),
         migrations.AddField(
             model_name='student',
@@ -100,18 +100,18 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='student',
             name='teachers',
-            field=models.ManyToManyField(related_name='teacher_list', to='passes.Teacher'),
+            field=models.ManyToManyField(related_name='teacher_list', to='server.Teacher'),
         ),
         migrations.AddField(
             model_name='pass',
             name='originTeacher',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='pass_origin_teacher',
-                                    to='passes.Teacher'),
+                                    to='server.Teacher'),
         ),
         migrations.AddField(
             model_name='pass',
             name='student',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='pass_student',
-                                    to='passes.Student'),
+                                    to='server.Student'),
         ),
     ]

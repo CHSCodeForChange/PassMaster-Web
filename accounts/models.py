@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 
-from passes.models import *
+from server.models import *
 
 
 class Profile(models.Model):

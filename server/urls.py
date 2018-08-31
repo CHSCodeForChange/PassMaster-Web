@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.views.generic import RedirectView
 
-from passes.autocomp import TeacherAutocomplete
+from server.autocomp import TeacherAutocomplete
 from . import api
 from . import views
 

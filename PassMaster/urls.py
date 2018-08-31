@@ -25,7 +25,7 @@ urlpatterns = [
 
     url(r'^chat/', include('chat.urls')),
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
-	url(r'^', include('passes.urls')),
+	url(r'^', include('server.urls')),
     url(r'^login/$', auth_views.login, {'template_name':'accounts/login.html'}),
     url(r'^$', views.home),
     url(r'^logout/$', auth_views.logout, {'next_page' : '/accounts/logout_lander'}, name='logout')

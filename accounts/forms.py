@@ -5,7 +5,7 @@ from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 
 from accounts.models import *
-from passes.models import *
+from server.models import *
 
 
 class EditUserForm(UserChangeForm):
