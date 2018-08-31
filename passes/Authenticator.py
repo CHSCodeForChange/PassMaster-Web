@@ -1,9 +1,8 @@
-from rest_framework import status, exceptions
+import jwt
 from django.http import HttpResponse
+from rest_framework import exceptions
 from rest_framework.authentication import get_authorization_header, BaseAuthentication
 from users.models import User
-import jwt
-import json
 
 
 class TokenAuthentication(BaseAuthentication):

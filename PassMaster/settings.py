@@ -8,6 +8,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+
 import rest_framework
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -43,11 +44,7 @@ INSTALLED_APPS = [
     'searchableselect',
     
     'accounts',
-    'Student',
-    'Teacher',
-    'Administrator',
-    'Passes',
-    'api',
+    'passes',
     'chat',
 ]
 

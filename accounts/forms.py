@@ -1,13 +1,12 @@
-from django.contrib.auth.models import User
 from django import forms
+from django import forms
+from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm, AuthenticationForm, UsernameField
 from django.core.exceptions import ValidationError
-from accounts.models import *
-from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm, SetPasswordForm, AuthenticationForm, UsernameField
-from django.utils.translation import ugettext, ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _
 
-from Student.models import Student
-from Administrator.models import Administrator
-from Teacher.models import Teacher
+from accounts.models import *
+from passes.models import *
+
 
 class EditUserForm(UserChangeForm):
     template_name = '/accounts/editProfile'

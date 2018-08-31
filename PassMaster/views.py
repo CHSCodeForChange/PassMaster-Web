@@ -1,6 +1,5 @@
 from django.shortcuts import redirect
-from Student import views as student
-from Teacher import views as teacher
+
 
 def home(request):
     if not request.user.is_authenticated():

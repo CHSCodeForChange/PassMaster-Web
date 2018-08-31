@@ -1,8 +1,8 @@
-from django.contrib.auth.models import User
 from rest_framework import generics
 
-from .serializers import *
 from .models import *
+from .serializers import *
+
 
 class PassList(generics.ListAPIView):
     queryset = Pass.objects.all()

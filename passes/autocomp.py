@@ -1,8 +1,8 @@
+from dal import autocomplete
 from django.db.models import Q
 
-from dal import autocomplete
-
 from .models import Teacher
+
 
 class TeacherAutocomplete(autocomplete.Select2QuerySetView):
     def get_queryset(self):

@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class PassesConfig(AppConfig):
-    name = 'Passes'
+    name = 'passes'

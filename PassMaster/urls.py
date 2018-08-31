@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
+
 from . import views
 
 urlpatterns = [
@@ -24,9 +25,7 @@ urlpatterns = [
 
     url(r'^chat/', include('chat.urls')),
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
-    url(r'^pass/', include('Passes.urls')),
-    url(r'^student/', include('Student.urls', namespace='student')),
-    url(r'^teacher/', include('Teacher.urls', namespace='teacher')),
+	url(r'^', include('passes.urls')),
     url(r'^login/$', auth_views.login, {'template_name':'accounts/login.html'}),
     url(r'^$', views.home),
     url(r'^logout/$', auth_views.logout, {'next_page' : '/accounts/logout_lander'}, name='logout')

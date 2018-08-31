@@ -1,7 +1,11 @@
 from django.contrib import admin
-from .models import Pass, TeacherPass, LocationPass, SRTPass
+
+from .models import *
 
 admin.site.register(Pass)
 admin.site.register(TeacherPass)
 admin.site.register(LocationPass)
 admin.site.register(SRTPass)
+admin.site.register(Teacher)
+admin.site.register(Student)
+admin.site.register(Administrator)
