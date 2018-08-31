@@ -128,22 +128,21 @@ select:-webkit-autofill {
 }
 
 .card-form {
-  background-color: #F29D39;
+	background-color: #F29D39;
 	border-radius: 20px;
+	margin-bottom: 48px;
 }
-
 
 .float-none {
 	float: none;
 }
 
 /*.card-container {*/
-	/*padding-left: 60px;*/
-	/*padding-right: 60px;*/
-	/*overflow: auto;*/
-	/*width: 100%;*/
+/*padding-left: 60px;*/
+/*padding-right: 60px;*/
+/*overflow: auto;*/
+/*width: 100%;*/
 /*}*/
-
 
 /*.form {
     border-radius: 25px;

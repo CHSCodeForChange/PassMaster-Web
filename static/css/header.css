@@ -127,6 +127,8 @@ select:-webkit-autofill {
 .card-form {
 	background-color: #F29D39 !important;
 	border-radius: 20px;
+	margin-bottom: 48px;
+
 }
 
 

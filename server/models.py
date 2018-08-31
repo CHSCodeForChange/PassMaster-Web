@@ -1,5 +1,5 @@
 
-from datetime import datetime
+from datetime import datetime, time
 
 from django.db import models
 from django.db.models import Q
@@ -213,14 +213,14 @@ class SRTPass(Pass):
 
 	def create(date, student, originTeacher, description, destinationTeacher, session):
 		if session == '1':
-			startTimeRequested = datetime.time(9, 50)
-			endTimeRequested = datetime.time(10, 20)
+			startTimeRequested = time(hour=9, minute=50)
+			endTimeRequested = time(hour=10, minute=20)
 		elif session == '2':
-			startTimeRequested = datetime.time(10, 20)
-			endTimeRequested = datetime.time(11, 00)
+			startTimeRequested = time(hour=10, minute=20)
+			endTimeRequested = time(hour=11, minute=00)
 		elif session == '3':
-			startTimeRequested = datetime.time(9, 50)
-			endTimeRequested = datetime.time(11, 00)
+			startTimeRequested = time(hour=9, minute=50)
+			endTimeRequested = time(hour=11, minute=00)
 
 		return SRTPass(date=date,
 		               student=student,
@@ -228,6 +228,7 @@ class SRTPass(Pass):
 		               description=description,
 		               destinationTeacher=destinationTeacher,
 		               session=session,
+		               approved=True,
 		               startTimeRequested=startTimeRequested,
 		               endTimeRequested=endTimeRequested)
 

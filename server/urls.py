@@ -24,7 +24,7 @@ urlpatterns = [
 	url(r'^student/request/', views.requestPass),
 	url(r'^student/requestTeacherPass/', views.requestTeacherPass),
 	url(r'^student/$', views.student_home, name='student_home'),
-	url(r'^student/', RedirectView.as_view(pattern_name='student_home', permanent=False)),
+	# url(r'^student/', RedirectView.as_view(pattern_name='student_home', permanent=False)),
 
 	# Teacher
 	url(r'^teacher/approve/(?P<pass_id>[0-9]+)/$', views.approve, name='approve'),
@@ -36,6 +36,6 @@ urlpatterns = [
 		name='teacher-autocomplete',
 	),
 	url(r'^teacher/$', views.teacher_home, name='teacher_home'),
-	url(r'^teacher/', RedirectView.as_view(pattern_name='teacher_home', permanent=False)),
+	# url(r'^teacher/', RedirectView.as_view(pattern_name='teacher_home', permanent=False)),
 
 ]

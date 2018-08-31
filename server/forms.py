@@ -21,7 +21,10 @@ class RequestPassForm(forms.Form):
 	pass_type = forms.CharField(max_length=1, widget=forms.HiddenInput(), initial="1")
 
 	destinationTeacher = forms.ModelChoiceField(queryset=Teacher.objects.all(), empty_label=None,
-	                                            label="Destination teacher", required=False, )
+	                                            label="Destination teacher", required=False, widget=forms.Select(
+			attrs={'type': 'text',
+			       'class': 'form-control',
+			       'placeholder': 'Destination Teacher'}))
 
 	location = forms.CharField(max_length=12, required=False, widget=forms.TextInput(
         attrs={'type': 'text',
@@ -31,8 +34,12 @@ class RequestPassForm(forms.Form):
 
 	originTeacher = forms.ModelChoiceField(
 		queryset=Teacher.objects.all(),
-		widget=autocomplete.ModelSelect2(url='/teacher/autocomplete')
-	)
+		# widget=autocomplete.ModelSelect2(url='/teacher/autocomplete')
+		empty_label=None, widget=forms.Select(
+			attrs={'type': 'text',
+			       'class': 'form-control',
+			       'placeholder': 'Destination Teacher'}))
+
 
 	date = forms.DateField(label='Date', required=True, input_formats=['%Y-%m-%d'],
 	                       initial=datetime.now, widget=forms.DateInput(
@@ -53,6 +60,12 @@ class RequestPassForm(forms.Form):
                'class': 'form-control',
                #    'rows': '3'
                'placeholder': 'Reason for pass'}))
+
+	session = forms.ChoiceField(label='Session', required=False, choices=[(1, "First"), (2, "Second"), (3, "Both")], widget=forms.Select(
+		attrs={'type': 'text',
+		       'class': 'form-control',
+		       'placeholder': 'Session',
+		       'style': 'display: none;'}))
 
 	user = User()
 
@@ -83,8 +96,15 @@ class RequestPassForm(forms.Form):
 class CreatePassForm(forms.Form):
 	pass_type = forms.CharField(max_length=1, widget=forms.HiddenInput(), initial="1")
 
-	destinationTeacher = forms.ModelChoiceField(queryset=Teacher.objects.all(), empty_label=None,
-	                                            label="Destination teacher", required=False, )
+	destinationTeacher = forms.ModelChoiceField(queryset=Teacher.objects.all(), empty_label=None, label="Destination Teacher", required=False, widget=forms.Select(
+		attrs={'type': 'text',
+		       'class': 'form-control',
+		       'placeholder': 'Destination Teacher'}))
+
+	originTeacher = forms.ModelChoiceField(queryset=Teacher.objects.all(), empty_label=None, label="Origin Teacher", required=False, widget=forms.Select(
+		attrs={'type': 'text',
+		       'class': 'form-control',
+		       'placeholder': 'Origin Teacher'}))
 
 	location = forms.CharField(max_length=12, required=False, widget=forms.TextInput(
 		attrs={'type': 'text',
@@ -92,7 +112,9 @@ class CreatePassForm(forms.Form):
 		       'placeholder': 'Location',
 		       'style': 'display: none;'}))
 
-	students = forms.ModelMultipleChoiceField(queryset=Student.objects.all(), label="Student(s)", required=True)
+	students = forms.ModelMultipleChoiceField(queryset=Student.objects.all(), label="Student(s)", required=True, widget=forms.SelectMultiple(
+		attrs={'class': 'form-control',
+		       'placeholder': 'Reason for pass'}))
 
 	date = forms.DateField(label='Date', required=True, input_formats=['%Y-%m-%d'],
 	                       initial=datetime.now, widget=forms.DateInput(
@@ -113,6 +135,12 @@ class CreatePassForm(forms.Form):
 		       'class': 'form-control',
 		       'placeholder': 'Reason for pass'}))
 
+	session = forms.ChoiceField(label='Session', required=False, choices=[(1, "First"), (2, "Second"), (3, "Both")], widget=forms.Select(
+		attrs={'type': 'text',
+		       'class': 'form-control',
+		       'placeholder': 'Session',
+		       'style': 'display: none;'}))
+
 	user = User()
 
 	def __init__(self, *args, **kwargs):
@@ -124,19 +152,34 @@ class CreatePassForm(forms.Form):
 
 		if self.cleaned_data['pass_type'] == '1':
 			for student in self.cleaned_data['students']:
-				new_pass = TeacherPass(approved=True, date=self.cleaned_data['date'],
-				                       startTimeRequested=self.cleaned_data['start'],
-				                       endTimeRequested=self.cleaned_data['end'],
-				                       description=self.cleaned_data['reason'],
-				                       student=student, destinationTeacher=self.cleaned_data['destinationTeacher'],
-				                       originTeacher=originTeacher)
+				new_pass = TeacherPass(
+					approved=True, date=self.cleaned_data['date'],
+					startTimeRequested=self.cleaned_data['start'],
+					endTimeRequested=self.cleaned_data['end'],
+					description=self.cleaned_data['reason'],
+					student=student, destinationTeacher=self.cleaned_data['destinationTeacher'],
+					originTeacher=originTeacher
+				)
 				new_pass.save()
-		else:
+		elif self.cleaned_data['pass_type'] == '2':
 			for student in self.cleaned_data['students']:
-				new_pass = LocationPass(approved=True, date=self.cleaned_data['date'],
-				                        startTimeRequested=self.cleaned_data['start'],
-				                        endTimeRequested=self.cleaned_data['end'],
-				                        description=self.cleaned_data['reason'],
-				                        student=student, location=self.cleaned_data['location'],
-				                        originTeacher=originTeacher)
+				new_pass = LocationPass(
+					approved=True, date=self.cleaned_data['date'],
+					startTimeRequested=self.cleaned_data['start'],
+					endTimeRequested=self.cleaned_data['end'],
+					description=self.cleaned_data['reason'],
+					student=student, location=self.cleaned_data['location'],
+					originTeacher=originTeacher
+				)
+				new_pass.save()
+		elif self.cleaned_data['pass_type'] == '3':
+			for student in self.cleaned_data['students']:
+				new_pass = SRTPass.create(
+					self.cleaned_data['date'],
+					student,
+					originTeacher,
+					self.cleaned_data['reason'],
+					self.cleaned_data['destinationTeacher'],
+					session=self.cleaned_data['session']
+				)
 				new_pass.save()

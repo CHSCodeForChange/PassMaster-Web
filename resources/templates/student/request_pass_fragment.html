@@ -3,32 +3,47 @@
 {% load static %}
 <div class="card card-body card-form" style="width: 100%;">
     <div class="row mb-4">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <button class="btn btn-primary btn-block" id="set_type_teacher">Teacher</button>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <button class="btn btn-secondary btn-block" id="set_type_destination">Destination</button>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-secondary btn-block" id="set_type_srt">SRT</button>
         </div>
     </div>
     <form method="post">
         {% csrf_token %}
         
         <div>{{ request_form.pass_type }}</div>
-        {# Destination Teacher Field #}
-        <div class="form-label" id="destinationTeacherLabel">{{ request_form.destinationTeacher.label }}</div>
-        <div> {{ request_form.destinationTeacher }} </div>
-        {% for error in request_form.destinationTeacher.errors %}
-            <p style="color: red">{{ error }}</p>
-        {% endfor %}
-        {# Location #}
-        <div> {{ request_form.location }} </div>
-        {% for error in request_form.location.errors %}
-            <p style="color: red">{{ error }}</p>
-        {% endfor %}
-        {# Origin Teacher Field #}
-        <div class="form-label" id="originTeacherLabel">{{ request_form.originTeacher.label }}</div>
-        <div> {{ request_form.originTeacher }} </div>
-        {% for error in request_form.originTeacher.errors %}
+        <div class="row">
+            <div class="col-md-6">
+                {# Destination Teacher Field #}
+                <div class="form-label" id="destinationTeacherLabel">{{ request_form.destinationTeacher.label }}</div>
+                <div> {{ request_form.destinationTeacher }} </div>
+                {% for error in request_form.destinationTeacher.errors %}
+                    <p style="color: red">{{ error }}</p>
+                {% endfor %}
+                {# Location #}
+                <div style="margin-top: 24px;"> {{ request_form.location }} </div>
+                {% for error in request_form.location.errors %}
+                    <p style="color: red">{{ error }}</p>
+                {% endfor %}
+            </div>
+            <div class="col-md-6">
+                {# Origin Teacher Field #}
+                <div class="form-label" id="originTeacherLabel">{{ request_form.originTeacher.label }}</div>
+                <div> {{ request_form.originTeacher }} </div>
+                {% for error in request_form.originTeacher.errors %}
+                    <p style="color: red">{{ error }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        {# SRT Session #}
+        <div class="form-label" id="sessionLabel">{{ request_form.session.label }}</div>
+        <div> {{ request_form.session }} </div>
+        {% for error in request_form.session.errors %}
             <p style="color: red">{{ error }}</p>
         {% endfor %}
         {# Start and end time #}
@@ -85,20 +100,41 @@
         $('#id_destinationTeacher').show();
         $('#destinationTeacherLabel').show();
         $('#id_location').hide();
+        $('#id_session').hide();
+        $('#sessionLabel').hide();
         $(this).removeClass('btn-secondary').addClass('btn-primary');
         $('#set_type_destination').removeClass('btn-primary').addClass('btn-secondary');
+        $('#set_type_srt').removeClass('btn-primary').addClass('btn-secondary');
     });
     $('#set_type_destination').click(function(e) {
         $('#id_pass_type').val("2");
         $('#id_destinationTeacher').hide();
         $('#destinationTeacherLabel').hide();
         $('#id_location').show();
+        $('#id_session').hide();
+        $('#sessionLabel').hide();
         $(this).removeClass('btn-secondary').addClass('btn-primary');
         $('#set_type_teacher').removeClass('btn-primary').addClass('btn-secondary');
+        $('#set_type_srt').removeClass('btn-primary').addClass('btn-secondary');
+    });
+    $('#set_type_srt').click(function(e) {
+        $('#id_pass_type').val("3");
+        $('#id_destinationTeacher').show();
+        $('#destinationTeacherLabel').show();
+        $('#id_location').hide();
+        $('#id_session').show();
+        $('#sessionLabel').show();
+        $(this).removeClass('btn-secondary').addClass('btn-primary');
+        $('#set_type_teacher').removeClass('btn-primary').addClass('btn-secondary');
+        $('#set_type_destination').removeClass('btn-primary').addClass('btn-secondary');
     });
     $(document).ready(function() {
         var d = new Date();
         $('#id_start').val(d.getHours()+":"+d.getMinutes());
         $('#id_end').val(d.getHours()+1+":"+d.getMinutes());
+        {# Hide things that should be hidden initially #}
+        $('#id_location').hide();
+        $('#id_session').hide();
+        $('#sessionLabel').hide();
     });
 </script>
