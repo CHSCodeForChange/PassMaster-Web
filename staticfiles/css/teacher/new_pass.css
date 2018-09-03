@@ -1,0 +1,37 @@
+.card {
+    background-color: white !important;
+}
+
+.card input {
+    background-color: white !important;
+    border-style: solid;
+    border-color: #888 !important;
+    border-width: thin;
+    color: black !important;
+}
+
+.card input::placeholder {
+    color: black !important;
+}
+
+.card select {
+    background-color: white !important;
+    border-style: solid;
+    border-color: #888 !important;
+    border-width: thin;
+    color: black !important;
+}
+
+.card select::placeholder {
+    color: black !important;
+}
+
+.btn-circle button {
+    height: 10vw !important;
+    width: 10vw !important;
+    border-radius: 250px;
+}
+
+.form-label {
+    color: #5c98f9;
+}

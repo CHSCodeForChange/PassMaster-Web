@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="/static/css/student/request_pass.css">
+{{ request_form.media.css }}
 
 {% load static %}
+
 <div class="card card-body card-form" style="width: 100%;">
     <div class="row mb-4">
         <div class="col-md-4">
@@ -90,9 +92,10 @@
 
 {% block footer %}
     <script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
-
-    {{ form.media }}
 {% endblock %}
+
+{{ request_form.media.js }}
+
 
 <script>
     $('#set_type_teacher').click(function(e) {
@@ -132,7 +135,7 @@
         var d = new Date();
         $('#id_start').val(d.getHours()+":"+d.getMinutes());
         $('#id_end').val(d.getHours()+1+":"+d.getMinutes());
-        {# Hide things that should be hidden initially #}
+        // {# Hide things that should be hidden initially #}
         $('#id_location').hide();
         $('#id_session').hide();
         $('#sessionLabel').hide();

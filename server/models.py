@@ -280,7 +280,8 @@ class Student(models.Model):
 
 class Teacher(models.Model):
 	profile = models.OneToOneField('accounts.Profile', on_delete=models.CASCADE)
-	idName = models.CharField(max_length=250, default='stuff')
+	name = models.CharField(max_length=250, default='stuff')
+	
 
 	def __str__(self):
 		return self.profile.user.username

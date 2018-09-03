@@ -1,0 +1,16 @@
+.pass-card {
+	border-radius: 25px;
+	height: 40vh;
+	width: 50vw !important;
+	float: left;
+	margin-right: 20px;
+}
+
+.pass-card .card-title {
+	font-size: 2vw;
+}
+
+.list-group-item {
+	border-radius: 25px;
+	background-color: transparent !important;
+}

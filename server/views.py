@@ -117,22 +117,6 @@ def requestPass(request):
 			return redirect('/student')
 		return render(request, 'student/request_pass.html', {'form': form})
 
-
-@login_required
-def requestTeacherPass(request):
-	if request.method == 'GET':
-		form = TeacherPassForm()
-		return render(request, 'student/test_request.html', {'form': form})
-	else:
-		form = TeacherPassForm(request.POST)
-		if form.is_valid():
-			data = form.save(commit=False)
-			data.save()
-
-			return redirect('/student')
-		return render(request, 'student/test_request.html', {'form': form})
-
-
 # Teacher
 def teacher_home(request):
 	if not request.user.is_authenticated():

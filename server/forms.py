@@ -1,30 +1,25 @@
-from dal import autocomplete
-
 from django import forms
 from django.contrib.auth.models import User
 
+from django_select2.forms import Select2Widget
+
 from .models import *
-
-
-class TeacherPassForm(forms.ModelForm):
-	originTeacher = forms.ModelChoiceField(
-		queryset=Teacher.objects.all(),
-		widget=autocomplete.ModelSelect2(url='/teacher/autocomplete')
-	)
-
-	class Meta:
-		model = TeacherPass
-		fields = ('__all__')
 
 
 class RequestPassForm(forms.Form):
 	pass_type = forms.CharField(max_length=1, widget=forms.HiddenInput(), initial="1")
 
-	destinationTeacher = forms.ModelChoiceField(queryset=Teacher.objects.all(), empty_label=None,
-	                                            label="Destination teacher", required=False, widget=forms.Select(
+	destinationTeacher = forms.ModelChoiceField(
+		queryset=Teacher.objects.all(), 
+		empty_label=None,
+	    label="Destination teacher", 
+		required=False, 
+		widget=Select2Widget(
 			attrs={'type': 'text',
 			       'class': 'form-control',
-			       'placeholder': 'Destination Teacher'}))
+			       'placeholder': 'Destination Teacher'}
+		)
+	)
 
 	location = forms.CharField(max_length=12, required=False, widget=forms.TextInput(
         attrs={'type': 'text',
@@ -33,13 +28,15 @@ class RequestPassForm(forms.Form):
                'style': 'display: none;'}))
 
 	originTeacher = forms.ModelChoiceField(
-		queryset=Teacher.objects.all(),
-		# widget=autocomplete.ModelSelect2(url='/teacher/autocomplete')
-		empty_label=None, widget=forms.Select(
+		queryset=Teacher.objects.all(), 
+		empty_label=None,
+	    label="Origin teacher", 
+		widget=Select2Widget(
 			attrs={'type': 'text',
 			       'class': 'form-control',
-			       'placeholder': 'Destination Teacher'}))
-
+			       'placeholder': 'Origin Teacher'}
+		)
+	)
 
 	date = forms.DateField(label='Date', required=True, input_formats=['%Y-%m-%d'],
 	                       initial=datetime.now, widget=forms.DateInput(
@@ -55,11 +52,18 @@ class RequestPassForm(forms.Form):
 		                      attrs={'type': 'time',
 		                             'class': 'form-control'}))
 
-	reason = forms.CharField(label='', required=True, max_length=240, widget=forms.TextInput(
-        attrs={'type': 'text',
-               'class': 'form-control',
-               #    'rows': '3'
-               'placeholder': 'Reason for pass'}))
+	reason = forms.CharField(
+		label='Description', 
+		required=True, 
+		max_length=240, 
+		widget=forms.Textarea(
+			attrs={
+					'type': 'text',
+					'class': 'form-control',
+					'rows': '3',
+			}
+		)
+	)
 
 	session = forms.ChoiceField(label='Session', required=False, choices=[(1, "First"), (2, "Second"), (3, "Both")], widget=forms.Select(
 		attrs={'type': 'text',

@@ -20,6 +20,7 @@
     border-color: #888 !important;
     border-width: thin;
     color: black !important;
+    width: 100%;
 }
 
 .card select::placeholder {
@@ -34,4 +35,17 @@
 
 .form-label {
     color: #5c98f9;
+}
+
+.card textarea {
+    color: black !important;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: #888 !important;
+    border-width: thin;
+    margin-bottom: 2%;
+}
+
+.card input::placeholder {
+    color: black !important;
 }
