@@ -242,6 +242,14 @@ class SRTPass(Pass):
 			self.timeArrivedOrigin = datetime.now()
 			self.save()
 
+	def sessionStr(self):
+		if self.session == '1':
+			return "Session 1"
+		elif self.session == '2':
+			return "Session 2"
+		elif self.session == '3':
+			return "Both sessions"
+
 
 class TeacherPass(Pass):
 	objects = models.Manager()
