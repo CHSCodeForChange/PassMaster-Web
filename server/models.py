@@ -82,15 +82,24 @@ class Pass(models.Model):
 		self.save()
 
 	def leave(self):
-		self.timeLeftOrigin = datetime.now()
-		self.save()
+		# They have not left the origin
+		if self.timeLeftOrigin is None:
+			self.timeLeftOrigin = datetime.now()
+			self.save()
+		# If they have left the origin, have an srt pass for session one and have not arrived back in their home room
+		elif self.is_srt_pass() and self.srtpass.session == '1' and self.srtpass.timeArrivedDestination is not None:
+			self.srtpass.timeLeftDestination = datetime.now()
+			self.save()
 
 	def arrive(self):
-		self.timeArrivedDestination = datetime.now()
-		self.save()
-
-	# def return(self):
-	#    self.timeReturned = datetime.now()
+		# If they have not arrived at the destination yet
+		if self.timeArrivedDestination is None:
+			self.timeArrivedDestination = datetime.now()
+			self.save()
+		# If they have left the destination, have an srt pass for session one and have not yet arrived back at their home room
+		elif self.is_srt_pass() and self.srtpass.session == '1' and self.srtpass.timeLeftDestination is not None:
+			self.srtpass.timeArrivedOrigin = datetime.now()
+			self.save()
 
 	def has_left(self):
 		return self.timeLeftOrigin is not None
@@ -180,7 +189,7 @@ class Pass(models.Model):
 		profile = user.profile
 		if profile.is_teacher:
 			teacher = profile.teacher
-			return Pass.objects.filter(approved=True, timeArrivedDestination=None, teacherpass__originTeacher=teacher)
+			return Pass.objects.filter(approved=True, timeArrivedDestination=None, originTeacher=teacher)
 		else:
 			return None
 
@@ -289,7 +298,7 @@ class Student(models.Model):
 class Teacher(models.Model):
 	profile = models.OneToOneField('accounts.Profile', on_delete=models.CASCADE)
 	name = models.CharField(max_length=250, default='stuff')
-
+	
 
 	def __str__(self):
 		return self.profile.user.username
