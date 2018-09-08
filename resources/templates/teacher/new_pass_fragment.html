@@ -1,4 +1,8 @@
 <link rel="stylesheet" href="/static/css/teacher/new_pass.css">
+
+{{ create_form.media.css }}
+{% load static %}
+
 <div class="card card-body card-form" style="width: 100%;">
     <div class="row mb-4">
         <div class="col-md-4">
@@ -89,6 +93,13 @@
         </div>
     </form>
 </div>
+
+
+{% block footer %}
+    <script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
+{% endblock %}
+
+{{ create_form.media.js }}
 
 <script>
     $('#set_type_teacher').click(function(e) {

@@ -96,15 +96,25 @@ class RequestPassForm(forms.Form):
 class CreatePassForm(forms.Form):
 	pass_type = forms.CharField(max_length=1, widget=forms.HiddenInput(), initial="1")
 
-	destinationTeacher = forms.ModelChoiceField(queryset=Teacher.objects.all(), empty_label=None, label="Destination Teacher", required=False, widget=forms.Select(
-		attrs={'type': 'text',
-		       'class': 'form-control',
-		       'placeholder': 'Destination Teacher'}))
+	# destinationTeacher = forms.ModelChoiceField(queryset=Teacher.objects.all(), empty_label=None, label="Destination Teacher", required=False, widget=forms.Select(
+	# 	attrs={'type': 'text',
+	# 	       'class': 'form-control',
+	# 	       'placeholder': 'Destination Teacher'}))
 
-	originTeacher = forms.ModelChoiceField(queryset=Teacher.objects.all(), empty_label=None, label="Origin Teacher", required=False, widget=forms.Select(
-		attrs={'type': 'text',
-		       'class': 'form-control',
-		       'placeholder': 'Origin Teacher'}))
+	originTeacher = forms.ModelChoiceField(
+		queryset=Teacher.objects.all(), 
+		empty_label=None,
+	    label="Origin teacher", 
+		widget=Select2Widget()
+	)
+
+	destinationTeacher = forms.ModelChoiceField(
+		queryset=Teacher.objects.all(), 
+		empty_label=None,
+	    label="Destination teacher", 
+		widget=Select2Widget()
+	)
+	
 
 	location = forms.CharField(max_length=12, required=False, widget=forms.TextInput(
 		attrs={'type': 'text',
