@@ -180,7 +180,7 @@ class Pass(models.Model):
 		profile = user.profile
 		if profile.is_teacher:
 			teacher = profile.teacher
-			return Pass.objects.filter(approved=True, timeArrivedDestination=None, originTeacher=teacher)
+			return Pass.objects.filter(approved=True, timeArrivedDestination=None, teacherpass__originTeacher=teacher)
 		else:
 			return None
 
@@ -289,7 +289,7 @@ class Student(models.Model):
 class Teacher(models.Model):
 	profile = models.OneToOneField('accounts.Profile', on_delete=models.CASCADE)
 	name = models.CharField(max_length=250, default='stuff')
-	
+
 
 	def __str__(self):
 		return self.profile.user.username
