@@ -31,11 +31,7 @@ class RequestPassForm(forms.Form):
 		queryset=Teacher.objects.all(), 
 		empty_label=None,
 	    label="Origin teacher", 
-		widget=Select2Widget(
-			attrs={'type': 'text',
-			       'class': 'form-control',
-			       'placeholder': 'Origin Teacher'}
-		)
+		widget=Select2Widget()
 	)
 
 	date = forms.DateField(label='Date', required=True, input_formats=['%Y-%m-%d'],
