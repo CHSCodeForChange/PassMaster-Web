@@ -15,62 +15,6 @@ from .models import Profile
 
 
 # Redirects to the profile page
-def home(request):
-    redirect('accounts/profile')
-
-# The profile page for the current user
-def profile(request):
-    if request.user.is_authenticated():
-        user = request.user
-        profile = user.profile
-
-        return render(request, "accounts/profile.html", {'user': user, 'profile': profile, 'this_user': True})
-    else:
-        return redirect('/login')
-
-def other_profile(request, user_id):
-    user = User.objects.get(id=user_id)
-    if (user != request.user):
-        profile = Profile.objects.get(user=user)
-        groups = Group.get_is_member_list(user)
-        feed_entries = Feed_Entry.objects.filter(user=request.user).order_by('-datetime')[:10]
-        return render(request, 'accounts/profile.html', {'user':user, 'profile':profile,'feed_entries':feed_entries, 'this_user':False, 'groups':groups})
-    else:
-        return redirect('/accounts/profile')
-
-def edit_profile(request):
-    profile = request.user.profile
-    if request.POST:
-        form = EditProfileForm(request.POST, profile=profile)
-        form2 = EditUserForm(request.POST, instance=request.user)
-        if form.is_valid() and form2.is_valid():
-            profile.bio = form.save(commit=False)
-            profile.save()
-            form2.save()
-
-            alert = Alert(user=request.user, text="Profile updated", color=Alert.getYellow())
-            alert.saveIP(request)
-
-            return redirect('/accounts/profile/')
-    form = EditProfileForm(initial={'bio':profile.bio})
-    form2 = EditUserForm(instance=request.user)
-
-
-    return render(request, 'accounts/edit_profile.html', {"form":form, 'profile':profile, "form2": form2})
-
-def edit_password(request):
-    user = request.user
-    form = PasswordChangeForm(user=request.user, data=request.POST)
-    if request.POST:
-        if form.is_valid():
-            form.save()
-            update_session_auth_hash(request, user)
-            alert = Alert(user=request.user, text="Password updated", color=Alert.getYellow())
-            alert.saveIP(request)
-
-            return redirect('/accounts/profile')
-
-    return render(request, 'accounts/edit_password.html', {"form":form})
 
 # The signup page
 def signup(request):
