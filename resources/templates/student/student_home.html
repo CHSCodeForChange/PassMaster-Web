@@ -1,10 +1,12 @@
 {% include 'header.html' %}
+
 {% include 'navbar.html' %}
 
-<link rel="stylesheet" href="/static/css/student/home.css">
+{% load static %}
+
+<link rel="stylesheet" href="/static/css/teacher/home.css">
 
 <body>
-
 <h1 class="display-1">Passes
     <div class="expand" style="display: inline-block">
         <a class="plus" data-toggle="collapse" href="#collapseNewPassForm" aria-pressed="true" role="button" aria-expanded="false" aria-controls="collapseNewPassForm">+</a>
@@ -13,41 +15,82 @@
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10 collapse" id="collapseNewPassForm">
-        {% include 'student/request_pass_fragment.html' %}
+        {% include 'teacher/new_pass_fragment.html' %}
     </div>
 </div>
 
-{% if active %}
-    <h1 class="pass-type">Active</h1>
-    <div class="card-container">
-        {% for pass in active %}
-                {% include 'student/student_pass_fragment.html' %}
-        {% endfor %}
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+        <a class="btn btn-primary btn-block" id="active-button" href="#">Active</a>
     </div>
-{% endif %}
-
-{% if pending %}
-    <h1 class="pass-type">Pending</h1>
-    <div class="card-container">
-        {% for pass in pending %}
-            {% include 'student/student_pass_fragment.html' %}
-        {% endfor %}
+    <div class="col-md-4" style="padding-left: 65px; padding-right:65px">
+        <a class="btn btn-secondary btn-block" id="pending-button" href="#">Pending</a>
     </div>
-{% endif %}
-
-{% if old %}
-    <h1 class="pass-type">Old</h1>
-    <div class="card-container">
-        {% for pass in old %}
-            {% include 'student/student_pass_fragment.html' %}
-        {% endfor %}
+    <div class="col-md-3">
+        <a class="btn btn-secondary btn-block" id="old-button" href="#">Old</a>
     </div>
-{% endif %}
+    <div class="col-md-1"></div>
 
-{% if active and pending and old %}
-    <h1 class="pass-type text-center mt-5">No passes. Add one with the plus button above or wait for a teacher to send one.</h1>
-{% endif %}
+</div>
+
+<div id="active-fragment">
+    {% include 'student/active_fragment.html' %}
+</div>
+
+<div id="pending-fragment" style="display: none;">
+    {% include 'student/pending_fragment.html' %}
+</div>
+
+<div id="old-fragment" style="display: none;">
+    {% include 'student/old_fragment.html' %}
+</div>
 
 </body>
 
 {% include 'scripts.html' %}
+<script>
+    $(document).ready(function() {
+        var expanded = false;
+        $('.expand').click(function() {
+            if (expanded){
+                $(this).css({'transform' : 'rotate('+ 0 +'deg)'});
+            } else {
+                $(this).css({'transform' : 'rotate('+ 45 +'deg)'});
+            }
+            expanded = !expanded;
+        });
+    });
+    var $active_button = $('#active-button');
+    var $pending_button = $('#pending-button');
+    var $old_button = $('#old-button');
+
+    var $active_fragment = $('#active-fragment');
+    var $pending_fragment = $('#pending-fragment');
+    var $old_fragment = $('#old-fragment');
+    function activate(elem, frag) {
+        frag.show();
+        elem.removeClass('btn-secondary');
+        elem.addClass('btn-primary');
+    }
+    function deactivate(elem, frag) {
+        frag.hide();
+        elem.addClass('btn-secondary');
+        elem.removeClass('btn-primary');
+    }
+    $active_button.click(function(e){
+        activate($active_button, $active_fragment);
+        deactivate($pending_button, $pending_fragment);
+        deactivate($old_button, $old_fragment);
+    });
+    $pending_button.click(function(e){
+      deactivate($active_button, $active_fragment);
+      activate($pending_button, $pending_fragment);
+      deactivate($old_button, $old_fragment);
+    });
+    $old_button.click(function(e){
+      deactivate($active_button, $active_fragment);
+      deactivate($pending_button, $pending_fragment);
+      activate($old_button, $old_fragment);
+    });
+</script>
