@@ -1,9 +1,6 @@
-
 from datetime import datetime, time
-
 from django.db import models
 from django.db.models import Q
-
 
 # Create your models here.
 class Pass(models.Model):

@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="506317a0-fd18-4e84-b52a-90e080b347ca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/PassMaster.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PassMaster.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PassMaster/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/PassMaster/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/Authenticator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,32 +96,136 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="988">
-              <caret line="216" column="55" selection-start-line="216" selection-start-column="55" selection-end-line="216" selection-end-column="55" />
+            <state relative-caret-position="34">
+              <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
               <folding>
-                <element signature="e#1#36#0" expanded="true" />
+                <element signature="e#0#35#0" expanded="true" />
+                <element signature="e#154#5716#0" />
+                <element signature="e#952#1073#0" />
+                <element signature="e#1192#1272#0" />
+                <element signature="e#1333#1494#0" />
+                <element signature="e#1527#1593#0" />
+                <element signature="e#1621#1682#0" />
+                <element signature="e#1714#1779#0" />
+                <element signature="e#1801#1970#0" />
+                <element signature="e#2029#2063#0" />
+                <element signature="e#2085#2496#0" />
+                <element signature="e#2154#2205#0" />
+                <element signature="e#2432#2496#0" />
+                <element signature="e#2519#2968#0" />
+                <element signature="e#2614#2673#0" />
+                <element signature="e#2906#2968#0" />
+                <element signature="e#2993#3031#0" />
+                <element signature="e#3059#3105#0" />
+                <element signature="e#3140#3176#0" />
+                <element signature="e#3203#3424#0" />
+                <element signature="e#3238#3311#0" />
+                <element signature="e#3351#3424#0" />
+                <element signature="e#3459#3585#0" />
+                <element signature="e#3643#3833#0" />
+                <element signature="e#3694#3810#0" />
+                <element signature="e#3892#4083#0" />
+                <element signature="e#3943#4060#0" />
+                <element signature="e#4138#4341#0" />
+                <element signature="e#4189#4318#0" />
+                <element signature="e#4376#4565#0" />
+                <element signature="e#4627#4801#0" />
+                <element signature="e#4678#4777#0" />
+                <element signature="e#4856#5140#0" />
+                <element signature="e#4907#5117#0" />
+                <element signature="e#5208#5452#0" />
+                <element signature="e#5259#5429#0" />
+                <element signature="e#5520#5716#0" />
+                <element signature="e#5571#5693#0" />
+                <element signature="e#5746#5839#0" />
+                <element signature="e#5864#7651#0" />
+                <element signature="e#6189#6277#0" />
+                <element signature="e#6518#7249#0" />
+                <element signature="e#6540#6631#0" />
+                <element signature="e#6658#6750#0" />
+                <element signature="e#6777#6868#0" />
+                <element signature="e#7282#7365#0" />
+                <element signature="e#7309#7365#0" />
+                <element signature="e#7394#7475#0" />
+                <element signature="e#7421#7475#0" />
+                <element signature="e#7502#7651#0" />
+                <element signature="e#7680#7854#0" />
+                <element signature="e#7893#7969#0" />
+                <element signature="e#8002#8400#0" />
+                <element signature="e#8314#8347#0" />
+                <element signature="e#8376#8400#0" />
+                <element signature="e#8433#8659#0" />
+                <element signature="e#8593#8626#0" />
+                <element signature="e#8655#8659#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/templates/navbar.html">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/accounts/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+            <state relative-caret-position="102">
+              <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+                <element signature="e#293#348#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/templates/teacher/new_pass_fragment.html">
+      <file leaf-file-name="api.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
+            <state relative-caret-position="204">
+              <caret line="12" column="36" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="9" column="55" lean-forward="true" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PassMaster/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1139">
+              <caret line="143" column="5" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
+              <folding>
+                <element signature="e#0#309#1" />
+                <element signature="e#490#552#0" />
+                <element signature="e#904#1207#0" />
+                <element signature="e#1223#1622#0" />
+                <element signature="e#1670#2162#0" />
+                <element signature="e#1676#2159#0" />
+                <element signature="e#1834#2152#0" />
+                <element signature="e#1870#2141#0" />
+                <element signature="e#2215#2225#0" />
+                <element signature="e#2304#2432#0" />
+                <element signature="e#2321#2430#0" />
+                <element signature="e#2435#2456#0" />
+                <element signature="e#2565#2961#0" />
+                <element signature="e#2571#2670#0" />
+                <element signature="e#2676#2765#0" />
+                <element signature="e#2771#2861#0" />
+                <element signature="e#2867#2958#0" />
+                <element signature="e#2964#2986#0" />
+                <element signature="e#3136#3176#0" />
+                <element signature="e#3282#3348#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,6 +237,7 @@
       <list>
         <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Setup Script" />
       </list>
     </option>
   </component>
@@ -217,7 +330,6 @@
         <option value="$PROJECT_DIR$/Student/views.py" />
         <option value="$PROJECT_DIR$/Teacher/views.py" />
         <option value="$PROJECT_DIR$/Passes/views.py" />
-        <option value="$PROJECT_DIR$/accounts/models.py" />
         <option value="$PROJECT_DIR$/Passes/models.py" />
         <option value="$PROJECT_DIR$/Student/forms.py" />
         <option value="$PROJECT_DIR$/PassMaster/views.py" />
@@ -228,15 +340,16 @@
         <option value="$PROJECT_DIR$/Passes/urls.py" />
         <option value="$PROJECT_DIR$/passes/views.py" />
         <option value="$PROJECT_DIR$/passes/forms.py" />
-        <option value="$PROJECT_DIR$/PassMaster/settings.py" />
         <option value="$PROJECT_DIR$/static/css/teacher/home.css" />
         <option value="$PROJECT_DIR$/static/css/header.css" />
-        <option value="$PROJECT_DIR$/server/models.py" />
         <option value="$PROJECT_DIR$/resources/templates/teacher/new_pass_fragment.html" />
         <option value="$PROJECT_DIR$/resources/templates/student/request_pass_fragment.html" />
         <option value="$PROJECT_DIR$/server/forms.py" />
         <option value="$PROJECT_DIR$/server/urls.py" />
         <option value="$PROJECT_DIR$/resources/templates/navbar.html" />
+        <option value="$PROJECT_DIR$/PassMaster/settings.py" />
+        <option value="$PROJECT_DIR$/server/models.py" />
+        <option value="$PROJECT_DIR$/accounts/models.py" />
       </list>
     </option>
   </component>
@@ -252,12 +365,12 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+    <option name="x" value="-11" />
+    <option name="width" value="981" />
+    <option name="height" value="1041" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -265,52 +378,23 @@
         <subPane>
           <expand>
             <path>
-              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
+              <item name="PassMaster-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PassMaster-web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
+              <item name="PassMaster-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PassMaster-web" type="462c0819:PsiDirectoryNode" />
               <item name="accounts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
-              <item name="chat" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
-              <item name="passes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
-              <item name="passes" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
+              <item name="PassMaster-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PassMaster-web" type="462c0819:PsiDirectoryNode" />
               <item name="PassMaster" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="accounts" type="462c0819:PsiDirectoryNode" />
+              <item name="PassMaster-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PassMaster-web" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -385,7 +469,7 @@
     <property name="SearchEverywhereHistoryKey" value="navbar.html&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/navbar.html&#10;header.html&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/header.html&#10;urls&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/server/urls.py&#10;request&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/student/request_pass_fragment.html&#10;models&#9;null&#9;null&#10;forms&#9;null&#9;null&#10;fragment&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/teacher/new_pass_fragment.html&#10;sett&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/PassMaster/settings.py&#10;settinhg&#9;null&#9;null&#10;views&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/passes/views.py&#10;setting&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/PassMaster/settings.py&#10;passes/urls&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/Passes/urls.py&#10;teacher&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/teacher/teacher_home.html&#10;login&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/accounts/login.html&#10;student&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/student/student_pass_fragment.html&#10;teacherhome&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/teacher/teacher_home.html&#10;header&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/static/css/header.css&#10;studentpa&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/student/student_pass_fragment.html&#10;stude&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/student/student_home.html&#10;Reques&#9;null&#9;null&#10;Creat&#9;null&#9;null&#10;settings&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/PassMaster/settings.py&#10;RequestPassForm&#9;null&#9;null&#10;student/vie&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/Student/views.py" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/PassMaster/settings.py" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.django.DjangoModulesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -432,7 +516,6 @@
       <option name="runNoReload" value="false" />
       <option name="useCustomRunCommand" value="false" />
       <option name="customRunCommand" value="" />
-      <method v="2" />
     </configuration>
   </component>
   <component name="SvnConfiguration">
@@ -499,30 +582,31 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1233" height="735" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15838926" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30680174" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.06946454" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.22720695" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.06946454" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32907802" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.30546623" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.2266881" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15832649" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="4" weight="0.3295302" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.3295302" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="manage.py@PassMaster" weight="0.329582" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" weight="0.3295302" />
-      <window_info anchor="right" id="Database" order="4" weight="0.3295302" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,6 +652,13 @@
     <option name="LAST_COMMIT_MESSAGE" value="Fixed database" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/resources/templates/navbar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/admin.py" />
     <entry file="file://$PROJECT_DIR$/passes/Authenticator.py" />
     <entry file="file://$PROJECT_DIR$/api/models.py" />
@@ -576,12 +667,6 @@
     <entry file="file://$PROJECT_DIR$/passes/serializers.py" />
     <entry file="file://$PROJECT_DIR$/api/urls.py" />
     <entry file="file://$PROJECT_DIR$/api/serializers.py" />
-    <entry file="file://$PROJECT_DIR$/chat/views.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chat/models.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/chat/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -600,31 +685,15 @@
     <entry file="file://$PROJECT_DIR$/Teacher/forms.py" />
     <entry file="file://$PROJECT_DIR$/Teacher/urls.py" />
     <entry file="file://$PROJECT_DIR$/Teacher/views.py" />
-    <entry file="file://$USER_HOME$/.virtualenvs/PassMaster-Web-GKvNrj1e/Lib/site-packages/django/db/models/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="117" selection-start-line="117" selection-end-line="117" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/PassMaster-Web-GKvNrj1e/Lib/site-packages/django/db/models/base.py" />
     <entry file="file://$PROJECT_DIR$/Student/forms.py" />
     <entry file="file://$PROJECT_DIR$/Teacher/models.py" />
-    <entry file="file://$PROJECT_DIR$/accounts/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PassMaster/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="106">
           <caret line="26" column="11" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassMaster/wsgi.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/passes/models.py" />
     <entry file="file://$PROJECT_DIR$/passes/api.py" />
@@ -644,13 +713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="283">
           <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassMaster/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="37" column="30" lean-forward="true" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -696,13 +758,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
@@ -717,30 +772,153 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/templates/teacher/new_pass_fragment.html">
+    <entry file="file://$PROJECT_DIR$/resources/templates/navbar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
+        <state relative-caret-position="238">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/templates/header.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/models.py">
+    <entry file="file://$PROJECT_DIR$/resources/templates/teacher/new_pass_fragment.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="988">
-          <caret line="216" column="55" selection-start-line="216" selection-start-column="55" selection-end-line="216" selection-end-column="55" />
+        <state relative-caret-position="17">
+          <caret line="40" column="28" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/Authenticator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
-            <element signature="e#1#36#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/templates/navbar.html">
+    <entry file="file://$PROJECT_DIR$/PassMaster/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+        <state relative-caret-position="1139">
+          <caret line="143" column="5" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#309#1" />
+            <element signature="e#490#552#0" />
+            <element signature="e#904#1207#0" />
+            <element signature="e#1223#1622#0" />
+            <element signature="e#1670#2162#0" />
+            <element signature="e#1676#2159#0" />
+            <element signature="e#1834#2152#0" />
+            <element signature="e#1870#2141#0" />
+            <element signature="e#2215#2225#0" />
+            <element signature="e#2304#2432#0" />
+            <element signature="e#2321#2430#0" />
+            <element signature="e#2435#2456#0" />
+            <element signature="e#2565#2961#0" />
+            <element signature="e#2571#2670#0" />
+            <element signature="e#2676#2765#0" />
+            <element signature="e#2771#2861#0" />
+            <element signature="e#2867#2958#0" />
+            <element signature="e#2964#2986#0" />
+            <element signature="e#3136#3176#0" />
+            <element signature="e#3282#3348#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#154#5716#0" />
+            <element signature="e#952#1073#0" />
+            <element signature="e#1192#1272#0" />
+            <element signature="e#1333#1494#0" />
+            <element signature="e#1527#1593#0" />
+            <element signature="e#1621#1682#0" />
+            <element signature="e#1714#1779#0" />
+            <element signature="e#1801#1970#0" />
+            <element signature="e#2029#2063#0" />
+            <element signature="e#2085#2496#0" />
+            <element signature="e#2154#2205#0" />
+            <element signature="e#2432#2496#0" />
+            <element signature="e#2519#2968#0" />
+            <element signature="e#2614#2673#0" />
+            <element signature="e#2906#2968#0" />
+            <element signature="e#2993#3031#0" />
+            <element signature="e#3059#3105#0" />
+            <element signature="e#3140#3176#0" />
+            <element signature="e#3203#3424#0" />
+            <element signature="e#3238#3311#0" />
+            <element signature="e#3351#3424#0" />
+            <element signature="e#3459#3585#0" />
+            <element signature="e#3643#3833#0" />
+            <element signature="e#3694#3810#0" />
+            <element signature="e#3892#4083#0" />
+            <element signature="e#3943#4060#0" />
+            <element signature="e#4138#4341#0" />
+            <element signature="e#4189#4318#0" />
+            <element signature="e#4376#4565#0" />
+            <element signature="e#4627#4801#0" />
+            <element signature="e#4678#4777#0" />
+            <element signature="e#4856#5140#0" />
+            <element signature="e#4907#5117#0" />
+            <element signature="e#5208#5452#0" />
+            <element signature="e#5259#5429#0" />
+            <element signature="e#5520#5716#0" />
+            <element signature="e#5571#5693#0" />
+            <element signature="e#5746#5839#0" />
+            <element signature="e#5864#7651#0" />
+            <element signature="e#6189#6277#0" />
+            <element signature="e#6518#7249#0" />
+            <element signature="e#6540#6631#0" />
+            <element signature="e#6658#6750#0" />
+            <element signature="e#6777#6868#0" />
+            <element signature="e#7282#7365#0" />
+            <element signature="e#7309#7365#0" />
+            <element signature="e#7394#7475#0" />
+            <element signature="e#7421#7475#0" />
+            <element signature="e#7502#7651#0" />
+            <element signature="e#7680#7854#0" />
+            <element signature="e#7893#7969#0" />
+            <element signature="e#8002#8400#0" />
+            <element signature="e#8314#8347#0" />
+            <element signature="e#8376#8400#0" />
+            <element signature="e#8433#8659#0" />
+            <element signature="e#8593#8626#0" />
+            <element signature="e#8655#8659#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+            <element signature="e#293#348#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="9" column="55" lean-forward="true" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="36" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
