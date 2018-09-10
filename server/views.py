@@ -4,77 +4,6 @@ from django.shortcuts import render, redirect
 from .forms import *
 
 
-def requestPass(request):
-	pass
-
-
-def editPass(request):
-	pass
-
-
-def approvePass(request, pass_id):
-	# check if the logged in user is a teacher, is assigned ot the pass, and that the pass is not approved yet
-	if request.user.profile.is_teacher():
-		# get pass that was given
-		currPass = Pass.objects.get(id=pass_id)
-
-		if request.user.profile.Teacher == currPass.originTeacher:
-			if not currPass.approved:
-				currPass.approve()  # set the pass to approved
-				print("Approved")
-			else:
-				print("This user is already approved")
-		else:
-			print("You are not assigned to this pass")
-	else:
-		print("You are not a teacher")
-
-
-def leave(request, pass_id):
-	# check if the logged in user is a teacher
-	if request.user.profile.is_teacher():
-		# get pass that was given
-		currPass = Pass.objects.get(id=pass_id)
-
-		# check if the teacher is assgineed to the pass
-		if request.user.profile.Teacher == currPass.originTeacher:
-
-			# check if the pass is approved
-			if currPass.approved:
-				currPass.leave()  # set the pass to approved
-				print("Left")
-			else:
-				print("This user is already approved")
-		else:
-			print("You are not assigned to this pass")
-	else:
-		print("You are not a teacher")
-
-
-def arrive(request, pass_id):
-	# check if the logged in user is a teacher
-	if request.user.profile.is_teacher():
-		# get pass that was given
-		currPass = Pass.objects.get(id=pass_id)
-
-		# check if the teacher is assgineed to the pass
-		if request.user.profile.Teacher == currPass.originTeacher:
-
-			# check if the pass is approved
-			if currPass.approved:
-				currPass.arrive()  # set the pass to approved
-				print("Arrived")
-			else:
-				print("This user is already approved")
-		else:
-			print("You are not assigned to this pass")
-	else:
-		print("You are not a teacher")
-
-
-# Student
-
-
 def student_home(request):
 	if not request.user.is_authenticated():
 		return redirect('/login')
@@ -100,24 +29,6 @@ def student_home(request):
 		               'request_form': request_form})
 
 
-@login_required
-def requestPass(request):
-	if not request.user.is_authenticated():
-		return redirect('/login')
-
-	if request.method == 'GET':
-		form = RequestPassForm(user=request.user)
-		return render(request, 'student/request_pass.html', {'form': form})
-	else:
-		form = RequestPassForm(request.POST, user=request.user)
-		if form.is_valid():
-			data = form.save(commit=False)
-			data.save()
-
-			return redirect('/student')
-		return render(request, 'student/request_pass.html', {'form': form})
-
-# Teacher
 def teacher_home(request):
 	if not request.user.is_authenticated():
 		return redirect('/login')
@@ -154,8 +65,7 @@ def approve(request, pass_id):
 			pass_obj = Pass.objects.get(id=pass_id)
 		except Pass.DoesNotExist:
 			return redirect('/teacher')
-		if pass_obj.originTeacher == request.user.profile.teacher:
-			pass_obj.approve()
+		pass_obj.approve(request.profile.teacher)
 		return redirect('/teacher')
 
 
@@ -167,11 +77,10 @@ def checkin(request, pass_id):
 		return redirect('/student')
 	else:
 		try:
-			pass_obj = TeacherPass.objects.get(id=pass_id)
-		except TeacherPass.DoesNotExist:
+			pass_obj = Pass.objects.get(id=pass_id)
+		except Pass.DoesNotExist:
 			return redirect('/teacher')
-		if pass_obj.destinationTeacher == request.user.profile.teacher:
-			pass_obj.arrive()
+		pass_obj.arrive(request.user.profile.teacher)
 		return redirect('/teacher')
 
 
@@ -183,9 +92,8 @@ def checkout(request, pass_id):
 		return redirect('/student')
 	else:
 		try:
-			pass_obj = TeacherPass.objects.get(id=pass_id)
-		except TeacherPass.DoesNotExist:
+			pass_obj = Pass.objects.get(id=pass_id)
+		except Pass.DoesNotExist:
 			return redirect('/teacher')
-		if pass_obj.originTeacher == request.user.profile.teacher:
-			pass_obj.leave()
+		pass_obj.leave(request.user.profile.teacher)
 		return redirect('/teacher')

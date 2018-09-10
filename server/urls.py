@@ -20,7 +20,6 @@ api = [
 ]
 
 student = [
-	url(r'^student/request/', views.requestPass),
 	url(r'^student/$', views.student_home, name='student_home'),
 ]
 

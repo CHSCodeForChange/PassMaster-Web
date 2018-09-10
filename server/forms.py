@@ -3,13 +3,14 @@ from django.contrib.auth.models import User
 from django_select2.forms import Select2Widget
 from .models import *
 
+
 class RequestPassForm(forms.Form):
 	pass_type = forms.CharField(max_length=1, widget=forms.HiddenInput(), initial="1")
 
 	destinationTeacher = forms.ModelChoiceField(
 		queryset=Teacher.objects.all(),
 		empty_label=None,
-	    label="Destination teacher",
+		label="Destination teacher",
 		required=False,
 		widget=Select2Widget(
 			attrs={'type': 'text',
@@ -19,15 +20,15 @@ class RequestPassForm(forms.Form):
 	)
 
 	location = forms.CharField(max_length=12, required=False, widget=forms.TextInput(
-        attrs={'type': 'text',
-               'class': 'form-control',
-               'placeholder': 'Location',
-               'style': 'display: none;'}))
+		attrs={'type': 'text',
+		       'class': 'form-control',
+		       'placeholder': 'Location',
+		       'style': 'display: none;'}))
 
 	originTeacher = forms.ModelChoiceField(
 		queryset=Teacher.objects.all(),
 		empty_label=None,
-	    label="Origin teacher",
+		label="Origin teacher",
 		widget=Select2Widget()
 	)
 
@@ -51,18 +52,19 @@ class RequestPassForm(forms.Form):
 		max_length=240,
 		widget=forms.Textarea(
 			attrs={
-					'type': 'text',
-					'class': 'form-control',
-					'rows': '3',
+				'type': 'text',
+				'class': 'form-control',
+				'rows': '3',
 			}
 		)
 	)
 
-	session = forms.ChoiceField(label='Session', required=False, choices=[(1, "First"), (2, "Second"), (3, "Both")], widget=forms.Select(
-		attrs={'type': 'text',
-		       'class': 'form-control',
-		       'placeholder': 'Session',
-		       'style': 'display: none;'}))
+	session = forms.ChoiceField(label='Session', required=False, choices=[(1, "First"), (2, "Second"), (3, "Both")],
+	                            widget=forms.Select(
+		                            attrs={'type': 'text',
+		                                   'class': 'form-control',
+		                                   'placeholder': 'Session',
+		                                   'style': 'display: none;'}))
 
 	user = User()
 
@@ -93,25 +95,19 @@ class RequestPassForm(forms.Form):
 class CreatePassForm(forms.Form):
 	pass_type = forms.CharField(max_length=1, widget=forms.HiddenInput(), initial="1")
 
-	# destinationTeacher = forms.ModelChoiceField(queryset=Teacher.objects.all(), empty_label=None, label="Destination Teacher", required=False, widget=forms.Select(
-	# 	attrs={'type': 'text',
-	# 	       'class': 'form-control',
-	# 	       'placeholder': 'Destination Teacher'}))
-
 	originTeacher = forms.ModelChoiceField(
 		queryset=Teacher.objects.all(),
 		empty_label=None,
-	    label="Origin teacher",
+		label="Origin teacher",
 		widget=Select2Widget()
 	)
 
 	destinationTeacher = forms.ModelChoiceField(
 		queryset=Teacher.objects.all(),
 		empty_label=None,
-	    label="Destination teacher",
+		label="Destination teacher",
 		widget=Select2Widget()
 	)
-
 
 	location = forms.CharField(max_length=12, required=False, widget=forms.TextInput(
 		attrs={'type': 'text',
@@ -119,9 +115,10 @@ class CreatePassForm(forms.Form):
 		       'placeholder': 'Location',
 		       'style': 'display: none;'}))
 
-	students = forms.ModelMultipleChoiceField(queryset=Student.objects.all(), label="Student(s)", required=True, widget=forms.SelectMultiple(
-		attrs={'class': 'form-control',
-		       'placeholder': 'Reason for pass'}))
+	students = forms.ModelMultipleChoiceField(queryset=Student.objects.all(), label="Student(s)", required=True,
+	                                          widget=forms.SelectMultiple(
+		                                          attrs={'class': 'form-control',
+		                                                 'placeholder': 'Reason for pass'}))
 
 	date = forms.DateField(label='Date', required=True, input_formats=['%Y-%m-%d'],
 	                       initial=datetime.now, widget=forms.DateInput(
@@ -142,11 +139,12 @@ class CreatePassForm(forms.Form):
 		       'class': 'form-control',
 		       'placeholder': 'Reason for pass'}))
 
-	session = forms.ChoiceField(label='Session', required=False, choices=[(1, "First"), (2, "Second"), (3, "Both")], widget=forms.Select(
-		attrs={'type': 'text',
-		       'class': 'form-control',
-		       'placeholder': 'Session',
-		       'style': 'display: none;'}))
+	session = forms.ChoiceField(label='Session', required=False, choices=[(1, "First"), (2, "Second"), (3, "Both")],
+	                            widget=forms.Select(
+		                            attrs={'type': 'text',
+		                                   'class': 'form-control',
+		                                   'placeholder': 'Session',
+		                                   'style': 'display: none;'}))
 
 	user = User()
 
@@ -155,7 +153,6 @@ class CreatePassForm(forms.Form):
 		super(CreatePassForm, self).__init__(*args, **kwargs)
 
 	def save(self, commit=True):
-		originTeacher = Teacher.objects.get(profile=self.user.profile)
 
 		if self.cleaned_data['pass_type'] == '1':
 			for student in self.cleaned_data['students']:

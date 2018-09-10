@@ -43,7 +43,6 @@ INSTALLED_APPS = [
 
 	'accounts',
 	'server',
-	'chat',
 ]
 
 MIDDLEWARE = [

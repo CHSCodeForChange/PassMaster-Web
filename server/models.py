@@ -7,14 +7,15 @@ from django.db.models import Q
 class Pass(models.Model):
 	objects = models.Manager()
 
+	# Always needed, will be approved by destination teacher if its a teacher pass, or the origin teacher if its an other pass
 	approved = models.BooleanField(
-		default=False)  # """always needed, will be approved by destination teacher if its a teacher pass, or the origin teacher if its an other pass"""
+		default=False)
 
 	date = models.DateField(null=True, blank=True)
-	startTimeRequested = models.TimeField(null=True, blank=True)  # """always needed"""
-	endTimeRequested = models.TimeField(null=True, blank=True)  # """always needed"""
+	startTimeRequested = models.TimeField(null=True, blank=True)  # always needed
+	endTimeRequested = models.TimeField(null=True, blank=True)  # always needed
 
-	timeLeftOrigin = models.TimeField(null=True, blank=True)  # """always needed"""
+	timeLeftOrigin = models.TimeField(null=True, blank=True)  # always needed
 	timeArrivedDestination = models.TimeField(null=True, blank=True)
 
 	student = models.ForeignKey(
@@ -29,57 +30,66 @@ class Pass(models.Model):
 		related_name="pass_origin_teacher"
 	)
 
-	# """ The String description of the reason for the pass. This is mainly just for the destination teacher to know what the
-	# student will need from them. """
+	#  The String description of the reason for the pass. This is mainly just for the destination teacher to know what the
+	# student will need from them.
 	description = models.CharField(max_length=960, null=True)
 
 	def __str__(self):
-		if self.description != None:
+		if self.description is not None:
 			return self.description
 		else:
 			return 'None'
 
 	# methods related to type of pass
 	def pass_type(self):
-		if (self.is_location_pass()):
-			return 'LocationPassi'
-		elif (self.is_srt_pass()):
+		if self.is_location_pass():
+			return 'LocationPass'
+		elif self.is_srt_pass():
 			return 'SRTPass'
-		elif (self.is_teacher_pass()):
+		elif self.is_teacher_pass():
 			return 'TeacherPass'
 
 	def is_location_pass(self):
 		try:
-			return self.locationpass != None
+			return self.locationpass is not None
 		except:
 			return False
 
 	def is_srt_pass(self):
 		try:
-			return self.srtpass != None
+			return self.srtpass is not None
 		except:
 			return False
 
 	def is_teacher_pass(self):
 		try:
-			return self.teacherpass != None
+			return self.teacherpass is not None
 		except:
 			return False
 
 	def child(self):
-		if (self.is_location_pass()):
+		if self.is_location_pass():
 			return self.locationpass
-		elif (self.is_srt_pass()):
+		elif self.is_srt_pass():
 			return self.srtpass
-		elif (self.is_teacher_pass()):
+		elif self.is_teacher_pass():
 			return self.teacherpass
 
 	# methods that change pass fields
-	def approve(self):
-		self.approved = True
-		self.save()
+	def approve(self, teacher):
+		if teacher == self.originTeacher:
+			self.approved = True
+			self.save()
 
-	def leave(self):
+	def leave(self, teacher):
+		# Check permissions
+		if teacher != self.originTeacher:
+			return
+		# If the pass is a location pass and the user is the origin teacher sign them out
+		# The pass must not be signed out yet
+		if self.is_location_pass() and self.timeLeftOrigin is None:
+			self.timeLeftOrigin = datetime.now()
+			self.save()
 		# They have not left the origin
 		if self.timeLeftOrigin is None:
 			self.timeLeftOrigin = datetime.now()
@@ -89,7 +99,16 @@ class Pass(models.Model):
 			self.srtpass.timeLeftDestination = datetime.now()
 			self.save()
 
-	def arrive(self):
+	def arrive(self, teacher):
+		# If the pass is a location pass and the user is the origin teacher sign them in
+		# The pass must have been signed out but not in yet
+		if self.is_location_pass() and teacher == self.originTeacher and self.timeLeftOrigin is not None and self.timeArrivedDestination is None:
+			self.timeArrivedDestination = datetime.now()
+			self.save()
+		# Check permissions
+		# This must be done after location pass stuff because location passes use the originTeacher
+		if teacher != self.srtpass.destinationTeacher and teacher != self.teacherpass.destinationTeacher:
+			return
 		# If they have not arrived at the destination yet
 		if self.timeArrivedDestination is None:
 			self.timeArrivedDestination = datetime.now()
@@ -108,26 +127,28 @@ class Pass(models.Model):
 	def is_permitted(self, user):
 		return self in Pass.get_passes(user)
 
+	@staticmethod
 	def get_passes(user, dt=None):
 		if dt is None:
-			if (user.profile.is_student()):
+			if user.profile.is_student():
 				student = user.profile.student
 				return Pass.get_student_passes(student)
-			elif (user.profile.is_teacher()):
+			elif user.profile.is_teacher():
 				teacher = user.profile.teacher
 				return Pass.get_teacher_passes(teacher)
 		else:
-			if (user.profile.is_student()):
+			if user.profile.is_student():
 				student = user.profile.student
 				return Pass.get_student_passes(student, dt)
-			elif (user.profile.is_teacher()):
+			elif user.profile.is_teacher():
 				teacher = user.profile.teacher
 				return Pass.get_teacher_passes(teacher, dt)
 
+	@staticmethod
 	def get_student_passes(user, dt=None):
 		if dt is None:
 			return Pass.get_students_active_passes(user) | Pass.get_students_pending_passes(
-			user) | Pass.get_students_old_passes(user)
+				user) | Pass.get_students_old_passes(user)
 		else:
 			return Pass.get_students_active_passes(user, dt) | Pass.get_students_pending_passes(
 				user, dt) | Pass.get_students_old_passes(user, dt)
@@ -166,13 +187,14 @@ class Pass(models.Model):
 
 			if dt is None:
 				return Pass.objects.filter(student=student, approved=True).exclude(
-				timeArrivedDestination=None)
+					timeArrivedDestination=None)
 			else:
 				return Pass.objects.filter(student=student, approved=True, date=dt).exclude(
 					timeArrivedDestination=None)
 		else:
 			return None
 
+	@staticmethod
 	def get_teacher_passes(user, dt=None):
 		if dt is None:
 			return Pass.get_teachers_unapproved_passes(user) | Pass.get_teachers_old_passes(
