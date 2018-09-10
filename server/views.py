@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from .forms import *
 
 
+@login_required
 def student_home(request):
 	if not request.user.is_authenticated():
 		return redirect('/login')
@@ -29,6 +30,7 @@ def student_home(request):
 		               'request_form': request_form})
 
 
+@login_required
 def teacher_home(request):
 	if not request.user.is_authenticated():
 		return redirect('/login')
