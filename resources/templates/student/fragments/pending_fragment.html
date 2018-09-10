@@ -1,0 +1,9 @@
+{% if pending %}
+    <div class="card-container">
+        {% for pass in pending %}
+            {% include 'student/fragments/student_pass_fragment.html' %}
+        {% endfor %}
+    </div>
+{% else %}
+    <h1 class="pass-type text-center mt-5">No pending passes. Send a request to your teacher using the plus symbol above.</h1>
+{% endif %}

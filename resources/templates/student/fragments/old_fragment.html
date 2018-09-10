@@ -1,0 +1,9 @@
+{% if old %}
+    <div class="card-container">
+        {% for pass in old %}
+            {% include 'student/fragments/student_pass_fragment.html' %}
+        {% endfor %}
+    </div>
+{% else %}
+    <h1 class="pass-type text-center mt-5">No old passes. Use an SRT pass for one to appear here.</h1>
+{% endif %}

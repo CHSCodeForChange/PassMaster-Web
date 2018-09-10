@@ -4,8 +4,6 @@
 
 {% load static %}
 
-<link rel="stylesheet" href="/static/css/teacher/home.css">
-
 <body>
 <h1 class="display-1">Passes 
     <div class="expand" style="display: inline-block">
@@ -15,49 +13,43 @@
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10 collapse" id="collapseNewPassForm">
-        {% include 'teacher/new_pass_fragment.html' %}
+        {% include 'teacher/fragments/new_pass_fragment.html' %}
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-2">
-        <a class="btn btn-primary btn-block" id="home-button" href="#">Home</a>
+<div class="row mx-5">
+    <div class="col-md-3">
+        <a class="btn btn-primary btn-block" id="unapproved-button" href="#">Unapproved</a>
     </div>
-    <div class="col-md-2">
-        <a class="btn btn-secondary btn-block" id="unapproved-button" href="#">Unapproved</a>
-    </div>
-    <div class="col-md-2">
+    <div class="col-md-3">
         <a class="btn btn-secondary btn-block" id="incoming-button" href="#">Incoming</a>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-3">
         <a class="btn btn-secondary btn-block" id="outgoing-button" href="#">Outgoing</a>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-3">
         <a class="btn btn-secondary btn-block" id="all-button" href="#">All</a>
     </div>
-    <div class="col-md-1"></div>
-
 </div>
 
-<div id="home-fragment">
-    {% include 'teacher/home_fragment.html' %}
+<div id="home-fragment" style="display: none;">
+    {% include 'teacher/fragments/home_fragment.html' %}
 </div>
 
 <div id="all-fragment" style="display: none;">
-    {% include 'teacher/all_fragment.html' %}
+    {% include 'teacher/fragments/all_fragment.html' %}
 </div>
 
 <div id="outgoing-fragment" style="display: none;">
-    {% include 'teacher/outgoing_fragment.html' %}
+    {% include 'teacher/fragments/outgoing_fragment.html' %}
 </div>
 
 <div id="incoming-fragment" style="display: none;">
-    {% include 'teacher/incoming_fragment.html' %}
+    {% include 'teacher/fragments/incoming_fragment.html' %}
 </div>
 
-<div id="unapproved-fragment" style="display: none;">
-    {% include 'teacher/unapproved_fragment.html' %}
+<div id="unapproved-fragment">
+    {% include 'teacher/fragments/unapproved_fragment.html' %}
 </div>
 
 </body>

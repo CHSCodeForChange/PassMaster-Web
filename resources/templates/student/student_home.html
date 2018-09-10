@@ -4,8 +4,6 @@
 
 {% load static %}
 
-<link rel="stylesheet" href="/static/css/teacher/home.css">
-
 <body>
 <h1 class="display-1">Passes
     <div class="expand" style="display: inline-block">
@@ -15,7 +13,7 @@
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10 collapse" id="collapseNewPassForm">
-        {% include 'student/request_pass_fragment.html' %}
+        {% include 'student/fragments/request_pass_fragment.html' %}
     </div>
 </div>
 
@@ -35,15 +33,15 @@
 </div>
 
 <div id="active-fragment">
-    {% include 'student/active_fragment.html' %}
+    {% include 'student/fragments/active_fragment.html' %}
 </div>
 
 <div id="pending-fragment" style="display: none;">
-    {% include 'student/pending_fragment.html' %}
+    {% include 'student/fragments/pending_fragment.html' %}
 </div>
 
 <div id="old-fragment" style="display: none;">
-    {% include 'student/old_fragment.html' %}
+    {% include 'student/fragments/old_fragment.html' %}
 </div>
 
 </body>
@@ -68,7 +66,7 @@
     var $active_fragment = $('#active-fragment');
     var $pending_fragment = $('#pending-fragment');
     var $old_fragment = $('#old-fragment');
-    
+
     function activate(elem, frag) {
         frag.show();
         elem.removeClass('btn-secondary');

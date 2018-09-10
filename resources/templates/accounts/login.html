@@ -1,48 +1,36 @@
 {% include 'header.html' %}
 
 <body>
-<div class="login">
-    <h1 class="display-1 mb-5">Login</h1>
-    <form method="post">
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-3">
-                {% csrf_token %}
-                {% for field in form %}
-                    {{ field }}
-                    {% for error in field.errors %}
+    <h1 class="display-1">Login</h1>
+    <div class="center">
+        <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="center row login-input"> {{ field }} </div> 
+            {% endfor %} 
+            <div class="center"><button type="submit" class="btn btn-info">Login</button></div>
+            <div class="center"><a href="/accounts/signup" class="">Sign up</a></div>
+        </form>
+    </div>
+
+    {% csrf_token %}
+    {% for field in form %}
+        {% ifnotequal field.errors None %}
+            {% for error in field.errors %}
+                <div class="alert alert-info" role="alert">
+                    <strong>{{ field.label }}:</strong> {{ error }}
+                </div>
+            {% endfor %}
+        {% endifnotequal %}
+    {% endfor %}
+
+    {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <div class="center">
+                    <div class="alert bg-info" role="alert">
                         {{ error }}
-                    {% endfor %}
-                {% endfor %}
-
-            </div>
-            <div class="col-md-1 login-col">
-                <button type="submit" class="button"><i class="fas fa-arrow-right"></i></button>
-            </div>
-        </div>
-        <p class="signup"> Dont have an account? <a href="/accounts/signup" class="">Sign up</a></p>
-
-
-
-    </form>
-</div>
-{% csrf_token %}
-{% for field in form %}
-    {% ifnotequal field.errors None %}
-        {% for error in field.errors %}
-            <div class="alert alert-info" role="alert">
-                <strong>{{ field.label }}:</strong> {{ error }}
-            </div>
-        {% endfor %}
-    {% endifnotequal %}
-{% endfor %}
-
-{% if form.non_field_errors %}
-        {% for error in form.non_field_errors %}
-            <div class="alert alert-info" role="alert">
-                {{ error }}
-            </div>
-        {% endfor %}
-{% endif %}
-
+                    </div>
+                </div>
+            {% endfor %}
+    {% endif %}
 </body>

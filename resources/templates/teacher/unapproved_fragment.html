@@ -1,9 +1,0 @@
-{% if unapproved %}
-        <div class="card-container">
-            {% for pass in unapproved %}
-                {% include 'teacher/teacher_pass_fragment.html' %}
-            {% endfor %}
-        </div>
-{% else %}
-    <h1 class="pass-type text-center mt-5">No unapproved passes. Wait for a student to request one.</h1>
-{% endif %}

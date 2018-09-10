@@ -1,9 +1,0 @@
-{% if active %}
-    <div class="card-container">
-        {% for pass in active %}
-            {% include 'student/student_pass_fragment.html' %}
-        {% endfor %}
-    </div>
-{% else %}
-    <h1 class="pass-type text-center mt-5">No active passes. Send your teacher a request for one using the plus symbol above. The passes will display in the "pending" section until your teacher approves the pass.</h1>
-{% endif %}
