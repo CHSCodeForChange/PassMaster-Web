@@ -1,6 +1,4 @@
-
 from datetime import datetime, time
-
 from django.db import models
 from django.db.models import Q
 
@@ -110,86 +108,136 @@ class Pass(models.Model):
 	def is_permitted(self, user):
 		return self in Pass.get_passes(user)
 
-	def get_passes(user):
-		if (user.profile.is_student()):
-			student = user.profile.student
-			return Pass.get_student_passes(student)
-		elif (user.profile.is_teacher()):
-			teacher = user.profile.teacher
-			return Pass.get_teacher_passes(teacher)
+	def get_passes(user, dt=None):
+		if dt is None:
+			if (user.profile.is_student()):
+				student = user.profile.student
+				return Pass.get_student_passes(student)
+			elif (user.profile.is_teacher()):
+				teacher = user.profile.teacher
+				return Pass.get_teacher_passes(teacher)
+		else:
+			if (user.profile.is_student()):
+				student = user.profile.student
+				return Pass.get_student_passes(student, dt)
+			elif (user.profile.is_teacher()):
+				teacher = user.profile.teacher
+				return Pass.get_teacher_passes(teacher, dt)
 
-	def get_student_passes(user):
-		return Pass.get_students_active_passes(user) | Pass.get_students_pending_passes(
+	def get_student_passes(user, dt=None):
+		if dt is None:
+			return Pass.get_students_active_passes(user) | Pass.get_students_pending_passes(
 			user) | Pass.get_students_old_passes(user)
+		else:
+			return Pass.get_students_active_passes(user, dt) | Pass.get_students_pending_passes(
+				user, dt) | Pass.get_students_old_passes(user, dt)
 
 	@staticmethod
-	def get_students_active_passes(user):
+	def get_students_active_passes(user, dt=None):
 		profile = user.profile
 		if profile.is_student:
 			student = profile.student
-			return Pass.objects.filter(student=student, approved=True, timeArrivedDestination=None)
+
+			if dt is None:
+				return Pass.objects.filter(student=student, approved=True, timeArrivedDestination=None)
+			else:
+				return Pass.objects.filter(student=student, approved=True, timeArrivedDestination=None, date=dt)
 		else:
 			return None
 
 	@staticmethod
-	def get_students_pending_passes(user):
+	def get_students_pending_passes(user, dt=None):
 		profile = user.profile
 		if profile.is_student:
 			student = profile.student
-			return Pass.objects.filter(student=student, approved=False, timeArrivedDestination=None)
+
+			if dt is None:
+				return Pass.objects.filter(student=student, approved=False, timeArrivedDestination=None)
+			else:
+				return Pass.objects.filter(student=student, approved=False, timeArrivedDestination=None, date=dt)
 		else:
 			return None
 
 	@staticmethod
-	def get_students_old_passes(user):
+	def get_students_old_passes(user, dt=None):
 		profile = user.profile
 		if profile.is_student:
 			student = profile.student
-			return Pass.objects.filter(student=student, approved=True).exclude(
+
+			if dt is None:
+				return Pass.objects.filter(student=student, approved=True).exclude(
 				timeArrivedDestination=None)
+			else:
+				return Pass.objects.filter(student=student, approved=True, date=dt).exclude(
+					timeArrivedDestination=None)
 		else:
 			return None
 
-	def get_teacher_passes(user):
-		return Pass.get_teachers_unapproved_passes(user) | Pass.get_teachers_old_passes(
-			user) | Pass.get_teachers_incoming_student_passes(user) | Pass.get_teachers_outgoing_student_passes(user)
+	def get_teacher_passes(user, dt=None):
+		if dt is None:
+			return Pass.get_teachers_unapproved_passes(user) | Pass.get_teachers_old_passes(
+				user) | Pass.get_teachers_incoming_student_passes(user) | Pass.get_teachers_outgoing_student_passes(
+				user)
+		else:
+			return Pass.get_teachers_unapproved_passes(user, dt) | Pass.get_teachers_old_passes(
+				user, dt) | Pass.get_teachers_incoming_student_passes(user,
+			                                                          dt) | Pass.get_teachers_outgoing_student_passes(
+				user, dt)
 
 	@staticmethod
-	def get_teachers_unapproved_passes(user):
+	def get_teachers_unapproved_passes(user, dt=None):
 		profile = user.profile
 		if profile.is_teacher:
 			teacher = user.profile.teacher
-			return Pass.objects.filter(approved=False, originTeacher=teacher)
 
+			if dt is None:
+				return Pass.objects.filter(approved=False, originTeacher=teacher)
+			else:
+				return Pass.objects.filter(approved=False, date=dt, originTeacher=teacher)
 		else:
 			return None
 
 	@staticmethod
-	def get_teachers_old_passes(user):
+	def get_teachers_old_passes(user, dt=None):
 		profile = user.profile
 		if profile.is_teacher:
 			teacher = profile.teacher
-			query = Q(approved=True, originTeacher=teacher) | Q(approved=True, teacherpass__destinationTeacher=teacher)
+
+			if dt is None:
+				query = Q(approved=True, originTeacher=teacher) | Q(approved=True,
+				                                                    teacherpass__destinationTeacher=teacher)
+			else:
+				query = Q(approved=True, originTeacher=teacher, date=dt) | Q(approved=True,
+				                                                             teacherpass__destinationTeacher=teacher,
+				                                                             date=dt)
+
 			return Pass.objects.filter(query).exclude(timeArrivedDestination=None)
 		else:
 			return None
 
 	@staticmethod
-	def get_teachers_incoming_student_passes(user):
+	def get_teachers_incoming_student_passes(user, dt=None):
 		profile = user.profile
 		if profile.is_teacher:
 			teacher = profile.teacher
-			return Pass.objects.filter(approved=True, timeArrivedDestination=None,
-			                           teacherpass__destinationTeacher=teacher)
+			if dt is None:
+				return Pass.objects.filter(approved=True, timeArrivedDestination=None,
+				                           teacherpass__destinationTeacher=teacher)
+			else:
+				return Pass.objects.filter(approved=True, timeArrivedDestination=None,
+				                           teacherpass__destinationTeacher=teacher, date=dt)
 		else:
 			return None
 
 	@staticmethod
-	def get_teachers_outgoing_student_passes(user):
+	def get_teachers_outgoing_student_passes(user, dt=None):
 		profile = user.profile
 		if profile.is_teacher:
 			teacher = profile.teacher
-			return Pass.objects.filter(approved=True, timeArrivedDestination=None, originTeacher=teacher)
+			if dt is None:
+				return Pass.objects.filter(approved=True, timeArrivedDestination=None, originTeacher=teacher)
+			else:
+				return Pass.objects.filter(approved=True, timeArrivedDestination=None, originTeacher=teacher, date=dt)
 		else:
 			return None
 
@@ -298,7 +346,6 @@ class Student(models.Model):
 class Teacher(models.Model):
 	profile = models.OneToOneField('accounts.Profile', on_delete=models.CASCADE)
 	name = models.CharField(max_length=250, default='stuff')
-	
 
 	def __str__(self):
 		return self.profile.user.username
