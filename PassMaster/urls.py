@@ -20,17 +20,16 @@ from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
-    url(r'^select2/', include('django_select2.urls')),
+	url(r'^select2/', include('django_select2.urls')),
 
-    url(r'^admin/', admin.site.urls),
+	url(r'^admin/', admin.site.urls),
 
 	url(r'^', include('server.urls')),
-    url(r'^chat/', include('chat.urls')),
 
-    url(r'^accounts/', include('accounts.urls', namespace='accounts')),
-    url(r'^login/$', auth_views.login, {'template_name':'accounts/login.html'}),
-    url(r'^logout/$', auth_views.logout, {'next_page' : '/accounts/logout_lander'}, name='logout'),
+	url(r'^accounts/', include('accounts.urls', namespace='accounts')),
+	url(r'^login/$', auth_views.login, {'template_name': 'accounts/login.html'}),
+	url(r'^logout/$', auth_views.logout, {'next_page': '/accounts/logout_lander'}, name='logout'),
 
-    url(r'^$', views.home),
+	url(r'^$', views.home),
 
 ]
