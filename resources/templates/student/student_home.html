@@ -15,7 +15,7 @@
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10 collapse" id="collapseNewPassForm">
-        {% include 'teacher/new_pass_fragment.html' %}
+        {% include 'student/request_pass_fragment.html' %}
     </div>
 </div>
 
@@ -68,6 +68,7 @@
     var $active_fragment = $('#active-fragment');
     var $pending_fragment = $('#pending-fragment');
     var $old_fragment = $('#old-fragment');
+    
     function activate(elem, frag) {
         frag.show();
         elem.removeClass('btn-secondary');

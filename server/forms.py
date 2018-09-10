@@ -1,10 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
-
 from django_select2.forms import Select2Widget
-
 from .models import *
-
 
 class RequestPassForm(forms.Form):
 	pass_type = forms.CharField(max_length=1, widget=forms.HiddenInput(), initial="1")

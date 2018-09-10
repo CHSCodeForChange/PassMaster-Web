@@ -100,6 +100,7 @@
 <script>
     $('#set_type_teacher').click(function(e) {
         $('#id_pass_type').val("1");
+        $('#select2-id_destinationTeacher-container').show();
         $('#id_destinationTeacher').show();
         $('#destinationTeacherLabel').show();
         $('#id_location').hide();
@@ -111,6 +112,7 @@
     });
     $('#set_type_destination').click(function(e) {
         $('#id_pass_type').val("2");
+        $('#select2-id_destinationTeacher-container').hide();
         $('#id_destinationTeacher').hide();
         $('#destinationTeacherLabel').hide();
         $('#id_location').show();
@@ -122,6 +124,7 @@
     });
     $('#set_type_srt').click(function(e) {
         $('#id_pass_type').val("3");
+        $('#select2-id_destinationTeacher-container').show();
         $('#id_destinationTeacher').show();
         $('#destinationTeacherLabel').show();
         $('#id_location').hide();
