@@ -5,9 +5,9 @@ import dj_database_url
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-try:
-	DEBUG = bool(os.environ['DEBUG'])
-except ValueError:
+if os.environ['DEBUG'].lower() in ['true', 't', 'yes', 'y']:
+	DEBUG = True
+else:
 	DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', '.herokuapp.com']
