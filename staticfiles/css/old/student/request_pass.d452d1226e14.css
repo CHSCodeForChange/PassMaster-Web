@@ -1,0 +1,60 @@
+.select2-container {
+    width: 100% !important;
+}
+
+.select2-search__field {
+    background-color: #eee !important;
+    /* border: 1px black !important; */
+}
+
+.card {
+    background-color: white !important;
+}
+
+.card input {
+    background-color: white !important;
+    border-style: solid;
+    border-color: #888 !important;
+    border-width: thin;
+    color: black !important;
+}
+
+.card input::placeholder {
+    color: black !important;
+}
+
+.card select {
+    background-color: white !important;
+    border-style: solid;
+    border-color: #888 !important;
+    border-width: thin;
+    color: black !important;
+    width: 100%;
+}
+
+.card select::placeholder {
+    color: black !important;
+}
+
+.btn-circle button {
+    height: 10vw !important;
+    width: 10vw !important;
+    border-radius: 250px;
+}
+
+.form-label {
+    color: #5c98f9;
+}
+
+.card textarea {
+    color: black !important;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: #888 !important;
+    border-width: thin;
+    margin-bottom: 2%;
+}
+
+.card input::placeholder {
+    color: black !important;
+}

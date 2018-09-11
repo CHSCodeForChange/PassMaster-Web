@@ -1,0 +1,8 @@
+.alert {
+  border-radius: 250px;
+  margin-left: 30%;
+  margin-right: 30%;
+  border: none;
+  background-color: #5dc6b5;
+  color: white;
+}

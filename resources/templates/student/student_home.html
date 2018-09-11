@@ -20,13 +20,13 @@
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-3">
-        <a class="btn btn-primary btn-block" id="active-button" href="#">Active</a>
+        <a class="btn btn-primary btn-block" id="active-button" href="#active">Active</a>
     </div>
     <div class="col-md-4" style="padding-left: 65px; padding-right:65px">
-        <a class="btn btn-secondary btn-block" id="pending-button" href="#">Pending</a>
+        <a class="btn btn-secondary btn-block" id="pending-button" href="#pending">Pending</a>
     </div>
     <div class="col-md-3">
-        <a class="btn btn-secondary btn-block" id="old-button" href="#">Old</a>
+        <a class="btn btn-secondary btn-block" id="old-button" href="#old">Old</a>
     </div>
     <div class="col-md-1"></div>
 
@@ -47,6 +47,7 @@
 </body>
 
 {% include 'scripts.html' %}
+<script src="{% static 'js/tabs.js' %}"></script>
 <script>
     $(document).ready(function() {
         var expanded = false;
@@ -58,38 +59,5 @@
             }
             expanded = !expanded;
         });
-    });
-    var $active_button = $('#active-button');
-    var $pending_button = $('#pending-button');
-    var $old_button = $('#old-button');
-
-    var $active_fragment = $('#active-fragment');
-    var $pending_fragment = $('#pending-fragment');
-    var $old_fragment = $('#old-fragment');
-
-    function activate(elem, frag) {
-        frag.show();
-        elem.removeClass('btn-secondary');
-        elem.addClass('btn-primary');
-    }
-    function deactivate(elem, frag) {
-        frag.hide();
-        elem.addClass('btn-secondary');
-        elem.removeClass('btn-primary');
-    }
-    $active_button.click(function(e){
-        activate($active_button, $active_fragment);
-        deactivate($pending_button, $pending_fragment);
-        deactivate($old_button, $old_fragment);
-    });
-    $pending_button.click(function(e){
-      deactivate($active_button, $active_fragment);
-      activate($pending_button, $pending_fragment);
-      deactivate($old_button, $old_fragment);
-    });
-    $old_button.click(function(e){
-      deactivate($active_button, $active_fragment);
-      deactivate($pending_button, $pending_fragment);
-      activate($old_button, $old_fragment);
     });
 </script>

@@ -16,19 +16,20 @@
         {% include 'teacher/fragments/create_pass_fragment.html' %}
     </div>
 </div>
-
+<div style="display: none;"><a class="btn btn-primary btn-block" id="home-button" href="#home">Home</a></div>
 <div class="row mx-5">
+
     <div class="col-md-3">
-        <a class="btn btn-primary btn-block" id="unapproved-button" href="#">Unapproved</a>
+        <a class="btn btn-primary btn-block" id="unapproved-button" href="#unapproved">Unapproved</a>
     </div>
     <div class="col-md-3">
-        <a class="btn btn-secondary btn-block" id="incoming-button" href="#">Incoming</a>
+        <a class="btn btn-secondary btn-block" id="incoming-button" href="#incoming">Incoming</a>
     </div>
     <div class="col-md-3">
-        <a class="btn btn-secondary btn-block" id="outgoing-button" href="#">Outgoing</a>
+        <a class="btn btn-secondary btn-block" id="outgoing-button" href="#outgoing">Outgoing</a>
     </div>
     <div class="col-md-3">
-        <a class="btn btn-secondary btn-block" id="all-button" href="#">All</a>
+        <a class="btn btn-secondary btn-block" id="old-button" href="#old">Old</a>
     </div>
 </div>
 
@@ -36,8 +37,8 @@
     {% include 'teacher/fragments/home_fragment.html' %}
 </div>
 
-<div id="all-fragment" style="display: none;">
-    {% include 'teacher/fragments/all_fragment.html' %}
+<div id="old-fragment" style="display: none;">
+    {% include 'teacher/fragments/old_fragment.html' %}
 </div>
 
 <div id="outgoing-fragment" style="display: none;">
@@ -55,7 +56,8 @@
 </body>
 
 {% include 'scripts.html' %}
-<script> 
+<script src="{% static "js/tabs.js" %}"></script>
+<script>
     $(document).ready(function() {
         var expanded = false;
         $('.expand').click(function() {
@@ -66,61 +68,5 @@
             }
             expanded = !expanded;
         });
-    });
-    var $home_button = $('#home-button');
-    var $all_button = $('#all-button');
-    var $outgoing_button = $('#outgoing-button');
-    var $incoming_button = $('#incoming-button');
-    var $unapproved_button = $('#unapproved-button');
-
-    var $home_fragment = $('#home-fragment');
-    var $all_fragment = $('#all-fragment');
-    var $outgoing_fragment = $('#outgoing-fragment');
-    var $incoming_fragment = $('#incoming-fragment');
-    var $unapproved_fragment = $('#unapproved-fragment');
-    function activate(elem, frag) {
-        frag.show();
-        elem.removeClass('btn-secondary');
-        elem.addClass('btn-primary');
-    }
-    function deactivate(elem, frag) {
-        frag.hide();
-        elem.addClass('btn-secondary');
-        elem.removeClass('btn-primary');
-    }
-    $home_button.click(function(e){
-        activate($home_button, $home_fragment);
-        deactivate($all_button, $all_fragment);
-        deactivate($outgoing_button, $outgoing_fragment);
-        deactivate($incoming_button, $incoming_fragment);
-        deactivate($unapproved_button, $unapproved_fragment);
-    });
-    $all_button.click(function(e){
-        deactivate($home_button, $home_fragment);
-        activate($all_button, $all_fragment);
-        deactivate($outgoing_button, $outgoing_fragment);
-        deactivate($incoming_button, $incoming_fragment);
-        deactivate($unapproved_button, $unapproved_fragment);
-    });
-    $outgoing_button.click(function(e){
-        deactivate($home_button, $home_fragment);
-        deactivate($all_button, $all_fragment);
-        activate($outgoing_button, $outgoing_fragment);
-        deactivate($incoming_button, $incoming_fragment);
-        deactivate($unapproved_button, $unapproved_fragment);
-    });
-    $incoming_button.click(function(e){
-        deactivate($home_button, $home_fragment);
-        deactivate($all_button, $all_fragment);
-        deactivate($outgoing_button, $outgoing_fragment);
-        activate($incoming_button, $incoming_fragment);
-        deactivate($unapproved_button, $unapproved_fragment);
-    });
-    $unapproved_button.click(function(e){
-        deactivate($home_button, $home_fragment);
-        deactivate($all_button, $all_fragment);
-        deactivate($outgoing_button, $outgoing_fragment);
-        deactivate($incoming_button, $incoming_fragment);
-        activate($unapproved_button, $unapproved_fragment);
     });
 </script>

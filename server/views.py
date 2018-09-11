@@ -39,7 +39,6 @@ def teacher_home(request):
 	incoming = Pass.get_teachers_incoming_student_passes(request.user)
 	outgoing = Pass.get_teachers_outgoing_student_passes(request.user)
 	unapproved = Pass.get_teachers_unapproved_passes(request.user)
-	print(unapproved)
 	old = Pass.get_teachers_old_passes(request.user)
 	if request.method == "GET":
 		create_form = CreatePassForm(user=request.user)

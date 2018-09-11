@@ -1,0 +1,49 @@
+.header-box {
+    height: 10%;
+}
+
+.messages-box {
+    height: 74%;
+    overflow-y: scroll;
+    margin-top: 1%;
+}
+
+.input-box {
+    height: 14%;
+    margin-top: 1%;
+    
+    display: flex;
+    flex-direction: row;
+}
+
+.input-box input {
+    margin: 1%;
+    flex-grow: 9;
+    
+    border: none;
+    border-radius: 25px;
+    
+    padding: 2%;
+    font-size: 3vw;
+}
+
+.input-box button {
+    margin: 1%;
+    flex-grow: 1;
+}
+
+.input-box input::placeholder {
+    font-size: 3vw;
+}
+
+.message {
+    width: 100%;
+    background-color: white;
+    border-radius: 25px;
+    padding: 1%;
+    margin-top: 2%;
+}
+
+.datetime {
+    font-size: 1.5vw;
+}

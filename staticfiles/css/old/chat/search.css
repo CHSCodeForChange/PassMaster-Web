@@ -1,0 +1,30 @@
+.searchbar {
+    width: 100%;
+    border-style: solid;
+    border-color: white;
+    border-radius: 25px;
+    height: 4vh;
+}
+
+.searchbar::placeholder {
+    padding: 1vw;
+}
+
+.user {
+    text-decoration: none !important;
+}
+
+.user > div {
+    margin-top: 2%;
+    height: 8vh;
+    border-radius: 25px;
+    background-color: white;
+    width: 100%;
+}
+
+
+.user p {
+    font-size: 2.5vw;
+    padding-left: 1vw;
+    color: black;
+}
