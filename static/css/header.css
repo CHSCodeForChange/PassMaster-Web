@@ -84,6 +84,7 @@ a {
 .pass-card {
     margin: 2%;
 	height: 325px;
+	width: 275px;
 	border-radius: 20px;
 }
 

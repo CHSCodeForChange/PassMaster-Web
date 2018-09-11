@@ -88,6 +88,16 @@
                         Arrived Destination: {{ pass.timeArrivedDestination|default:"N/A" }}
                     {% endif %}
                     </li>
+                {% else %}
+                    <li class="list-group-item">
+                    {% if user.profile.is_teacher and pass.originTeacher == user.profile.get_teacher and pass.timeArrivedDestination == None %}
+                        <a href="/teacher/checkin/{{ pass.id }}">
+                            <button class="btn btn-primary btn-block btn-round">Check In</button>
+                        </a>
+                    {% else %}
+                        Arrived Destination: {{ pass.timeArrivedDestination|default:"N/A" }}
+                    {% endif %}
+                    </li>
                 {% endif %}
             {% endif %}
         {% endif %}

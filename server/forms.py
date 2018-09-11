@@ -36,11 +36,11 @@ class RequestPassForm(forms.Form):
 			attrs={'type': 'date',
 			       'class': 'form-control'}))
 
-	start = forms.TimeField(label='Start time', required=True, input_formats=['%H:%M'],
+	start = forms.TimeField(label='Start time', input_formats=['%H:%M'],
 	                        widget=forms.TimeInput(
 		                        attrs={'type': 'time',
 		                               'class': 'form-control'}))
-	end = forms.TimeField(label='End time', required=True, input_formats=['%H:%M'],
+	end = forms.TimeField(label='End time', input_formats=['%H:%M'],
 	                      widget=forms.TimeInput(
 		                      attrs={'type': 'time',
 		                             'class': 'form-control'}))
@@ -123,11 +123,11 @@ class CreatePassForm(forms.Form):
 			attrs={'type': 'date',
 			       'class': 'form-control'}))
 
-	start = forms.TimeField(label='Start time', required=True, input_formats=['%H:%M'],
+	start = forms.TimeField(label='Start time', input_formats=['%H:%M'],
 	                        widget=forms.TimeInput(
 		                        attrs={'type': 'time',
 		                               'class': 'form-control'}))
-	end = forms.TimeField(label='End time', required=True, input_formats=['%H:%M'],
+	end = forms.TimeField(label='End time', input_formats=['%H:%M'],
 	                      widget=forms.TimeInput(
 		                      attrs={'type': 'time',
 		                             'class': 'form-control'}))
