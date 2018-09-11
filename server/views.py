@@ -67,7 +67,7 @@ def approve(request, pass_id):
 			pass_obj = Pass.objects.get(id=pass_id)
 		except Pass.DoesNotExist:
 			return redirect('/teacher')
-		pass_obj.approve(request.profile.teacher)
+		pass_obj.approve(request.user.profile.teacher)
 		return redirect('/teacher')
 
 

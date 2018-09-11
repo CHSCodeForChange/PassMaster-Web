@@ -75,6 +75,14 @@ class Pass(models.Model):
 		elif self.is_teacher_pass():
 			return self.teacherpass
 
+	def get_destinationTeacher(self):
+		if self.is_location_pass():
+			return None
+		elif self.is_srt_pass():
+			return self.srtpass.destinationTeacher
+		elif self.is_teacher_pass():
+			return self.teacherpass.destinationTeacher
+
 	# methods that change pass fields
 	def approve(self, teacher):
 		if teacher == self.originTeacher:
@@ -107,7 +115,7 @@ class Pass(models.Model):
 			self.save()
 		# Check permissions
 		# This must be done after location pass stuff because location passes use the originTeacher
-		if teacher != self.srtpass.destinationTeacher and teacher != self.teacherpass.destinationTeacher:
+		if teacher != self.get_destinationTeacher() and teacher != self.get_destinationTeacher():
 			return
 		# If they have not arrived at the destination yet
 		if self.timeArrivedDestination is None:
