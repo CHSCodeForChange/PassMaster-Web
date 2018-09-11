@@ -82,10 +82,11 @@ a {
 }
 
 .pass-card {
-    margin: 2%;
-	height: 325px;
-	width: 275px;
+    margin: 1%;
 	border-radius: 20px;
+	height: 45vh;
+	width: 50vw !important;
+	float: left;
 }
 
 /* For rounded cards to not be jank*/
