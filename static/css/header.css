@@ -1,6 +1,6 @@
 /* General */
 body {
-    background-color: orange;
+    background-color: #F29D39;
 }
 
 h1 {
@@ -75,10 +75,21 @@ h1 {
 
 .pass-card {
     margin: 2%;
+	height: 325px;
+	border-radius: 20px;
+}
+
+/* For rounded cards to not be jank*/
+.list-group-item {
+	background: none;
 }
 
 .pass-type {
     text-align: left;
     margin-left: 48px;
     margin-top: 24px;
+}
+
+.btn-round {
+    border-radius: 25px;
 }

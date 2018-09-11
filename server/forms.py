@@ -19,10 +19,9 @@ class RequestPassForm(forms.Form):
 		)
 	)
 
-	location = forms.CharField(max_length=12, required=False, widget=forms.TextInput(
+	location = forms.CharField(label='Location', max_length=12, required=False, widget=forms.TextInput(
 		attrs={'type': 'text',
 		       'class': 'form-control',
-		       'placeholder': 'Location',
 		       'style': 'display: none;'}))
 
 	originTeacher = forms.ModelChoiceField(
@@ -109,10 +108,9 @@ class CreatePassForm(forms.Form):
 		widget=Select2Widget()
 	)
 
-	location = forms.CharField(max_length=12, required=False, widget=forms.TextInput(
+	location = forms.CharField(label='Location', max_length=12, required=False, widget=forms.TextInput(
 		attrs={'type': 'text',
 		       'class': 'form-control',
-		       'placeholder': 'Location',
 		       'style': 'display: none;'}))
 
 	students = forms.ModelMultipleChoiceField(queryset=Student.objects.all(), label="Student(s)", required=True,
@@ -134,10 +132,10 @@ class CreatePassForm(forms.Form):
 		                      attrs={'type': 'time',
 		                             'class': 'form-control'}))
 
-	reason = forms.CharField(label='', required=True, max_length=240, widget=forms.TextInput(
+	reason = forms.CharField(label='Description', required=True, max_length=240, widget=forms.Textarea(
 		attrs={'type': 'text',
-		       'class': 'form-control',
-		       'placeholder': 'Reason for pass'}))
+		       'rows': '3',
+		       'class': 'form-control'}))
 
 	session = forms.ChoiceField(label='Session', required=False, choices=[(1, "First"), (2, "Second"), (3, "Both")],
 	                            widget=forms.Select(

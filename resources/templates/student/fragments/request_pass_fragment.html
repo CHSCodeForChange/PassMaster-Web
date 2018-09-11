@@ -20,14 +20,17 @@
         <div>{{ request_form.pass_type }}</div>
         <div class="row">
             <div class="col-md-6">
-                {# Destination Teacher Field #}
-                <div class="form-label" id="destinationTeacherLabel">{{ request_form.destinationTeacher.label }}</div>
-                <div> {{ request_form.destinationTeacher }} </div>
-                {% for error in request_form.destinationTeacher.errors %}
-                    <p style="color: red">{{ error }}</p>
-                {% endfor %}
+                <div id="id_destinationTeacher">
+                    {# Destination Teacher Field #}
+                    <div class="form-label" id="destinationTeacherLabel">{{ request_form.destinationTeacher.label }}</div>
+                    <div> {{ request_form.destinationTeacher }} </div>
+                    {% for error in request_form.destinationTeacher.errors %}
+                        <p style="color: red">{{ error }}</p>
+                    {% endfor %}
+                </div>
                 {# Location #}
-                <div style="margin-top: 24px;"> {{ request_form.location }} </div>
+                <div class="form-label" id="locationLabel">{{ request_form.location.label }}</div>
+                <div style="margin-bottom: 24px;"> {{ request_form.location }} </div>
                 {% for error in request_form.location.errors %}
                     <p style="color: red">{{ error }}</p>
                 {% endfor %}
@@ -41,12 +44,6 @@
                 {% endfor %}
             </div>
         </div>
-        {# SRT Session #}
-        <div class="form-label" id="sessionLabel">{{ request_form.session.label }}</div>
-        <div> {{ request_form.session }} </div>
-        {% for error in request_form.session.errors %}
-            <p style="color: red">{{ error }}</p>
-        {% endfor %}
         {# Start and end time #}
         <div class="row">
             <div class="col-md-4">
@@ -57,17 +54,25 @@
                 {% endfor %}
                 </p>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" id="start-time">
                 <div class="form-label">{{ request_form.start.label }}</div>
                 <div> {{ request_form.start }} </div>
                 {% for error in request_form.start.errors %}
                     <p style="color: red">{{ error }}</p>
                 {% endfor %}
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" id="end-time">
                 <div class="form-label">{{ request_form.end.label }}</div>
                 <div> {{ request_form.end }} </div>
                 {% for error in request_form.end.errors %}
+                    <p style="color: red">{{ error }}</p>
+                {% endfor %}
+            </div>
+            <div class="col-md-8">
+                {# SRT Session #}
+                <div class="form-label" id="sessionLabel">{{ request_form.session.label }}</div>
+                <div> {{ request_form.session }} </div>
+                {% for error in request_form.session.errors %}
                     <p style="color: red">{{ error }}</p>
                 {% endfor %}
             </div>
@@ -99,6 +104,9 @@
         $('#select2-id_destinationTeacher-container').show();
         $('#id_destinationTeacher').show();
         $('#destinationTeacherLabel').show();
+        $('#locationLabel').hide();
+        $('#start-time').show();
+        $('#end-time').show();
         $('#id_location').hide();
         $('#id_session').hide();
         $('#sessionLabel').hide();
@@ -111,6 +119,9 @@
         $('#select2-id_destinationTeacher-container').hide();
         $('#id_destinationTeacher').hide();
         $('#destinationTeacherLabel').hide();
+        $('#locationLabel').show();
+        $('#start-time').show();
+        $('#end-time').show();
         $('#id_location').show();
         $('#id_session').hide();
         $('#sessionLabel').hide();
@@ -123,6 +134,9 @@
         $('#select2-id_destinationTeacher-container').show();
         $('#id_destinationTeacher').show();
         $('#destinationTeacherLabel').show();
+        $('#locationLabel').hide();
+        $('#start-time').hide();
+        $('#end-time').hide();
         $('#id_location').hide();
         $('#id_session').show();
         $('#sessionLabel').show();
@@ -136,6 +150,7 @@
         $('#id_end').val(d.getHours()+1+":"+d.getMinutes());
         // {# Hide things that should be hidden initially #}
         $('#id_location').hide();
+        $('#locationLabel').hide();
         $('#id_session').hide();
         $('#sessionLabel').hide();
     });

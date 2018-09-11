@@ -3,13 +3,13 @@
 <body>
     <h1 class="display-1">Login</h1>
     <div class="center">
-        <form method="post">
+        <form method="post" style="padding: 0;">
             {% csrf_token %}
             {% for field in form %}
-                <div class="center row login-input"> {{ field }} </div> 
+                <div class="center row login-input"> {{ field }} </div>
             {% endfor %} 
-            <div class="center"><button type="submit" class="btn btn-info">Login</button></div>
-            <div class="center"><a href="/accounts/signup" class="">Sign up</a></div>
+            <div class="center"><button type="submit" class="btn btn-info btn-block btn-round mt-3">Login</button></div>
+            <div class="center"><a href="/accounts/signup" class="btn btn-link btn-block btn-round mt-2">Sign up</a></div>
         </form>
     </div>
 
