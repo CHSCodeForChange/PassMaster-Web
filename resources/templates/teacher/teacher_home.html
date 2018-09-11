@@ -6,9 +6,9 @@
 
 <body>
 <h1 class="display-1">Passes 
-    <div class="expand" style="display: inline-block">
-        <a class="plus" data-toggle="collapse" href="#collapseNewPassForm" aria-pressed="true" role="button" aria-expanded="false" aria-controls="collapseNewPassForm">+</a>
-    </div>
+<div class="expand" style="display: inline-block">
+    <a class="plus close-button" data-toggle="collapse" href="#collapseNewPassForm" aria-pressed="true" role="button" aria-expanded="false" aria-controls="collapseNewPassForm">+</a>
+</div>
 </h1>
 <div class="row">
     <div class="col-md-1"></div>
@@ -62,11 +62,20 @@
         var expanded = false;
         $('.expand').click(function() {
             if (expanded){
-                $(this).css({'transform' : 'rotate('+ 0 +'deg)'});
+
+                $(this).css({
+                    'transform' : 'rotate('+ 0 +'deg)',
+                    'transition' : 'transform 0.3s ease',
+                    'transform-origin' : '50% 60%'
+                });
             } else {
-                $(this).css({'transform' : 'rotate('+ 45 +'deg)'});
+                $(this).css({
+                    'transform' : 'rotate('+ 135 +'deg)',
+                    'transition' : 'transform 0.3s ease',
+                    'transform-origin' : '50% 60%'
+                });
             }
             expanded = !expanded;
-        });
+         });
     });
 </script>

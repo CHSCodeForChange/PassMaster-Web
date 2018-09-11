@@ -53,9 +53,17 @@
         var expanded = false;
         $('.expand').click(function() {
             if (expanded){
-                $(this).css({'transform' : 'rotate('+ 0 +'deg)'});
+                $(this).css({
+                    'transform' : 'rotate('+ 0 +'deg)',
+                    'transition' : 'transform 0.3s ease',
+                    'transform-origin' : '50% 60%'
+                });
             } else {
-                $(this).css({'transform' : 'rotate('+ 45 +'deg)'});
+                $(this).css({
+                    'transform' : 'rotate('+ 135 +'deg)',
+                    'transition' : 'transform 0.3s ease',
+                    'transform-origin' : '50% 60%'
+                });
             }
             expanded = !expanded;
         });
