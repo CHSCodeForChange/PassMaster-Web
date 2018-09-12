@@ -6,11 +6,11 @@
 
 <body>
 <h1 class="display-1">Passes 
-<div class="expand" style="display: inline-block">
-    <a class="plus close-button" data-toggle="collapse" href="#collapseNewPassForm" aria-pressed="true" role="button" aria-expanded="false" aria-controls="collapseNewPassForm">+</a>
-</div>
+    <div class="expand" style="display: inline-block">
+        <a class="plus close-button" data-toggle="collapse" href="#collapseNewPassForm" aria-pressed="true" role="button" aria-expanded="false" aria-controls="collapseNewPassForm">+</a>
+    </div>
 </h1>
-<div class="row">
+<div class="row w-100">
     <div class="col-md-1"></div>
     <div class="col-md-10 collapse" id="collapseNewPassForm">
         {% include 'teacher/fragments/create_pass_fragment.html' %}
@@ -18,7 +18,6 @@
 </div>
 <div style="display: none;"><a class="btn btn-primary btn-block" id="home-button" href="#home">Home</a></div>
 <div class="row mx-5">
-
     <div class="col-md-3">
         <a class="btn btn-secondary btn-block" id="unapproved-button" href="#unapproved">Unapproved</a>
     </div>
