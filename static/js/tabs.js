@@ -135,6 +135,9 @@ $(document).ready(function(){
 	    else if(~window.location.hash.indexOf("#home")){
 	        switch_teacher_home();
 	    }
+	    else{
+	    	switch_teacher_unapproved();
+	    }
 	}
 	else if(window.location.pathname === "/student/"){
 		// Callbacks for buttons
@@ -160,6 +163,9 @@ $(document).ready(function(){
 	    }
 	    else if(~window.location.hash.indexOf("#home")){
 	        switch_student_home();
+	    }
+	    else{
+	    	switch_student_active();
 	    }
 	}
 });

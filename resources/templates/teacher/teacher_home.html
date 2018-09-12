@@ -20,7 +20,7 @@
 <div class="row mx-5">
 
     <div class="col-md-3">
-        <a class="btn btn-primary btn-block" id="unapproved-button" href="#unapproved">Unapproved</a>
+        <a class="btn btn-secondary btn-block" id="unapproved-button" href="#unapproved">Unapproved</a>
     </div>
     <div class="col-md-3">
         <a class="btn btn-secondary btn-block" id="incoming-button" href="#incoming">Incoming</a>
@@ -49,7 +49,7 @@
     {% include 'teacher/fragments/incoming_fragment.html' %}
 </div>
 
-<div id="unapproved-fragment">
+<div id="unapproved-fragment" style="display: none;">
     {% include 'teacher/fragments/unapproved_fragment.html' %}
 </div>
 

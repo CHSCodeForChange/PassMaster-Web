@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/templates/student/student_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/templates/student/student_home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/templates/teacher/teacher_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/templates/teacher/teacher_home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/tabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/tabs.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,32 +34,32 @@
     <session id="-2049779400">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
-          <entry key="project.open.time.0" value="2" />
+          <entry key="project.closed" value="12" />
+          <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.5" value="4" />
           <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.7" value="4" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="Pipfile" value="2" />
           <entry key="Procfile" value="1" />
-          <entry key="css" value="20" />
-          <entry key="html" value="53" />
-          <entry key="js" value="1" />
+          <entry key="css" value="24" />
+          <entry key="html" value="55" />
+          <entry key="js" value="2" />
           <entry key="py" value="132" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="20" />
-          <entry key="HTML" value="53" />
-          <entry key="JavaScript" value="1" />
+          <entry key="CSS" value="24" />
+          <entry key="HTML" value="55" />
+          <entry key="JavaScript" value="2" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Python" value="132" />
           <entry key="TOML file" value="2" />
@@ -69,20 +70,20 @@
         <counts>
           <entry key="Pipfile" value="60" />
           <entry key="Procfile" value="2" />
-          <entry key="css" value="576" />
+          <entry key="css" value="583" />
           <entry key="dummy" value="70" />
-          <entry key="html" value="4830" />
-          <entry key="js" value="969" />
+          <entry key="html" value="4889" />
+          <entry key="js" value="1040" />
           <entry key="py" value="5694" />
-          <entry key="txt" value="1950" />
+          <entry key="txt" value="2136" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="576" />
-          <entry key="HTML" value="4830" />
-          <entry key="JavaScript" value="969" />
-          <entry key="PLAIN_TEXT" value="2022" />
+          <entry key="CSS" value="583" />
+          <entry key="HTML" value="4889" />
+          <entry key="JavaScript" value="1040" />
+          <entry key="PLAIN_TEXT" value="2208" />
           <entry key="Python" value="5694" />
           <entry key="TOML file" value="60" />
         </counts>
@@ -96,12 +97,12 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/header.css">
+        <entry file="file://$PROJECT_DIR$/static/js/tabs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+            <state relative-caret-position="460">
+              <caret line="138" column="37" lean-forward="true" selection-start-line="138" selection-start-column="26" selection-end-line="138" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -109,12 +110,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/templates/teacher/teacher_home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="68" column="50" lean-forward="true" selection-start-line="67" selection-start-column="20" selection-end-line="68" selection-end-column="50" />
+            <state relative-caret-position="130">
+              <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#h1#0;n#body#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#body#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#body#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#body#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#4;n#body#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#5;n#body#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#6;n#body#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#7;n#body#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -123,8 +126,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/templates/student/student_home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="64" column="50" selection-start-line="64" selection-start-column="50" selection-end-line="64" selection-end-column="50" />
+            <state relative-caret-position="236">
+              <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+              <folding>
+                <element signature="n#style#0;n#div#2;n#body#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -143,9 +149,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>urls</find>
-      <find>models.User</find>
-      <find>col-md-6</find>
       <find>Create</find>
       <find>form</find>
       <find>card-</find>
@@ -173,6 +176,9 @@
       <find>&quot;){</find>
       <find>if(window</find>
       <find>close</find>
+      <find>card</find>
+      <find>card-contina</find>
+      <find>pass-card</find>
     </findStrings>
     <replaceStrings>
       <replace>self, user</replace>
@@ -256,8 +262,8 @@
         <option value="$PROJECT_DIR$/PassMaster/wsgi.py" />
         <option value="$PROJECT_DIR$/resources/templates/teacher/fragments/all_fragment.html" />
         <option value="$PROJECT_DIR$/resources/templates/teacher/fragments/old_fragment.html" />
-        <option value="$PROJECT_DIR$/static/js/tabs.js" />
         <option value="$PROJECT_DIR$/static/css/header.css" />
+        <option value="$PROJECT_DIR$/static/js/tabs.js" />
         <option value="$PROJECT_DIR$/resources/templates/teacher/teacher_home.html" />
         <option value="$PROJECT_DIR$/resources/templates/student/student_home.html" />
       </list>
@@ -284,22 +290,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="PassMaster-web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PassMaster-web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PassMaster-web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PassMaster-web" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -326,22 +316,36 @@
             <path>
               <item name="PassMaster-Web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="templates" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="teacher" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="PassMaster-Web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="templates" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="teacher" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="fragments" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="static" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="PassMaster-Web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="static" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="css" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="PassMaster-Web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="static" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="css" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="old" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="PassMaster-Web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="static" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="css" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="old" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="student" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="PassMaster-Web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="static" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="css" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="old" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="teacher" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="PassMaster-Web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -358,11 +362,27 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="PassMaster-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PassMaster-web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PassMaster-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PassMaster-web" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="header.&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/static/css/header.css&#10;wsgi&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/PassMaster/wsgi.py&#10;base&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/PassMaster/base.py&#10;studenthome&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/student/student_home.html&#10;header&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/static/css/header.css&#10;teacher&#9;null&#9;null&#10;form&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/server/forms.py&#10;models&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/server/models.py&#10;server/vie&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/server/views.py&#10;signup&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/accounts/signup.html&#10;teacherhome&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/teacher/teacher_home.html&#10;CreatePassForm&#9;null&#9;null&#10;requestpas&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/student/fragments/request_pass_fragment.html&#10;teacher_pass&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/teacher/fragments/teacher_pass_fragment.html&#10;student_pass&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/student/fragments/student_pass_fragment.html&#10;login.html&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/accounts/login.html&#10;manag&#9;null&#9;null&#10;procfile&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/Procfile&#10;navbar.html&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/navbar.html&#10;header.html&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/header.html&#10;urls&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/server/urls.py&#10;request&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/student/request_pass_fragment.html&#10;forms&#9;null&#9;null&#10;fragment&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/teacher/new_pass_fragment.html&#10;sett&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/PassMaster/settings.py&#10;settinhg&#9;null&#9;null&#10;views&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/passes/views.py&#10;setting&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/PassMaster/settings.py&#10;passes/urls&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/Passes/urls.py&#10;login&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/accounts/login.html&#10;student&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/student/student_pass_fragment.html&#10;studentpa&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/student/student_pass_fragment.html&#10;stude&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/student/student_home.html&#10;Reques&#9;null&#9;null&#10;Creat&#9;null&#9;null&#10;settings&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/PassMaster/settings.py&#10;RequestPassForm&#9;null&#9;null&#10;student/vie&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/Student/views.py" />
+    <property name="SearchEverywhereHistoryKey" value="student&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/student/student_home.html&#10;teacher&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/teacher/teacher_home.html&#10;tabs&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/static/js/tabs.js&#10;header.&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/static/css/header.css&#10;wsgi&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/PassMaster/wsgi.py&#10;base&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/PassMaster/base.py&#10;studenthome&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/student/student_home.html&#10;header&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/static/css/header.css&#10;form&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/server/forms.py&#10;models&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/server/models.py&#10;server/vie&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/server/views.py&#10;signup&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/accounts/signup.html&#10;teacherhome&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/teacher/teacher_home.html&#10;CreatePassForm&#9;null&#9;null&#10;requestpas&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/student/fragments/request_pass_fragment.html&#10;teacher_pass&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/teacher/fragments/teacher_pass_fragment.html&#10;student_pass&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/student/fragments/student_pass_fragment.html&#10;login.html&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/accounts/login.html&#10;manag&#9;null&#9;null&#10;procfile&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/Procfile&#10;navbar.html&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/navbar.html&#10;header.html&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/header.html&#10;urls&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/server/urls.py&#10;request&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/student/request_pass_fragment.html&#10;forms&#9;null&#9;null&#10;fragment&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/teacher/new_pass_fragment.html&#10;sett&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/PassMaster/settings.py&#10;settinhg&#9;null&#9;null&#10;views&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/passes/views.py&#10;setting&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/PassMaster/settings.py&#10;passes/urls&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/Passes/urls.py&#10;login&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/accounts/login.html&#10;studentpa&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/student/student_pass_fragment.html&#10;stude&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/resources/templates/student/student_home.html&#10;Reques&#9;null&#9;null&#10;Creat&#9;null&#9;null&#10;settings&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/PassMaster/settings.py&#10;RequestPassForm&#9;null&#9;null&#10;student/vie&#9;FILE&#9;file://C:/Users/jpaavola/Documents/Code for Change/PassMaster-Web/Student/views.py" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/static/css/header.css" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
@@ -552,19 +572,33 @@
       <option name="project" value="LOCAL" />
       <updated>1536703849520</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Added animations for the plus sign when you click it">
+      <created>1536705948910</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1536705948910</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Fixed pass-card css so that they display in &quot;table&quot; form and are portions of the view size not fixed pixel dimensions.">
+      <created>1536706212879</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1536706212879</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4980315" visible="true" weight="0.14563759" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4980315" visible="true" weight="0.2295302" />
       <window_info id="Structure" order="1" sideWeight="0.5019685" side_tool="true" weight="0.19530201" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49798658" weight="0.32850942" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.08827786" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.16353111" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -634,18 +668,11 @@
     <MESSAGE value="Fixed backend bugs (approval argument was missing &quot;user&quot; and Pass model didn't have a get_destinationTeacher method to get the correct destination teacher)" />
     <MESSAGE value="Added Checkin case for locationpass objects in the teacher_pass_fragment&#10;&#10;Made start and end times not required (for srt passes)" />
     <MESSAGE value="Added tabs.js which consolidates tab switching code and makes tabs persistent across refresh via hashtags in the url&#10;&#10;Changed teacher &quot;all&quot; tab to &quot;old&quot; tab&#10;&#10;Had to recollect static files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added tabs.js which consolidates tab switching code and makes tabs persistent across refresh via hashtags in the url&#10;&#10;Changed teacher &quot;all&quot; tab to &quot;old&quot; tab&#10;&#10;Had to recollect static files" />
+    <MESSAGE value="Added animations for the plus sign when you click it" />
+    <MESSAGE value="Fixed pass-card css so that they display in &quot;table&quot; form and are portions of the view size not fixed pixel dimensions." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed pass-card css so that they display in &quot;table&quot; form and are portions of the view size not fixed pixel dimensions." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/passes/urls.py" />
-    <entry file="file://$PROJECT_DIR$/PassMaster/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/passes/views.py" />
     <entry file="file://$PROJECT_DIR$/passes/forms.py" />
     <entry file="file://$PROJECT_DIR$/resources/templates/teacher/teacher_pass_fragment.html" />
     <entry file="file://$PROJECT_DIR$/resources/templates/student/student_pass_fragment.html" />
@@ -750,13 +777,6 @@
     <entry file="file://$PROJECT_DIR$/resources/templates/404.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/old/header.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="219" column="29" selection-start-line="219" selection-start-column="22" selection-end-line="219" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/templates/student/fragments/student_pass_fragment.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-230">
@@ -768,9 +788,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1817">
           <caret line="81" column="50" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="50" />
-          <folding>
-            <marker date="1536626895944" expanded="true" signature="1976:2170" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -881,36 +898,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/tabs.js">
+    <entry file="file://$PROJECT_DIR$/static/css/old/header.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="150" column="30" lean-forward="true" selection-start-line="150" selection-start-column="30" selection-end-line="150" selection-end-column="30" />
+        <state relative-caret-position="208">
+          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/old/student/home.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1069" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/old/teacher/home.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3174" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/header.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+        <state relative-caret-position="162">
+          <caret line="84" column="13" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/old/pass.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" selection-start-line="1" selection-end-line="5" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/tabs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="138" column="37" lean-forward="true" selection-start-line="138" selection-start-column="26" selection-end-line="138" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/templates/teacher/teacher_home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="68" column="50" lean-forward="true" selection-start-line="67" selection-start-column="20" selection-end-line="68" selection-end-column="50" />
+        <state relative-caret-position="130">
+          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#h1#0;n#body#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#body#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#6;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#7;n#body#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/templates/student/student_home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="64" column="50" selection-start-line="64" selection-start-column="50" selection-end-line="64" selection-end-column="50" />
+        <state relative-caret-position="236">
+          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#body#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
