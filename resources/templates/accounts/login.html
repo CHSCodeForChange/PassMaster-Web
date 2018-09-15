@@ -1,36 +1,38 @@
 {% include 'header.html' %}
 
 <body>
-    <h1 class="display-1">Login</h1>
-    <div class="center">
-        <form method="post" style="padding: 0;">
-            {% csrf_token %}
-            {% for field in form %}
-                <div class="center row login-input"> {{ field }} </div>
-            {% endfor %} 
-            <div class="center"><button type="submit" class="btn btn-info btn-block btn-round mt-3">Login</button></div>
-            <div class="center"><a href="/accounts/signup" class="btn btn-link btn-block btn-round mt-2">Sign up</a></div>
-        </form>
-    </div>
+    <div class="center-vert">
+        <h1 class="display-1">Login</h1>
+        <div class="center">
+            <form method="post" style="padding: 0;">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="center row login-input"> {{ field }} </div>
+                {% endfor %}
+                <div class="center"><button type="submit" class="btn btn-info btn-block btn-round mt-3">Login</button></div>
+                <div class="center"><a href="/accounts/signup" class="btn btn-link btn-block btn-round mt-2">Sign up</a></div>
+            </form>
+        </div>
 
-    {% csrf_token %}
-    {% for field in form %}
-        {% ifnotequal field.errors None %}
-            {% for error in field.errors %}
-                <div class="alert alert-info" role="alert">
-                    <strong>{{ field.label }}:</strong> {{ error }}
-                </div>
-            {% endfor %}
-        {% endifnotequal %}
-    {% endfor %}
-
-    {% if form.non_field_errors %}
-            {% for error in form.non_field_errors %}
-                <div class="center">
-                    <div class="alert bg-info" role="alert">
-                        {{ error }}
+        {% csrf_token %}
+        {% for field in form %}
+            {% ifnotequal field.errors None %}
+                {% for error in field.errors %}
+                    <div class="alert alert-info" role="alert">
+                        <strong>{{ field.label }}:</strong> {{ error }}
                     </div>
-                </div>
-            {% endfor %}
-    {% endif %}
+                {% endfor %}
+            {% endifnotequal %}
+        {% endfor %}
+
+        {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <div class="center">
+                        <div class="alert bg-info" role="alert">
+                            {{ error }}
+                        </div>
+                    </div>
+                {% endfor %}
+        {% endif %}
+    </div>
 </body>
