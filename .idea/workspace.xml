@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="506317a0-fd18-4e84-b52a-90e080b347ca" name="Default Changelist" comment="">
+    <list default="true" id="506317a0-fd18-4e84-b52a-90e080b347ca" name="Default Changelist" comment="Framework for setting up documentation for api is setup. &#10;All current documentation is garbage that doesn't work">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PassMaster/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/PassMaster/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PassMaster/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/PassMaster/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/urls.py" afterDir="false" />
@@ -100,48 +101,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="api.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/api.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="121" lean-forward="true" selection-start-line="121" selection-end-line="121" />
-              <folding>
-                <element signature="e#130#528#0" />
-                <element signature="e#130#146#1" />
-                <element signature="e#268#521#0" />
-                <element signature="e#727#1006#0" />
-                <element signature="e#727#880#1" />
-                <element signature="e#649#690#0" />
-                <element signature="e#1061#1307#0" />
-                <element signature="e#1061#1214#1" />
-                <element signature="e#1357#1593#0" />
-                <element signature="e#1357#1510#1" />
-                <element signature="e#1647#1891#0" />
-                <element signature="e#1647#1800#1" />
-                <element signature="e#1947#2239#0" />
-                <element signature="e#1947#2100#1" />
-                <element signature="e#1250#1291#0" />
-                <element signature="e#2298#2451#1" />
-                <element signature="e#1419#1590#0" />
-                <element signature="e#1642#1875#0" />
-                <element signature="e#3033#3269#0" />
-                <element signature="e#3033#3186#1" />
-                <element signature="e#3329#3959#0" />
-                <element signature="e#3324#3477#1" />
-                <element signature="e#2129#2298#0" />
-                <element signature="e#2350#2690#0" />
-                <element signature="e#2407#2604#0" />
-                <element signature="e#2548#2604#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+            <state relative-caret-position="272">
+              <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -149,11 +113,32 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="api.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/api.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="281">
+              <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="177" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="178">
+              <caret line="164" column="8" selection-start-line="164" selection-start-column="8" selection-end-line="164" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PassMaster/base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="30" column="26" lean-forward="true" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+            <state relative-caret-position="298">
+              <caret line="132" column="1" selection-start-line="132" selection-start-column="1" selection-end-line="132" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -172,8 +157,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>form</find>
-      <find>card-</find>
       <find>disaply</find>
       <find>display</find>
       <find>create_form</find>
@@ -202,6 +185,8 @@
       <find>card-contina</find>
       <find>pass-card</find>
       <find>INSTALLED_A</find>
+      <find>REST_FRAMEWOR</find>
+      <find>csrf</find>
     </findStrings>
     <replaceStrings>
       <replace>self, user</replace>
@@ -269,7 +254,6 @@
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/server/serializers.py" />
         <option value="$PROJECT_DIR$/manage.py" />
-        <option value="$PROJECT_DIR$/PassMaster/urls.py" />
         <option value="$PROJECT_DIR$/resources/templates/accounts/login.html" />
         <option value="$PROJECT_DIR$/resources/templates/teacher/fragments/new_pass_fragment.html" />
         <option value="$PROJECT_DIR$/resources/templates/teacher/fragments/create_pass_fragment.html" />
@@ -286,9 +270,10 @@
         <option value="$PROJECT_DIR$/static/js/tabs.js" />
         <option value="$PROJECT_DIR$/resources/templates/teacher/teacher_home.html" />
         <option value="$PROJECT_DIR$/resources/templates/student/student_home.html" />
+        <option value="$PROJECT_DIR$/PassMaster/urls.py" />
+        <option value="$PROJECT_DIR$/server/urls.py" />
         <option value="$PROJECT_DIR$/PassMaster/base.py" />
         <option value="$PROJECT_DIR$/server/api.py" />
-        <option value="$PROJECT_DIR$/server/urls.py" />
       </list>
     </option>
   </component>
@@ -303,10 +288,10 @@
       <path value="$PROJECT_DIR$/staticfiles/autocomplete_light/vendor/select2/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-12" />
-    <option name="width" value="981" />
-    <option name="height" value="1041" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-7" />
+    <option name="width" value="1263" />
+    <option name="height" value="1087" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -395,6 +380,11 @@
             <path>
               <item name="PassMaster-web" type="b2602c69:ProjectViewProjectNode" />
               <item name="PassMaster-web" type="462c0819:PsiDirectoryNode" />
+              <item name="PassMaster" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PassMaster-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PassMaster-web" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -418,595 +408,6 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jpaavola\Documents\Code for Change\PassMaster-Web\webview" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/PassMaster.iml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/misc.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PassMaster/urls.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PassMaster/wsgi.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Pipfile</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Pipfile.lock</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/db.sqlite3</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/manage.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/accounts/login.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/accounts/signup.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/header.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/navbar.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/student/student_home.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/teacher/teacher_home.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/forms.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/models.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/serializers.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/urls.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/views.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/header.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/header.css</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PassMaster/base.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PassMaster/local.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PassMaster/production.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Procfile</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/student/fragments/active_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/student/fragments/old_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/student/fragments/pending_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/student/fragments/request_pass_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/student/fragments/student_pass_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/teacher/fragments/all_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/teacher/fragments/create_pass_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/teacher/fragments/home_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/teacher/fragments/incoming_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/teacher/fragments/old_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/teacher/fragments/outgoing_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/teacher/fragments/teacher_pass_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/teacher/fragments/unapproved_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/old/alert.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/old/chat/conversation.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/old/chat/home.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/old/chat/search.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/old/header.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/old/login.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/old/pass.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/old/search_popup.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/old/signup.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/old/student/home.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/old/student/request_pass.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/old/teacher/home.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/old/teacher/new_pass.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/js/tabs.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/base.5af66c1b1797.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/base.6b517d0d5813.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/base.6b517d0d5813.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/base.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/base.fdaf323a8c80.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/changelists.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/changelists.f6dc691f8d62.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/changelists.f6dc691f8d62.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/dashboard.7ac78187c567.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/dashboard.7ac78187c567.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/dashboard.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/fonts.494e4ec545c9.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/fonts.494e4ec545c9.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/fonts.cc6140298ba7.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/fonts.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/forms.2003a066ae02.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/forms.2003a066ae02.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/forms.77b3f8a70811.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/forms.bc3667f9ced5.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/forms.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/forms.e6dec50a54ae.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/login.a846c0e2ef65.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/login.a846c0e2ef65.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/login.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/rtl.4c867197b256.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/rtl.4c867197b256.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/rtl.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/widgets.5e372b41c483.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/widgets.5e372b41c483.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/widgets.a7251c097987.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/widgets.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/css/widgets.deb28ef29341.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/fonts/LICENSE.d273d63619c9.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/fonts/LICENSE.d273d63619c9.txt.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/fonts/LICENSE.txt.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/fonts/README.2c3d0bcdede2.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/fonts/Roboto-Bold-webfont.2ad99072841e.woff</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/fonts/Roboto-Light-webfont.b446c2399bb6.woff</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/fonts/Roboto-Regular-webfont.ec39515ae8c6.woff</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/LICENSE.2c54f4e1ca1c</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/LICENSE.2c54f4e1ca1c.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/LICENSE.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/README.837277fa1908.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/README.837277fa1908.txt.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/README.txt.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/calendar-icons.39b290681a8b.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/calendar-icons.39b290681a8b.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/calendar-icons.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/gis/move_vertex_off.7a23bf31ef8a.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/gis/move_vertex_off.7a23bf31ef8a.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/gis/move_vertex_off.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/gis/move_vertex_on.0047eba25b67.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/gis/move_vertex_on.0047eba25b67.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/gis/move_vertex_on.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-addlink.d519b3bab011.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-addlink.d519b3bab011.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-addlink.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-alert.034cc7d8a67f.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-alert.034cc7d8a67f.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-alert.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-calendar.ac7aea671bea.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-calendar.ac7aea671bea.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-calendar.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-changelink.18d2fd706348.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-changelink.18d2fd706348.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-changelink.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-clock.e1d4dfac3f2b.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-clock.e1d4dfac3f2b.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-clock.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-deletelink.564ef9dc3854.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-deletelink.564ef9dc3854.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-deletelink.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-no.439e821418cd.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-no.439e821418cd.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-no.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-unknown-alt.81536e128bb6.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-unknown-alt.81536e128bb6.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-unknown-alt.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-unknown.a18cb4398978.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-unknown.a18cb4398978.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-unknown.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-yes.d2f9f035226a.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-yes.d2f9f035226a.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/icon-yes.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/inline-delete.fec1b761f254.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/inline-delete.fec1b761f254.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/inline-delete.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/search.7cf54ff789c6.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/search.7cf54ff789c6.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/search.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/selector-icons.b4555096cea2.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/selector-icons.b4555096cea2.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/selector-icons.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/sorting-icons.3a097b59f104.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/sorting-icons.3a097b59f104.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/sorting-icons.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/tooltag-add.e59d620a9742.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/tooltag-add.e59d620a9742.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/tooltag-add.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/tooltag-arrowright.bbfb788a849e.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/tooltag-arrowright.bbfb788a849e.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/img/tooltag-arrowright.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/SelectBox.b49f008d186b.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/SelectBox.b49f008d186b.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/SelectBox.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/SelectFilter2.17009b6d4428.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/SelectFilter2.17009b6d4428.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/SelectFilter2.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/actions.32861b6cbdf9.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/actions.32861b6cbdf9.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/actions.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/actions.min.f51f04edab28.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/actions.min.f51f04edab28.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/actions.min.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/admin/DateTimeShortcuts.1536fb6bea1d.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/admin/DateTimeShortcuts.1536fb6bea1d.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/admin/DateTimeShortcuts.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/admin/RelatedObjectLookups.d2bdb1018963.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/admin/RelatedObjectLookups.d2bdb1018963.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/admin/RelatedObjectLookups.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/calendar.9ac94d055fbd.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/calendar.9ac94d055fbd.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/calendar.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/cancel.1d69cba4b4bf.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/cancel.1d69cba4b4bf.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/cancel.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/change_form.9e85003a1a38.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/change_form.9e85003a1a38.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/change_form.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/collapse.17d715df2104.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/collapse.17d715df2104.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/collapse.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/collapse.min.dc930adb2821.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/collapse.min.dc930adb2821.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/collapse.min.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/core.fd861d43f0f5.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/core.fd861d43f0f5.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/core.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/inlines.eda404ee376d.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/inlines.eda404ee376d.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/inlines.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/inlines.min.d75b9ed03975.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/inlines.min.d75b9ed03975.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/inlines.min.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/jquery.init.95b62fa19378.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/jquery.init.95b62fa19378.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/jquery.init.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/popup_response.6ce3197f8fc8.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/popup_response.6ce3197f8fc8.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/popup_response.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/prepopulate.ff9208865444.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/prepopulate.ff9208865444.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/prepopulate.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/prepopulate.min.f4057ebb9b62.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/prepopulate.min.f4057ebb9b62.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/prepopulate.min.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/prepopulate_init.0d3b53c37074.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/prepopulate_init.0d3b53c37074.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/prepopulate_init.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/timeparse.51258861a46a.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/timeparse.51258861a46a.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/timeparse.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/urlify.411bc3bb651c.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/urlify.411bc3bb651c.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/urlify.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/vendor/jquery/LICENSE-JQUERY.a158210a2737.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/vendor/jquery/LICENSE-JQUERY.a158210a2737.txt.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/vendor/jquery/LICENSE-JQUERY.txt.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/vendor/jquery/jquery.aacc43d6f308.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/vendor/jquery/jquery.aacc43d6f308.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/vendor/jquery/jquery.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/vendor/jquery/jquery.min.33cabfa15c10.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/vendor/jquery/jquery.min.33cabfa15c10.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/vendor/jquery/jquery.min.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/vendor/xregexp/LICENSE-XREGEXP.d64cecf4f157.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/vendor/xregexp/LICENSE-XREGEXP.d64cecf4f157.txt.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/vendor/xregexp/LICENSE-XREGEXP.txt.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/vendor/xregexp/xregexp.1865b1cf5085.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/vendor/xregexp/xregexp.1865b1cf5085.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/vendor/xregexp/xregexp.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/vendor/xregexp/xregexp.min.c95393b8ca4d.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/vendor/xregexp/xregexp.min.c95393b8ca4d.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/admin/js/vendor/xregexp/xregexp.min.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/header.0cdd96b3717e.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/header.0cdd96b3717e.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/header.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/alert.401cdcbb5913.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/alert.401cdcbb5913.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/alert.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/alert.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/chat/conversation.8803dd99ff6b.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/chat/conversation.8803dd99ff6b.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/chat/conversation.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/chat/conversation.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/chat/home.07b8faecf2df.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/chat/home.07b8faecf2df.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/chat/home.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/chat/home.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/chat/search.1e8d4ec2a305.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/chat/search.1e8d4ec2a305.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/chat/search.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/chat/search.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/header.3fe9f5a20dae.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/header.3fe9f5a20dae.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/header.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/header.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/login.906ffdfee961.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/login.906ffdfee961.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/login.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/login.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/pass.b72c35071172.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/pass.b72c35071172.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/pass.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/pass.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/search_popup.33836451be95.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/search_popup.33836451be95.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/search_popup.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/search_popup.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/signup.0f4fbf1cd262.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/signup.0f4fbf1cd262.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/signup.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/signup.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/student/home.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/student/home.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/student/home.da193a491521.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/student/home.da193a491521.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/student/request_pass.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/student/request_pass.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/student/request_pass.d452d1226e14.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/student/request_pass.d452d1226e14.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/teacher/home.cbb1ef045a68.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/teacher/home.cbb1ef045a68.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/teacher/home.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/teacher/home.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/teacher/new_pass.339208525618.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/teacher/new_pass.339208525618.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/teacher/new_pass.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/css/old/teacher/new_pass.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/django_select2/django_select2.c4837814d7cd.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/django_select2/django_select2.c4837814d7cd.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/django_select2/django_select2.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/img/logo.e1566bd47883.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/js/tabs.626b6faf9754.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/js/tabs.626b6faf9754.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/js/tabs.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/js/tabs.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap-theme.min.00b93e6ea6fb.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap-theme.min.00b93e6ea6fb.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap-theme.min.321ccd3adb83.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap-theme.min.856987964cf3.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap-theme.min.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap-tweaks.46ed116b0edd.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap-tweaks.46ed116b0edd.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap-tweaks.b78ca7b14c57.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap-tweaks.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap.min.86ba6b6fae66.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap.min.86ba6b6fae66.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap.min.aa4d50e6a074.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap.min.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap.min.ec3bb52a00e1.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/default.8d5591a6aabc.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/default.8d5591a6aabc.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/default.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/font-awesome-4.0.3.1f9e9d1a5a1d.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/font-awesome-4.0.3.4fde0dffc132.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/font-awesome-4.0.3.4fde0dffc132.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/font-awesome-4.0.3.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/prettify.a987f72342ee.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/prettify.a987f72342ee.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/css/prettify.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/docs/css/base.c1f714975cce.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/docs/css/base.c1f714975cce.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/docs/css/base.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/docs/css/highlight.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/docs/css/highlight.e0e4d973c6d7.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/docs/css/highlight.e0e4d973c6d7.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/docs/css/jquery.json-view.min.a2e6beeb6710.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/docs/css/jquery.json-view.min.a2e6beeb6710.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/docs/css/jquery.json-view.min.css.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/docs/img/favicon.5195b4d0f3eb.ico</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/docs/img/favicon.5195b4d0f3eb.ico.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/docs/img/favicon.ico.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/docs/img/grid.a4b938cf382b.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/docs/js/api.c9743eab7a4f.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/docs/js/api.c9743eab7a4f.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/docs/js/api.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/docs/js/highlight.pack.479b5f21dcba.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/docs/js/highlight.pack.479b5f21dcba.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/docs/js/highlight.pack.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/docs/js/jquery.json-view.min.b7c2d6981377.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/docs/js/jquery.json-view.min.b7c2d6981377.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/docs/js/jquery.json-view.min.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/fonts/fontawesome-webfont.3293616ec0c6.woff</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/fonts/fontawesome-webfont.83e37a11f9d7.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/fonts/fontawesome-webfont.83e37a11f9d7.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/fonts/fontawesome-webfont.8b27bc96115c.eot</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/fonts/fontawesome-webfont.dcb26c7239d8.ttf</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/fonts/fontawesome-webfont.dcb26c7239d8.ttf.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/fonts/fontawesome-webfont.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/fonts/fontawesome-webfont.ttf.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/fonts/glyphicons-halflings-regular.08eda92397ae.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/fonts/glyphicons-halflings-regular.08eda92397ae.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/fonts/glyphicons-halflings-regular.448c34a56d69.woff2</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/fonts/glyphicons-halflings-regular.e18bbf611f2a.ttf</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/fonts/glyphicons-halflings-regular.e18bbf611f2a.ttf.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/fonts/glyphicons-halflings-regular.f4769f9bdb74.eot</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/fonts/glyphicons-halflings-regular.fa2772327f55.woff</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/fonts/glyphicons-halflings-regular.svg.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/fonts/glyphicons-halflings-regular.ttf.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/img/glyphicons-halflings-white.9bbc6e960299.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/img/glyphicons-halflings.90233c9067e9.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/img/grid.a4b938cf382b.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/js/ajax-form.0ea6e6052ab5.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/js/ajax-form.0ea6e6052ab5.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/js/ajax-form.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/js/bootstrap.min.5869c96cc8f1.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/js/bootstrap.min.5869c96cc8f1.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/js/bootstrap.min.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/js/coreapi-0.1.1.8851fb9336c9.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/js/coreapi-0.1.1.8851fb9336c9.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/js/coreapi-0.1.1.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/js/csrf.753b7a1f2ee7.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/js/csrf.753b7a1f2ee7.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/js/csrf.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/js/default.b846d7d305c9.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/js/default.b846d7d305c9.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/js/default.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/js/jquery-3.3.1.min.a09e13ee94d5.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/js/jquery-3.3.1.min.a09e13ee94d5.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/js/jquery-3.3.1.min.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/js/prettify-min.709bfcc456c6.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/js/prettify-min.709bfcc456c6.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/rest_framework/js/prettify-min.js.gz</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/staticfiles/staticfiles.json</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PassMaster/__init__.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PassMaster/__pycache__/__init__.cpython-34.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PassMaster/__pycache__/__init__.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PassMaster/__pycache__/settings.cpython-34.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PassMaster/__pycache__/settings.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PassMaster/__pycache__/urls.cpython-34.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PassMaster/__pycache__/urls.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PassMaster/__pycache__/views.cpython-34.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PassMaster/__pycache__/views.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PassMaster/__pycache__/wsgi.cpython-34.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PassMaster/__pycache__/wsgi.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PassMaster/settings.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/PassMaster/settings.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/accounts/__pycache__/__init__.cpython-34.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/accounts/__pycache__/__init__.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/accounts/__pycache__/admin.cpython-34.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/accounts/__pycache__/admin.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/accounts/__pycache__/forms.cpython-34.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/accounts/__pycache__/forms.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/accounts/__pycache__/models.cpython-34.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/accounts/__pycache__/models.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/accounts/__pycache__/tokens.cpython-34.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/accounts/__pycache__/tokens.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/accounts/__pycache__/urls.cpython-34.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/accounts/__pycache__/urls.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/accounts/__pycache__/views.cpython-34.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/accounts/__pycache__/views.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/accounts/migrations/__pycache__/0001_initial.cpython-34.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/accounts/migrations/__pycache__/0001_initial.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/accounts/migrations/__pycache__/__init__.cpython-34.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/accounts/migrations/__pycache__/__init__.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/chat/__init__.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/chat/__pycache__/__init__.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/chat/__pycache__/admin.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/chat/__pycache__/models.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/chat/__pycache__/serializers.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/chat/__pycache__/urls.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/chat/__pycache__/views.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/chat/admin.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/chat/apps.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/chat/migrations/0001_initial.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/chat/migrations/__init__.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/chat/migrations/__pycache__/0001_initial.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/chat/migrations/__pycache__/0002_auto_20180812_2121.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/chat/migrations/__pycache__/__init__.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/chat/models.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/chat/serializers.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/chat/tests.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/chat/urls.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/chat/views.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/accounts/account_confirmed.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/accounts/logout_lander.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/accounts/please_confirm.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/alert.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/student/active_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/student/home.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/student/old_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/student/pending_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/student/request_pass.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/student/request_pass_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/student/student_pass_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/teacher/all_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/teacher/home_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/teacher/incoming_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/teacher/new_pass_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/teacher/outgoing_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/teacher/teacher_pass_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/teacher/unapproved_fragment.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/__pycache__/__init__.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/__pycache__/admin.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/__pycache__/api.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/__pycache__/forms.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/__pycache__/models.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/__pycache__/serializers.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/__pycache__/urls.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/__pycache__/views.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/migrations/__pycache__/0001_initial.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/migrations/__pycache__/0002_auto_20180902_1744.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/migrations/__pycache__/__init__.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/templatetags/__pycache__/__init__.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/templatetags/__pycache__/standard_tags.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/alert.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/chat/conversation.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/chat/home.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/chat/search.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/login.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/pass.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/search_popup.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/signup.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/student/home.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/student/request_pass.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/teacher/home.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/teacher/new_pass.css</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -1197,49 +598,42 @@
       <option name="project" value="LOCAL" />
       <updated>1536706212879</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Framework for setting up documentation for api is setup. &#10;All current documentation is garbage that doesn't work">
+      <created>1536771650428</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1536771650428</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1233" height="735" extended-state="6" />
+    <frame x="-7" y="0" width="1263" height="1087" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50201344" side_tool="true" weight="0.32850942" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.06946454" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32907802" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30546623" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.2266881" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15832649" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32850942" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.16353111" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.37139916" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4980315" weight="0.22373697" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" weight="0.3295302" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49798658" weight="0.32850942" />
       <window_info anchor="right" id="SciView" order="3" weight="0.3295302" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Structure" order="1" sideWeight="0.5019685" side_tool="true" weight="0.19530201" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4980315" visible="true" weight="0.2295302" />
-      <window_info id="Structure" order="1" sideWeight="0.5019685" side_tool="true" weight="0.19530201" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.06946454" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.16353111" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32850942" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="manage.py@PassMaster" order="13" weight="0.329582" />
-      <window_info anchor="right" id="Database" order="4" weight="0.3295302" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50201344" side_tool="true" weight="0.32850942" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" weight="0.3295302" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.26483357" />
-      <window_info id="Favorites" order="2" side_tool="true" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1295,19 +689,16 @@
     <MESSAGE value="Added tabs.js which consolidates tab switching code and makes tabs persistent across refresh via hashtags in the url&#10;&#10;Changed teacher &quot;all&quot; tab to &quot;old&quot; tab&#10;&#10;Had to recollect static files" />
     <MESSAGE value="Added animations for the plus sign when you click it" />
     <MESSAGE value="Fixed pass-card css so that they display in &quot;table&quot; form and are portions of the view size not fixed pixel dimensions." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed pass-card css so that they display in &quot;table&quot; form and are portions of the view size not fixed pixel dimensions." />
+    <MESSAGE value="Framework for setting up documentation for api is setup. &#10;All current documentation is garbage that doesn't work" />
+    <option name="LAST_COMMIT_MESSAGE" value="Framework for setting up documentation for api is setup. &#10;All current documentation is garbage that doesn't work" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PassMaster/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2278">
-          <caret line="143" column="5" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#309#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/PassMaster/settings.py" />
     <entry file="file://$PROJECT_DIR$/server/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1337,32 +728,7 @@
         <state relative-caret-position="340">
           <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
           <folding>
-            <element signature="e#130#528#0" />
-            <element signature="e#130#146#1" />
-            <element signature="e#268#521#0" />
-            <element signature="e#727#1006#0" />
-            <element signature="e#727#880#1" />
-            <element signature="e#649#690#0" />
-            <element signature="e#1061#1307#0" />
-            <element signature="e#1061#1214#1" />
-            <element signature="e#1357#1593#0" />
-            <element signature="e#1357#1510#1" />
-            <element signature="e#1647#1891#0" />
-            <element signature="e#1647#1800#1" />
-            <element signature="e#1947#2239#0" />
-            <element signature="e#1947#2100#1" />
-            <element signature="e#1250#1291#0" />
-            <element signature="e#2298#2451#1" />
-            <element signature="e#1419#1590#0" />
-            <element signature="e#1642#1875#0" />
-            <element signature="e#3033#3269#0" />
-            <element signature="e#3033#3186#1" />
-            <element signature="e#3329#3959#0" />
-            <element signature="e#3324#3477#1" />
-            <element signature="e#2129#2298#0" />
-            <element signature="e#2350#2690#0" />
-            <element signature="e#2407#2604#0" />
-            <element signature="e#2548#2604#0" />
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1441,24 +807,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PassMaster/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/templates/student/fragments/student_pass_fragment.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-230">
           <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1817">
-          <caret line="81" column="50" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -1504,21 +856,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="41" column="52" lean-forward="true" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/PassMaster-Web-GKvNrj1e/Lib/site-packages/whitenoise/django.py" />
     <entry file="file://$PROJECT_DIR$/PassMaster/wsgi.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
-          <folding>
-            <element signature="e#227#236#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1595,54 +937,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PassMaster/base.py">
+    <entry file="file://$PROJECT_DIR$/server/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="30" column="26" lean-forward="true" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+        <state relative-caret-position="136">
+          <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+          <folding>
+            <element signature="e#172#918#0" />
+            <element signature="e#320#918#0" />
+            <element signature="e#581#731#0" />
+            <element signature="e#680#731#0" />
+            <element signature="e#803#917#0" />
+            <element signature="e#965#1799#0" />
+            <element signature="e#1443#1586#0" />
+            <element signature="e#1537#1586#0" />
+            <element signature="e#1656#1798#0" />
+            <element signature="e#1850#2183#0" />
+            <element signature="e#1998#2183#0" />
+            <element signature="e#2234#2566#0" />
+            <element signature="e#2382#2566#0" />
+            <element signature="e#2618#2949#0" />
+            <element signature="e#2766#2949#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/api.py">
+    <entry file="file://$PROJECT_DIR$/PassMaster/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="121" lean-forward="true" selection-start-line="121" selection-end-line="121" />
+        <state relative-caret-position="230">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
           <folding>
-            <element signature="e#130#528#0" />
-            <element signature="e#130#146#1" />
-            <element signature="e#268#521#0" />
-            <element signature="e#727#1006#0" />
-            <element signature="e#727#880#1" />
-            <element signature="e#649#690#0" />
-            <element signature="e#1061#1307#0" />
-            <element signature="e#1061#1214#1" />
-            <element signature="e#1357#1593#0" />
-            <element signature="e#1357#1510#1" />
-            <element signature="e#1647#1891#0" />
-            <element signature="e#1647#1800#1" />
-            <element signature="e#1947#2239#0" />
-            <element signature="e#1947#2100#1" />
-            <element signature="e#1250#1291#0" />
-            <element signature="e#2298#2451#1" />
-            <element signature="e#1419#1590#0" />
-            <element signature="e#1642#1875#0" />
-            <element signature="e#3033#3269#0" />
-            <element signature="e#3033#3186#1" />
-            <element signature="e#3329#3959#0" />
-            <element signature="e#3324#3477#1" />
-            <element signature="e#2129#2298#0" />
-            <element signature="e#2350#2690#0" />
-            <element signature="e#2407#2604#0" />
-            <element signature="e#2548#2604#0" />
+            <element signature="e#641#682#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        <state relative-caret-position="272">
+          <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PassMaster/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="132" column="1" selection-start-line="132" selection-start-column="1" selection-end-line="132" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="164" column="8" selection-start-line="164" selection-start-column="8" selection-end-line="164" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="177" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>

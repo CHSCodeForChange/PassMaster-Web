@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
 from . import views
+from rest_framework.authtoken import views as rest_framework_views
 
 urlpatterns = [
 	url(r'^select2/', include('django_select2.urls')),

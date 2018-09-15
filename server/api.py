@@ -1,9 +1,15 @@
 from rest_framework import generics
-
+from rest_framework.response import Response
 from .models import *
 from .serializers import *
-
-
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.authtoken.models import Token
+from rest_framework.decorators import authentication_classes, permission_classes
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
+from rest_framework import authentication, permissions
+from django.contrib.auth.models import User
 class PassList(generics.ListAPIView):
 	"""
 	retrieve:
@@ -18,6 +24,7 @@ class PassList(generics.ListAPIView):
 	queryset = Pass.objects.all()
 	serializer_class = Read_PassSerializer
 	permission_classes = ()
+	authentication_classes = (authentication.TokenAuthentication,)
 
 	def get_queryset(self):
 		if self.request.user.profile.is_student():
@@ -40,6 +47,7 @@ class PassGet(generics.RetrieveAPIView):
 	Create a new user instance.
 	"""
 	serializer_class = Read_PassSerializer
+	authentication_classes = (authentication.TokenAuthentication,)
 
 	def get_queryset(self):
 		return Pass.get_passes(self.request.user)
@@ -58,6 +66,7 @@ class LocationPassGet(generics.RetrieveAPIView):
 	"""
 	queryset = LocationPass.objects.all()
 	serializer_class = Read_LocationPassSerializer
+	authentication_classes = (authentication.TokenAuthentication,)
 
 
 class SRTPassGet(generics.RetrieveAPIView):
@@ -73,6 +82,7 @@ class SRTPassGet(generics.RetrieveAPIView):
 	"""
 	queryset = SRTPass.objects.all()
 	serializer_class = Read_SRTPassSerializer
+	authentication_classes = (authentication.TokenAuthentication,)
 
 
 class TeacherPassGet(generics.RetrieveAPIView):
@@ -88,6 +98,7 @@ class TeacherPassGet(generics.RetrieveAPIView):
 	"""
 	queryset = TeacherPass.objects.all()
 	serializer_class = Read_TeacherPassSerializer
+	authentication_classes = (authentication.TokenAuthentication,)
 
 
 class PassUpdate(generics.UpdateAPIView):
@@ -102,6 +113,7 @@ class PassUpdate(generics.UpdateAPIView):
 	Create a new user instance.
 	"""
 	serializer_class = StudentCreate_LocationPassSerializer
+	authentication_classes = (authentication.TokenAuthentication,)
 
 	def get_queryset(self):
 		return Pass.get_passes(self.request.user)
@@ -119,6 +131,7 @@ class LocationPassCreate(generics.CreateAPIView):
 	Create a new user instance.
 	"""
 	permission_classes = ()
+	authentication_classes = (authentication.TokenAuthentication,)
 
 	def get_serializer_class(self):
 		if (self.request.user.profile.is_teacher()):
@@ -146,6 +159,7 @@ class SRTPassCreate(generics.CreateAPIView):
 	"""
 	serializer_class = StudentCreate_SRTPassSerializer
 	permission_classes = ()
+	authentication_classes = (authentication.TokenAuthentication,)
 
 
 class TeacherPassCreate(generics.CreateAPIView):
@@ -160,6 +174,7 @@ class TeacherPassCreate(generics.CreateAPIView):
 	Create a new user instance.
 	"""
 	permission_classes = ()
+	authentication_classes = (authentication.TokenAuthentication,)
 
 	def get_serializer_class(self):
 		if (self.request.user.profile.is_teacher()):
