@@ -8,7 +8,7 @@ from rest_framework.documentation import include_docs_urls
 
 api = [	
     url(r'^api/passes/$', api.PassList.as_view()),
-	url(r'^docs/', include('rest_framework_docs.urls')),
+	# url(r'^docs/', include('rest_framework_docs.urls')),
 	url(r'^api/passes/(?P<pk>[0-9]+)/$', api.PassGet.as_view()),
     url(r'^api/passes/location/(?P<pk>[0-9]+)/$', api.LocationPassGet.as_view()),
     url(r'^api/passes/srt/(?P<pk>[0-9]+)/$', api.SRTPassGet.as_view()),
