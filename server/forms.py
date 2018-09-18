@@ -47,7 +47,7 @@ class RequestPassForm(forms.Form):
 
 	reason = forms.CharField(
 		label='Description',
-		required=True,
+		required=False,
 		max_length=240,
 		widget=forms.Textarea(
 			attrs={
