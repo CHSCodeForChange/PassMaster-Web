@@ -10,7 +10,6 @@ class RequestPassForm(forms.Form):
 	destinationTeacher = forms.ModelChoiceField(
 		queryset=Teacher.objects.all(),
 		empty_label=None,
-		label="Destination teacher",
 		required=False,
 		widget=Select2Widget(
 			attrs={'type': 'text',
@@ -19,7 +18,7 @@ class RequestPassForm(forms.Form):
 		)
 	)
 
-	location = forms.CharField(label='Location', max_length=12, required=False, widget=forms.TextInput(
+	location = forms.CharField(max_length=12, required=False, widget=forms.TextInput(
 		attrs={'type': 'text',
 		       'class': 'form-control',
 		       'style': 'display: none;'}))
@@ -27,26 +26,24 @@ class RequestPassForm(forms.Form):
 	originTeacher = forms.ModelChoiceField(
 		queryset=Teacher.objects.all(),
 		empty_label=None,
-		label="Origin teacher",
 		widget=Select2Widget()
 	)
 
-	date = forms.DateField(label='Date', required=True, input_formats=['%Y-%m-%d'],
+	date = forms.DateField(required=True, input_formats=['%Y-%m-%d'],
 	                       initial=datetime.now, widget=forms.DateInput(
 			attrs={'type': 'date',
 			       'class': 'form-control'}))
 
-	start = forms.TimeField(label='Start time', input_formats=['%H:%M'],
+	start = forms.TimeField(input_formats=['%H:%M'],
 	                        widget=forms.TimeInput(
 		                        attrs={'type': 'time',
 		                               'class': 'form-control'}))
-	end = forms.TimeField(label='End time', input_formats=['%H:%M'],
+	end = forms.TimeField(input_formats=['%H:%M'],
 	                      widget=forms.TimeInput(
 		                      attrs={'type': 'time',
 		                             'class': 'form-control'}))
 
 	reason = forms.CharField(
-		label='Description',
 		required=False,
 		max_length=240,
 		widget=forms.Textarea(
@@ -58,7 +55,7 @@ class RequestPassForm(forms.Form):
 		)
 	)
 
-	session = forms.ChoiceField(label='Session', required=False, choices=[(1, "First"), (2, "Second"), (3, "Both")],
+	session = forms.ChoiceField(required=False, choices=[(1, "First"), (2, "Second"), (3, "Both")],
 	                            widget=forms.Select(
 		                            attrs={'type': 'text',
 		                                   'class': 'form-control',
@@ -97,52 +94,52 @@ class CreatePassForm(forms.Form):
 	originTeacher = forms.ModelChoiceField(
 		queryset=Teacher.objects.all(),
 		empty_label=None,
-		label="Origin teacher",
 		widget=Select2Widget()
 	)
 
 	destinationTeacher = forms.ModelChoiceField(
 		queryset=Teacher.objects.all(),
 		empty_label=None,
-		label="Destination teacher",
 		widget=Select2Widget()
 	)
 
-	location = forms.CharField(label='Location', max_length=12, required=False, widget=forms.TextInput(
+	location = forms.CharField(max_length=12, required=False, widget=forms.TextInput(
 		attrs={'type': 'text',
 		       'class': 'form-control',
 		       'style': 'display: none;'}))
 
-	students = forms.ModelMultipleChoiceField(queryset=Student.objects.all(), label="Student(s)", required=True,
+	students = forms.ModelMultipleChoiceField(queryset=Student.objects.all(), required=True,
 	                                          widget=forms.SelectMultiple(
 		                                          attrs={'class': 'form-control',
 		                                                 'placeholder': 'Reason for pass'}))
 
-	date = forms.DateField(label='Date', required=True, input_formats=['%Y-%m-%d'],
+	date = forms.DateField(required=True, input_formats=['%Y-%m-%d'],
 	                       initial=datetime.now, widget=forms.DateInput(
 			attrs={'type': 'date',
 			       'class': 'form-control'}))
 
-	start = forms.TimeField(label='Start time', input_formats=['%H:%M'],
+	start = forms.TimeField(input_formats=['%H:%M'],
 	                        widget=forms.TimeInput(
 		                        attrs={'type': 'time',
 		                               'class': 'form-control'}))
-	end = forms.TimeField(label='End time', input_formats=['%H:%M'],
+	end = forms.TimeField(input_formats=['%H:%M'],
 	                      widget=forms.TimeInput(
 		                      attrs={'type': 'time',
 		                             'class': 'form-control'}))
 
-	reason = forms.CharField(label='Description', required=True, max_length=240, widget=forms.Textarea(
+	reason = forms.CharField(required=True, max_length=240, widget=forms.Textarea(
 		attrs={'type': 'text',
 		       'rows': '3',
 		       'class': 'form-control'}))
 
-	session = forms.ChoiceField(label='Session', required=False, choices=[(1, "First"), (2, "Second"), (3, "Both")],
+	session = forms.ChoiceField(required=False, choices=[(1, "First"), (2, "Second"), (3, "Both")],
 	                            widget=forms.Select(
 		                            attrs={'type': 'text',
 		                                   'class': 'form-control',
 		                                   'placeholder': 'Session',
 		                                   'style': 'display: none;'}))
+
+
 
 	user = User()
 

@@ -21,7 +21,7 @@
             <div class="col-md-6">
                 {# Destination Teacher Field #}
                 <div id="id_destinationTeacher">
-                    <div class="form-label" id="destinationTeacherLabel">{{ create_form.destinationTeacher.label }}</div>
+                    <div class="form-label" id="destinationTeacherLabel">Destination Teacher</div>
                     <div> {{ create_form.destinationTeacher }} </div>
                     {% for error in create_form.destinationTeacher.errors %}
                         <p style="color: red">{{ error }}</p>
@@ -29,7 +29,7 @@
                 </div>
 
                 {# Location #}
-                <div class="form-label" id="locationLabel">{{ create_form.location.label }}</div>
+                <div class="form-label" id="locationLabel">Location</div>
                 <div style="margin-bottom: 24px;"> {{ create_form.location }} </div>
                 {% for error in create_form.location.errors %}
                     <p style="color: red">{{ error }}</p>
@@ -37,7 +37,7 @@
             </div>
             <div class="col-md-6">
                 {# Origin Teacher Field #}
-                <div class="form-label" id="originTeacherLabel">{{ create_form.originTeacher.label }}</div>
+                <div class="form-label" id="originTeacherLabel">Origin Teacher</div>
                 <div> {{ create_form.originTeacher }} </div>
                 {% for error in create_form.originTeacher.errors %}
                     <p style="color: red">{{ error }}</p>
@@ -45,7 +45,7 @@
             </div>
         </div>
         {# Students Field #}
-        <div class="form-label">{{ create_form.students.label }}</div>
+        <div class="form-label">Student(s)</div>
         <div> {{ create_form.students }} </div>
         {% for error in create_form.students.errors %}
             <p style="color: red">{{ error }}</p>
@@ -53,7 +53,7 @@
         {# Start and end time #}
         <div class="row">
             <div class="col-md-4">
-                <div class="form-label">{{ create_form.date.label }}</div>
+                <div class="form-label">Date</div>
                 <div> {{ create_form.date }} </div>
                 {% for error in create_form.date.errors %}
                     <p style="color: red">{{ error }}</p>
@@ -61,14 +61,14 @@
                 </p>
             </div>
             <div class="col-md-4" id="end-time">
-                <div class="form-label">{{ create_form.start.label }}</div>
+                <div class="form-label">End Time</div>
                 <div> {{ create_form.start }} </div>
                 {% for error in create_form.start.errors %}
                     <p style="color: red">{{ error }}</p>
                 {% endfor %}
             </div>
             <div class="col-md-4" id="start-time">
-                <div class="form-label">{{ create_form.end.label }}</div>
+                <div class="form-label">Start Time</div>
                 <div> {{ create_form.end }} </div>
                 {% for error in create_form.end.errors %}
                     <p style="color: red">{{ error }}</p>
@@ -76,7 +76,7 @@
             </div>
             <div class="col-md-8">
                 {# SRT Session #}
-                <div class="form-label" id="sessionLabel">{{ create_form.session.label }}</div>
+                <div class="form-label" id="sessionLabel">Session</div>
                 <div> {{ create_form.session }} </div>
                 {% for error in create_form.session.errors %}
                     <p style="color: red">{{ error }}</p>
@@ -84,7 +84,7 @@
             </div>
         </div>
         {# Reason #}
-        <div class="form-label">{{ create_form.reason.label }}</div>
+        <div class="form-label">Description</div>
         <div> {{ create_form.reason }} </div>
         {% for error in create_form.reason.errors %}
             <p style="color: red">{{ error }}</p>
