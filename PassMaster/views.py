@@ -10,5 +10,7 @@ def home(request):
         return redirect('/student')
     elif request.user.profile.is_teacher():
         return redirect('/teacher')
+    elif request.user.profile.is_location():
+        return redirect('/location')
     else:
         return redirect('/test')

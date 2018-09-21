@@ -1,0 +1,109 @@
+<div class="pass-card card" style="max-width: 18rem;">
+    <div class="card-body">
+        {% if pass.teacherpass %}
+            <h5 class="card-title"><i class="fas fa-user-alt"></i> {{ pass.student.profile.name }}</h5>
+        {% elif pass.srtpass %}
+            {% if pass.srtpass.session == '1' %}
+                <h5 class="card-title"><i class="fas fa-hourglass-start"></i> {{ pass.student.profile.name }}</h5>
+            {% elif pass.srtpass.session == '2' %}
+                <h5 class="card-title"><i class="fas fa-hourglass-end"></i> {{ pass.student.profile.name }}</h5>
+            {% elif pass.srtpass.session == '3' %}
+                <h5 class="card-title"><i class="fas fa-hourglass"></i> {{ pass.student.profile.name }}</h5>
+            {% endif %}
+        {% elif pass.locationpass %}
+            <h5 class="card-title"><i class="fas fa-map-marker-alt"></i> {{ pass.student.profile.name }} to {{ pass.locationpass.location }}</h5>
+        {% endif %}
+        <h6 class="card-subtitle mb-2 text-muted">{{ pass.date|date:"N j Y" }}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">
+            {{ pass.startTimeRequested|date:"P" }}
+            - {{ pass.endTimeRequested|date:"P" }}
+        </h6>
+        <p class="card-text">{{ pass.description }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        {% if pass.srtpass %}
+            <li class="list-group-item">{{ pass.srtpass.sessionStr }}</li>
+        {% endif %}
+        {# Shows the approve button if the student is not approved #}
+        {% if not pass.approved %}
+            {% if pass.originTeacher == user.profile.get_teacher %}
+                <li class="list-group-item">
+                    <a href="/teacher/approve/{{ pass.id }}" class="btn btn-primary btn-block btn-round">Approve</a>
+                </li>
+            {% else %}
+                <li class="list-group-item">
+                    <a href="" class="btn btn-primary btn-block btn-round disabled">Approve</a>
+                </li>
+            {% endif %}
+
+        {% else %}
+            <li class="list-group-item">
+                {% if user.profile.is_teacher and pass.originTeacher == user.profile.get_teacher and pass.timeLeftOrigin == None %}
+                    <a href="/teacher/checkout/{{ pass.id }}">
+                        <button class="btn btn-primary btn-block btn-round">Check Out</button>
+                    </a>
+                {% else %}
+                    Left Origin: {{ pass.timeLeftOrigin|default:"N/A" }}
+                {% endif %}
+            </li>
+            {# Only shows the next time button when the student has left the origin #}
+            {% if pass.timeLeftOrigin != None %}
+                {% if pass.srtpass %}
+                    <li class="list-group-item">
+                    {% if user.profile.is_teacher and pass.srtpass.destinationTeacher == user.profile.get_teacher and pass.timeArrivedDestination == None %}
+                        <a href="/teacher/checkin/{{ pass.id }}">
+                            <button class="btn btn-primary btn-block btn-round">Check In</button>
+                        </a>
+                    {% else %}
+                        Arrived Destination: {{ pass.timeArrivedDestination|default:"N/A" }}
+                    {% endif %}
+                    </li>
+                    {# Only shows the next time button when the student has arrived at the destination #}
+                    {% if pass.srtpass.session == '1' and pass.srtpass.timeArrivedDestination != None %}
+                        <li class="list-group-item">
+                        {% if user.profile.is_teacher and pass.srtpass.destinationTeacher == user.profile.get_teacher and pass.srtpass.timeLeftDestination == None %}
+                            <a href="/teacher/checkout/{{ pass.id }}">
+                                <button class="btn btn-primary btn-block btn-round">Check Out</button>
+                            </a>
+                        {% else %}
+                            Left Destination: {{ pass.srtpass.timeLeftDestination|default:"N/A" }}
+                        {% endif %}
+                        </li>
+                    {% endif %}
+                    {# Only shows the next time button when the student has left the destination #}
+                    {% if pass.srtpass.session == '1' and pass.srtpass.timeLeftDestination != None %}
+                        <li class="list-group-item">
+                        {% if user.profile.is_teacher and pass.originTeacher == user.profile.get_teacher and pass.srtpass.timeArrivedOrigin == None %}
+                            <a href="/teacher/checkin/{{ pass.id }}">
+                                <button class="btn btn-primary btn-block btn-round">Check In</button>
+                            </a>
+                        {% else %}
+                            Arrived Origin: {{ pass.srtpass.timeArrivedOrigin|default:"N/A" }}
+                        {% endif %}
+                        </li>
+                    {% endif %}
+                {% elif pass.teacherpass %}
+                    <li class="list-group-item">
+                    {% if user.profile.is_teacher and pass.teacherpass.destinationTeacher == user.profile.get_teacher and pass.timeArrivedDestination == None %}
+                        <a href="/teacher/checkin/{{ pass.id }}">
+                            <button class="btn btn-primary btn-block btn-round">Check In</button>
+                        </a>
+                    {% else %}
+                        Arrived Destination: {{ pass.timeArrivedDestination|default:"N/A" }}
+                    {% endif %}
+                    </li>
+                {% else %}
+                    <li class="list-group-item">
+                    {% if user.profile.is_teacher and pass.originTeacher == user.profile.get_teacher and pass.timeArrivedDestination == None %}
+                        <a href="/teacher/checkin/{{ pass.id }}">
+                            <button class="btn btn-primary btn-block btn-round">Check In</button>
+                        </a>
+                    {% else %}
+                        Arrived Destination: {{ pass.timeArrivedDestination|default:"N/A" }}
+                    {% endif %}
+                    </li>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    </ul>
+</div>

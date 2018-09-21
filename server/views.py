@@ -8,8 +8,8 @@ from .forms import *
 def student_home(request):
 	if not request.user.is_authenticated():
 		return redirect('/login')
-	elif request.user.profile.is_teacher():
-		return redirect('/teacher')
+	if not request.user.profile.is_student():
+		return redirect('/')
 	else:
 		active = Pass.get_students_active_passes(request.user)
 		pending = Pass.get_students_pending_passes(request.user)
@@ -34,8 +34,8 @@ def student_home(request):
 def teacher_home(request):
 	if not request.user.is_authenticated():
 		return redirect('/login')
-	elif request.user.profile.is_student():
-		return redirect('/student')
+	if not request.user.profile.is_teacher():
+		return redirect('/')
 	incoming = Pass.get_teachers_incoming_student_passes(request.user)
 	outgoing = Pass.get_teachers_outgoing_student_passes(request.user)
 	unapproved = Pass.get_teachers_unapproved_passes(request.user)
@@ -59,8 +59,8 @@ def teacher_home(request):
 def approve(request, pass_id):
 	if not request.user.is_authenticated():
 		return redirect('/login')
-	elif request.user.profile.is_student():
-		return redirect('/student')
+	if not request.user.profile.is_teacher() and not request.user.profile.is_location():
+		return redirect('/')
 	else:
 		try:
 			pass_obj = Pass.objects.get(id=pass_id)
@@ -74,8 +74,8 @@ def approve(request, pass_id):
 def checkin(request, pass_id):
 	if not request.user.is_authenticated():
 		return redirect('/login')
-	elif request.user.profile.is_student():
-		return redirect('/student')
+	if not request.user.profile.is_teacher() and not request.user.profile.is_location():
+			return redirect('/')
 	else:
 		try:
 			pass_obj = Pass.objects.get(id=pass_id)
@@ -89,8 +89,8 @@ def checkin(request, pass_id):
 def checkout(request, pass_id):
 	if not request.user.is_authenticated():
 		return redirect('/login')
-	elif request.user.profile.is_student():
-		return redirect('/student')
+	if not request.user.profile.is_teacher() and not request.user.profile.is_location():
+		return redirect('/')
 	else:
 		try:
 			pass_obj = Pass.objects.get(id=pass_id)
@@ -98,3 +98,25 @@ def checkout(request, pass_id):
 			return redirect('/teacher')
 		pass_obj.leave(request.user.profile.teacher)
 		return redirect('/teacher')
+
+@login_required
+def location_home(request):
+	if not request.user.is_authenticated():
+		return redirect('/login')
+	if not request.user.profile.is_location():
+		return redirect('/')
+	incoming = Pass.get_locations_incoming_student_passes(request.user)
+	old = Pass.get_locations_old_passes(request.user)
+	if request.method == "GET":
+		create_form = CreatePassForm(user=request.user)
+
+	else:
+		create_form = CreatePassForm(request.POST, user=request.user)
+		if create_form.is_valid():
+			create_form.save()
+			return redirect('/location')
+
+	return render(request, "location/location_home.html",
+	              {'incoming': incoming,
+	               'old': old,
+	               'create_form': create_form})

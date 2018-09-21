@@ -35,4 +35,8 @@ teacher = [
 	url(r'^teacher/$', views.teacher_home, name='teacher_home'),
 ]
 
-urlpatterns = api + student + teacher
+location = [
+	url(r'^location/$', views.location_home, name='location_home')
+]
+
+urlpatterns = api + student + teacher + location

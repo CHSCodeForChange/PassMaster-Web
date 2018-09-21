@@ -25,6 +25,17 @@ else if(window.location.pathname === "/student/") {
     var $pending_fragment = $('#pending-fragment');
     var $old_fragment = $('#old-fragment');
 }
+else if(window.location.pathname === "/location/") {
+	// Buttons
+    var $incoming_button = $('#incoming-button');
+    var $old_button = $('#old-button');
+    var $home_button = $('#home-button');
+
+	// Fragments
+    var $incoming_fragment = $('#incoming-fragment');
+    var $old_fragment = $('#old-fragment');
+    var $home_fragment = $('#home-fragment');
+}
 
 function activate(elem, frag) {
     frag.show();
@@ -98,6 +109,23 @@ function switch_student_old(){
 	deactivate($home_button, $home_fragment);
 }
 
+// Location Functions
+function switch_location_incoming(){
+	activate($incoming_button, $incoming_fragment);
+	deactivate($old_button, $old_fragment);
+	deactivate($home_button, $home_fragment);
+}
+function switch_location_old(){
+	deactivate($incoming_button, $incoming_fragment);
+	activate($old_button, $old_fragment);
+	deactivate($home_button, $home_fragment);
+}
+function switch_location_home(){
+	deactivate($incoming_button, $incoming_fragment);
+	deactivate($old_button, $old_fragment);
+	activate($home_button, $home_fragment);
+}
+
 // Initial setup
 $(document).ready(function(){
 	console.log(window.location.hash);
@@ -166,6 +194,29 @@ $(document).ready(function(){
 	    }
 	    else{
 	    	switch_student_active();
+	    }
+	}
+	else if(window.location.pathname === "/location/"){
+		// Callbacks for buttons
+		$incoming_button.click(function () {
+			switch_location_incoming()
+		});
+		$old_button.click(function () {
+			switch_location_old()
+		});
+
+		// Initial page change
+	    if(~window.location.hash.indexOf("#incoming")){
+			switch_location_incoming();
+	    }
+	    else if(~window.location.hash.indexOf("#old")){
+			switch_location_old();
+	    }
+	    else if(~window.location.hash.indexOf("#home")){
+	        switch_location_home();
+	    }
+	    else{
+	    	switch_location_incoming();
 	    }
 	}
 });

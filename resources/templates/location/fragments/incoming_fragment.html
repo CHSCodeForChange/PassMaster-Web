@@ -1,0 +1,9 @@
+{% if incoming %}
+    <div class="card-container">
+        {% for pass in incoming %}
+            {% include 'location/fragments/location_pass_fragment.html' %}
+        {% endfor %}
+    </div>
+{% else %}
+    <h1 class="pass-type text-center mt-5">No incoming passes. Wait for a teacher to make one.</h1>
+{% endif %}

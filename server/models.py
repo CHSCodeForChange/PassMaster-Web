@@ -271,6 +271,35 @@ class Pass(models.Model):
 		else:
 			return None
 
+	@staticmethod
+	def get_locations_old_passes(user, dt=None):
+		profile = user.profile
+		if profile.is_location:
+			location = profile.location
+
+			if dt is None:
+				query = Q(approved=True, specialsrtpass__destinationTeacher=location)
+			else:
+				query = Q(approved=True, specialsrtpass__destinationTeacher=location, date=dt)
+
+			return Pass.objects.filter(query).exclude(timeArrivedDestination=None)
+		else:
+			return None
+
+	@staticmethod
+	def get_locations_incoming_student_passes(user, dt=None):
+		profile = user.profile
+		if profile.is_location:
+			location = profile.location
+			if dt is None:
+				return Pass.objects.filter(approved=True, timeArrivedDestination=None,
+				                           specialsrtpass__destinationTeacher=location)
+			else:
+				return Pass.objects.filter(approved=True, timeArrivedDestination=None,
+				                           specialsrtpass__destinationTeacher=location, date=dt)
+		else:
+			return None
+
 
 class LocationPass(Pass):
 	objects = models.Manager()
@@ -347,6 +376,28 @@ class TeacherPass(Pass):
 		blank=True,
 		related_name="destinationTeacher"
 	)
+
+
+class SpecialSRTPass(Pass):
+	objects = models.Manager()
+	destinationTeacher = models.ForeignKey(
+		'Location',
+		on_delete=models.CASCADE,
+		null=True,
+		blank=True,
+		related_name="destinationTeacher"
+	)
+	initiatingTeacher = models.ForeignKey(
+		'Teacher',
+		on_delete=models.CASCADE,
+		null=True,
+		blank=True,
+		related_name="initiatingTeacher"
+	)
+
+
+class Location(models.Model):
+	profile = models.OneToOneField('accounts.Profile', on_delete=models.CASCADE)
 
 
 class Administrator(models.Model):

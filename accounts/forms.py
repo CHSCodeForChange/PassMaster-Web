@@ -8,30 +8,6 @@ from accounts.models import *
 from server.models import *
 
 
-class EditUserForm(UserChangeForm):
-    template_name = '/accounts/editProfile'
-    first_name = forms.CharField(label='First Name', max_length=150, widget=forms.TextInput(
-        attrs={'type': 'text',
-               'class': 'form-control'}), required=True)
-    last_name = forms.CharField(label='Last Name', max_length=150, widget=forms.TextInput(
-        attrs={'type': 'text',
-               'class': 'form-control'}), required=True)
-    username = forms.CharField(label='Username', min_length=4, max_length=150, widget=forms.TextInput(
-        attrs={'type': 'text',
-               'class': 'form-control'}), required=True)
-    email = forms.EmailField(label='Email', max_length=200, widget=forms.EmailInput(
-        attrs={'type': 'text',
-               'class': 'form-control'}), required=True)
-    class Meta:
-        model = User
-        fields = (
-            'email',
-            'first_name',
-            'last_name',
-            'username',
-            'password',
-        )
-
 class EditPasswordForm(PasswordChangeForm):
     template_name = '/accounts/edit_password'
 
@@ -169,6 +145,9 @@ class SignupForm(forms.Form):
             elif profile.is_administrator():
                 admin = Administrator(profile=profile)
                 admin.save()
+            elif profile.is_location():
+                location = Location(profile=profile)
+                location.save()
 
             return user
 
