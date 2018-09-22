@@ -19,7 +19,7 @@ class Profile(models.Model):
     objects = models.Manager()
 
     # the one to one relationship with the user, as the profile class builds off of django's built in user class
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
 
     # the main timezone for this user
     timezone = models.CharField(max_length=50, default='EST')

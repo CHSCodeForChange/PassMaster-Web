@@ -6,9 +6,14 @@ from . import views
 
 from rest_framework.documentation import include_docs_urls
 from .rest import *
+from rest_framework.authtoken import views as auth_views
+
 
 rest = [
-	url(r'^rest/(?P<pk>\d+)/$', PassRudView.as_view(), name='pass-rud')
+	url(r'^rest/login', auth_views.obtain_auth_token, name='login'),
+	url(r'^rest/user', UserReadView.as_view(), name="user-read"),
+	url(r'rest/passes/$', PassListView.as_view(), name='pass-list-create'),
+	url(r'^rest/passes/(?P<pk>\d+)/$', GenericPassReadView.as_view(), name='pass-read')
 ]
 
 api = [	
