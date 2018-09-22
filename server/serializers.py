@@ -1,6 +1,24 @@
 from rest_framework import serializers
 
 from .models import *
+from accounts.models import Profile
+
+class UserSerializer(serializers.ModelSerializer):
+    first = serializers.CharField(source='user.first_name')
+    last = serializers.CharField(source='user.last_name')
+    username = serializers.CharField(source='user.username')
+    email = serializers.CharField(source='user.email')
+
+    class Meta:
+        model = Profile
+        fields = ('pk',
+                  'member_type',
+                  'user',
+                  'first',
+                  'last',
+                  'username',
+                  'email')
+
 
 
 class Read_PassSerializer(serializers.ModelSerializer):

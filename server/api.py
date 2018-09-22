@@ -11,6 +11,26 @@ from rest_framework.permissions import AllowAny
 from rest_framework import authentication, permissions
 from django.contrib.auth.models import User
 
+
+class UserGet(generics.RetrieveAPIView):
+	"""
+	retrieve:
+	Return the given user.
+
+	list:
+	Return a list of all the existing users.
+
+	create:
+	Create a new user instance.
+	"""
+	serializer_class = UserSerializer
+	permission_classes = ()
+	# authentication_classes = (authentication.TokenAuthentication,)
+
+	def get_queryset(self):
+		return self.request.user.profile
+
+	
 class PassList(generics.ListAPIView):
 	"""
 	retrieve:

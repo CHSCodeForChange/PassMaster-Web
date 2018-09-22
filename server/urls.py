@@ -5,9 +5,15 @@ from . import api
 from . import views
 
 from rest_framework.documentation import include_docs_urls
+from .rest import *
+
+rest = [
+	url(r'^rest/(?P<pk>\d+)/$', PassRudView.as_view(), name='pass-rud')
+]
 
 api = [	
-    url(r'^api/passes/$', api.PassList.as_view()),
+    url(r'^api/user/$', api.UserGet.as_view()),
+	url(r'^api/passes/$', api.PassList.as_view()),
 	url(r'^docs/', include('rest_framework_docs.urls')),
 	url(r'^api/passes/(?P<pk>[0-9]+)/$', api.PassGet.as_view()),
     url(r'^api/passes/location/(?P<pk>[0-9]+)/$', api.LocationPassGet.as_view()),
@@ -39,4 +45,4 @@ location = [
 	url(r'^location/$', views.location_home, name='location_home')
 ]
 
-urlpatterns = api + student + teacher + location
+urlpatterns = rest + api + student + teacher + location
