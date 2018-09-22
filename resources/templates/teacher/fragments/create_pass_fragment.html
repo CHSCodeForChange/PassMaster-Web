@@ -4,14 +4,17 @@
 
 <div class="card card-body card-form" style="width: 100%;">
     <div class="row mb-4">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <button class="btn btn-primary btn-block" id="set_type_teacher">Teacher</button>
         </div>
-        <div class="col-md-4">
-            <button class="btn btn-secondary btn-block" id="set_type_destination">Destination</button>
+        <div class="col-md-3">
+            <button class="btn btn-secondary btn-block" id="set_type_location">Location</button>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <button class="btn btn-secondary btn-block" id="set_type_srt">SRT</button>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-secondary btn-block" id="set_type_library_srt">Library SRT</button>
         </div>
     </div>
     <form method="post">
@@ -20,7 +23,7 @@
         <div class="row">
             <div class="col-md-6">
                 {# Destination Teacher Field #}
-                <div id="id_destinationTeacher">
+                <div id="destinationTeacher">
                     <div class="form-label" id="destinationTeacherLabel">Destination Teacher</div>
                     <div> {{ create_form.destinationTeacher }} </div>
                     {% for error in create_form.destinationTeacher.errors %}
@@ -29,27 +32,51 @@
                 </div>
 
                 {# Location #}
-                <div class="form-label" id="locationLabel">Location</div>
-                <div style="margin-bottom: 24px;"> {{ create_form.location }} </div>
-                {% for error in create_form.location.errors %}
-                    <p style="color: red">{{ error }}</p>
-                {% endfor %}
+                <div id="location">
+                    <div class="form-label" id="locationLabel">Location</div>
+                    <div style="margin-bottom: 24px;"> {{ create_form.location }} </div>
+                    {% for error in create_form.location.errors %}
+                        <p style="color: red">{{ error }}</p>
+                    {% endfor %}
+                </div>
+
+                {# Special Destination Field #}
+                <div id="specialDestination">
+                    <div class="form-label" id="specialDestinationLabel">Destination</div>
+                    <div style="margin-bottom: 24px;"> {{ create_form.specialDestinationTeacher }} </div>
+                    {% for error in create_form.specialDestinationTeacher.errors %}
+                        <p style="color: red">{{ error }}</p>
+                    {% endfor %}
+                </div>
             </div>
             <div class="col-md-6">
                 {# Origin Teacher Field #}
-                <div class="form-label" id="originTeacherLabel">Origin Teacher</div>
-                <div> {{ create_form.originTeacher }} </div>
-                {% for error in create_form.originTeacher.errors %}
-                    <p style="color: red">{{ error }}</p>
-                {% endfor %}
+                <div id="originTeacher">
+                    <div class="form-label" id="originTeacherLabel">Origin Teacher</div>
+                    <div> {{ create_form.originTeacher }} </div>
+                    {% for error in create_form.originTeacher.errors %}
+                        <p style="color: red">{{ error }}</p>
+                    {% endfor %}
+                </div>
+
+                {# Initiating Teacher Field #}
+                <div id="initiatingTeacher">
+                    <div class="form-label" id="initiatingTeacherLabel">Initiating Teacher</div>
+                    <div> {{ create_form.initiatingTeacher }} </div>
+                    {% for error in create_form.initiatingTeacher.errors %}
+                        <p style="color: red">{{ error }}</p>
+                    {% endfor %}
+                </div>
             </div>
         </div>
         {# Students Field #}
-        <div class="form-label">Student(s)</div>
-        <div> {{ create_form.students }} </div>
-        {% for error in create_form.students.errors %}
-            <p style="color: red">{{ error }}</p>
-        {% endfor %}
+        <div id="students">
+            <div class="form-label">Student(s)</div>
+            <div> {{ create_form.students }} </div>
+            {% for error in create_form.students.errors %}
+                <p style="color: red">{{ error }}</p>
+            {% endfor %}
+        </div>
         {# Start and end time #}
         <div class="row">
             <div class="col-md-4">
@@ -58,16 +85,15 @@
                 {% for error in create_form.date.errors %}
                     <p style="color: red">{{ error }}</p>
                 {% endfor %}
-                </p>
             </div>
-            <div class="col-md-4" id="end-time">
+            <div class="col-md-4" id="endTime">
                 <div class="form-label">End Time</div>
                 <div> {{ create_form.start }} </div>
                 {% for error in create_form.start.errors %}
                     <p style="color: red">{{ error }}</p>
                 {% endfor %}
             </div>
-            <div class="col-md-4" id="start-time">
+            <div class="col-md-4" id="startTime">
                 <div class="form-label">Start Time</div>
                 <div> {{ create_form.end }} </div>
                 {% for error in create_form.end.errors %}
@@ -75,20 +101,35 @@
                 {% endfor %}
             </div>
             <div class="col-md-8">
-                {# SRT Session #}
-                <div class="form-label" id="sessionLabel">Session</div>
-                <div> {{ create_form.session }} </div>
-                {% for error in create_form.session.errors %}
-                    <p style="color: red">{{ error }}</p>
-                {% endfor %}
+                <div class="row">
+                    {# SRT Session #}
+                    <div class="col-md" id="session">
+                        <div class="form-label" id="sessionLabel">Session</div>
+                        <div> {{ create_form.session }} </div>
+                        {% for error in create_form.session.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {# SRT Teacher Field #}
+                    {# Interestingly enough, this is the same field as originTeacher, just in a different place with a different label. #}
+                    <div class="col-md" id="SRTTeacher">
+                        <div class="form-label" id="SRTTeacherLabel">SRT Teacher</div>
+                        <div> {{ create_form.originTeacher }} </div>
+                        {% for error in create_form.originTeacher.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    </div>
             </div>
         </div>
         {# Reason #}
-        <div class="form-label">Description</div>
-        <div> {{ create_form.reason }} </div>
-        {% for error in create_form.reason.errors %}
-            <p style="color: red">{{ error }}</p>
-        {% endfor %}
+        <div id="reason">
+            <div class="form-label">Description</div>
+            <div> {{ create_form.reason }} </div>
+            {% for error in create_form.reason.errors %}
+                <p style="color: red">{{ error }}</p>
+            {% endfor %}
+        </div>
         {# Submit button #}
         <div class="form-group row">
             <div class="col-sm-2"></div>
@@ -109,54 +150,78 @@
 <script>
     $('#set_type_teacher').click(function(e) {
         $('#id_pass_type').val("1");
-        $('#id_destinationTeacher').show();
-        $('#destinationTeacherLabel').show();
-        $('#id_location').hide();
-        $('#locationLabel').hide();
-        $('#start-time').show();
-        $('#end-time').show();
-        $('#id_session').hide();
-        $('#sessionLabel').hide();
+        $('#originTeacher').show();
+        $('#destinationTeacher').show();
+        $('#location').hide();
+        $('#startTime').show();
+        $('#endTime').show();
+        $('#session').hide();
+        $('#specialDestination').hide();
+        $('#initiatingTeacher').hide();
+        $('#SRTTeacher').hide();
         $(this).removeClass('btn-secondary').addClass('btn-primary');
-        $('#set_type_destination').removeClass('btn-primary').addClass('btn-secondary');
+        $('#set_type_location').removeClass('btn-primary').addClass('btn-secondary');
         $('#set_type_srt').removeClass('btn-primary').addClass('btn-secondary');
+        $('#set_type_library_srt').removeClass('btn-primary').addClass('btn-secondary');
     });
-    $('#set_type_destination').click(function(e) {
+    $('#set_type_location').click(function(e) {
         $('#id_pass_type').val("2");
-        $('#id_destinationTeacher').hide();
-        $('#destinationTeacherLabel').hide();
-        $('#id_location').show();
-        $('#locationLabel').show();
-        $('#start-time').show();
-        $('#end-time').show();
-        $('#id_session').hide();
-        $('#sessionLabel').hide();
+        $('#originTeacher').show();
+        $('#destinationTeacher').hide();
+        $('#location').show();
+        $('#startTime').show();
+        $('#endTime').show();
+        $('#session').hide();
+        $('#specialDestination').hide();
+        $('#initiatingTeacher').hide();
+        $('#SRTTeacher').hide();
         $(this).removeClass('btn-secondary').addClass('btn-primary');
         $('#set_type_teacher').removeClass('btn-primary').addClass('btn-secondary');
         $('#set_type_srt').removeClass('btn-primary').addClass('btn-secondary');
+        $('#set_type_library_srt').removeClass('btn-primary').addClass('btn-secondary');
     });
     $('#set_type_srt').click(function(e) {
         $('#id_pass_type').val("3");
-        $('#id_destinationTeacher').show();
-        $('#destinationTeacherLabel').show();
-        $('#id_location').hide();
-        $('#locationLabel').hide();
-        $('#start-time').hide();
-        $('#end-time').hide();
-        $('#id_session').show();
-        $('#sessionLabel').show();
+        $('#originTeacher').show();
+        $('#destinationTeacher').show();
+        $('#location').hide();
+        $('#startTime').hide();
+        $('#endTime').hide();
+        $('#session').show();
+        $('#specialDestination').hide();
+        $('#initiatingTeacher').hide();
+        $('#SRTTeacher').hide();
         $(this).removeClass('btn-secondary').addClass('btn-primary');
         $('#set_type_teacher').removeClass('btn-primary').addClass('btn-secondary');
-        $('#set_type_destination').removeClass('btn-primary').addClass('btn-secondary');
+        $('#set_type_location').removeClass('btn-primary').addClass('btn-secondary');
+        $('#set_type_library_srt').removeClass('btn-primary').addClass('btn-secondary');
+    });
+    $('#set_type_library_srt').click(function(e) {
+        $('#id_pass_type').val("4");
+        $('#originTeacher').hide();
+        $('#destinationTeacher').hide();
+        $('#location').hide();
+        $('#startTime').hide();
+        $('#endTime').hide();
+        $('#session').show();
+        $('#specialDestination').show();
+        $('#initiatingTeacher').show();
+        $('#SRTTeacher').show();
+        $(this).removeClass('btn-secondary').addClass('btn-primary');
+        $('#set_type_teacher').removeClass('btn-primary').addClass('btn-secondary');
+        $('#set_type_location').removeClass('btn-primary').addClass('btn-secondary');
+        $('#set_type_srt').removeClass('btn-primary').addClass('btn-secondary');
     });
     $(document).ready(function() {
         var d = new Date();
-        $('#id_start').val(d.getHours()+":"+d.getMinutes());
-        $('#id_end').val(d.getHours()+1+":"+d.getMinutes());
+        {# (d.getMinutes()<10?'0':'') adds a leading zero if the minutes are less than ten #}
+        $('#id_start').val(d.getHours()+":"+(d.getMinutes()<10?'0':'')+d.getMinutes());
+        $('#id_end').val(d.getHours()+1+":"+(d.getMinutes()<10?'0':'')+d.getMinutes());
         {# Hide things that should be hidden initially #}
-        $('#id_location').hide();
-        $('#locationLabel').hide();
-        $('#id_session').hide();
-        $('#sessionLabel').hide();
+        $('#location').hide();
+        $('#session').hide();
+        $('#specialDestination').hide();
+        $('#initiatingTeacher').hide();
+        $('#SRTTeacher').hide();
     });
 </script>

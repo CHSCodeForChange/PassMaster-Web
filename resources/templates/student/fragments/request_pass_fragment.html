@@ -8,7 +8,7 @@
             <button class="btn btn-primary btn-block" id="set_type_teacher">Teacher</button>
         </div>
         <div class="col-md-4">
-            <button class="btn btn-secondary btn-block" id="set_type_destination">Destination</button>
+            <button class="btn btn-secondary btn-block" id="set_type_destination">Location</button>
         </div>
         <div class="col-md-4">
             <button class="btn btn-secondary btn-block" id="set_type_srt">SRT</button>
@@ -16,7 +16,6 @@
     </div>
     <form method="post">
         {% csrf_token %}
-        
         <div>{{ request_form.pass_type }}</div>
         <div class="row">
             <div class="col-md-6">
@@ -146,8 +145,9 @@
     });
     $(document).ready(function() {
         var d = new Date();
-        $('#id_start').val(d.getHours()+":"+d.getMinutes());
-        $('#id_end').val(d.getHours()+1+":"+d.getMinutes());
+        {# (d.getMinutes()<10?'0':'') adds a leading zero if the minutes are less than ten #}
+        $('#id_start').val(d.getHours()+":"+(d.getMinutes()<10?'0':'')+d.getMinutes());
+        $('#id_end').val(d.getHours()+1+":"+(d.getMinutes()<10?'0':'')+d.getMinutes());
         // {# Hide things that should be hidden initially #}
         $('#id_location').hide();
         $('#locationLabel').hide();

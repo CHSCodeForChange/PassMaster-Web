@@ -105,8 +105,7 @@ class CreatePassForm(forms.Form):
 
 	location = forms.CharField(max_length=12, required=False, widget=forms.TextInput(
 		attrs={'type': 'text',
-		       'class': 'form-control',
-		       'style': 'display: none;'}))
+		       'class': 'form-control'}))
 
 	students = forms.ModelMultipleChoiceField(queryset=Student.objects.all(), required=True,
 	                                          widget=forms.SelectMultiple(
@@ -136,10 +135,20 @@ class CreatePassForm(forms.Form):
 	                            widget=forms.Select(
 		                            attrs={'type': 'text',
 		                                   'class': 'form-control',
-		                                   'placeholder': 'Session',
-		                                   'style': 'display: none;'}))
+		                                   'placeholder': 'Session'}))
 
+	# Yeah i know this is a terrible name, please find a new one
+	specialDestinationTeacher = forms.ModelChoiceField(
+		queryset=Location.objects.all(),
+		empty_label=None,
+		widget=Select2Widget()
+	)
 
+	initiatingTeacher = forms.ModelChoiceField(
+		queryset=Teacher.objects.all(),
+		empty_label=None,
+		widget=Select2Widget()
+	)
 
 	user = User()
 
@@ -180,5 +189,17 @@ class CreatePassForm(forms.Form):
 					self.cleaned_data['reason'],
 					self.cleaned_data['destinationTeacher'],
 					session=self.cleaned_data['session']
+				)
+				new_pass.save()
+		elif self.cleaned_data['pass_type'] == '4':
+			for student in self.cleaned_data['students']:
+				new_pass = SpecialSRTPass.create(
+					self.cleaned_data['date'],
+					student=student,
+					srtTeacher=self.cleaned_data['originTeacher'],
+					description=self.cleaned_data['reason'],
+					destination=self.cleaned_data['specialDestinationTeacher'],
+					session=self.cleaned_data['session'],
+					initiatingTeacher=self.cleaned_data['initiatingTeacher']
 				)
 				new_pass.save()

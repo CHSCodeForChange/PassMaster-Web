@@ -101,6 +101,10 @@ input:-webkit-autofill {
 	background: none;
 }
 
+.select2-selection {
+	min-height: 38px !important;
+}
+
 .pass-type {
     text-align: left;
     margin-left: 48px;

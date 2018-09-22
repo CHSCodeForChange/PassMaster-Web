@@ -327,6 +327,7 @@ class SRTPass(Pass):
 
 	timeArrivedOrigin = models.TimeField(null=True, blank=True)
 
+	@staticmethod
 	def create(date, student, originTeacher, description, destinationTeacher, session):
 		if session == '1':
 			startTimeRequested = time(hour=9, minute=50)
@@ -394,10 +395,45 @@ class SpecialSRTPass(Pass):
 		blank=True,
 		related_name="initiatingTeacher"
 	)
+	# Options: "1" is session one, "2" is session two, and "3" is both sessions
+
+	session = models.CharField(max_length=1, null=True, blank=True)
+
+	# If session is "1", the origin teacher will need to fill this in for when they get back
+	# Else, this will be null
+	timeLeftDestination = models.TimeField(null=True, blank=True)
+
+	timeArrivedOrigin = models.TimeField(null=True, blank=True)
+
+	@staticmethod
+	def create(date, student, srtTeacher, description, destination, session, initiatingTeacher):
+		if session == '1':
+			startTimeRequested = time(hour=9, minute=50)
+			endTimeRequested = time(hour=10, minute=20)
+		elif session == '2':
+			startTimeRequested = time(hour=10, minute=20)
+			endTimeRequested = time(hour=11, minute=00)
+		elif session == '3':
+			startTimeRequested = time(hour=9, minute=50)
+			endTimeRequested = time(hour=11, minute=00)
+
+		return SpecialSRTPass(date=date,
+		               student=student,
+		               originTeacher=srtTeacher,
+		               description=description,
+		               destinationTeacher=destination,
+		               session=session,
+		               approved=True,
+		               startTimeRequested=startTimeRequested,
+		               endTimeRequested=endTimeRequested,
+					   initiatingTeacher=initiatingTeacher)
 
 
 class Location(models.Model):
 	profile = models.OneToOneField('accounts.Profile', on_delete=models.CASCADE)
+
+	def __str__(self):
+		return self.profile.user.get_full_name() + " (" + self.profile.user.username + ")"
 
 
 class Administrator(models.Model):
@@ -418,7 +454,7 @@ class Student(models.Model):
 	)
 
 	def __str__(self):
-		return self.profile.user.username
+		return self.profile.user.get_full_name() + " (" + self.profile.user.username + ")"
 
 	def get_deforgin(self):
 		return self.defaultOrgin
@@ -429,7 +465,7 @@ class Teacher(models.Model):
 	name = models.CharField(max_length=250, default='stuff')
 
 	def __str__(self):
-		return self.profile.user.username
+		return self.profile.user.get_full_name() + " (" + self.profile.user.username + ")"
 
 	def get_students(self):
 		pass
