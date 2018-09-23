@@ -3,7 +3,6 @@ from .models import *
 from django.contrib.auth.models import User
 
 class UserSerializer(serializers.ModelSerializer):
-    token = serializers.CharField(source='auth_token.__str__')
     type = serializers.CharField(source='profile.member_type')
 
     class Meta:
@@ -14,7 +13,6 @@ class UserSerializer(serializers.ModelSerializer):
             'first_name',
             'last_name',
             'email',
-            'token',
             'type'
         ]
 
