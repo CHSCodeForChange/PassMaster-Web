@@ -305,6 +305,9 @@ class LocationPass(Pass):
 	objects = models.Manager()
 	location = models.CharField(max_length=12, null=True, blank=True)
 
+	def parent(self):
+		return Pass.objects.get(locationpass=self)
+
 
 class SRTPass(Pass):
 	objects = models.Manager()
@@ -367,6 +370,9 @@ class SRTPass(Pass):
 		elif self.session == '3':
 			return "Both sessions"
 
+	def parent(self):
+		return Pass.objects.get(srtpass=self)
+
 
 class TeacherPass(Pass):
 	objects = models.Manager()
@@ -377,6 +383,9 @@ class TeacherPass(Pass):
 		blank=True,
 		related_name="destinationTeacher"
 	)
+
+	def parent(self):
+		return Pass.objects.get(teacherpass=self)
 
 
 class SpecialSRTPass(Pass):

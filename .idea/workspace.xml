@@ -4,7 +4,10 @@
     <list default="true" id="506317a0-fd18-4e84-b52a-90e080b347ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/rest.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/rest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/szls.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/szls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -99,12 +102,13 @@
     <session id="297213899">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.4" value="2" />
+          <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -119,39 +123,40 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="3030" />
-          <entry key="txt" value="376" />
+          <entry key="py" value="4414" />
+          <entry key="txt" value="562" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="376" />
-          <entry key="Python" value="3030" />
+          <entry key="PLAIN_TEXT" value="562" />
+          <entry key="Python" value="4414" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/rest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="48" column="25" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
+            <state relative-caret-position="498">
+              <caret line="150" column="148" selection-start-line="150" selection-start-column="148" selection-end-line="150" selection-end-column="148" />
               <folding>
                 <element signature="e#0#64#0" expanded="true" />
-                <marker date="1537729309858" expanded="true" signature="154:535" ph="..." />
-                <marker date="1537729309858" expanded="true" signature="809:1267" ph="..." />
+                <marker date="1537738372894" expanded="true" signature="154:1143" ph="..." />
+                <marker date="1537738372894" expanded="true" signature="657:929" ph="..." />
+                <marker date="1537738372894" expanded="true" signature="1417:1875" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1475">
-              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+            <state relative-caret-position="220">
+              <caret line="441" column="47" lean-forward="true" selection-start-line="441" selection-start-column="47" selection-end-line="441" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -159,8 +164,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+            <state relative-caret-position="171">
+              <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -171,8 +176,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/szls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+            <state relative-caret-position="90">
+              <caret line="6" column="62" selection-start-line="6" selection-start-column="62" selection-end-line="6" selection-end-column="62" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -183,8 +188,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/accounts/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="-61">
+              <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -307,7 +312,6 @@
         <option value="$PROJECT_DIR$/Pipfile" />
         <option value="$PROJECT_DIR$/accounts/forms.py" />
         <option value="$PROJECT_DIR$/PassMaster/views.py" />
-        <option value="$PROJECT_DIR$/server/models.py" />
         <option value="$PROJECT_DIR$/server/views.py" />
         <option value="$PROJECT_DIR$/resources/templates/location/fragments/old_fragment.html" />
         <option value="$PROJECT_DIR$/resources/templates/location/fragments/location_pass_fragment.html" />
@@ -320,8 +324,9 @@
         <option value="$PROJECT_DIR$/resources/templates/student/fragments/request_pass_fragment.html" />
         <option value="$PROJECT_DIR$/server/api.py" />
         <option value="$PROJECT_DIR$/server/serializers.py" />
-        <option value="$PROJECT_DIR$/server/urls.py" />
         <option value="$PROJECT_DIR$/accounts/models.py" />
+        <option value="$PROJECT_DIR$/server/urls.py" />
+        <option value="$PROJECT_DIR$/server/models.py" />
         <option value="$PROJECT_DIR$/server/szls.py" />
         <option value="$PROJECT_DIR$/server/rest.py" />
       </list>
@@ -712,18 +717,26 @@
       <option name="project" value="LOCAL" />
       <updated>1537716159266</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Added functions for approve, signin and signout. They are not actually seperate api endpoints but rather parameters that can be added to the retrieve pass api view.">
+      <created>1537729541008</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1537729541008</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18131869" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18498169" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5255102" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2510204" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -803,7 +816,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updates to testmodels.py" />
     <MESSAGE value="Changed Pass model to three models" />
     <MESSAGE value="Fixed Pass functions (again) and html display &#10;&#10;Fixed creation and request processes (request process is just as broken as before, no more no less)&#10;&#10;Fixed some css problems with pass rendering (added float left)&#10;&#10;Added template tag get_class to print text representation of the class name in template for pass type checking&#10;&#10;Added new pass classes to admin panel&#10;&#10;Fixed forms so that they work with the new setup" />
     <MESSAGE value="Unapproved passes show up now for teachers with new format" />
@@ -828,7 +840,8 @@
     <MESSAGE value="Made new api (The old one I made was really bad). This new api is not completely done however, it only has view for getting user data, passes and retrieving a single pass (of each type)" />
     <MESSAGE value="User api endpoint can now also get other users" />
     <MESSAGE value="Fixed major security flaw where one could request other users' authentication tokens." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed major security flaw where one could request other users' authentication tokens." />
+    <MESSAGE value="Added functions for approve, signin and signout. They are not actually seperate api endpoints but rather parameters that can be added to the retrieve pass api view." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added functions for approve, signin and signout. They are not actually seperate api endpoints but rather parameters that can be added to the retrieve pass api view." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/resources/templates/teacher/new_pass_fragment.html" />
@@ -1103,8 +1116,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+        <state relative-caret-position="171">
+          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -1113,8 +1126,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/szls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+        <state relative-caret-position="90">
+          <caret line="6" column="62" selection-start-line="6" selection-start-column="62" selection-end-line="6" selection-end-column="62" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
@@ -1123,27 +1136,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/accounts/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/rest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="48" column="25" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#64#0" expanded="true" />
-            <marker date="1537729309858" expanded="true" signature="154:535" ph="..." />
-            <marker date="1537729309858" expanded="true" signature="809:1267" ph="..." />
-          </folding>
+        <state relative-caret-position="-61">
+          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1475">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        <state relative-caret-position="220">
+          <caret line="441" column="47" lean-forward="true" selection-start-line="441" selection-start-column="47" selection-end-line="441" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/rest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="150" column="148" selection-start-line="150" selection-start-column="148" selection-end-line="150" selection-end-column="148" />
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+            <marker date="1537738372894" expanded="true" signature="154:1143" ph="..." />
+            <marker date="1537738372894" expanded="true" signature="657:929" ph="..." />
+            <marker date="1537738372894" expanded="true" signature="1417:1875" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

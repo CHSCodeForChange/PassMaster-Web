@@ -4,9 +4,27 @@ from .szls import *
 
 
 class UserReadView(generics.RetrieveAPIView):
-    serializer_class = UserSerializer
     authentication_classes = (authentication.TokenAuthentication,)
     permission_classes = (permissions.IsAuthenticated,)
+
+    def get_serializer_class(self):
+        user = self.request.GET.get("user")
+        serializer_class = None
+
+        if user is not None:
+            user = User.objects.get(id=user)
+            if user.profile.is_student():
+                serializer_class = StudentSerializer
+            elif user.profile.is_teacher():
+                serializer_class = TeacherSerializer
+        else:
+            if self.request.user.profile.is_student():
+                serializer_class = StudentSerializer
+
+            elif self.request.user.profile.is_teacher():
+                serializer_class = TeacherSerializer
+
+        return serializer_class
 
     def get_object(self):
         user = self.request.GET.get("user")
@@ -106,6 +124,35 @@ class PassListView(generics.ListAPIView):
 
         return passes
 
+
+class PassCreateView(generics.CreateAPIView):
+    authentication_classes = (authentication.TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def get_serializer_class(self):
+        type = self.request.GET.get("type")
+
+        serializer_class = None
+
+        if type is not None:
+            type = type.lower()
+            if type == "teacher":
+                serializer_class = TeacherPassSerializer
+            elif type == "location":
+                serializer_class = LocationPassSerializer
+            elif type == "srt":
+                serializer_class = SRTPassSerializer
+
+        return serializer_class
+
+    def perform_create(self, serializer):
+        if self.request.user.profile.is_teacher():
+            teacher = self.request.user.profile.teacher
+            serializer.save().parent().approve(teacher) #TODO Fix bug where this does get approved but the api responds with the unapproved version
+
+        elif self.request.user.profile.is_student():
+            student = self.request.user.profile.student
+            serializer.save(student=student)
 
 
 

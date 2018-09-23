@@ -2,8 +2,9 @@ from rest_framework import serializers
 from .models import *
 from django.contrib.auth.models import User
 
-class UserSerializer(serializers.ModelSerializer):
+class StudentSerializer(serializers.ModelSerializer):
     type = serializers.CharField(source='profile.member_type')
+    student = serializers.CharField(source='profile.student.pk')
 
     class Meta:
         model = User
@@ -13,7 +14,25 @@ class UserSerializer(serializers.ModelSerializer):
             'first_name',
             'last_name',
             'email',
-            'type'
+            'type',
+            'student'
+        ]
+
+
+class TeacherSerializer(serializers.ModelSerializer):
+    type = serializers.CharField(source='profile.member_type')
+    teacher = serializers.CharField(source='profile.teacher.pk')
+
+    class Meta:
+        model = User
+        fields = [
+            'pk',
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'type',
+            'teacher'
         ]
 
 class PassSerializer(serializers.ModelSerializer):
@@ -37,22 +56,28 @@ class PassSerializer(serializers.ModelSerializer):
 
 
 class TeacherPassSerializer(serializers.ModelSerializer):
-    type = serializers.CharField(source='pass_type')
-
     class Meta:
         model = TeacherPass
-        fields = ('pk',
-                    'approved',
-                    'date',
-                    'startTimeRequested',
-                    'endTimeRequested',
-                    'timeLeftOrigin',
-                    'timeArrivedDestination',
-                    'student',
-                    'originTeacher',
-                    'destinationTeacher',
-                    'description',
-                    'type')
+        fields = (
+            'pk',
+            'approved',
+            'date',
+            'startTimeRequested',
+            'endTimeRequested',
+            'timeLeftOrigin',
+            'timeArrivedDestination',
+            'student',
+            'originTeacher',
+            'destinationTeacher',
+            'description',
+        )
+
+        read_only_fields = (
+            'pk',
+            'approved',
+            'timeLeftOrigin',
+            'timeArrivedDestination',
+        )
 
 class LocationPassSerializer(serializers.ModelSerializer):
     class Meta:
@@ -68,6 +93,13 @@ class LocationPassSerializer(serializers.ModelSerializer):
                     'originTeacher',
                     'description',
                     'location')
+
+        read_only_fields = (
+            'pk',
+            'approved',
+            'timeLeftOrigin',
+            'timeArrivedDestination',
+        )
 
 class SRTPassSerializer(serializers.ModelSerializer):
     class Meta:
@@ -86,3 +118,12 @@ class SRTPassSerializer(serializers.ModelSerializer):
                     'session',
                     'timeLeftDestination',
                     'timeArrivedOrigin')
+
+        read_only_fields = (
+            'pk',
+            'approved',
+            'timeLeftOrigin',
+            'timeArrivedDestination',
+            'timeLeftDestination',
+            'TimeArrivedOrigin'
+        )
