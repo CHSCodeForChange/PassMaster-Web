@@ -1,213 +1,158 @@
-from rest_framework import generics
-from rest_framework.response import Response
+from rest_framework import generics, authentication, permissions
 from .models import *
 from .serializers import *
-from rest_framework.authtoken.views import ObtainAuthToken
-from rest_framework.authtoken.models import Token
-from rest_framework.decorators import authentication_classes, permission_classes
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import AllowAny
-from rest_framework import authentication, permissions
-from django.contrib.auth.models import User
 
 
-class UserGet(generics.RetrieveAPIView):
-	"""
-	retrieve:
-	Return the given user.
+class UserReadView(generics.RetrieveAPIView):
+    authentication_classes = (authentication.TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
 
-	list:
-	Return a list of all the existing users.
+    def get_serializer_class(self):
+        user = self.request.GET.get("user")
+        serializer_class = None
 
-	create:
-	Create a new user instance.
-	"""
-	serializer_class = UserSerializer
-	permission_classes = ()
-	# authentication_classes = (authentication.TokenAuthentication,)
+        if user is not None:
+            user = User.objects.get(id=user)
+            if user.profile.is_student():
+                serializer_class = StudentSerializer
+            elif user.profile.is_teacher():
+                serializer_class = TeacherSerializer
+        else:
+            if self.request.user.profile.is_student():
+                serializer_class = StudentSerializer
 
-	def get_queryset(self):
-		return self.request.user.profile
+            elif self.request.user.profile.is_teacher():
+                serializer_class = TeacherSerializer
 
-	
-class PassList(generics.ListAPIView):
-	"""
-	retrieve:
-	Return the given user.
+        return serializer_class
 
-	list:
-	Return a list of all the existing users.
+    def get_object(self):
+        user = self.request.GET.get("user")
+        if user is not None:
+            user = User.objects.get(id=user)
+        else:
+            user = self.request.user
 
-	create:
-	Create a new user instance.
-	"""
-	queryset = Pass.objects.all()
-	serializer_class = Read_PassSerializer
-	permission_classes = ()
-	authentication_classes = (authentication.TokenAuthentication,)
-
-	def get_queryset(self):
-		if self.request.user.profile.is_student():
-			queryset = Pass.get_student_passes(self.request.user)
-		elif self.request.user.profile.is_teacher():
-			queryset = Pass.get_teacher_passes(self.request.user)
-
-		return queryset
+        return user
 
 
-class PassGet(generics.RetrieveAPIView):
-	"""
-	retrieve:
-	Return the given user.
+class GenericPassReadView(generics.RetrieveAPIView):
+    lookup_field = 'pk'
+    serializer_class = PassSerializer
+    authentication_classes = (authentication.TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
 
-	list:
-	Return a list of all the existing users.
+    def get_serializer_class(self):
+        type = self.request.GET.get("type")
+        serializer_class = PassSerializer
 
-	create:
-	Create a new user instance.
-	"""
-	serializer_class = Read_PassSerializer
-	authentication_classes = (authentication.TokenAuthentication,)
+        if type is not None:
+            type = type.lower()
+            if type == "teacher":
+                serializer_class = TeacherPassSerializer
+            elif type == "location":
+                serializer_class = LocationPassSerializer
+            elif type == "srt":
+                serializer_class = SRTPassSerializer
 
-	def get_queryset(self):
-		return Pass.get_passes(self.request.user)
+        return serializer_class
 
+    def get_queryset(self):
+        return Pass.get_passes(self.request.user)
 
-class LocationPassGet(generics.RetrieveAPIView):
-	"""
-	retrieve:
-	Return the given user.
+    def get_object(self):
+        pk = self.kwargs.get("pk")
+        user = self.request.user
 
-	list:
-	Return a list of all the existing users.
+        pass_object = Pass.get_passes(user).get(id=pk)
+        pass_action = self.request.GET.get("action")
 
-	create:
-	Create a new user instance.
-	"""
-	queryset = LocationPass.objects.all()
-	serializer_class = Read_LocationPassSerializer
-	authentication_classes = (authentication.TokenAuthentication,)
-
-
-class SRTPassGet(generics.RetrieveAPIView):
-	"""
-	retrieve:
-	Return the given user.
-
-	list:
-	Return a list of all the existing users.
-
-	create:
-	Create a new user instance.
-	"""
-	queryset = SRTPass.objects.all()
-	serializer_class = Read_SRTPassSerializer
-	authentication_classes = (authentication.TokenAuthentication,)
+        if pass_action is not None and user.profile.is_teacher():
+            pass_action = pass_action.lower()
+            if pass_action == "approve":
+                pass_object.approve(user.profile.teacher)
+            elif pass_action == "signout":
+                pass_object.leave(user.profile.teacher)
+            elif pass_action == "signin":
+                pass_object.arrive(user.profile.teacher)
 
 
-class TeacherPassGet(generics.RetrieveAPIView):
-	"""
-	retrieve:
-	Return the given user.
+        pass_type = self.request.GET.get("type")
 
-	list:
-	Return a list of all the existing users.
+        if pass_type is not None:
+            pass_type = pass_type.lower()
+            if pass_type == "teacher" or pass_type == "teacherpass":
+                pass_object = pass_object.teacherpass
+            elif pass_type == "location" or pass_type == "locationpass":
+                pass_object = pass_object.locationpass
+            elif pass_type == "srt" or pass_type == "srtpass":
+                pass_object = pass_object.srtpass
 
-	create:
-	Create a new user instance.
-	"""
-	queryset = TeacherPass.objects.all()
-	serializer_class = Read_TeacherPassSerializer
-	authentication_classes = (authentication.TokenAuthentication,)
+        return pass_object
 
 
-class PassUpdate(generics.UpdateAPIView):
-	"""
-	retrieve:
-	Return the given user.
 
-	list:
-	Return a list of all the existing users.
+class PassListView(generics.ListAPIView):
+    serializer_class = PassSerializer
+    authentication_classes = (authentication.TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
 
-	create:
-	Create a new user instance.
-	"""
-	serializer_class = StudentCreate_LocationPassSerializer
-	authentication_classes = (authentication.TokenAuthentication,)
+    def get_queryset(self):
+        passes = Pass.get_passes(self.request.user)
 
-	def get_queryset(self):
-		return Pass.get_passes(self.request.user)
+        query = self.request.GET.get("search")
+        student = self.request.GET.get("student")
+        originTeacher = self.request.GET.get("originTeacher")
+        date = self.request.GET.get("date")
+        approved = self.request.GET.get("approved")
 
+        if query is not None:
+            passes = passes.filter(description__icontains=query)
 
-class LocationPassCreate(generics.CreateAPIView):
-	"""
-	retrieve:
-	Return the given user.
+        elif student is not None:
+            passes = passes.filter(student=student)
 
-	list:
-	Return a list of all the existing users.
+        elif originTeacher is not None:
+            passes = passes.filter(originTeacher=originTeacher)
 
-	create:
-	Create a new user instance.
-	"""
-	permission_classes = ()
-	authentication_classes = (authentication.TokenAuthentication,)
+        elif date is not None:
+            passes = passes.filter(date=date)
 
-	def get_serializer_class(self):
-		if (self.request.user.profile.is_teacher()):
-			return TeacherCreate_LocationPassSerializer
-		else:
-			return StudentCreate_LocationPassSerializer
-
-	def perform_create(self, serializer):
-		if (self.request.user.profile.is_teacher()):
-			new_pass = serializer.save(approved=True, originTeacher=self.request.user.profile.teacher)
-		else:
-			serializer.save(student=self.request.user.profile.student)
+        elif approved is not None:
+            passes = passes.filter(approved=approved)
 
 
-class SRTPassCreate(generics.CreateAPIView):
-	"""
-	retrieve:
-	Return the given user.
-
-	list:
-	Return a list of all the existing users.
-
-	create:
-	Create a new user instance.
-	"""
-	serializer_class = StudentCreate_SRTPassSerializer
-	permission_classes = ()
-	authentication_classes = (authentication.TokenAuthentication,)
+        return passes
 
 
-class TeacherPassCreate(generics.CreateAPIView):
-	"""
-	retrieve:
-	Return the given user.
+class PassCreateView(generics.CreateAPIView):
+    authentication_classes = (authentication.TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
 
-	list:
-	Return a list of all the existing users.
+    def get_serializer_class(self):
+        type = self.request.GET.get("type")
 
-	create:
-	Create a new user instance.
-	"""
-	permission_classes = ()
-	authentication_classes = (authentication.TokenAuthentication,)
+        serializer_class = None
 
-	def get_serializer_class(self):
-		if (self.request.user.profile.is_teacher()):
-			return TeacherCreate_TeacherPassSerializer
-		else:
-			return StudentCreate_TeacherPassSerializer
+        if type is not None:
+            type = type.lower()
+            if type == "teacher":
+                serializer_class = TeacherPassSerializer
+            elif type == "location":
+                serializer_class = LocationPassSerializer
+            elif type == "srt":
+                serializer_class = SRTPassSerializer
 
-	def perform_create(self, serializer):
-		if (self.request.user.profile.is_teacher()):
-			new_pass = serializer.save(approved=True)
-			if (new_pass.destinationTeacher == self.request.user.profile.teacher):
-				new_pass.approved = True
-				new_pass.save()
-		else:
-			serializer.save(student=self.request.user.profile.student)
+        return serializer_class
+
+    def perform_create(self, serializer):
+        if self.request.user.profile.is_teacher():
+            teacher = self.request.user.profile.teacher
+            serializer.save().parent().approve(teacher) #TODO Fix bug where this does get approved but the api responds with the unapproved version
+
+        elif self.request.user.profile.is_student():
+            student = self.request.user.profile.student
+            serializer.save(student=student)
+
+
+

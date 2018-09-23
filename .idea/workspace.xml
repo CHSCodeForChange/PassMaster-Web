@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="506317a0-fd18-4e84-b52a-90e080b347ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/rest.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/rest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/szls.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/szls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/rest.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/szls.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -102,13 +100,13 @@
     <session id="297213899">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="2" />
-          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -123,30 +121,28 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="4414" />
-          <entry key="txt" value="562" />
+          <entry key="dummy" value="14" />
+          <entry key="py" value="4422" />
+          <entry key="txt" value="647" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="562" />
-          <entry key="Python" value="4414" />
+          <entry key="PLAIN_TEXT" value="661" />
+          <entry key="Python" value="4422" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/rest.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="150" column="148" selection-start-line="150" selection-start-column="148" selection-end-line="150" selection-end-column="148" />
+            <state relative-caret-position="30">
+              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
               <folding>
-                <element signature="e#0#64#0" expanded="true" />
-                <marker date="1537738372894" expanded="true" signature="154:1143" ph="..." />
-                <marker date="1537738372894" expanded="true" signature="657:929" ph="..." />
-                <marker date="1537738372894" expanded="true" signature="1417:1875" ph="..." />
+                <marker date="1537738883821" expanded="true" signature="161:1150" ph="..." />
               </folding>
             </state>
           </provider>
@@ -155,17 +151,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="441" column="47" lean-forward="true" selection-start-line="441" selection-start-column="47" selection-end-line="441" selection-end-column="47" />
+            <state relative-caret-position="6585">
+              <caret line="441" column="47" selection-start-line="441" selection-start-column="47" selection-end-line="441" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+            <state relative-caret-position="525">
+              <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -174,9 +170,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/szls.py">
+        <entry file="file://$PROJECT_DIR$/server/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
+            <state relative-caret-position="60">
               <caret line="6" column="62" selection-start-line="6" selection-start-column="62" selection-end-line="6" selection-end-column="62" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
@@ -188,7 +184,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/accounts/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-61">
+            <state relative-caret-position="150">
               <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
             </state>
           </provider>
@@ -325,10 +321,10 @@
         <option value="$PROJECT_DIR$/server/api.py" />
         <option value="$PROJECT_DIR$/server/serializers.py" />
         <option value="$PROJECT_DIR$/accounts/models.py" />
-        <option value="$PROJECT_DIR$/server/urls.py" />
         <option value="$PROJECT_DIR$/server/models.py" />
         <option value="$PROJECT_DIR$/server/szls.py" />
         <option value="$PROJECT_DIR$/server/rest.py" />
+        <option value="$PROJECT_DIR$/server/urls.py" />
       </list>
     </option>
   </component>
@@ -352,27 +348,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
-              <item name="accounts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Changed Files'; set:Changed Files; ALL; class com.intellij.packageDependencies.ChangeListScope">
           <expand>
@@ -454,6 +429,27 @@
               <item name="PassMaster-Web" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="staticfiles" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
+              <item name="accounts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -724,19 +720,26 @@
       <option name="project" value="LOCAL" />
       <updated>1537729541008</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Added endpoint for creating pass (note bug mentioned in line 151)">
+      <created>1537738411629</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1537738411629</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18498169" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18681319" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2510204" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2510204" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -816,7 +819,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changed Pass model to three models" />
     <MESSAGE value="Fixed Pass functions (again) and html display &#10;&#10;Fixed creation and request processes (request process is just as broken as before, no more no less)&#10;&#10;Fixed some css problems with pass rendering (added float left)&#10;&#10;Added template tag get_class to print text representation of the class name in template for pass type checking&#10;&#10;Added new pass classes to admin panel&#10;&#10;Fixed forms so that they work with the new setup" />
     <MESSAGE value="Unapproved passes show up now for teachers with new format" />
     <MESSAGE value="approve, checkout and checkin views now only work for the correct teacher&#10;&#10;Updated teacher home with tabbing system and js" />
@@ -841,7 +843,8 @@
     <MESSAGE value="User api endpoint can now also get other users" />
     <MESSAGE value="Fixed major security flaw where one could request other users' authentication tokens." />
     <MESSAGE value="Added functions for approve, signin and signout. They are not actually seperate api endpoints but rather parameters that can be added to the retrieve pass api view." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added functions for approve, signin and signout. They are not actually seperate api endpoints but rather parameters that can be added to the retrieve pass api view." />
+    <MESSAGE value="Added endpoint for creating pass (note bug mentioned in line 151)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added endpoint for creating pass (note bug mentioned in line 151)" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/resources/templates/teacher/new_pass_fragment.html" />
@@ -1114,19 +1117,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/urls.py">
+    <entry file="file://$PROJECT_DIR$/server/api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+        <state relative-caret-position="30">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <marker date="1537738883821" expanded="true" signature="161:1150" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/szls.py">
+    <entry file="file://$PROJECT_DIR$/server/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
+        <state relative-caret-position="6585">
+          <caret line="441" column="47" selection-start-line="441" selection-start-column="47" selection-end-line="441" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
           <caret line="6" column="62" selection-start-line="6" selection-start-column="62" selection-end-line="6" selection-end-column="62" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
@@ -1136,27 +1146,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/accounts/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-61">
+        <state relative-caret-position="150">
           <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/models.py">
+    <entry file="file://$PROJECT_DIR$/server/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="441" column="47" lean-forward="true" selection-start-line="441" selection-start-column="47" selection-end-line="441" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/rest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="150" column="148" selection-start-line="150" selection-start-column="148" selection-end-line="150" selection-end-column="148" />
+        <state relative-caret-position="525">
+          <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
           <folding>
-            <element signature="e#0#64#0" expanded="true" />
-            <marker date="1537738372894" expanded="true" signature="154:1143" ph="..." />
-            <marker date="1537738372894" expanded="true" signature="657:929" ph="..." />
-            <marker date="1537738372894" expanded="true" signature="1417:1875" ph="..." />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
