@@ -9,7 +9,13 @@ class UserReadView(generics.RetrieveAPIView):
     permission_classes = (permissions.IsAuthenticated,)
 
     def get_object(self):
-        return self.request.user
+        user = self.request.GET.get("user")
+        if user is not None:
+            user = User.objects.get(id=user)
+        else:
+            user = self.request.user
+
+        return user
 
 
 class GenericPassReadView(generics.RetrieveAPIView):
