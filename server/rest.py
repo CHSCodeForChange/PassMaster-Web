@@ -44,7 +44,20 @@ class GenericPassReadView(generics.RetrieveAPIView):
 
     def get_object(self):
         pk = self.kwargs.get("pk")
-        pass_object = Pass.get_passes(self.request.user).get(id=pk)
+        user = self.request.user
+
+        pass_object = Pass.get_passes(user).get(id=pk)
+        pass_action = self.request.GET.get("action")
+
+        if pass_action is not None and user.profile.is_teacher():
+            pass_action = pass_action.lower()
+            if pass_action == "approve":
+                pass_object.approve(user.profile.teacher)
+            elif pass_action == "signout":
+                pass_object.leave(user.profile.teacher)
+            elif pass_action == "signin":
+                pass_object.arrive(user.profile.teacher)
+
 
         pass_type = self.request.GET.get("type")
 
