@@ -40,12 +40,12 @@ else if(window.location.pathname === "/location/") {
 function activate(elem, frag) {
     frag.show();
     elem.removeClass('btn-secondary');
-    elem.addClass('btn-primary');
+    elem.addClass('btn-info');
 }
 function deactivate(elem, frag) {
     frag.hide();
     elem.addClass('btn-secondary');
-    elem.removeClass('btn-primary');
+    elem.removeClass('btn-info');
 }
 // Teacher functions
 function switch_teacher_home(){

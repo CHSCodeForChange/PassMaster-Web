@@ -1,17 +1,12 @@
-from django.conf.urls import url, include
-from django.views.generic import RedirectView
-from rest_framework.authtoken import views as drfviews
-from . import api
-from . import views
-
-from rest_framework.documentation import include_docs_urls
-from .api import *
+from django.conf.urls import url
 from rest_framework.authtoken import views as auth_views
 
+from . import views
+from .api import *
 
 rest = [
 	url(r'^rest/login/$', auth_views.obtain_auth_token, name='login'),
-	url(r'^rest/user/$', UserReadView.as_view(), name="user-read"),
+	url(r'^rest/user/$', UserReadView.as_view(), name='user-read'),
 	url(r'rest/passes/$', PassListView.as_view(), name='pass-list'),
 	url(r'rest/passes/create/$', PassCreateView.as_view(), name='pass-create'),
 	url(r'^rest/passes/(?P<pk>\d+)/$', GenericPassReadView.as_view(), name='pass-read')

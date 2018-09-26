@@ -1,30 +1,12 @@
 from rest_framework import generics, authentication, permissions
-from .models import *
+
 from .serializers import *
 
 
 class UserReadView(generics.RetrieveAPIView):
     authentication_classes = (authentication.TokenAuthentication,)
     permission_classes = (permissions.IsAuthenticated,)
-
-    def get_serializer_class(self):
-        user = self.request.GET.get("user")
-        serializer_class = None
-
-        if user is not None:
-            user = User.objects.get(id=user)
-            if user.profile.is_student():
-                serializer_class = StudentSerializer
-            elif user.profile.is_teacher():
-                serializer_class = TeacherSerializer
-        else:
-            if self.request.user.profile.is_student():
-                serializer_class = StudentSerializer
-
-            elif self.request.user.profile.is_teacher():
-                serializer_class = TeacherSerializer
-
-        return serializer_class
+    serializer_class = UserSerializer
 
     def get_object(self):
         user = self.request.GET.get("user")
