@@ -1,6 +1,11 @@
 from django import forms
 from django.contrib.auth.models import User
-from django_select2.forms import Select2Widget
+from django_select2.forms import (
+	HeavySelect2MultipleWidget, HeavySelect2Widget, ModelSelect2MultipleWidget,
+	ModelSelect2TagWidget, ModelSelect2Widget, Select2MultipleWidget,
+	Select2Widget
+)
+
 from .models import *
 
 
@@ -108,7 +113,7 @@ class CreatePassForm(forms.Form):
 		       'class': 'form-control'}))
 
 	students = forms.ModelMultipleChoiceField(queryset=Student.objects.all(), required=True,
-	                                          widget=forms.SelectMultiple(
+	                                          widget=Select2MultipleWidget(
 		                                          attrs={'class': 'form-control',
 		                                                 'placeholder': 'Reason for pass'}))
 

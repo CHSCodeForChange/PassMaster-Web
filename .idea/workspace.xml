@@ -4,18 +4,10 @@
     <list default="true" id="506317a0-fd18-4e84-b52a-90e080b347ca" name="Default Changelist" comment="Removed old api (may break drf docs)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/templates/student/fragments/active_fragment.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/templates/student/fragments/active_fragment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/templates/student/fragments/student_pass_fragment.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/templates/student/fragments/student_pass_fragment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/templates/student/student_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/templates/student/student_home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/templates/teacher/teacher_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/templates/teacher/teacher_home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/tabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/tabs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/forms.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -158,32 +150,84 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PassMaster/local.py">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/templates/student/fragments/student_pass_fragment.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="81" selection-start-line="34" selection-start-column="81" selection-end-line="34" selection-end-column="81" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/serializers.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="26" column="68" lean-forward="true" selection-start-line="26" selection-start-column="68" selection-end-line="26" selection-end-column="68" />
+            <state relative-caret-position="323">
+              <caret line="19" column="56" lean-forward="true" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
               <folding>
-                <marker date="1537934969700" expanded="true" signature="216:1418" ph="..." />
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="forms.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="114" column="53" selection-start-line="114" selection-start-column="53" selection-end-line="114" selection-end-column="53" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+                <element signature="e#176#3164#0" />
+                <element signature="e#411#510#0" />
+                <element signature="e#610#696#0" />
+                <element signature="e#970#1021#0" />
+                <element signature="e#1156#1230#0" />
+                <element signature="e#1358#1430#0" />
+                <element signature="e#1531#1603#0" />
+                <element signature="e#1795#2000#0" />
+                <element signature="e#2060#2147#0" />
+                <element signature="e#2181#3164#0" />
+                <element signature="e#2285#2717#0" />
+                <element signature="e#2729#3146#0" />
+                <element signature="e#3642#3692#0" />
+                <element signature="e#4168#4219#0" />
+                <element signature="e#4354#4428#0" />
+                <element signature="e#4556#4628#0" />
+                <element signature="e#4720#4792#0" />
+                <element signature="e#4979#5120#0" />
+                <element signature="e#5507#5593#0" />
+                <element signature="e#5628#7412#0" />
+                <element signature="e#5673#6106#0" />
+                <element signature="e#5723#6106#0" />
+                <element signature="e#6156#6570#0" />
+                <element signature="e#6206#6570#0" />
+                <element signature="e#6620#6931#0" />
+                <element signature="e#6670#6931#0" />
+                <element signature="e#6981#7412#0" />
+                <element signature="e#7031#7412#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/api.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2176">
+              <caret line="139" selection-start-line="139" selection-end-line="139" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2754">
+              <caret line="164" column="8" selection-start-line="164" selection-start-column="8" selection-end-line="164" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PassMaster/base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2210">
+              <caret line="132" column="1" selection-start-line="132" selection-start-column="1" selection-end-line="132" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -308,7 +352,6 @@
         <option value="$PROJECT_DIR$/resources/templates/location/location_home.html" />
         <option value="$PROJECT_DIR$/resources/templates/location/fragments/incoming_fragment.html" />
         <option value="$PROJECT_DIR$/resources/templates/teacher/fragments/create_pass_fragment.html" />
-        <option value="$PROJECT_DIR$/server/forms.py" />
         <option value="$PROJECT_DIR$/resources/templates/student/fragments/request_pass_fragment.html" />
         <option value="$PROJECT_DIR$/accounts/models.py" />
         <option value="$PROJECT_DIR$/server/models.py" />
@@ -324,6 +367,7 @@
         <option value="$PROJECT_DIR$/static/css/header.css" />
         <option value="$PROJECT_DIR$/resources/templates/student/fragments/active_fragment.html" />
         <option value="$PROJECT_DIR$/server/serializers.py" />
+        <option value="$PROJECT_DIR$/server/forms.py" />
       </list>
     </option>
   </component>
@@ -347,58 +391,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
-              <item name="accounts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
-              <item name="PassMaster" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="student" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="student" type="462c0819:PsiDirectoryNode" />
-              <item name="fragments" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PassMaster-Web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PassMaster-Web" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Changed Files'; set:Changed Files; ALL; class com.intellij.packageDependencies.ChangeListScope">
           <expand>
@@ -485,6 +477,22 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="PassMaster-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PassMaster-web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PassMaster-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PassMaster-web" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -510,6 +518,150 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jpaavola\Documents\Code for Change\PassMaster-Web\webview" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/PassMaster.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/PassMaster/views.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Pipfile</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Pipfile.lock</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/accounts/forms.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/accounts/models.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/db.sqlite3</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/header.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/student/fragments/active_fragment.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/student/fragments/request_pass_fragment.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/student/fragments/student_pass_fragment.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/student/student_home.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/teacher/fragments/create_pass_fragment.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/teacher/teacher_home.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/admin.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/api.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/forms.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/models.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/serializers.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/urls.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/views.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/header.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/js/tabs.js</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/R_User_Library.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/accounts/migrations/0002_auto_20180921_2145.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/location/__init__.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/location/fragments/__init__.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/location/fragments/home_fragment.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/location/fragments/incoming_fragment.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/location/fragments/location_pass_fragment.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/location/fragments/old_fragment.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/templates/location/location_home.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/migrations/0003_location_specialsrtpass.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/server/migrations/0004_auto_20180921_2145.py</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -547,7 +699,6 @@
       <option name="runNoReload" value="false" />
       <option name="useCustomRunCommand" value="false" />
       <option name="customRunCommand" value="" />
-      <method v="2" />
     </configuration>
   </component>
   <component name="SvnConfiguration">
@@ -768,33 +919,48 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <frame x="-7" y="-7" width="1231" height="735" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50201344" side_tool="true" weight="0.32850942" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.06946454" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32850942" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.0" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.2636656" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4980315" visible="true" weight="0.17584224" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="4" weight="0.3295302" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.3295302" />
+      <window_info id="Structure" order="1" sideWeight="0.5019685" side_tool="true" weight="0.19530201" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2002442" />
       <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" internal_type="SLIDING" order="2" type="SLIDING" weight="0.2510204" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.19387755" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" internal_type="SLIDING" order="2" type="SLIDING" weight="0.2510204" />
       <window_info anchor="right" id="Data View" order="3" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="manage.py@PassMaster" order="13" weight="0.329582" />
       <window_info anchor="right" id="R Graphics" order="4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="R Packages" order="5" />
       <window_info anchor="right" id="SciView" order="6" />
-      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.19387755" />
+      <window_info id="Favorites" order="2" side_tool="true" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -859,6 +1025,27 @@
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/static/css/old/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="38" selection-start-line="38" selection-end-line="42" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/templates/accounts/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="27" lean-forward="true" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/header.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="114" column="14" lean-forward="true" selection-start-line="114" selection-start-column="14" selection-end-line="114" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/templates/student/old_fragment.html" />
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
@@ -1012,13 +1199,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/templates/teacher/fragments/create_pass_fragment.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1026,19 +1206,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/accounts/urls.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/.local/share/virtualenvs/PassMaster-Web-uegSpANt/lib/python3.6/site-packages/rest_framework/authtoken/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/accounts/views.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$USER_HOME$/.local/share/virtualenvs/PassMaster-Web-uegSpANt/lib/python3.6/site-packages/rest_framework/authtoken/models.py" />
     <entry file="file://$PROJECT_DIR$/accounts/tokens.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1048,8 +1216,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
+        <state relative-caret-position="2176">
+          <caret line="139" selection-start-line="139" selection-end-line="139" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1066,9 +1237,6 @@
           <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/templates/student/fragments/pending_fragment.html">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/header.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -1093,25 +1261,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PassMaster/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="66" column="20" lean-forward="true" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
+        <state relative-caret-position="2210">
+          <caret line="132" column="1" selection-start-line="132" selection-start-column="1" selection-end-line="132" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.local/share/virtualenvs/PassMaster-Web-uegSpANt/lib/python3.6/site-packages/rest_framework/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="111" column="8" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/.local/share/virtualenvs/PassMaster-Web-uegSpANt/lib/python3.6/site-packages/rest_framework/views.py" />
     <entry file="file://$PROJECT_DIR$/resources/templates/student/student_home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#body#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1131,10 +1290,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+        <state relative-caret-position="323">
+          <caret line="19" column="56" lean-forward="true" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1148,8 +1307,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        <state relative-caret-position="2754">
+          <caret line="164" column="8" selection-start-line="164" selection-start-column="8" selection-end-line="164" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -1164,9 +1323,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="780">
           <caret line="58" column="22" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1188,8 +1344,43 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="26" column="68" lean-forward="true" selection-start-line="26" selection-start-column="68" selection-end-line="26" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="114" column="53" selection-start-line="114" selection-start-column="53" selection-end-line="114" selection-end-column="53" />
           <folding>
-            <marker date="1537934969700" expanded="true" signature="216:1418" ph="..." />
+            <element signature="e#0#24#0" expanded="true" />
+            <element signature="e#176#3164#0" />
+            <element signature="e#411#510#0" />
+            <element signature="e#610#696#0" />
+            <element signature="e#970#1021#0" />
+            <element signature="e#1156#1230#0" />
+            <element signature="e#1358#1430#0" />
+            <element signature="e#1531#1603#0" />
+            <element signature="e#1795#2000#0" />
+            <element signature="e#2060#2147#0" />
+            <element signature="e#2181#3164#0" />
+            <element signature="e#2285#2717#0" />
+            <element signature="e#2729#3146#0" />
+            <element signature="e#3642#3692#0" />
+            <element signature="e#4168#4219#0" />
+            <element signature="e#4354#4428#0" />
+            <element signature="e#4556#4628#0" />
+            <element signature="e#4720#4792#0" />
+            <element signature="e#4979#5120#0" />
+            <element signature="e#5507#5593#0" />
+            <element signature="e#5628#7412#0" />
+            <element signature="e#5673#6106#0" />
+            <element signature="e#5723#6106#0" />
+            <element signature="e#6156#6570#0" />
+            <element signature="e#6206#6570#0" />
+            <element signature="e#6620#6931#0" />
+            <element signature="e#6670#6931#0" />
+            <element signature="e#6981#7412#0" />
+            <element signature="e#7031#7412#0" />
           </folding>
         </state>
       </provider>
