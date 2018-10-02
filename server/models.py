@@ -1,4 +1,5 @@
 from datetime import datetime, time
+
 from django.db import models
 from django.db.models import Q
 
@@ -301,6 +302,16 @@ class Pass(models.Model):
 			return None
 
 
+
+	def get_destination(self):
+		if self.is_location_pass():
+			return self.locationpass.location
+		elif self.is_teacher_pass():
+			return self.teacherpass.destinationTeacher.__str__()
+		elif self.is_srt_pass():
+			self.srtpass.destinationTeacher.__str__()
+
+
 class LocationPass(Pass):
 	objects = models.Manager()
 	location = models.CharField(max_length=12, null=True, blank=True)
@@ -442,7 +453,7 @@ class Location(models.Model):
 	profile = models.OneToOneField('accounts.Profile', on_delete=models.CASCADE)
 
 	def __str__(self):
-		return self.profile.user.get_full_name() + " (" + self.profile.user.username + ")"
+		return self.profile.user.get_full_name()
 
 
 class Administrator(models.Model):
@@ -463,7 +474,7 @@ class Student(models.Model):
 	)
 
 	def __str__(self):
-		return self.profile.user.get_full_name() + " (" + self.profile.user.username + ")"
+		return self.profile.user.get_full_name()
 
 	def get_deforgin(self):
 		return self.defaultOrgin
@@ -474,7 +485,7 @@ class Teacher(models.Model):
 	name = models.CharField(max_length=250, default='stuff')
 
 	def __str__(self):
-		return self.profile.user.get_full_name() + " (" + self.profile.user.username + ")"
+		return self.profile.user.get_full_name()
 
 	def get_students(self):
 		pass

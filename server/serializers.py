@@ -60,8 +60,8 @@ class UserSerializer(serializers.ModelSerializer):
 
 class PassSerializer(serializers.ModelSerializer):
     type = serializers.CharField(source='pass_type')
-    # convertedStudent = serializers.CharField(source='student.profile.user.id')
-    # convertedOriginTeacher = serializers.CharField(source='originTeacher.profile.user.id')
+    destination = serializers.CharField(source='get_destination')
+
     student = StudentSerializer()
     originTeacher = TeacherSerializer()
 
@@ -83,7 +83,8 @@ class PassSerializer(serializers.ModelSerializer):
 
             'description',
 
-            'type'
+            'type',
+            'destination'
         ]
 
 

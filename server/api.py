@@ -80,15 +80,25 @@ class PassListView(generics.ListAPIView):
     permission_classes = (permissions.IsAuthenticated,)
 
     def get_queryset(self):
-        passes = Pass.get_passes(self.request.user)
+        user = self.request.user
+        passes = Pass.get_passes(user)
 
+        list = self.request.GET.get("list")
         query = self.request.GET.get("search")
         student = self.request.GET.get("student")
         originTeacher = self.request.GET.get("originTeacher")
         date = self.request.GET.get("date")
         approved = self.request.GET.get("approved")
 
-        if query is not None:
+        if list is not None:
+            list = list.lower()
+            if list == 'active':
+                passes = Pass.get_students_active_passes(user)
+            elif list == 'pending':
+                passes = Pass.get_students_pending_passes(user)
+            elif list =='student-old' or list == 'student old':
+                passes = Pass.get_students_old_passes(user)
+        elif query is not None:
             passes = passes.filter(description__icontains=query)
 
         elif student is not None:
