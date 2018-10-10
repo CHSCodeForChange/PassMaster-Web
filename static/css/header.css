@@ -72,8 +72,8 @@ input:-webkit-autofill {
 }
 
 .card-container {
-	/*margin-top: 20px;*/
-	/*width: 100vw;*/
+	margin-top: 20px;
+	width: 100vw;
 	padding-left: 96px;
     padding-right: 96px;
     padding-bottom: 0;
@@ -94,8 +94,9 @@ input:-webkit-autofill {
     margin: 1%;
 	border-radius: 20px;
 	height: 45vh;
-	width: 30vh !important;
+	width: 20vw !important;
 	float: left;
+	text-align: left;
 }
 
 /* For rounded cards to not be jank*/
