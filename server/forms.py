@@ -19,8 +19,7 @@ class RequestPassForm(forms.Form):
 		widget=Select2Widget(
 			attrs={'type': 'text',
 			       'class': 'form-control',
-				   'style': 'display: none;',
-				   'data-placeholder': "test"}
+				   'style': 'display: none;'}
 		)
 	)
 
