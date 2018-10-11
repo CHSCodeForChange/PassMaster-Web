@@ -29,12 +29,12 @@ class UserListView(generics.ListAPIView):
         if type is not None:
             queryset = queryset.filter(profile__member_type=type)
         if username is not None:
-            queryset = queryset.filter(username__contains=username)
+            queryset = queryset.filter(username__contains=username) | queryset.filter(first_name__contains=username) | queryset.filter(last_name__contains=username)
 
         return queryset
 
 
-class GenericPassReadView(generics.RetrieveAPIView):
+class GenericPassReadView(generics.RetrieveAPIView)
     lookup_field = 'pk'
     serializer_class = PassSerializer
     authentication_classes = (authentication.TokenAuthentication,)
