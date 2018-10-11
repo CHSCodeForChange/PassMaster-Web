@@ -15,11 +15,11 @@ class RequestPassForm(forms.Form):
 	destinationTeacher = forms.ModelChoiceField(
 		queryset=Teacher.objects.all(),
 		empty_label=None,
-		required=False,
 		widget=Select2Widget(
 			attrs={'type': 'text',
 			       'class': 'form-control',
-			       'placeholder': 'Destination Teacher'}
+				   'style': 'display: none;',
+				   'data-placeholder': "test"}
 		)
 	)
 
@@ -31,7 +31,12 @@ class RequestPassForm(forms.Form):
 	originTeacher = forms.ModelChoiceField(
 		queryset=Teacher.objects.all(),
 		empty_label=None,
-		widget=Select2Widget()
+		required=True,
+		widget=Select2Widget(
+			attrs={'type': 'text',
+			       'class': 'form-control',
+				   'style': 'display: none;'}
+		)
 	)
 
 	date = forms.DateField(required=True, input_formats=['%Y-%m-%d'],
@@ -99,13 +104,19 @@ class CreatePassForm(forms.Form):
 	originTeacher = forms.ModelChoiceField(
 		queryset=Teacher.objects.all(),
 		empty_label=None,
-		widget=Select2Widget()
+		widget=Select2Widget(
+			attrs={'type': 'text',
+				   'class': 'form-control'}
+		)
 	)
 
 	destinationTeacher = forms.ModelChoiceField(
 		queryset=Teacher.objects.all(),
 		empty_label=None,
-		widget=Select2Widget()
+		widget=Select2Widget(
+			attrs={'type': 'text',
+				   'class': 'form-control'}
+		)
 	)
 
 	location = forms.CharField(max_length=12, required=False, widget=forms.TextInput(
@@ -143,16 +154,22 @@ class CreatePassForm(forms.Form):
 		                                   'placeholder': 'Session'}))
 
 	# Yeah i know this is a terrible name, please find a new one
-	specialDestinationTeacher = forms.ModelChoiceField(
+	specialDestination = forms.ModelChoiceField(
 		queryset=Location.objects.all(),
 		empty_label=None,
-		widget=Select2Widget()
+		widget=Select2Widget(
+			attrs={'type': 'text',
+				   'class': 'form-control'}
+		)
 	)
 
 	initiatingTeacher = forms.ModelChoiceField(
 		queryset=Teacher.objects.all(),
 		empty_label=None,
-		widget=Select2Widget()
+		widget=Select2Widget(
+			attrs={'type': 'text',
+				   'class': 'form-control'}
+		)
 	)
 
 	user = User()
@@ -203,7 +220,7 @@ class CreatePassForm(forms.Form):
 					student=student,
 					srtTeacher=self.cleaned_data['originTeacher'],
 					description=self.cleaned_data['reason'],
-					destination=self.cleaned_data['specialDestinationTeacher'],
+					destination=self.cleaned_data['specialDestination'],
 					session=self.cleaned_data['session'],
 					initiatingTeacher=self.cleaned_data['initiatingTeacher']
 				)

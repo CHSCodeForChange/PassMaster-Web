@@ -18,7 +18,7 @@ class Pass(models.Model):
 
 	timeLeftOrigin = models.TimeField(null=True, blank=True)  # always needed
 	timeArrivedDestination = models.TimeField(null=True, blank=True)
-
+	
 	student = models.ForeignKey(
 		'Student',
 		on_delete=models.CASCADE,
@@ -258,7 +258,7 @@ class Pass(models.Model):
 			else:
 				return Pass.objects.filter(approved=True, timeArrivedDestination=None,
 				                           teacherpass__destinationTeacher=teacher, date=dt) | Pass.objects.filter(approved=True, timeArrivedDestination=None,
-						   				                           srtpass__destinationTeacher=teacher, date=dt) 
+						   				                           srtpass__destinationTeacher=teacher, date=dt)
 		else:
 			return None
 
