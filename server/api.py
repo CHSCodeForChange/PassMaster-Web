@@ -115,6 +115,10 @@ class PassListView(generics.ListAPIView):
                 passes = Pass.get_students_pending_passes(user)
             elif list =='student-old' or list == 'student old':
                 passes = Pass.get_students_old_passes(user)
+
+            elif list == 'teacher-pending' or list == 'teacher pending':
+                passes = Pass.get_teachers_unapproved_passes(user)
+
         elif query is not None:
             passes = passes.filter(description__icontains=query)
 
@@ -145,11 +149,11 @@ class PassCreateView(generics.CreateAPIView):
 
         if type is not None:
             type = type.lower()
-            if type == "teacher":
+            if type == "teacher" or type == 'teacherpass':
                 serializer_class = TeacherPassSerializer
-            elif type == "location":
+            elif type == "location" or type == 'locationpass':
                 serializer_class = LocationPassSerializer
-            elif type == "srt":
+            elif type == "srt" or type == 'srtpass':
                 serializer_class = SRTPassSerializer
 
         return serializer_class
