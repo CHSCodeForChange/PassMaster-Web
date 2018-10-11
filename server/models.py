@@ -242,7 +242,7 @@ class Pass(models.Model):
 				                                                             teacherpass__destinationTeacher=teacher,
 				                                                             date=dt)
 
-			return Pass.objects.filter(query).exclude(timeArrivedDestination=None)
+			return Pass.objects.filter(query).exclude(timeArrivedDestination=None).exclude(srtpass__session='1') | Pass.objects.filter(query).filter(srtpass__session='1').exclude(srtpass__timeArrivedOrigin=None)
 		else:
 			return None
 
@@ -253,10 +253,12 @@ class Pass(models.Model):
 			teacher = profile.teacher
 			if dt is None:
 				return Pass.objects.filter(approved=True, timeArrivedDestination=None,
-				                           teacherpass__destinationTeacher=teacher)
+				                           teacherpass__destinationTeacher=teacher) | Pass.objects.filter(approved=True, timeArrivedDestination=None,
+						   				                           srtpass__destinationTeacher=teacher)
 			else:
 				return Pass.objects.filter(approved=True, timeArrivedDestination=None,
-				                           teacherpass__destinationTeacher=teacher, date=dt)
+				                           teacherpass__destinationTeacher=teacher, date=dt) | Pass.objects.filter(approved=True, timeArrivedDestination=None,
+						   				                           srtpass__destinationTeacher=teacher, date=dt) 
 		else:
 			return None
 
