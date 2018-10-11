@@ -58,6 +58,7 @@ class UserSerializer(serializers.ModelSerializer):
             'type',
         ]
 
+
 class PassSerializer(serializers.ModelSerializer):
     type = serializers.CharField(source='pass_type')
     destination = serializers.CharField(source='get_destination')
@@ -120,10 +121,10 @@ class TeacherPassSerializer(serializers.ModelSerializer):
             'timeArrivedDestination',
         )
 
+
 class LocationPassSerializer(serializers.ModelSerializer):
     student = StudentSerializer()
     originTeacher = TeacherSerializer()
-    destinationTeacher = TeacherSerializer()
 
     class Meta:
         model = LocationPass
@@ -152,6 +153,7 @@ class LocationPassSerializer(serializers.ModelSerializer):
             'timeArrivedDestination',
         )
 
+
 class SRTPassSerializer(serializers.ModelSerializer):
     student = StudentSerializer()
     originTeacher = TeacherSerializer()
@@ -169,7 +171,7 @@ class SRTPassSerializer(serializers.ModelSerializer):
             'timeLeftOrigin',
             'timeArrivedDestination',
             'timeLeftDestination',
-            'timeArrivedOrigin'
+            'timeArrivedOrigin',
 
             'student',
             'originTeacher',

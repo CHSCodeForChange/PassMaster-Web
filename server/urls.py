@@ -7,6 +7,7 @@ from .api import *
 rest = [
 	url(r'^rest/login/$', auth_views.obtain_auth_token, name='login'),
 	url(r'^rest/user/$', UserReadView.as_view(), name='user-read'),
+	url(r'^rest/users/$', UserListView.as_view(), name='user-list'),
 	url(r'rest/passes/$', PassListView.as_view(), name='pass-list'),
 	url(r'rest/passes/create/$', PassCreateView.as_view(), name='pass-create'),
 	url(r'^rest/passes/(?P<pk>\d+)/$', GenericPassReadView.as_view(), name='pass-read')

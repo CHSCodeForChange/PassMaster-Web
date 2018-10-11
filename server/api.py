@@ -17,6 +17,22 @@ class UserReadView(generics.RetrieveAPIView):
 
         return user
 
+class UserListView(generics.ListAPIView):
+    authentication_classes = (authentication.TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
+    serializer_class = UserSerializer
+
+    def get_queryset(self):
+        username = self.request.GET.get("username")
+        type = self.request.GET.get("type")
+        queryset = User.objects.all()
+        if type is not None:
+            queryset = queryset.filter(profile__member_type=type)
+        if username is not None:
+            queryset = queryset.filter(username__contains=username)
+
+        return queryset
+
 
 class GenericPassReadView(generics.RetrieveAPIView):
     lookup_field = 'pk'
@@ -25,16 +41,16 @@ class GenericPassReadView(generics.RetrieveAPIView):
     permission_classes = (permissions.IsAuthenticated,)
 
     def get_serializer_class(self):
-        type = self.request.GET.get("type")
+        pass_type = self.request.GET.get("type")
         serializer_class = PassSerializer
 
-        if type is not None:
-            type = type.lower()
-            if type == "teacher":
+        if pass_type is not None:
+            pass_type = pass_type.lower()
+            if pass_type == "teacher" or pass_type == "teacherpass":
                 serializer_class = TeacherPassSerializer
-            elif type == "location":
+            elif pass_type == "location" or pass_type == "locationpass":
                 serializer_class = LocationPassSerializer
-            elif type == "srt":
+            elif pass_type == "srt" or pass_type == "srtpass":
                 serializer_class = SRTPassSerializer
 
         return serializer_class
@@ -84,6 +100,7 @@ class PassListView(generics.ListAPIView):
         passes = Pass.get_passes(user)
 
         list = self.request.GET.get("list")
+        passtype = self.request.GET.get("passtype")
         query = self.request.GET.get("search")
         student = self.request.GET.get("student")
         originTeacher = self.request.GET.get("originTeacher")
