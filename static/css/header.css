@@ -65,11 +65,11 @@ input:-webkit-autofill {
     display: none;
 }
 
-.card-container::after {
+/* .card-container::after {
 	content: "";
 	display: table;
 	clear: both;
-}
+} */
 
 .card-container {
 	margin-top: 20px;
@@ -78,7 +78,66 @@ input:-webkit-autofill {
     padding-right: 96px;
     padding-bottom: 0;
     text-align: center;
-    display: inline-block;
+    /* display: inline-block; */
+}
+
+.card-columns {
+  margin-top: 20px;
+	width: auto;
+	padding-left: 7%;
+    padding-right: 7%;
+    padding-bottom: 0;
+    text-align: center;
+}
+
+@media screen and (min-width: 10px) and (max-width: 330px) {
+  .card-columns {
+    column-count:1;
+    margin-left: 12% !important;
+  }
+  .pass-card {
+    width: 200px;
+    text-align: center !important;
+    margin-top: 25px !important;
+  }
+}
+
+@media screen and (min-width: 350px) and (max-width: 390px) {
+  .card-columns {
+    column-count:1;
+    margin-left: 17.5% !important;
+  }
+  .pass-card {
+    width: 200px;
+    text-align: center !important;
+    margin-top: 25px !important;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .card-columns {
+    column-count:2;
+  }
+  .pass-card {
+    width: 180px;
+    text-align: center;
+    margin-top: 25px !important;
+  }
+}
+@media screen and (min-width: 750px) {
+  .card-columns {
+    column-count:3
+  }
+}
+@media screen and (min-width: 1000px) {
+  .card-columns {
+    column-count:4
+  }
+}
+@media screen and (min-width: 2500px) {
+  .card-columns {
+    column-count:6
+  }
 }
 
 .card-form {
@@ -91,11 +150,11 @@ input:-webkit-autofill {
 }
 
 .pass-card {
-    margin: 1%;
+  margin: 1px;
 	border-radius: 20px;
-	height: 45vh;
-	width: 20vw !important;
-	float: left;
+	/* height: 45vh; */
+	/* width: 20vw !important; */
+	/* float: left; */
 	text-align: left;
 }
 

@@ -15,11 +15,11 @@ class RequestPassForm(forms.Form):
 	destinationTeacher = forms.ModelChoiceField(
 		queryset=Teacher.objects.all(),
 		empty_label=None,
+		required=False,
 		widget=Select2Widget(
 			attrs={'type': 'text',
 			       'class': 'form-control',
-				   'style': 'display: none;',
-				   'data-placeholder': "test"}
+				   'style': 'display: none;'}
 		)
 	)
 
@@ -44,11 +44,11 @@ class RequestPassForm(forms.Form):
 			attrs={'type': 'date',
 			       'class': 'form-control'}))
 
-	start = forms.TimeField(input_formats=['%H:%M'],
+	start = forms.TimeField(required=False, input_formats=['%H:%M'],
 	                        widget=forms.TimeInput(
 		                        attrs={'type': 'time',
 		                               'class': 'form-control'}))
-	end = forms.TimeField(input_formats=['%H:%M'],
+	end = forms.TimeField(required=False, input_formats=['%H:%M'],
 	                      widget=forms.TimeInput(
 		                      attrs={'type': 'time',
 		                             'class': 'form-control'}))
@@ -113,6 +113,7 @@ class CreatePassForm(forms.Form):
 	destinationTeacher = forms.ModelChoiceField(
 		queryset=Teacher.objects.all(),
 		empty_label=None,
+		required=False,
 		widget=Select2Widget(
 			attrs={'type': 'text',
 				   'class': 'form-control'}
@@ -133,11 +134,11 @@ class CreatePassForm(forms.Form):
 			attrs={'type': 'date',
 			       'class': 'form-control'}))
 
-	start = forms.TimeField(input_formats=['%H:%M'],
+	start = forms.TimeField(required=False, input_formats=['%H:%M'],
 	                        widget=forms.TimeInput(
 		                        attrs={'type': 'time',
 		                               'class': 'form-control'}))
-	end = forms.TimeField(input_formats=['%H:%M'],
+	end = forms.TimeField(required=False, input_formats=['%H:%M'],
 	                      widget=forms.TimeInput(
 		                      attrs={'type': 'time',
 		                             'class': 'form-control'}))
@@ -157,6 +158,7 @@ class CreatePassForm(forms.Form):
 	specialDestination = forms.ModelChoiceField(
 		queryset=Location.objects.all(),
 		empty_label=None,
+		required=False,
 		widget=Select2Widget(
 			attrs={'type': 'text',
 				   'class': 'form-control'}
@@ -166,6 +168,7 @@ class CreatePassForm(forms.Form):
 	initiatingTeacher = forms.ModelChoiceField(
 		queryset=Teacher.objects.all(),
 		empty_label=None,
+		required=False,
 		widget=Select2Widget(
 			attrs={'type': 'text',
 				   'class': 'form-control'}
