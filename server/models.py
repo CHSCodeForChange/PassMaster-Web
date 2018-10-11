@@ -311,7 +311,7 @@ class Pass(models.Model):
 		elif self.is_teacher_pass():
 			return self.teacherpass.destinationTeacher.__str__()
 		elif self.is_srt_pass():
-			self.srtpass.destinationTeacher.__str__()
+			return self.srtpass.destinationTeacher.__str__()
 
 
 class LocationPass(Pass):
