@@ -119,6 +119,15 @@ class PassListView(generics.ListAPIView):
             elif list == 'teacher-pending' or list == 'teacher pending':
                 passes = Pass.get_teachers_unapproved_passes(user)
 
+            elif list == 'teacher-incoming' or list == 'teacher incoming':
+                passes = Pass.get_teachers_incoming_student_passes(user)
+
+            elif list == 'teacher-outgoing' or list == 'teacher outgoing':
+                passes = Pass.get_teachers_outgoing_student_passes(user)
+
+            elif list == 'teacher-old' or list == 'teacher old':
+                passes = Pass.get_teachers_old_passes(user)
+
         elif query is not None:
             passes = passes.filter(description__icontains=query)
 
