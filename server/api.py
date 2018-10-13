@@ -6,7 +6,21 @@ from .serializers import *
 class UserReadView(generics.RetrieveAPIView):
     authentication_classes = (authentication.TokenAuthentication,)
     permission_classes = (permissions.IsAuthenticated,)
-    serializer_class = UserSerializer
+
+    def get_serializer_class(self):
+        user = self.request.GET.get("user")
+        if user is not None:
+            user = User.objects.get(id=user)
+        else:
+            user = self.request.user
+
+        if user.profile.member_type == '1':
+            return StudentSerializer
+        elif user.profile.member_type == '2':
+            return TeacherSerializer
+        else:
+            return UserSerializer
+
 
     def get_object(self):
         user = self.request.GET.get("user")
@@ -15,7 +29,13 @@ class UserReadView(generics.RetrieveAPIView):
         else:
             user = self.request.user
 
-        return user
+        if user.profile.member_type == '1':
+            return user.profile.student
+        elif user.profile.member_type == '2':
+            return user.profile.teacher
+        else:
+            return user
+
 
 class UserListView(generics.ListAPIView):
     authentication_classes = (authentication.TokenAuthentication,)
@@ -30,6 +50,36 @@ class UserListView(generics.ListAPIView):
             queryset = queryset.filter(profile__member_type=type)
         if username is not None:
             queryset = queryset.filter(username__icontains=username) | queryset.filter(first_name__icontains=username) | queryset.filter(last_name__icontains=username)
+
+        return queryset
+
+
+class StudentListView(generics.ListAPIView):
+    authentication_classes = (authentication.TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
+    serializer_class = StudentSerializer
+
+    def get_queryset(self):
+        username = self.request.GET.get("username")
+        queryset = Student.objects.all()
+
+        if username is not None:
+            queryset = queryset.filter(profile__user__username__icontains=username) | queryset.filter(profile__user__last_name__icontains=username) | queryset.filter(profile__user__first_name__icontains=username)
+
+        return queryset
+
+
+class TeacherListView(generics.ListAPIView):
+    authentication_classes = (authentication.TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
+    serializer_class = TeacherSerializer
+
+    def get_queryset(self):
+        username = self.request.GET.get("username")
+        queryset = Teacher.objects.all()
+
+        if username is not None:
+            queryset = queryset.filter(profile__user__username__icontains=username) | queryset.filter(profile__user__last_name__icontains=username) | queryset.filter(profile__user__first_name__icontains=username)
 
         return queryset
 

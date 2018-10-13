@@ -5,7 +5,7 @@ from .models import *
 
 
 class StudentSerializer(serializers.ModelSerializer):
-    pk = serializers.CharField(source='profile.user.pk')
+    user_pk = serializers.CharField(source='profile.user.pk')
     username = serializers.CharField(source='profile.user.username')
     first_name = serializers.CharField(source='profile.user.first_name')
     last_name = serializers.CharField(source='profile.user.last_name')
@@ -15,6 +15,7 @@ class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student
         fields = [
+            'user_pk',
             'pk',
             'username',
             'first_name',
@@ -25,7 +26,7 @@ class StudentSerializer(serializers.ModelSerializer):
 
 
 class TeacherSerializer(serializers.ModelSerializer):
-    pk = serializers.CharField(source='profile.user.pk')
+    user_pk = serializers.CharField(source='profile.user.pk')
     username = serializers.CharField(source='profile.user.username')
     first_name = serializers.CharField(source='profile.user.first_name')
     last_name = serializers.CharField(source='profile.user.last_name')
@@ -35,6 +36,7 @@ class TeacherSerializer(serializers.ModelSerializer):
     class Meta:
         model = Teacher
         fields = [
+            'user_pk',
             'pk',
             'username',
             'first_name',
@@ -63,9 +65,18 @@ class PassSerializer(serializers.ModelSerializer):
     type = serializers.CharField(source='pass_type')
     destination = serializers.CharField(source='get_destination')
 
-    student = StudentSerializer()
-    originTeacher = TeacherSerializer()
+    student_info = serializers.SerializerMethodField(read_only=True)
+    originTeacher_info = serializers.SerializerMethodField(read_only=True)
 
+    def get_student_info(self, obj):
+        student = obj.student
+        serializer = StudentSerializer(student)
+        return serializer.data
+
+    def get_originTeacher_info(self, obj):
+        originTeacher = obj.originTeacher
+        serializer = StudentSerializer(originTeacher)
+        return serializer.data
     class Meta:
         model = Pass
         fields = [
@@ -82,6 +93,9 @@ class PassSerializer(serializers.ModelSerializer):
             'student',
             'originTeacher',
 
+            'student_info',
+            'originTeacher_info',
+
             'description',
 
             'type',
@@ -93,6 +107,21 @@ class TeacherPassSerializer(serializers.ModelSerializer):
     student_info = serializers.SerializerMethodField(read_only=True)
     originTeacher_info = serializers.SerializerMethodField(read_only=True)
     destinationTeacher_info = serializers.SerializerMethodField(read_only=True)
+
+    def get_student_info(self, obj):
+        student = obj.student
+        serializer = StudentSerializer(student)
+        return serializer.data
+
+    def get_originTeacher_info(self, obj):
+        originTeacher = obj.originTeacher
+        serializer = StudentSerializer(originTeacher)
+        return serializer.data
+
+    def get_destinationTeacher_info(self, obj):
+        destinationTeacher = obj.destinationTeacher
+        serializer = StudentSerializer(destinationTeacher)
+        return serializer.data
 
     class Meta:
         model = TeacherPass
@@ -108,10 +137,10 @@ class TeacherPassSerializer(serializers.ModelSerializer):
             'timeArrivedDestination',
 
             'student',
-            'student_info',
             'originTeacher',
-            'originTeacher_info',
             'destinationTeacher',
+            'student_info',
+            'originTeacher_info',
             'destinationTeacher_info',
 
             'description',
@@ -124,6 +153,11 @@ class TeacherPassSerializer(serializers.ModelSerializer):
             'timeArrivedDestination',
         )
 
+
+class LocationPassSerializer(serializers.ModelSerializer):
+    student_info = serializers.SerializerMethodField(read_only=True)
+    originTeacher_info = serializers.SerializerMethodField(read_only=True)
+
     def get_student_info(self, obj):
         student = obj.student
         serializer = StudentSerializer(student)
@@ -131,18 +165,8 @@ class TeacherPassSerializer(serializers.ModelSerializer):
 
     def get_originTeacher_info(self, obj):
         originTeacher = obj.originTeacher
-        serializer = TeacherSerializer(originTeacher)
+        serializer = StudentSerializer(originTeacher)
         return serializer.data
-
-    def get_destinationTeacher_info(self, obj):
-        destinationTeacher = obj.destinationTeacher
-        serializer = TeacherSerializer(destinationTeacher)
-        return serializer.data
-
-
-class LocationPassSerializer(serializers.ModelSerializer):
-    student_info = serializers.SerializerMethodField(read_only=True)
-    originTeacher_info = serializers.SerializerMethodField(read_only=True)
 
 
     class Meta:
@@ -159,9 +183,10 @@ class LocationPassSerializer(serializers.ModelSerializer):
             'timeArrivedDestination',
 
             'student',
-            'student_info',
             'originTeacher',
+            'student_info',
             'originTeacher_info',
+
             'location',
 
             'description'
@@ -174,6 +199,13 @@ class LocationPassSerializer(serializers.ModelSerializer):
             'timeArrivedDestination',
         )
 
+
+
+class SRTPassSerializer(serializers.ModelSerializer):
+    student_info = serializers.SerializerMethodField(read_only=True)
+    originTeacher_info = serializers.SerializerMethodField(read_only=True)
+    destinationTeacher_info = serializers.SerializerMethodField(read_only=True)
+
     def get_student_info(self, obj):
         student = obj.student
         serializer = StudentSerializer(student)
@@ -181,14 +213,13 @@ class LocationPassSerializer(serializers.ModelSerializer):
 
     def get_originTeacher_info(self, obj):
         originTeacher = obj.originTeacher
-        serializer = TeacherSerializer(originTeacher)
+        serializer = StudentSerializer(originTeacher)
         return serializer.data
 
-
-class SRTPassSerializer(serializers.ModelSerializer):
-    student_info = serializers.SerializerMethodField(read_only=True)
-    originTeacher_info = serializers.SerializerMethodField(read_only=True)
-    destinationTeacher_info = serializers.SerializerMethodField(read_only=True)
+    def get_destinationTeacher_info(self, obj):
+        destinationTeacher = obj.destinationTeacher
+        serializer = StudentSerializer(destinationTeacher)
+        return serializer.data
 
     class Meta:
         model = SRTPass
@@ -205,12 +236,12 @@ class SRTPassSerializer(serializers.ModelSerializer):
             'timeArrivedOrigin',
 
             'student',
-            'student_info',
             'originTeacher',
-            'originTeacher_info',
             'destinationTeacher',
+            'student_info',
+            'originTeacher_info',
             'destinationTeacher_info',
- 
+
             'description',
         )
 
@@ -222,18 +253,3 @@ class SRTPassSerializer(serializers.ModelSerializer):
             'timeLeftDestination',
             'TimeArrivedOrigin'
         )
-
-        def get_student_info(self, obj):
-            student = obj.student
-            serializer = StudentSerializer(student)
-            return serializer.data
-
-        def get_originTeacher_info(self, obj):
-            originTeacher = obj.originTeacher
-            serializer = TeacherSerializer(originTeacher)
-            return serializer.data
-
-        def get_destinationTeacher_info(self, obj):
-            destinationTeacher = obj.destinationTeacher
-            serializer = TeacherSerializer(destinationTeacher)
-            return serializer.data
