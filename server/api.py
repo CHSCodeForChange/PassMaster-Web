@@ -198,8 +198,8 @@ class PassListView(generics.ListAPIView):
 
 
 class PassCreateView(generics.CreateAPIView):
-    authentication_classes = ()
-    permission_classes = ()
+    authentication_classes = (authentication.TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
 
     def get_serializer_class(self):
         type = self.request.GET.get("type")
