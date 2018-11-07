@@ -81,7 +81,7 @@ def checkin(request, pass_id):
 			pass_obj = Pass.objects.get(id=pass_id)
 		except Pass.DoesNotExist:
 			return redirect('/teacher')
-		pass_obj.arrive(request.user.profile.teacher)
+		pass_obj.sign_in(request.user.profile.teacher)
 		return redirect('/teacher')
 
 
@@ -96,7 +96,7 @@ def checkout(request, pass_id):
 			pass_obj = Pass.objects.get(id=pass_id)
 		except Pass.DoesNotExist:
 			return redirect('/teacher')
-		pass_obj.leave(request.user.profile.teacher)
+		pass_obj.sign_out(request.user.profile.teacher)
 		return redirect('/teacher')
 
 @login_required
