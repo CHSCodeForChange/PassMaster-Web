@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="506317a0-fd18-4e84-b52a-90e080b347ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -100,16 +98,17 @@
     <session id="297213899">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="24" />
+          <entry key="project.closed" value="29" />
+          <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="2" />
           <entry key="project.open.time.5" value="3" />
-          <entry key="project.open.time.6" value="7" />
-          <entry key="project.open.time.7" value="7" />
-          <entry key="project.open.time.8" value="3" />
+          <entry key="project.open.time.6" value="8" />
+          <entry key="project.open.time.7" value="9" />
+          <entry key="project.open.time.8" value="4" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="26" />
+          <entry key="project.opened" value="31" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -134,8 +133,8 @@
           <entry key="dummy" value="14" />
           <entry key="html" value="115" />
           <entry key="js" value="8" />
-          <entry key="py" value="8203" />
-          <entry key="txt" value="1277" />
+          <entry key="py" value="11379" />
+          <entry key="txt" value="1410" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -143,8 +142,8 @@
           <entry key="CSS" value="56" />
           <entry key="HTML" value="115" />
           <entry key="JavaScript" value="8" />
-          <entry key="PLAIN_TEXT" value="1291" />
-          <entry key="Python" value="8203" />
+          <entry key="PLAIN_TEXT" value="1424" />
+          <entry key="Python" value="11379" />
         </counts>
       </usages-collector>
     </session>
@@ -169,24 +168,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="599">
+            <state relative-caret-position="1395">
               <caret line="96" column="31" selection-start-line="96" selection-start-column="31" selection-end-line="96" selection-end-column="31" />
               <folding>
-                <element signature="e#0#43#0" expanded="true" />
                 <marker date="1539406572686" expanded="true" signature="4835:4841" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4752">
-              <caret line="320" column="21" selection-start-line="320" selection-start-column="21" selection-end-line="320" selection-end-column="21" />
+            <state relative-caret-position="134">
+              <caret line="267" column="58" lean-forward="true" selection-start-line="267" selection-start-column="58" selection-end-line="267" selection-end-column="58" />
+              <folding>
+                <marker date="1541564423228" expanded="true" signature="3575:3578" ph="..." />
+                <marker date="1541564423228" expanded="true" signature="10102:10105" ph="..." />
+                <marker date="1541564423228" expanded="true" signature="10408:10499" ph="..." />
+                <marker date="1541564423228" expanded="true" signature="10627:10669" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -194,12 +198,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="201" column="27" lean-forward="true" selection-start-line="200" selection-start-column="4" selection-end-line="201" selection-end-column="27" />
+            <state relative-caret-position="285">
+              <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
               <folding>
                 <element signature="e#0#64#0" expanded="true" />
-                <marker date="1539405820347" expanded="true" signature="300:689" ph="..." />
-                <marker date="1539405820347" expanded="true" signature="1293:1299" ph="..." />
+                <marker date="1539407393317" expanded="true" signature="300:689" ph="..." />
+                <marker date="1539407393317" expanded="true" signature="1293:1299" ph="..." />
               </folding>
             </state>
           </provider>
@@ -209,7 +213,7 @@
         <entry file="file://$PROJECT_DIR$/server/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
-              <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+              <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -346,10 +350,10 @@
         <option value="$PROJECT_DIR$/resources/templates/student/fragments/student_pass_fragment.html" />
         <option value="$PROJECT_DIR$/static/css/header.css" />
         <option value="$PROJECT_DIR$/resources/templates/student/fragments/active_fragment.html" />
-        <option value="$PROJECT_DIR$/server/models.py" />
         <option value="$PROJECT_DIR$/server/urls.py" />
-        <option value="$PROJECT_DIR$/server/api.py" />
         <option value="$PROJECT_DIR$/server/serializers.py" />
+        <option value="$PROJECT_DIR$/server/api.py" />
+        <option value="$PROJECT_DIR$/server/models.py" />
       </list>
     </option>
   </component>
@@ -839,7 +843,21 @@
       <option name="project" value="LOCAL" />
       <updated>1539404257288</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Fixed issue with user/student/teacher pk misalignment">
+      <created>1539406629900</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1539406629900</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Turned authentication requirement back on for create pass">
+      <created>1539407393533</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1539407393533</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TodoView">
@@ -855,12 +873,12 @@
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21550672" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22771673" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" internal_type="SLIDING" order="2" visible="true" weight="0.12653062" />
+      <window_info anchor="bottom" id="Run" internal_type="SLIDING" order="2" weight="0.12653062" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -940,8 +958,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Cleaned up python&#10;Deleted some deprecated html files&#10;Deleted chat" />
-    <MESSAGE value="Added login required" />
     <MESSAGE value="Fixed request/create pass fragment styling&#10;&#10;Fixed UI problems in login screen&#10;&#10;Fixed request/create forms" />
     <MESSAGE value="Fixed signup" />
     <MESSAGE value="Fixed backend bugs (approval argument was missing &quot;user&quot; and Pass model didn't have a get_destinationTeacher method to get the correct destination teacher)" />
@@ -965,7 +981,9 @@
     <MESSAGE value="Added other lists for teachers" />
     <MESSAGE value="Fixed destination issue for SRT Passes" />
     <MESSAGE value="Serializer adjusted to only require pk when creating passes, but still return full data when listing/retrieving passes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Serializer adjusted to only require pk when creating passes, but still return full data when listing/retrieving passes" />
+    <MESSAGE value="Fixed issue with user/student/teacher pk misalignment" />
+    <MESSAGE value="Turned authentication requirement back on for create pass" />
+    <option name="LAST_COMMIT_MESSAGE" value="Turned authentication requirement back on for create pass" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -1247,31 +1265,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/templates/student/fragments/student_pass_fragment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="81" selection-start-line="34" selection-start-column="81" selection-end-line="34" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/accounts/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4752">
-          <caret line="320" column="21" selection-start-line="320" selection-start-column="21" selection-end-line="320" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -1282,25 +1279,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/api.py">
+    <entry file="file://$PROJECT_DIR$/resources/templates/student/fragments/student_pass_fragment.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="201" column="27" lean-forward="true" selection-start-line="200" selection-start-column="4" selection-end-line="201" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#64#0" expanded="true" />
-            <marker date="1539405820347" expanded="true" signature="300:689" ph="..." />
-            <marker date="1539405820347" expanded="true" signature="1293:1299" ph="..." />
-          </folding>
+        <state relative-caret-position="510">
+          <caret line="34" column="81" selection-start-line="34" selection-start-column="81" selection-end-line="34" selection-end-column="81" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
+        <state relative-caret-position="1395">
           <caret line="96" column="31" selection-start-line="96" selection-start-column="31" selection-end-line="96" selection-end-column="31" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
             <marker date="1539406572686" expanded="true" signature="4835:4841" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+            <marker date="1539407393317" expanded="true" signature="300:689" ph="..." />
+            <marker date="1539407393317" expanded="true" signature="1293:1299" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="267" column="58" lean-forward="true" selection-start-line="267" selection-start-column="58" selection-end-line="267" selection-end-column="58" />
+          <folding>
+            <marker date="1541564423228" expanded="true" signature="3575:3578" ph="..." />
+            <marker date="1541564423228" expanded="true" signature="10102:10105" ph="..." />
+            <marker date="1541564423228" expanded="true" signature="10408:10499" ph="..." />
+            <marker date="1541564423228" expanded="true" signature="10627:10669" ph="..." />
           </folding>
         </state>
       </provider>

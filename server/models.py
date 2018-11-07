@@ -1,7 +1,6 @@
 from datetime import datetime, time
 
 from django.db import models
-from django.db.models import Q
 
 
 # Create your models here.
@@ -41,7 +40,9 @@ class Pass(models.Model):
 		else:
 			return 'None'
 
-	# methods related to type of pass
+	#todo add for new pass type
+
+	#### methods related to type of pass ####
 	def pass_type(self):
 		if self.is_location_pass():
 			return 'LocationPass'
@@ -76,56 +77,24 @@ class Pass(models.Model):
 		elif self.is_teacher_pass():
 			return self.teacherpass
 
+
+	#### information ####
+
 	def get_destinationTeacher(self):
 		if self.is_location_pass():
-			return None
+			return self.locationpass.get_destinationTeacher()
 		elif self.is_srt_pass():
-			return self.srtpass.destinationTeacher
+			return self.srtpass.get_destinationTeacher()
 		elif self.is_teacher_pass():
-			return self.teacherpass.destinationTeacher
+			return self.teacherpass.get_destinationTeacher()
 
-	# methods that change pass fields
-	def approve(self, teacher):
-		if teacher == self.originTeacher:
-			self.approved = True
-			self.save()
-
-	def leave(self, teacher):
-		# Check permissions
-		if teacher != self.originTeacher:
-			return
-		# If the pass is a location pass and the user is the origin teacher sign them out
-		# The pass must not be signed out yet
-		if self.is_location_pass() and self.timeLeftOrigin is None:
-			self.timeLeftOrigin = datetime.now()
-			self.save()
-		# They have not left the origin
-		if self.timeLeftOrigin is None:
-			self.timeLeftOrigin = datetime.now()
-			self.save()
-		# If they have left the origin, have an srt pass for session one and have not arrived back in their home room
-		elif self.is_srt_pass() and self.srtpass.session == '1' and self.srtpass.timeArrivedDestination is not None:
-			self.srtpass.timeLeftDestination = datetime.now()
-			self.save()
-
-	def arrive(self, teacher):
-		# If the pass is a location pass and the user is the origin teacher sign them in
-		# The pass must have been signed out but not in yet
-		if self.is_location_pass() and teacher == self.originTeacher and self.timeLeftOrigin is not None and self.timeArrivedDestination is None:
-			self.timeArrivedDestination = datetime.now()
-			self.save()
-		# Check permissions
-		# This must be done after location pass stuff because location passes use the originTeacher
-		if teacher != self.get_destinationTeacher() and teacher != self.get_destinationTeacher():
-			return
-		# If they have not arrived at the destination yet
-		if self.timeArrivedDestination is None:
-			self.timeArrivedDestination = datetime.now()
-			self.save()
-		# If they have left the destination, have an srt pass for session one and have not yet arrived back at their home room
-		elif self.is_srt_pass() and self.srtpass.session == '1' and self.srtpass.timeLeftDestination is not None:
-			self.srtpass.timeArrivedOrigin = datetime.now()
-			self.save()
+	def get_destination(self):
+		if self.is_location_pass():
+			return self.locationpass.location
+		elif self.is_teacher_pass():
+			return self.teacherpass.destinationTeacher.__str__()
+		elif self.is_srt_pass():
+			return self.srtpass.destinationTeacher.__str__()
 
 	def has_left(self):
 		return self.timeLeftOrigin is not None
@@ -135,6 +104,61 @@ class Pass(models.Model):
 
 	def is_permitted(self, user):
 		return self in Pass.get_passes(user)
+
+	#### permission checks ####
+
+	def can_approve(self, teacher):
+		if self.is_location_pass():
+			return self.locationpass.can_approve(teacher)
+		elif self.is_srt_pass():
+			return self.srtpass.can_approve(teacher)
+		elif self.is_teacher_pass():
+			return self.teacherpass.can_approve(teacher)
+
+	def can_sign_in(self, teacher):
+		if self.is_location_pass():
+			return self.locationpass.can_sign_in(teacher)
+		elif self.is_srt_pass():
+			return self.srtpass.can_sign_in(teacher)
+		elif self.is_teacher_pass():
+			return self.teacherpass.can_sign_in(teacher)
+
+	def can_sign_out(self, teacher):
+		if self.is_location_pass():
+			return self.locationpass.can_sign_out(teacher)
+		elif self.is_srt_pass():
+			return self.srtpass.can_sign_out(teacher)
+		elif self.is_teacher_pass():
+			return self.teacherpass.can_sign_out(teacher)
+
+	#### actions ####
+
+	def approve(self, teacher):
+		if self.is_location_pass():
+			return self.locationpass.approve(teacher)
+		elif self.is_srt_pass():
+			return self.srtpass.approve(teacher)
+		elif self.is_teacher_pass():
+			return self.teacherpass.approve(teacher)
+
+	def sign_in(self, teacher):
+		if self.is_location_pass():
+			return self.locationpass.sign_in(teacher)
+		elif self.is_srt_pass():
+			return self.srtpass.sign_in(teacher)
+		elif self.is_teacher_pass():
+			return self.teacherpass.sign_in(teacher)
+
+	def sign_out(self, teacher):
+		if self.is_location_pass():
+			return self.locationpass.sign_out(teacher)
+		elif self.is_srt_pass():
+			return self.srtpass.sign_out(teacher)
+		elif self.is_teacher_pass():
+			return self.teacherpass.sign_out(teacher)
+
+
+	#### pass lists ####
 
 	@staticmethod
 	def get_passes(user, dt=None):
@@ -155,23 +179,23 @@ class Pass(models.Model):
 
 	@staticmethod
 	def get_student_passes(user, dt=None):
-		if dt is None:
-			return Pass.get_students_active_passes(user) | Pass.get_students_pending_passes(
-				user) | Pass.get_students_old_passes(user)
-		else:
-			return Pass.get_students_active_passes(user, dt) | Pass.get_students_pending_passes(
-				user, dt) | Pass.get_students_old_passes(user, dt)
+		return Pass.get_students_active_passes(user, dt) | \
+			   	Pass.get_students_pending_passes(user, dt) | \
+			   	Pass.get_students_old_passes(user, dt)
 
 	@staticmethod
 	def get_students_active_passes(user, dt=None):
 		profile = user.profile
 		if profile.is_student:
 			student = profile.student
+			passes = Pass.objects.filter(student=student, approved=True, timeArrivedDestination=None).exclude(srtpass__session="1") | \
+						Pass.objects.filter(student=student, approved=True, srtpass__session="1", srtpass__timeArrivedOrigin=None)
 
-			if dt is None:
-				return Pass.objects.filter(student=student, approved=True, timeArrivedDestination=None)
-			else:
-				return Pass.objects.filter(student=student, approved=True, timeArrivedDestination=None, date=dt)
+			if dt is not None:
+				passes = passes.filter(date=dt)
+
+			return passes
+
 		else:
 			return None
 
@@ -180,11 +204,13 @@ class Pass(models.Model):
 		profile = user.profile
 		if profile.is_student:
 			student = profile.student
+			passes = Pass.objects.filter(student=student, approved=False)
 
-			if dt is None:
-				return Pass.objects.filter(student=student, approved=False, timeArrivedDestination=None)
-			else:
-				return Pass.objects.filter(student=student, approved=False, timeArrivedDestination=None, date=dt)
+			if dt is not None:
+				passes = passes.filter(date=dt)
+
+			return passes
+
 		else:
 			return None
 
@@ -193,38 +219,38 @@ class Pass(models.Model):
 		profile = user.profile
 		if profile.is_student:
 			student = profile.student
+			passes = Pass.objects.filter(student=student, approved=True).exlude(timeArrivedDestination=None).exclude(srtpass__session="1") | \
+					 Pass.objects.filter(student=student, approved=True, srtpass__session="1").exclude(srtpass__timeArrivedOrigin=None)
 
-			if dt is None:
-				return Pass.objects.filter(student=student, approved=True).exclude(
-					timeArrivedDestination=None)
-			else:
-				return Pass.objects.filter(student=student, approved=True, date=dt).exclude(
-					timeArrivedDestination=None)
+			if dt is not None:
+				passes = passes.filter(date=dt)
+
+			return passes
+
 		else:
 			return None
 
 	@staticmethod
 	def get_teacher_passes(user, dt=None):
-		if dt is None:
-			return Pass.get_teachers_unapproved_passes(user) | Pass.get_teachers_old_passes(
-				user) | Pass.get_teachers_incoming_student_passes(user) | Pass.get_teachers_outgoing_student_passes(
-				user)
-		else:
-			return Pass.get_teachers_unapproved_passes(user, dt) | Pass.get_teachers_old_passes(
-				user, dt) | Pass.get_teachers_incoming_student_passes(user,
-			                                                          dt) | Pass.get_teachers_outgoing_student_passes(
-				user, dt)
+		return Pass.get_teachers_unapproved_passes(user, dt) | \
+				Pass.get_teachers_old_passes(user, dt) | \
+			   	Pass.get_teachers_incoming_student_passes(user, dt) | \
+			   	Pass.get_teachers_outgoing_student_passes(user, dt)
 
 	@staticmethod
 	def get_teachers_unapproved_passes(user, dt=None):
 		profile = user.profile
 		if profile.is_teacher:
 			teacher = user.profile.teacher
+			passes = Pass.objects.filter(approved=False, originTeacher=teacher) | \
+						Pass.objects.filter(approved=False, destinationpass__destinationTeacher=teacher) | \
+						Pass.objects.filter(approved=False, srtpass__destinationTeacher=teacher)
 
-			if dt is None:
-				return Pass.objects.filter(approved=False, originTeacher=teacher)
-			else:
-				return Pass.objects.filter(approved=False, date=dt, originTeacher=teacher)
+			if dt is not None:
+				passes = passes.filter(date=dt)
+
+			return passes
+
 		else:
 			return None
 
@@ -233,16 +259,18 @@ class Pass(models.Model):
 		profile = user.profile
 		if profile.is_teacher:
 			teacher = profile.teacher
+			passes = Pass.objects.filter(approved=True, originTeacher=teacher) | \
+						 Pass.objects.filter(approved=True, destinationpass__destinationTeacher=teacher) | \
+						 Pass.objects.filter(approved=True, srtpass__destinationTeacher=teacher)
 
-			if dt is None:
-				query = Q(approved=True, originTeacher=teacher) | Q(approved=True,
-				                                                    teacherpass__destinationTeacher=teacher)
-			else:
-				query = Q(approved=True, originTeacher=teacher, date=dt) | Q(approved=True,
-				                                                             teacherpass__destinationTeacher=teacher,
-				                                                             date=dt)
+			passes = passes.exclude(timeArrivedDestination=None).exclude(srtpass__session="1") | \
+					 passes.exclude(timeArrivedOrigin=None)
 
-			return Pass.objects.filter(query).exclude(timeArrivedDestination=None).exclude(srtpass__session='1') | Pass.objects.filter(query).filter(srtpass__session='1').exclude(srtpass__timeArrivedOrigin=None)
+			if dt is not None:
+				passes = passes.filter(date=dt)
+
+			return passes
+
 		else:
 			return None
 
@@ -251,14 +279,15 @@ class Pass(models.Model):
 		profile = user.profile
 		if profile.is_teacher:
 			teacher = profile.teacher
-			if dt is None:
-				return Pass.objects.filter(approved=True, timeArrivedDestination=None,
-				                           teacherpass__destinationTeacher=teacher) | Pass.objects.filter(approved=True, timeArrivedDestination=None,
-						   				                           srtpass__destinationTeacher=teacher)
-			else:
-				return Pass.objects.filter(approved=True, timeArrivedDestination=None,
-				                           teacherpass__destinationTeacher=teacher, date=dt) | Pass.objects.filter(approved=True, timeArrivedDestination=None,
-						   				                           srtpass__destinationTeacher=teacher, date=dt)
+			passes = Pass.objects.filter(approved=True, timeArrivedDestination=None, teacherpass__destinationTeacher=teacher) | \
+						Pass.objects.filter(approved=True, timeArrivedDestination=None, srtpass__destinationTeacher=teacher).exclude(srtpass__session="1") | \
+						Pass.objects.filter(approved=True, srtpass__timeArrivedOrigin=None, srtpass__destinationTeacher=teacher, srtpass__session="1")
+
+			if dt is not None:
+				passes = passes.filter(date=dt)
+
+			return passes
+
 		else:
 			return None
 
@@ -267,10 +296,14 @@ class Pass(models.Model):
 		profile = user.profile
 		if profile.is_teacher:
 			teacher = profile.teacher
-			if dt is None:
-				return Pass.objects.filter(approved=True, timeArrivedDestination=None, originTeacher=teacher)
-			else:
-				return Pass.objects.filter(approved=True, timeArrivedDestination=None, originTeacher=teacher, date=dt)
+			passes = Pass.objects.filter(approved=True, timeArrivedDestination=None, originTeacher=teacher).exclude(srtpass__session="1") | \
+					 Pass.objects.filter(approved=True, srtpass__timeArrivedOrigin=None, originTeache=teacher, srtpass__session="1")
+
+			if dt is not None:
+				passes = passes.filter(date=dt)
+
+			return passes
+
 		else:
 			return None
 
@@ -279,13 +312,12 @@ class Pass(models.Model):
 		profile = user.profile
 		if profile.is_location:
 			location = profile.location
+			passes = Pass.objects.filter(approved=True, specialsrtpass__destinationTeacher=location).exclude(teacherArrivedDestination=None)
 
 			if dt is None:
-				query = Q(approved=True, specialsrtpass__destinationTeacher=location)
+				return passes
 			else:
-				query = Q(approved=True, specialsrtpass__destinationTeacher=location, date=dt)
-
-			return Pass.objects.filter(query).exclude(timeArrivedDestination=None)
+				return passes.filter(date=dt)
 		else:
 			return None
 
@@ -305,21 +337,46 @@ class Pass(models.Model):
 
 
 
-	def get_destination(self):
-		if self.is_location_pass():
-			return self.locationpass.location
-		elif self.is_teacher_pass():
-			return self.teacherpass.destinationTeacher.__str__()
-		elif self.is_srt_pass():
-			return self.srtpass.destinationTeacher.__str__()
-
 
 class LocationPass(Pass):
 	objects = models.Manager()
 	location = models.CharField(max_length=12, null=True, blank=True)
 
+	#### information ####
+
 	def parent(self):
 		return Pass.objects.get(locationpass=self)
+
+	def get_destinationTeacher(self):
+		return self.originTeacher
+
+	#### actions ####
+
+	def approve(self, teacher):
+		if self.can_approve(teacher):
+			self.approved = True;
+			self.save()
+
+	def sign_in(self, teacher):
+		if self.can_sign_in(teacher):
+			self.timeArrivedDestination = datetime.now()
+			self.save()
+
+	def sign_out(self, teacher):
+		if self.can_sign_out(teacher):
+			self.timeLeftOrigin = datetime.now()
+			self.save()
+
+	#### permissions ####
+
+	def can_approve(self, teacher):
+		return teacher == self.originTeacher
+
+	def can_sign_in(self, teacher):
+		return teacher == self.originTeacher
+
+	def can_sign_out(self, teacher):
+		return teacher == self.originTeacher
 
 
 class SRTPass(Pass):
@@ -365,15 +422,7 @@ class SRTPass(Pass):
 		               startTimeRequested=startTimeRequested,
 		               endTimeRequested=endTimeRequested)
 
-	def leaveDestination(self):
-		if self.session == '1':
-			self.timeLeftDestination = datetime.now()
-			self.save()
-
-	def arriveOrigin(self):
-		if self.session == '1':
-			self.timeArrivedOrigin = datetime.now()
-			self.save()
+	#### information ####
 
 	def sessionStr(self):
 		if self.session == '1':
@@ -387,6 +436,47 @@ class SRTPass(Pass):
 		return Pass.objects.get(srtpass=self)
 
 
+	def get_destinationTeacher(self):
+		return self.destinationTeacher
+
+	#### actions ####
+
+
+	def approve(self, teacher):
+		if self.can_approve(teacher):
+			self.approved = True;
+			self.save()
+
+	def sign_in(self, teacher):
+		if self.can_sign_in(teacher):
+			if self.originTeacher == teacher:
+				self.timeArrivedOrigin = datetime.now()
+			else:
+				self.timeArrivedDestination = datetime
+
+			self.save()
+
+	def sign_out(self, teacher):
+		if self.can_sign_out(teacher):
+			if self.originTeacher == teacher:
+				self.timeLeftOrigin = datetime.now()
+			else:
+				self.timeLeftDestination = datetime
+
+			self.save()
+
+	#### permissions ####
+
+	def can_approve(self, teacher):
+		return teacher == self.originTeacher or teacher == self.destinationTeacher
+
+	def can_sign_in(self, teacher):
+		return teacher == self.destinationTeacher or (self.session == "1" and teacher == self.originTeacher)
+
+	def can_sign_out(self, teacher):
+		return teacher == self.originTeacher or (self.session == "1" and teacher == self.destinationTeacher)
+
+
 class TeacherPass(Pass):
 	objects = models.Manager()
 	destinationTeacher = models.ForeignKey(
@@ -397,8 +487,41 @@ class TeacherPass(Pass):
 		related_name="destinationTeacher"
 	)
 
+	#### information ####
+
 	def parent(self):
 		return Pass.objects.get(teacherpass=self)
+
+	def get_destinationTeacher(self):
+		return self.destinationTeacher
+
+	#### actions ####
+
+	def approve(self, teacher):
+		if self.can_approve(teacher):
+			self.approved = True;
+			self.save()
+
+	def sign_in(self, teacher):
+		if self.can_sign_in(teacher):
+			self.timeArrivedDestination = datetime
+			self.save()
+
+	def sign_out(self, teacher):
+		if self.can_sign_out(teacher):
+			self.timeLeftOrigin = datetime.now()
+			self.save()
+
+	#### permissions ####
+
+	def can_approve(self, teacher):
+		return teacher == self.originTeacher or teacher == self.destinationTeacher
+
+	def can_sign_in(self, teacher):
+		return teacher == self.destinationTeacher
+
+	def can_sign_out(self, teacher):
+		return teacher == self.originTeacher
 
 
 class SpecialSRTPass(Pass):
