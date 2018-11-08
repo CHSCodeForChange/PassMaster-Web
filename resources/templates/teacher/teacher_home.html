@@ -5,12 +5,12 @@
 {% load static %}
 
 <body>
-<h1 class="display-1">Passes 
+<h1 class="display-1">Passes
     <div class="expand" style="display: inline-block">
         <a class="plus close-button" data-toggle="collapse" href="#collapseNewPassForm" aria-pressed="true" role="button" aria-expanded="false" aria-controls="collapseNewPassForm">+</a>
     </div>
 </h1>
-<div class="row w-100">
+<div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10 collapse" id="collapseNewPassForm">
         {% include 'teacher/fragments/create_pass_fragment.html' %}
