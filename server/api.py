@@ -120,10 +120,9 @@ class GenericPassReadView(generics.RetrieveAPIView):
             if pass_action == "approve":
                 pass_object.approve(user.profile.teacher)
             elif pass_action == "signout":
-                pass_object.leave(user.profile.teacher)
+                pass_object.sign_out(user.profile.teacher)
             elif pass_action == "signin":
-                pass_object.arrive(user.profile.teacher)
-
+                pass_object.sign_in(user.profile.teacher)
 
         pass_type = self.request.GET.get("type")
 
@@ -137,7 +136,6 @@ class GenericPassReadView(generics.RetrieveAPIView):
                 pass_object = pass_object.srtpass
 
         return pass_object
-
 
 
 class PassListView(generics.ListAPIView):
