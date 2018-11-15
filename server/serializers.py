@@ -84,16 +84,16 @@ class PassSerializer(serializers.ModelSerializer):
 
     def get_can_approve(self, obj):
         try:
-            teacher = self.context.get('user').profile.teacher
+            teacher = self.context.get('request').user.profile.teacher
         except Teacher.DoesNotExist:
             return False
         return obj.can_approve(teacher)
 
     def get_can_sign_in(self, obj):
-        return obj.can_sign_in(self.context.get('user').profile.teacher)
+        return obj.can_sign_in(self.context.get('request').user.profile.teacher)
 
     def get_can_sign_out(self, obj):
-        return obj.can_sign_out(self.context.get('user').profile.teacher)
+        return obj.can_sign_out(self.context.get('request').user.profile.teacher)
 
     class Meta:
         model = Pass
@@ -150,19 +150,19 @@ class TeacherPassSerializer(serializers.ModelSerializer):
         return serializer.data
 
     def get_can_approve(self, obj):
-        profile = self.context.get('user').profile
+        profile = self.context.get('request').user.profile
         if not profile.is_teacher():
             return False
         return obj.can_approve(profile.teacher)
 
     def get_can_sign_in(self, obj):
-        profile = self.context.get('user').profile
+        profile = self.context.get('request').user.profile
         if not profile.is_teacher():
             return False
         return obj.can_sign_in(profile.teacher)
 
     def get_can_sign_out(self, obj):
-        profile = self.context.get('user').profile
+        profile = self.context.get('request').user.profile
         if not profile.is_teacher():
             return False
         return obj.can_sign_out(profile.teacher)
@@ -225,19 +225,19 @@ class LocationPassSerializer(serializers.ModelSerializer):
         return serializer.data
 
     def get_can_approve(self, obj):
-        profile = self.context.get('user').profile
+        profile = self.context.get('request').user.profile
         if not profile.is_teacher():
             return False
         return obj.can_approve(profile.teacher)
 
     def get_can_sign_in(self, obj):
-        profile = self.context.get('user').profile
+        profile = self.context.get('request').user.profile
         if not profile.is_teacher():
             return False
         return obj.can_sign_in(profile.teacher)
 
     def get_can_sign_out(self, obj):
-        profile = self.context.get('user').profile
+        profile = self.context.get('request').user.profile
         if not profile.is_teacher():
             return False
         return obj.can_sign_out(profile.teacher)
@@ -308,19 +308,19 @@ class SRTPassSerializer(serializers.ModelSerializer):
         return serializer.data
 
     def get_can_approve(self, obj):
-        profile = self.context.get('user').profile
+        profile = self.context.get('request').user.profile
         if not profile.is_teacher():
             return False
         return obj.can_approve(profile.teacher)
 
     def get_can_sign_in(self, obj):
-        profile = self.context.get('user').profile
+        profile = self.context.get('request').user.profile
         if not profile.is_teacher():
             return False
         return obj.can_sign_in(profile.teacher)
 
     def get_can_sign_out(self, obj):
-        profile = self.context.get('user').profile
+        profile = self.context.get('request').user.profile
         if not profile.is_teacher():
             return False
         return obj.can_sign_out(profile.teacher)

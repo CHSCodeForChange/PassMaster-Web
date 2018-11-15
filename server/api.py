@@ -90,9 +90,6 @@ class GenericPassReadView(generics.RetrieveAPIView):
     authentication_classes = (authentication.TokenAuthentication,)
     permission_classes = (permissions.IsAuthenticated,)
 
-    def get_serializer_context(self):
-        return {'user': self.request.user}
-
     def get_serializer_class(self):
         pass_type = self.request.GET.get("type")
         serializer_class = PassSerializer
