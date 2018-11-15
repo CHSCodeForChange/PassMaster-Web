@@ -385,10 +385,10 @@ class LocationPass(Pass):
 		return teacher == self.originTeacher and not self.approved
 
 	def can_sign_in(self, teacher):
-		return teacher == self.originTeacher and self.approved
+		return teacher == self.originTeacher and self.has_left() and not self.has_arrived() and self.approved
 
 	def can_sign_out(self, teacher):
-		return teacher == self.originTeacher and self.approved
+		return teacher == self.originTeacher and not self.has_left() and self.approved
 
 
 class SRTPass(Pass):
@@ -481,10 +481,10 @@ class SRTPass(Pass):
 		return (teacher == self.originTeacher or teacher == self.destinationTeacher) and not self.approved
 
 	def can_sign_in(self, teacher):
-		return (teacher == self.destinationTeacher or (self.session == "1" and teacher == self.originTeacher)) and self.approved
+		return (teacher == self.destinationTeacher or (self.session == "1" and teacher == self.originTeacher)) and self.has_left() and not self.has_arrived() and self.approved
 
 	def can_sign_out(self, teacher):
-		return (teacher == self.originTeacher or (self.session == "1" and teacher == self.destinationTeacher)) and self.approved
+		return (teacher == self.originTeacher or (self.session == "1" and teacher == self.destinationTeacher)) and not self.has_left() and self.approved
 
 
 class TeacherPass(Pass):
@@ -528,10 +528,10 @@ class TeacherPass(Pass):
 		return (teacher == self.originTeacher or teacher == self.destinationTeacher) and not self.approved
 
 	def can_sign_in(self, teacher):
-		return teacher == self.destinationTeacher and self.approved
+		return teacher == self.destinationTeacher and self.has_left() and not self.has_arrived() and self.approved
 
 	def can_sign_out(self, teacher):
-		return teacher == self.originTeacher and self.approved
+		return teacher == self.originTeacher and not self.has_left() and self.approved
 
 
 class SpecialSRTPass(Pass):
