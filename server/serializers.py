@@ -83,17 +83,22 @@ class PassSerializer(serializers.ModelSerializer):
         return serializer.data
 
     def get_can_approve(self, obj):
-        try:
-            teacher = self.context.get('request').user.profile.teacher
-        except Teacher.DoesNotExist:
+        profile = self.context.get('request').user.profile
+        if not profile.is_teacher():
             return False
-        return obj.can_approve(teacher)
+        return obj.can_approve(profile.teacher)
 
     def get_can_sign_in(self, obj):
-        return obj.can_sign_in(self.context.get('request').user.profile.teacher)
+        profile = self.context.get('request').user.profile
+        if not profile.is_teacher():
+            return False
+        return obj.can_sign_in(profile.teacher)
 
     def get_can_sign_out(self, obj):
-        return obj.can_sign_out(self.context.get('request').user.profile.teacher)
+        profile = self.context.get('request').user.profile
+        if not profile.is_teacher():
+            return False
+        return obj.can_sign_out(profile.teacher)
 
     class Meta:
         model = Pass
