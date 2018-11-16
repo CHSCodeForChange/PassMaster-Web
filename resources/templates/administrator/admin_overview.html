@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
+	<link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+</head>
+<body>
+<h1 class="display-1">Students</h1>
+<table id="datatable" class="table table-hover">
+	<thead>
+	<tr>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th># Passes</th>
+	</tr>
+	</thead>
+	<tbody>
+	{% for person in students %}
+		<tr>
+			<td>{{ person.profile.user.first_name }}</td>
+			<td href="/admin_view/{{ person.pk }}">{{ person.profile.user.last_name }}</td>
+			<td><a href="/admin_view/{{ person.pk }}">{{ person.number_pass }}</a></td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+
+</body>
+
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#datatable').DataTable({
+            colReorder: true,
+            responsive: false,
+            "autowidth": true,
+            "searching": true,
+            paging: true,
+            info: false,
+            stateSave: true,
+            columnDefs: [
+                {targets: 'no-sort', orderable: false}
+            ],
+            "language": {
+                "emptyTable": "Something has gone wrong."
+            }
+        });
+    });
+</script>
+</html>

@@ -27,8 +27,13 @@ teacher = [
 	url(r'^teacher/$', views.teacher_home, name='teacher_home'),
 ]
 
+admin = [
+	url(r'^admin_overview/$', views.admin_overview, name='admin_overview'),
+	url(r'^admin_view/(?P<user_id>[0-9]+)/$', views.admin_view, name='admin_view'),
+]
+
 location = [
 	url(r'^location/$', views.location_home, name='location_home')
 ]
 
-urlpatterns = rest + student + teacher + location
+urlpatterns = rest + student + teacher + location + admin
