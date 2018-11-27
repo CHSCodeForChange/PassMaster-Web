@@ -18,6 +18,14 @@ class Pass(models.Model):
 	timeLeftOrigin = models.TimeField(null=True, blank=True)  # always needed
 	timeArrivedDestination = models.TimeField(null=True, blank=True)
 
+
+
+	# creator = models.ForeignKey(
+	# 	'Creator',
+	# 	on_delete=models.CASCADE,
+	# 	related_name="pass_creator"
+	# )
+
 	student = models.ForeignKey(
 		'Student',
 		on_delete=models.CASCADE,
@@ -433,6 +441,19 @@ class SRTPass(Pass):
 		               approved=True,
 		               startTimeRequested=startTimeRequested,
 		               endTimeRequested=endTimeRequested)
+
+	def fill_time(self):
+		if self.session == '1':
+			self.startTimeRequested = time(hour=9, minute=50)
+			self.endTimeRequested = time(hour=10, minute=20)
+		elif self.session == '2':
+			self.startTimeRequested = time(hour=10, minute=20)
+			self.endTimeRequested = time(hour=11, minute=00)
+		elif self.session == '3':
+			self.startTimeRequested = time(hour=9, minute=50)
+			self.endTimeRequested = time(hour=11, minute=00)
+
+		self.save()
 
 	#### information ####
 
