@@ -18,6 +18,7 @@ minidetector = "*"
 pyyaml = "*"
 ua-parser = "*"
 user-agents = "*"
+django-user-agents = "*"
 
 [dev-packages]
 

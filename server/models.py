@@ -443,6 +443,8 @@ class SRTPass(Pass):
 			self.startTimeRequested = time(hour=9, minute=50)
 			self.endTimeRequested = time(hour=11, minute=00)
 
+		print(self.startTimeRequested)
+
 		self.save()
 
 	#### information ####

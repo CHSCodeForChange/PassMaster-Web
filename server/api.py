@@ -224,9 +224,11 @@ class PassCreateView(generics.CreateAPIView):
             student = self.request.user.profile.student
             _pass = serializer.save(student=student)
 
-        type = self.request.GET.get("type")
+        _type = self.request.GET.get("type")
 
-        if _pass is not None (type == "srt" or type == "srtpass"):
+        print (_type)
+
+        if _pass is not None and _type is not None and (_type.lower() == "srt" or _type.lower() == "srtpass"):
             _pass.srtpass.fill_time()
 
 
