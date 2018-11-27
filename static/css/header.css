@@ -127,6 +127,12 @@ input:-webkit-autofill {
   }
 }
 
+
+
+.dropdown {text-align:center;}
+.button, .dropdown-menu {margin:10px auto}
+.dropdown-menu {width:200px; left:50%; margin-left:-100px;}
+
 @media screen and (min-width: 400px) {
   .card-columns {
     column-count:1;
@@ -136,6 +142,7 @@ input:-webkit-autofill {
     text-align: center;
     margin-top: 25px !important;
   }
+
 }
 @media screen and (min-width: 750px) {
   .card-columns {

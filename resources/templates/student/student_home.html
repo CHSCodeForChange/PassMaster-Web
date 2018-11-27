@@ -4,6 +4,8 @@
 
 {% load static %}
 
+{% load user_agents %}
+
 <body>
 <h1 class="display-1">Passes
     <div class="expand" style="display: inline-block">
@@ -17,6 +19,9 @@
     </div>
 </div>
 
+<script> var w = window.screen.width </script>
+
+{% if request|is_pc %}
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-3">
@@ -31,6 +36,20 @@
     <div class="col-md-1"></div>
 
 </div>
+{% else %}
+<div class="dropdown show">
+  <a class="btn btn-secondary dropdown-toggle" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Menu
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" id="active-button" href="#active">Active</a>
+    <a class="dropdown-item" id="pending-button" href="#pending">Pending</a>
+    <a class="dropdown-item" id="old-button" href="#old">Old</a>
+  </div>
+</div>
+{% endif %}
+
 
 <div id="active-fragment" style="display: none;">
     {% include 'student/fragments/active_fragment.html' %}
