@@ -72,7 +72,9 @@ input:-webkit-autofill {
 } */
 
 .card {
-  margin: 0 auto; /* Added */
+  /* margin: 0 auto; /* Added */
+  margin-left: 10%;
+  margin-right: 10%;
   float: none; /* Added */
   margin-bottom: 10px; /* Added */
 }
@@ -104,61 +106,12 @@ input:-webkit-autofill {
     margin-right: 10% !important;
 }
 
-@media screen and (min-width: 10px) and (max-width: 330px) {
-  .card-columns {
-    column-count:1;
-  }
-  .pass-card {
-    width: 200px;
-    text-align: center !important;
-    margin-top: 25px !important;
-  }
-}
-
-@media screen and (min-width: 350px) and (max-width: 390px) {
-  .card-columns {
-    column-count:1;
-
-  }
-  .pass-card {
-    width: 200px;
-    text-align: center !important;
-    margin-top: 25px !important;
-  }
-}
 
 
 
 .dropdown {text-align:center;}
 .button, .dropdown-menu {margin:10px auto}
 .dropdown-menu {width:200px; left:50%; margin-left:-100px;}
-
-@media screen and (min-width: 400px) {
-  .card-columns {
-    column-count:1;
-  }
-  .pass-card {
-    width: 280px;
-    text-align: center;
-    margin-top: 25px !important;
-  }
-
-}
-@media screen and (min-width: 750px) {
-  .card-columns {
-    column-count:3
-  }
-}
-@media screen and (min-width: 1000px) {
-  .card-columns {
-    column-count:4
-  }
-}
-@media screen and (min-width: 2500px) {
-  .card-columns {
-    column-count:6
-  }
-}
 
 .card-form {
     border-radius: 20px;
@@ -170,12 +123,13 @@ input:-webkit-autofill {
 }
 
 .pass-card {
-  margin: 1px;
 	border-radius: 20px;
 	/* height: 45vh; */
 	/* width: 20vw !important; */
 	/* float: left; */
 	text-align: left;
+  width: 90%;
+  right: 1%;
 }
 
 /* For rounded cards to not be jank*/
@@ -203,4 +157,26 @@ input:-webkit-autofill {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+
+.grid {
+   margin-top: 2%;
+   display: grid;
+   grid-gap: 1%;
+   grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+   vertical-align: baseline;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+}
+
+@media screen and (min-width: 2000px) and (max-width: 3000px) {
+  .pass-card {
+    left: 2px;
+  }
 }

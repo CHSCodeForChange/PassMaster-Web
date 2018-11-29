@@ -1,7 +1,7 @@
 {# DEPRECATED!!! #}
 {% if unapproved %}
         <h1 class="pass-type">Unapproved</h1>
-        <div class="card-columns">
+        <div class="grid">
             {% for pass in unapproved %}
                 {% include 'teacher/fragments/teacher_pass_fragment.html' %}
             {% endfor %}
@@ -10,7 +10,7 @@
 
 {% if incoming %}
     <h1 class="pass-type">Incoming Students</h1>
-    <div class="card-columns">
+    <div class="grid">
         {% for pass in incoming %}
             {% include 'teacher/fragments/teacher_pass_fragment.html' %}
         {% endfor %}
@@ -19,7 +19,7 @@
 
 {% if outgoing %}
     <h1 class="pass-type">Outgoing Students</h1>
-    <div class="card-columns">
+    <div class="grid">
         {% for pass in outgoing %}
             {% include 'teacher/fragments/teacher_pass_fragment.html' %}
         {% endfor %}
@@ -28,7 +28,7 @@
 
 {% if old %}
     <h1 class="pass-type">Old</h1>
-    <div class="card-columns">
+    <div class="grid">
         {% for pass in old %}
             {% include 'teacher/fragments/teacher_pass_fragment.html' %}
         {% endfor %}
