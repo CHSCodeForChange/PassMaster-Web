@@ -84,6 +84,15 @@ class TeacherListView(generics.ListAPIView):
         return queryset
 
 
+class StudentTopPassView(generics.RetrieveAPIView):
+    serializer_class = PassSerializer
+    authentication_classes = (authentication.TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def get_object(self):
+        return Pass.get_passes(self.request.user).first()
+
+
 class GenericPassReadView(generics.RetrieveAPIView):
     lookup_field = 'pk'
     serializer_class = PassSerializer
@@ -175,20 +184,22 @@ class PassListView(generics.ListAPIView):
 
             elif list == 'teacher-old' or list == 'teacher old':
                 passes = Pass.get_teachers_old_passes(user)
+        else:
+            Pass.get_passes(self.request.user)
 
-        elif query is not None:
+        if query is not None:
             passes = passes.filter(description__icontains=query)
 
-        elif student is not None:
+        if student is not None:
             passes = passes.filter(student=student)
 
-        elif originTeacher is not None:
+        if originTeacher is not None:
             passes = passes.filter(originTeacher=originTeacher)
 
-        elif date is not None:
+        if date is not None:
             passes = passes.filter(date=date)
 
-        elif approved is not None:
+        if approved is not None:
             passes = passes.filter(approved=approved)
 
 
