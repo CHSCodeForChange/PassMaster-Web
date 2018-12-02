@@ -380,13 +380,13 @@ class LocationPass(Pass):
 	#### permissions ####
 
 	def can_approve(self, teacher):
-		return teacher == self.originTeacher
+		return teacher == self.originTeacher and not self.approved
 
 	def can_sign_in(self, teacher):
-		return teacher == self.originTeacher
+		return teacher == self.originTeacher and self.timeArrivedDestination is None
 
 	def can_sign_out(self, teacher):
-		return teacher == self.originTeacher
+		return teacher == self.originTeacher and self.timeLeftOrigin is None
 
 
 class SRTPass(Pass):
@@ -493,13 +493,13 @@ class SRTPass(Pass):
 	#### permissions ####
 
 	def can_approve(self, teacher):
-		return teacher == self.originTeacher or teacher == self.destinationTeacher
+		return (teacher == self.originTeacher or teacher == self.destinationTeacher) and not self.approved
 
 	def can_sign_in(self, teacher):
-		return teacher == self.destinationTeacher or (self.session == "1" and teacher == self.originTeacher)
+		return (teacher == self.destinationTeacher or (self.session == "1" and teacher == self.originTeacher)) and (self.timeArrivedDestination is None or (self.session == "1" and self.timeArrivedOrigin is None))
 
 	def can_sign_out(self, teacher):
-		return teacher == self.originTeacher or (self.session == "1" and teacher == self.destinationTeacher)
+		return (teacher == self.originTeacher or (self.session == "1" and teacher == self.destinationTeacher)) and  (self.timeLeftOrigin is None or (self.session == "1" and self.timeLeftDestination is None))
 
 
 class TeacherPass(Pass):
@@ -540,13 +540,13 @@ class TeacherPass(Pass):
 	#### permissions ####
 
 	def can_approve(self, teacher):
-		return teacher == self.originTeacher or teacher == self.destinationTeacher
+		return (teacher == self.originTeacher or teacher == self.destinationTeacher) and not self.approved
 
 	def can_sign_in(self, teacher):
-		return teacher == self.destinationTeacher
+		return teacher == self.destinationTeacher and self.timeArrivedDestination is None
 
 	def can_sign_out(self, teacher):
-		return teacher == self.originTeacher
+		return teacher == self.originTeacher and self.timeLeftOrigin is None
 
 
 class SpecialSRTPass(Pass):
