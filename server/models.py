@@ -367,14 +367,12 @@ class LocationPass(Pass):
 
 	def sign_in(self, teacher):
 		if self.can_sign_in(teacher):
-			time = datetime.now() - timedelta(hours=5)
-			self.timeArrivedDestination = time
+			self.timeArrivedDestination = (datetime.now() - timedelta(hours=5)).time()
 			self.save()
 
 	def sign_out(self, teacher):
 		if self.can_sign_out(teacher):
-			time = datetime.now() - timedelta(hours=5)
-			self.timeLeftOrigin = time
+			self.timeLeftOrigin = (datetime.now() - timedelta(hours=5)).time()
 			self.save()
 
 	#### permissions ####
@@ -474,19 +472,21 @@ class SRTPass(Pass):
 
 	def sign_in(self, teacher):
 		if self.can_sign_in(teacher):
-			if self.originTeacher == teacher:
-				self.timeArrivedOrigin = datetime.now() - - timedelta(hours=5)
+			time = (datetime.now() - timedelta(hours=5)).time()
+			if self.session == 1 and self.originTeacher == teacher:
+				self.timeArrivedOrigin = time
 			else:
-				self.timeArrivedDestination = datetime
+				self.timeArrivedDestination = time
 
 			self.save()
 
 	def sign_out(self, teacher):
 		if self.can_sign_out(teacher):
-			if self.originTeacher == teacher:
-				self.timeLeftOrigin = datetime.now() - timedelta(hours=5)
+			time = (datetime.now() - timedelta(hours=5)).time()
+			if self.session == 1 and self.originTeacher == teacher:
+				self.timeLeftOrigin = time
 			else:
-				self.timeLeftDestination = datetime
+				self.timeLeftDestination = time
 
 			self.save()
 
@@ -529,12 +529,12 @@ class TeacherPass(Pass):
 
 	def sign_in(self, teacher):
 		if self.can_sign_in(teacher):
-			self.timeArrivedDestination = datetime.now() - timedelta(hours=5)
+			self.timeArrivedDestination = (datetime.now() - timedelta(hours=5)).time()
 			self.save()
 
 	def sign_out(self, teacher):
 		if self.can_sign_out(teacher):
-			self.timeLeftOrigin = datetime.now() - timedelta(hours=5)
+			self.timeLeftOrigin = (datetime.now() - timedelta(hours=5)).time()
 			self.save()
 
 	#### permissions ####
