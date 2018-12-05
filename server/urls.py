@@ -29,7 +29,7 @@ teacher = [
 ]
 
 admin = [
-	url(r'^admin_overview/$', views.admin_overview, name='admin_overview'),
+	url(r'^administrator/$', views.admin_overview, name='admin_overview'),
 	url(r'^admin_view/(?P<user_id>[0-9]+)/$', views.admin_view, name='admin_view'),
 ]
 

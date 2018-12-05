@@ -12,5 +12,7 @@ def home(request):
         return redirect('/teacher')
     elif request.user.profile.is_location():
         return redirect('/location')
+    elif request.user.profile.is_administrator():
+        return redirect('/administrator')
     else:
-        return redirect('/test')
+        return redirect('/login')

@@ -1,8 +1,6 @@
-import datetime
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
-from . import models
 from .forms import *
 
 
@@ -16,7 +14,12 @@ def admin_overview(request):
 	students = Student.objects.all()
 
 	for i in students:
-		i.number_pass = len(Pass.objects.filter(student=i))
+		p = Pass.get_passes(i)
+
+		if p is not None:
+			i.number_pass = p.count()
+		else:
+			i.number_pass = '0'
 
 	print(students[0].profile.user.first_name)
 	return render(request, "administrator/admin_overview.html",
@@ -30,7 +33,7 @@ def admin_view(request, user_id):
 	if not request.user.profile.is_administrator():
 		return redirect('/')
 
-	student=Student.objects.get(profile_id=user_id)
+	student = User.objects.get(id=user_id)
 	passes = Pass.get_passes(student)
 
 	for p in passes:
