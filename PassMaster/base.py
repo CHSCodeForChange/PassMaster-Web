@@ -45,10 +45,11 @@ INSTALLED_APPS = [
 
 	'django_user_agents',
 
-	'corsheaders'
+	'corsheaders',
 ]
 
 MIDDLEWARE = [
+	'corsheaders.middleware.CorsMiddleware',
 	'django.middleware.security.SecurityMiddleware',
 	'django.contrib.sessions.middleware.SessionMiddleware',
 	'django.middleware.common.CommonMiddleware',
@@ -58,7 +59,6 @@ MIDDLEWARE = [
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
 	'whitenoise.middleware.WhiteNoiseMiddleware',
 	'django_user_agents.middleware.UserAgentMiddleware',
-	'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'PassMaster.urls'
@@ -101,7 +101,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = True  # this is poor practice and will need to be changed after passmaster-client is complete https://github.com/ottoyiu/django-cors-headers/#configuration
 
 LANGUAGE_CODE = 'en-us'
 
