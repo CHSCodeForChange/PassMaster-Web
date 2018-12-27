@@ -1,3 +1,4 @@
+from django.conf.urls import include
 from django.conf.urls import url
 from rest_framework.authtoken import views as auth_views
 
@@ -13,7 +14,8 @@ rest = [
 	url(r'rest/passes/$', PassListView.as_view(), name='pass-list'),
 	url(r'rest/passes/create/$', PassCreateView.as_view(), name='pass-create'),
 	url(r'^rest/passes/(?P<pk>\d+)/$', GenericPassReadView.as_view(), name='pass-read'),
-	url(r'^rest/passes/studenttop/$', StudentTopPassView.as_view(), name='student-top')
+	url(r'^rest/passes/studenttop/$', StudentTopPassView.as_view(), name='student-top'),
+	url(r'^docs/', include('rest_framework_docs.urls')),
 ]
 
 student = [
