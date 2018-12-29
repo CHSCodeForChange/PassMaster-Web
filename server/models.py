@@ -473,21 +473,19 @@ class SRTPass(Pass):
 	def sign_in(self, teacher):
 		if self.can_sign_in(teacher):
 			time = (datetime.now() - timedelta(hours=5)).time()
-			if self.session == 1 and self.originTeacher == teacher:
+			if teacher == self.originTeacher:
 				self.timeArrivedOrigin = time
 			else:
 				self.timeArrivedDestination = time
-
 			self.save()
 
 	def sign_out(self, teacher):
 		if self.can_sign_out(teacher):
 			time = (datetime.now() - timedelta(hours=5)).time()
-			if self.session == 1 and self.originTeacher == teacher:
+			if teacher == self.originTeacher:
 				self.timeLeftOrigin = time
 			else:
 				self.timeLeftDestination = time
-
 			self.save()
 
 	#### permissions ####
