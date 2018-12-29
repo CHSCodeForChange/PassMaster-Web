@@ -287,7 +287,6 @@ class LocationPassSerializer(serializers.ModelSerializer):
         )
 
 
-
 class SRTPassSerializer(serializers.ModelSerializer):
     student_info = serializers.SerializerMethodField(read_only=True)
     originTeacher_info = serializers.SerializerMethodField(read_only=True)
@@ -364,7 +363,7 @@ class SRTPassSerializer(serializers.ModelSerializer):
             'timeLeftOrigin',
             'timeArrivedDestination',
             'timeLeftDestination',
-            'TimeArrivedOrigin',
+            'timeArrivedOrigin',
 
             'can_approve',
             'can_sign_in',

@@ -44,6 +44,7 @@ a {
 /* Login */
 .login-input input {
     border-radius: 250px !important;
+    background: #f6b26b;
     background-color: #f6b26bff !important;
     border-style: solid !important;
     width: 100%;

@@ -1,5 +1,10 @@
 from .base import *
 
+# Uncomment these lines to see the 404 and 500 pages
+# Comment these lines to see debug info
+# DEBUG = False
+# ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0']
+
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
