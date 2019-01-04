@@ -7,6 +7,31 @@ h1 {
     text-align: center;
 }
 
+h5 {
+  color:white;
+  font-weight: 300;
+}
+
+div.col {
+
+    text-align: center;
+    align: left;
+    max-width:25%;
+}
+div.col2 {
+
+    text-align: center;
+    align: right;
+    max-width:25%;
+}
+
+
+
+.caption {
+    display: block;
+    color:white;
+}
+
 .btn {
 	text-decoration: none;
 }
