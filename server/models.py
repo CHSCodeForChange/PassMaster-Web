@@ -464,7 +464,6 @@ class SRTPass(Pass):
 
 	#### actions ####
 
-
 	def approve(self, teacher):
 		if self.can_approve(teacher):
 			self.approved = True;
