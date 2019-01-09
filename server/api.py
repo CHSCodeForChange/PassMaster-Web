@@ -227,9 +227,13 @@ class PassCreateView(generics.CreateAPIView):
         return serializer_class
 
     def perform_create(self, serializer):
+        _pass = None
+
         if self.request.user.profile.is_teacher():
+            print("isteacher")
             teacher = self.request.user.profile.teacher
-            _pass = serializer.save().parent().approve(teacher) #TODO Fix bug where this does get approved but the api responds with the unapproved version
+            _pass = serializer.save()
+            _pass.parent().approve(teacher) #TODO Fix bug where this does get approved but the api responds with the unapproved version
 
         elif self.request.user.profile.is_student():
             student = self.request.user.profile.student
@@ -237,7 +241,9 @@ class PassCreateView(generics.CreateAPIView):
 
         _type = self.request.GET.get("type")
 
+        print(self.request.user.profile.member_type)
         print (_type)
+        print (_pass)
 
         if _pass is not None and _type is not None and (_type.lower() == "srt" or _type.lower() == "srtpass"):
             _pass.srtpass.fill_time()

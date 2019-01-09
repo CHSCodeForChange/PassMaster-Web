@@ -2,9 +2,9 @@
 
 <body>
     <div class="center-vert">
-        <h1 class="display-1">Login</h1>
+        <h1 class="display-1" style="font-size: 15vh">Login</h1>
         <div class="center">
-            <form method="post" style="padding: 0;">
+            <form method="post" style="width: 27vw">
                 {% csrf_token %}
                 {% for field in form %}
                     <div class="center row login-input"> {{ field }} </div>
