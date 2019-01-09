@@ -1,5 +1,17 @@
 {% include 'header.html' %}
+{% if request.user_agent.is_mobile %}
+<body>
+    <div class="center-vert text-center">
+        <h1 class="display-2">Get Our App!</h1>
+          <div class="col-md-6 text-center">
+              <img src="/static/img/logo.png" width="40%">
+              <br></br>
+              <span class="caption"> <img src="/static/img/apple.png" width="30%"> <img src="/static/img/android.png" width="30%"> </span>
 
+          </div>
+    </div>
+</body>
+{% else %}
 <body>
     <div class="center-vert">
         <h1 class="display-1" style="font-size: 15vh">Login</h1>
@@ -36,3 +48,4 @@
         {% endif %}
     </div>
 </body>
+{% endif %}

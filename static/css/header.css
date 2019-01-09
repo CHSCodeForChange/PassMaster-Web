@@ -1,12 +1,36 @@
 /* General */
-body {
-    background-color: #F29D39;
-}
+
+
 
 h1 {
     color: white;
     text-align: center;
     font-size: 100000px;
+}
+
+h5 {
+  color:white;
+  font-weight: 300;
+}
+
+div.col {
+
+    text-align: center;
+    align: left;
+    max-width:25%;
+}
+div.col2 {
+
+    text-align: center;
+    align: right;
+    max-width:25%;
+}
+
+
+
+.caption {
+    display: block;
+    color:white;
 }
 
 .btn {
@@ -170,11 +194,11 @@ input:-webkit-autofill {
 }
 
 html, body {
-    height: 100%;
     margin: 0;
     padding: 0;
-    width: 100%;
-
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: #F29D39;
 }
 
 @media screen and (min-width: 2000px) and (max-width: 3000px) {
