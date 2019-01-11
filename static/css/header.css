@@ -136,7 +136,7 @@ input:-webkit-autofill {
 
 .dropdown {text-align:center;}
 .button, .dropdown-menu {margin:10px auto}
-.dropdown-menu {width:200px; left:50%; margin-left:-100px;}
+.dropdown-menu {width:250px; left:50%; margin-left:-100px;}
 
 .card-form {
     border-radius: 20px;
