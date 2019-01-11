@@ -5,7 +5,6 @@
 h1 {
     color: white;
     text-align: center;
-    font-size: 100000px;
 }
 
 h5 {
@@ -88,6 +87,7 @@ input:-webkit-autofill {
 /* Home pages */
 .dropdown-toggle::after {
     display: none;
+
 }
 
 /* .card-container::after {
@@ -134,9 +134,9 @@ input:-webkit-autofill {
 
 
 
-.dropdown {text-align:center;}
-.button, .dropdown-menu {margin:10px auto}
-.dropdown-menu {width:250px; left:50%; margin-left:-100px;}
+.dropdown {text-align:center; overflow:visible;}
+.button, .dropdown-menu {margin:10px auto; overflow:visible;}
+.dropdown-menu {width:250px; left:50%; margin-left:-100px; overflow:visible;}
 
 .card-form {
     border-radius: 20px;
