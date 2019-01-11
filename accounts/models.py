@@ -40,6 +40,16 @@ class Profile(models.Model):
     def is_location(profile):
         return profile.member_type == '4'
 
+    def get_profile_type(profile):
+        if Profile.is_student(profile):
+            return "Student"
+        elif Profile.is_teacher(profile):
+            return "Teacher"
+        elif Profile.is_administrator(profile):
+            return "Administrator"
+        else:
+            return "Location"
+
     def get_student(profile):
         return Student.objects.filter(profile=profile).first()
 
