@@ -1,8 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django_select2.forms import (
-	HeavySelect2MultipleWidget, HeavySelect2Widget, ModelSelect2MultipleWidget,
-	ModelSelect2TagWidget, ModelSelect2Widget, Select2MultipleWidget,
+	Select2MultipleWidget,
 	Select2Widget
 )
 
@@ -86,12 +85,20 @@ class RequestPassForm(forms.Form):
 			                       endTimeRequested=self.cleaned_data['end'], description=self.cleaned_data['reason'],
 			                       student=student, destinationTeacher=self.cleaned_data['destinationTeacher'],
 			                       originTeacher=self.cleaned_data['originTeacher'])
-		else:
+		elif self.cleaned_data['pass_type'] == '2':
 			new_pass = LocationPass(approved=False, date=self.cleaned_data['date'],
 			                        startTimeRequested=self.cleaned_data['start'],
 			                        endTimeRequested=self.cleaned_data['end'], description=self.cleaned_data['reason'],
 			                        student=student, location=self.cleaned_data['location'],
 			                        originTeacher=self.cleaned_data['originTeacher'])
+		elif self.cleaned_data['pass_type'] == '3':
+			new_pass = SRTPass.create(approved=False, date=self.cleaned_data['date'],
+			                          student=student, originTeacher=self.cleaned_data['originTeacher'],
+			                          description=self.cleaned_data['reason'], destinationTeacher=self.cleaned_data['destinationTeacher'],
+			                          session=self.cleaned_data['session'])
+		else:
+			print('This pass type cannot be created.')
+			return
 		new_pass.save()
 
 
@@ -208,11 +215,12 @@ class CreatePassForm(forms.Form):
 		elif self.cleaned_data['pass_type'] == '3':
 			for student in self.cleaned_data['students']:
 				new_pass = SRTPass.create(
-					self.cleaned_data['date'],
-					student,
-					self.cleaned_data['originTeacher'],
-					self.cleaned_data['reason'],
-					self.cleaned_data['destinationTeacher'],
+					approved=True,
+					date=self.cleaned_data['date'],
+					student=student,
+					originTeacher=self.cleaned_data['originTeacher'],
+					description=self.cleaned_data['reason'],
+					destinationTeacher=self.cleaned_data['destinationTeacher'],
 					session=self.cleaned_data['session']
 				)
 				new_pass.save()

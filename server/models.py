@@ -18,10 +18,8 @@ class Pass(models.Model):
 	timeLeftOrigin = models.TimeField(null=True, blank=True)  # always needed
 	timeArrivedDestination = models.TimeField(null=True, blank=True)
 
-
-
 	# creator = models.ForeignKey(
-	# 	'Creator',
+	# 	'User',
 	# 	on_delete=models.CASCADE,
 	# 	related_name="pass_creator"
 	# )
@@ -409,7 +407,7 @@ class SRTPass(Pass):
 	timeArrivedOrigin = models.TimeField(null=True, blank=True)
 
 	@staticmethod
-	def create(date, student, originTeacher, description, destinationTeacher, session):
+	def create(approved, date, student, originTeacher, description, destinationTeacher, session):
 		if session == '1':
 			startTimeRequested = time(hour=9, minute=50)
 			endTimeRequested = time(hour=10, minute=20)
@@ -420,13 +418,13 @@ class SRTPass(Pass):
 			startTimeRequested = time(hour=9, minute=50)
 			endTimeRequested = time(hour=11, minute=00)
 
-		return SRTPass(date=date,
+		return SRTPass(approved=approved,
+		               date=date,
 		               student=student,
 		               originTeacher=originTeacher,
 		               description=description,
 		               destinationTeacher=destinationTeacher,
 		               session=session,
-		               approved=True,
 		               startTimeRequested=startTimeRequested,
 		               endTimeRequested=endTimeRequested)
 
