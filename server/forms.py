@@ -183,9 +183,11 @@ class CreatePassForm(forms.Form):
 	)
 
 	user = User()
+	creator = Teacher()
 
 	def __init__(self, *args, **kwargs):
 		self.user = kwargs.pop('user')
+		self.creator = kwargs.pop('creator')
 		super(CreatePassForm, self).__init__(*args, **kwargs)
 
 	def save(self, commit=True):
@@ -198,7 +200,8 @@ class CreatePassForm(forms.Form):
 					endTimeRequested=self.cleaned_data['end'],
 					description=self.cleaned_data['reason'],
 					student=student, destinationTeacher=self.cleaned_data['destinationTeacher'],
-					originTeacher=self.cleaned_data['originTeacher']
+					originTeacher=self.cleaned_data['originTeacher'],
+					creator = self.creator
 				)
 				new_pass.save()
 		elif self.cleaned_data['pass_type'] == '2':
@@ -209,7 +212,8 @@ class CreatePassForm(forms.Form):
 					endTimeRequested=self.cleaned_data['end'],
 					description=self.cleaned_data['reason'],
 					student=student, location=self.cleaned_data['location'],
-					originTeacher=self.cleaned_data['originTeacher']
+					originTeacher=self.cleaned_data['originTeacher'],
+					creator = self.creator
 				)
 				new_pass.save()
 		elif self.cleaned_data['pass_type'] == '3':
@@ -221,7 +225,8 @@ class CreatePassForm(forms.Form):
 					originTeacher=self.cleaned_data['originTeacher'],
 					description=self.cleaned_data['reason'],
 					destinationTeacher=self.cleaned_data['destinationTeacher'],
-					session=self.cleaned_data['session']
+					session=self.cleaned_data['session'],
+					creator = self.creator
 				)
 				new_pass.save()
 		elif self.cleaned_data['pass_type'] == '4':
@@ -233,6 +238,7 @@ class CreatePassForm(forms.Form):
 					description=self.cleaned_data['reason'],
 					destination=self.cleaned_data['specialDestination'],
 					session=self.cleaned_data['session'],
-					initiatingTeacher=self.cleaned_data['initiatingTeacher']
+					initiatingTeacher=self.cleaned_data['initiatingTeacher'],
+					creator = self.creator
 				)
 				new_pass.save()

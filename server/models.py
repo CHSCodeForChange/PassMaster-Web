@@ -18,11 +18,13 @@ class Pass(models.Model):
 	timeLeftOrigin = models.TimeField(null=True, blank=True)  # always needed
 	timeArrivedDestination = models.TimeField(null=True, blank=True)
 
-	# creator = models.ForeignKey(
-	# 	'User',
-	# 	on_delete=models.CASCADE,
-	# 	related_name="pass_creator"
-	# )
+	creator = models.ForeignKey(
+		'Teacher',
+		null=True,
+		blank=True,
+		on_delete=models.CASCADE,
+	 	related_name="pass_creator"
+	 )
 
 	student = models.ForeignKey(
 		'Student',

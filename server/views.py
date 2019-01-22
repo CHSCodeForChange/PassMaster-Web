@@ -85,10 +85,10 @@ def teacher_home(request):
 	unapproved = Pass.get_teachers_unapproved_passes(request.user)
 	old = Pass.get_teachers_old_passes(request.user)
 	if request.method == "GET":
-		create_form = CreatePassForm(user=request.user)
+		create_form = CreatePassForm(user=request.user, creator=request.user.profile.teacher)
 
 	else:
-		create_form = CreatePassForm(request.POST, user=request.user)
+		create_form = CreatePassForm(request.POST, user=request.user, creator=request.user.profile.teacher)
 		if create_form.is_valid():
 			create_form.save()
 			return redirect('/teacher')
@@ -176,4 +176,3 @@ def handler500(request, exception, template_name="500.html"):
 	response = render_to_response("500.html")
 	response.status_code = 500
 	return response
-
