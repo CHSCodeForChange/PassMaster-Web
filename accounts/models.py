@@ -1,10 +1,10 @@
+from django.conf import settings
 from django.contrib.auth.models import User
-
-from server.models import *
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
-from django.conf import settings
+
+from server.models import *
 
 
 # This code is triggered whenever a new user has been created and saved to the database
@@ -28,18 +28,23 @@ class Profile(models.Model):
     CHOICES = (('1', 'Student',), ('2', 'Teacher',), ('3', 'Administrator'), ('4', 'Location'))
     member_type = models.CharField(max_length=50, choices=CHOICES)
 
+    @staticmethod
     def is_student(profile):
         return profile.member_type == '1'
 
+    @staticmethod
     def is_teacher(profile):
         return profile.member_type == '2'
 
+    @staticmethod
     def is_administrator(profile):
         return profile.member_type == '3'
 
+    @staticmethod
     def is_location(profile):
         return profile.member_type == '4'
 
+    @staticmethod
     def get_profile_type(profile):
         if Profile.is_student(profile):
             return "Student"
@@ -50,21 +55,25 @@ class Profile(models.Model):
         else:
             return "Location"
 
+    @staticmethod
     def get_student(profile):
         return Student.objects.filter(profile=profile).first()
 
+    @staticmethod
     def get_teacher(profile):
         return Teacher.objects.filter(profile=profile).first()
 
+    @staticmethod
     def get_administrator(profile):
         return Administrator.objects.filter(profile=profile).first()
 
+    @staticmethod
     def get_location(profile):
         return Location.objects.filter(profile=profile).first()
 
+    @staticmethod
     def name(profile):
-        return (profile.user.first_name + ' ' + profile.user.last_name)
-
+        return profile.user.first_name + ' ' + profile.user.last_name
 
     def __str__(self):
         return self.user.username

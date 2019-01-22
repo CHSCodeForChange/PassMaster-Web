@@ -58,6 +58,8 @@ class Pass(models.Model):
 			return 'SRTPass'
 		elif self.is_teacher_pass():
 			return 'TeacherPass'
+		elif self.is_special_srt_pass():
+			return 'SpecialSRTPass'
 
 	def is_location_pass(self):
 		try:
@@ -77,6 +79,12 @@ class Pass(models.Model):
 		except:
 			return False
 
+	def is_special_srt_pass(self):
+		try:
+			return self.specialsrtpass is not None
+		except:
+			return False
+
 	def child(self):
 		if self.is_location_pass():
 			return self.locationpass
@@ -84,6 +92,8 @@ class Pass(models.Model):
 			return self.srtpass
 		elif self.is_teacher_pass():
 			return self.teacherpass
+		elif self.is_special_srt_pass():
+			return self.specialsrtpass
 
 
 	#### information ####
@@ -95,6 +105,8 @@ class Pass(models.Model):
 			return self.srtpass.get_destinationTeacher()
 		elif self.is_teacher_pass():
 			return self.teacherpass.get_destinationTeacher()
+		elif self.is_special_srt_pass():
+			return self.specialsrtpass.get_destinationTeacher()
 
 	def get_destination(self):
 		if self.is_location_pass():
@@ -103,6 +115,8 @@ class Pass(models.Model):
 			return self.teacherpass.destinationTeacher.__str__()
 		elif self.is_srt_pass():
 			return self.srtpass.destinationTeacher.__str__()
+		elif self.is_special_srt_pass():
+			return self.specialsrtpass.destinationTeacher.__str__()
 
 	def has_left(self):
 		return self.timeLeftOrigin is not None
@@ -122,6 +136,8 @@ class Pass(models.Model):
 			return self.srtpass.can_approve(teacher)
 		elif self.is_teacher_pass():
 			return self.teacherpass.can_approve(teacher)
+		elif self.is_special_srt_pass():
+			return self.specialsrtpass.can_approve(teacher)
 
 	def can_sign_in(self, teacher):
 		if self.is_location_pass():
@@ -130,6 +146,8 @@ class Pass(models.Model):
 			return self.srtpass.can_sign_in(teacher)
 		elif self.is_teacher_pass():
 			return self.teacherpass.can_sign_in(teacher)
+		elif self.is_special_srt_pass():
+			return self.specialsrtpass.can_sign_in(teacher)
 
 	def can_sign_out(self, teacher):
 		if self.is_location_pass():
@@ -138,6 +156,8 @@ class Pass(models.Model):
 			return self.srtpass.can_sign_out(teacher)
 		elif self.is_teacher_pass():
 			return self.teacherpass.can_sign_out(teacher)
+		elif self.is_special_srt_pass():
+			return self.specialsrtpass.can_sign_out(teacher)
 
 	#### actions ####
 
@@ -148,6 +168,8 @@ class Pass(models.Model):
 			self.srtpass.approve(teacher)
 		elif self.is_teacher_pass():
 			self.teacherpass.approve(teacher)
+		elif self.is_special_srt_pass():
+			return self.specialsrtpass.approve(teacher)
 
 	def sign_in(self, teacher):
 		if self.is_location_pass():
@@ -156,6 +178,8 @@ class Pass(models.Model):
 			self.srtpass.sign_in(teacher)
 		elif self.is_teacher_pass():
 			self.teacherpass.sign_in(teacher)
+		elif self.is_special_srt_pass():
+			return self.specialsrtpass.sign_in(teacher)
 
 	def sign_out(self, teacher):
 		if self.is_location_pass():
@@ -164,6 +188,8 @@ class Pass(models.Model):
 			self.srtpass.sign_out(teacher)
 		elif self.is_teacher_pass():
 			self.teacherpass.sign_out(teacher)
+		elif self.is_special_srt_pass():
+			return self.specialsrtpass.sign_out(teacher)
 
 
 	#### pass lists ####
@@ -344,8 +370,6 @@ class Pass(models.Model):
 			return None
 
 
-
-
 class LocationPass(Pass):
 	objects = models.Manager()
 	location = models.CharField(max_length=12, null=True, blank=True)
@@ -458,7 +482,6 @@ class SRTPass(Pass):
 	def parent(self):
 		return Pass.objects.get(srtpass=self)
 
-
 	def get_destinationTeacher(self):
 		return self.destinationTeacher
 
@@ -466,7 +489,7 @@ class SRTPass(Pass):
 
 	def approve(self, teacher):
 		if self.can_approve(teacher):
-			self.approved = True;
+			self.approved = True
 			self.save()
 
 	def sign_in(self, teacher):
@@ -581,7 +604,7 @@ class SpecialSRTPass(Pass):
 	timeArrivedOrigin = models.TimeField(null=True, blank=True)
 
 	@staticmethod
-	def create(date, student, srtTeacher, description, destination, session, initiatingTeacher):
+	def create(approved, date, student, srtTeacher, description, destination, session, initiatingTeacher):
 		if session == '1':
 			startTimeRequested = time(hour=9, minute=50)
 			endTimeRequested = time(hour=10, minute=20)
@@ -592,16 +615,91 @@ class SpecialSRTPass(Pass):
 			startTimeRequested = time(hour=9, minute=50)
 			endTimeRequested = time(hour=11, minute=00)
 
-		return SpecialSRTPass(date=date,
-		               student=student,
-		               originTeacher=srtTeacher,
-		               description=description,
-		               destinationTeacher=destination,
-		               session=session,
-		               approved=True,
-		               startTimeRequested=startTimeRequested,
-		               endTimeRequested=endTimeRequested,
-					   initiatingTeacher=initiatingTeacher)
+		return SpecialSRTPass(
+			approved=approved,
+			date=date,
+			student=student,
+			originTeacher=srtTeacher,
+			description=description,
+			destinationTeacher=destination,
+			session=session,
+			startTimeRequested=startTimeRequested,
+			endTimeRequested=endTimeRequested,
+			initiatingTeacher=initiatingTeacher
+		)
+
+	def fill_time(self):
+		if self.session == '1':
+			self.startTimeRequested = time(hour=9, minute=50)
+			self.endTimeRequested = time(hour=10, minute=20)
+		elif self.session == '2':
+			self.startTimeRequested = time(hour=10, minute=20)
+			self.endTimeRequested = time(hour=11, minute=00)
+		elif self.session == '3':
+			self.startTimeRequested = time(hour=9, minute=50)
+			self.endTimeRequested = time(hour=11, minute=00)
+
+		print(self.startTimeRequested)
+
+		self.save()
+
+	def sessionStr(self):
+		if self.session == '1':
+			return "Session 1"
+		elif self.session == '2':
+			return "Session 2"
+		elif self.session == '3':
+			return "Both sessions"
+
+	def parent(self):
+		return Pass.objects.get(srtpass=self)
+
+	def get_destinationTeacher(self):
+		return self.destinationTeacher
+
+	#### actions ####
+
+	def approve(self, teacher):
+		if self.can_approve(teacher):
+			self.approved = True
+			self.save()
+
+	def sign_in(self, teacher):
+		if self.can_sign_in(teacher):
+			time = (datetime.now() - timedelta(hours=5)).time()
+			if teacher == self.originTeacher:
+				self.timeArrivedOrigin = time
+			else:
+				self.timeArrivedDestination = time
+			self.save()
+
+	def sign_out(self, teacher):
+		if self.can_sign_out(teacher):
+			time = (datetime.now() - timedelta(hours=5)).time()
+			if teacher == self.originTeacher:
+				self.timeLeftOrigin = time
+			else:
+				self.timeLeftDestination = time
+			self.save()
+
+	#### permissions ####
+
+	def can_approve(self, teacher):
+		return (teacher == self.originTeacher or teacher == self.destinationTeacher) and not self.approved
+
+	def can_sign_in(self, teacher):
+		if teacher == self.destinationTeacher and self.timeArrivedDestination is None and self.timeLeftOrigin is not None:
+			return True
+		if self.session == "1" and teacher == self.originTeacher and self.timeArrivedOrigin is None and self.timeLeftDestination is not None:
+			return True
+		return False
+
+	def can_sign_out(self, teacher):
+		if teacher == self.originTeacher and self.timeLeftOrigin is None:
+			return True
+		if self.session == "1" and teacher == self.destinationTeacher and self.timeLeftDestination is None and self.timeLeftOrigin is not None:
+			return True
+		return False
 
 
 class Location(models.Model):
@@ -620,7 +718,7 @@ class Student(models.Model):
 
 	teachers = models.ManyToManyField('Teacher', related_name="teacher_list")
 
-	defaultOrgin = models.ForeignKey(
+	defaultOrigin = models.ForeignKey(
 		'Teacher',
 		on_delete=models.CASCADE,
 		null=True,
@@ -631,8 +729,8 @@ class Student(models.Model):
 	def __str__(self):
 		return self.profile.user.get_full_name()
 
-	def get_deforgin(self):
-		return self.defaultOrgin
+	def get_deforigin(self):
+		return self.defaultOrigin
 
 
 class Teacher(models.Model):
