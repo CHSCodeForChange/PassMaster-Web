@@ -111,6 +111,8 @@ class GenericPassReadView(generics.RetrieveAPIView):
                 serializer_class = LocationPassSerializer
             elif pass_type == "srt" or pass_type == "srtpass":
                 serializer_class = SRTPassSerializer
+            elif pass_type == "specialsrt" or pass_type == 'specialsrtpass':
+                serializer_class = SpecialSRTPassSerializer
 
         return serializer_class
 
@@ -143,6 +145,8 @@ class GenericPassReadView(generics.RetrieveAPIView):
                 pass_object = pass_object.locationpass
             elif pass_type == "srt" or pass_type == "srtpass":
                 pass_object = pass_object.srtpass
+            elif pass_type == "specialsrt" or pass_type == 'specialsrtpass':
+                pass_object = pass_object.specialsrtpass
 
         return pass_object
 
@@ -202,7 +206,6 @@ class PassListView(generics.ListAPIView):
         if approved is not None:
             passes = passes.filter(approved=approved)
 
-
         return passes
 
 
@@ -211,18 +214,20 @@ class PassCreateView(generics.CreateAPIView):
     permission_classes = (permissions.IsAuthenticated,)
 
     def get_serializer_class(self):
-        type = self.request.GET.get("type")
+        pass_type = self.request.GET.get("type")
 
         serializer_class = None
 
-        if type is not None:
-            type = type.lower()
-            if type == "teacher" or type == 'teacherpass':
+        if pass_type is not None:
+            pass_type = pass_type.lower()
+            if pass_type == "teacher" or pass_type == 'teacherpass':
                 serializer_class = TeacherPassSerializer
-            elif type == "location" or type == 'locationpass':
+            elif pass_type == "location" or pass_type == 'locationpass':
                 serializer_class = LocationPassSerializer
-            elif type == "srt" or type == 'srtpass':
+            elif pass_type == "srt" or pass_type == 'srtpass':
                 serializer_class = SRTPassSerializer
+            elif pass_type == "specialsrt" or pass_type == 'specialsrtpass':
+                serializer_class = SpecialSRTPassSerializer
 
         return serializer_class
 
@@ -233,7 +238,8 @@ class PassCreateView(generics.CreateAPIView):
             print("isteacher")
             teacher = self.request.user.profile.teacher
             _pass = serializer.save()
-            _pass.parent().approve(teacher) #TODO Fix bug where this does get approved but the api responds with the unapproved version
+            _pass.parent().approve(teacher)
+            # TODO Fix bug where this does get approved but the api responds with the unapproved version
 
         elif self.request.user.profile.is_student():
             student = self.request.user.profile.student
@@ -242,12 +248,13 @@ class PassCreateView(generics.CreateAPIView):
         _type = self.request.GET.get("type")
 
         print(self.request.user.profile.member_type)
-        print (_type)
-        print (_pass)
+        print(_type)
+        print(_pass)
 
-        if _pass is not None and _type is not None and (_type.lower() == "srt" or _type.lower() == "srtpass"):
-            _pass.srtpass.fill_time()
-
-
-
-
+        # Fill time in properly if it is either type of SRT pass
+        _type = _type.lower()
+        if _pass is not None and _type is not None:
+            if _type == "srt" or _type == "srtpass":
+                _pass.srtpass.fill_time()
+            if _type == "specialsrt" or _type == "specialsrtpass":
+                _pass.specialsrtpass.fill_time()

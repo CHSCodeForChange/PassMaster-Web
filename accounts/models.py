@@ -28,19 +28,15 @@ class Profile(models.Model):
     CHOICES = (('1', 'Student',), ('2', 'Teacher',), ('3', 'Administrator'), ('4', 'Location'))
     member_type = models.CharField(max_length=50, choices=CHOICES)
 
-    @staticmethod
     def is_student(profile):
         return profile.member_type == '1'
 
-    @staticmethod
     def is_teacher(profile):
         return profile.member_type == '2'
 
-    @staticmethod
     def is_administrator(profile):
         return profile.member_type == '3'
 
-    @staticmethod
     def is_location(profile):
         return profile.member_type == '4'
 
@@ -55,19 +51,15 @@ class Profile(models.Model):
         else:
             return "Location"
 
-    @staticmethod
     def get_student(profile):
         return Student.objects.filter(profile=profile).first()
 
-    @staticmethod
     def get_teacher(profile):
         return Teacher.objects.filter(profile=profile).first()
 
-    @staticmethod
     def get_administrator(profile):
         return Administrator.objects.filter(profile=profile).first()
 
-    @staticmethod
     def get_location(profile):
         return Location.objects.filter(profile=profile).first()
 

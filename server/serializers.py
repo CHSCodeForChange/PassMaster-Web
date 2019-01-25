@@ -45,6 +45,25 @@ class TeacherSerializer(serializers.ModelSerializer):
             'type',
         ]
 
+class LocationSerializer(serializers.ModelSerializer):
+    user_pk = serializers.CharField(source='profile.user.pk')
+    username = serializers.CharField(source='profile.user.username')
+    first_name = serializers.CharField(source='profile.user.first_name')
+    last_name = serializers.CharField(source='profile.user.last_name')
+    email = serializers.CharField(source='profile.user.email')
+    type = serializers.CharField(source='profile.member_type')
+
+    class Meta:
+        model = Location
+        fields = [
+            'user_pk',
+            'pk',
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'type',
+        ]
 
 class UserSerializer(serializers.ModelSerializer):
     type = serializers.CharField(source='profile.member_type')
@@ -122,7 +141,6 @@ class PassSerializer(serializers.ModelSerializer):
             'description',
 
             'type',
-            'destination',
 
             'can_approve',
             'can_sign_in',
@@ -303,12 +321,12 @@ class SRTPassSerializer(serializers.ModelSerializer):
 
     def get_originTeacher_info(self, obj):
         originTeacher = obj.originTeacher
-        serializer = StudentSerializer(originTeacher)
+        serializer = TeacherSerializer(originTeacher)
         return serializer.data
 
     def get_destinationTeacher_info(self, obj):
         destinationTeacher = obj.destinationTeacher
-        serializer = StudentSerializer(destinationTeacher)
+        serializer = TeacherSerializer(destinationTeacher)
         return serializer.data
 
     def get_can_approve(self, obj):
@@ -349,6 +367,106 @@ class SRTPassSerializer(serializers.ModelSerializer):
             'student_info',
             'originTeacher_info',
             'destinationTeacher_info',
+
+            'description',
+
+            'can_approve',
+            'can_sign_in',
+            'can_sign_out'
+        )
+
+        read_only_fields = (
+            'pk',
+            'approved',
+            'timeLeftOrigin',
+            'timeArrivedDestination',
+            'timeLeftDestination',
+            'timeArrivedOrigin',
+
+            'can_approve',
+            'can_sign_in',
+            'can_sign_out'
+        )
+
+
+class SpecialSRTPassSerializer(serializers.ModelSerializer):
+    student_info = serializers.SerializerMethodField(read_only=True)
+    originTeacher_info = serializers.SerializerMethodField(read_only=True)
+    destinationTeacher_info = serializers.SerializerMethodField(read_only=True)
+    initiatingTeacher_info = serializers.SerializerMethodField(read_only=True)
+
+    can_approve = serializers.SerializerMethodField(read_only=True)
+    can_sign_in = serializers.SerializerMethodField(read_only=True)
+    can_sign_out = serializers.SerializerMethodField(read_only=True)
+
+    def get_student_info(self, obj):
+        student = obj.student
+        serializer = StudentSerializer(student)
+        return serializer.data
+
+    def get_originTeacher_info(self, obj):
+        originTeacher = obj.originTeacher
+        serializer = TeacherSerializer(originTeacher)
+        return serializer.data
+
+    def get_destinationTeacher_info(self, obj):
+        destinationTeacher = obj.destinationTeacher
+        serializer = TeacherSerializer(destinationTeacher)
+        return serializer.data
+
+    def get_initiatingTeacher_info(self, obj):
+        initiatingTeacher = obj.initiatingTeacher
+        serializer = TeacherSerializer(initiatingTeacher)
+        return serializer.data
+
+    def get_can_approve(self, obj):
+        profile = self.context.get('request').user.profile
+        if profile.is_teacher():
+            return obj.can_approve(profile.teacher)
+        elif profile.is_location():
+            return obj.can_approve(profile.location)
+        else:
+            return False
+
+    def get_can_sign_in(self, obj):
+        profile = self.context.get('request').user.profile
+        if profile.is_teacher():
+            return obj.can_sign_in(profile.teacher)
+        elif profile.is_location():
+            return obj.can_sign_in(profile.location)
+        else:
+            return False
+
+    def get_can_sign_out(self, obj):
+        profile = self.context.get('request').user.profile
+        if profile.is_teacher():
+            return obj.can_sign_out(profile.teacher)
+        elif profile.is_location():
+            return obj.can_sign_out(profile.location)
+        else:
+            return False
+
+    class Meta:
+        model = SpecialSRTPass
+        fields = (
+            'pk',
+            'approved',
+
+            'date',
+            'session',
+
+            'timeLeftOrigin',
+            'timeArrivedDestination',
+            'timeLeftDestination',
+            'timeArrivedOrigin',
+
+            'student',
+            'originTeacher',
+            'destinationTeacher',
+            'student_info',
+            'originTeacher_info',
+            'destinationTeacher_info',
+            'initiatingTeacher_info',
 
             'description',
 
