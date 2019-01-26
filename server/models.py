@@ -26,6 +26,13 @@ class Pass(models.Model):
 	 	related_name="pass_creator"
 	 )
 
+	requester = models.ForeignKey(
+		'Student',
+		null=True,
+		blank=True,
+		on_delete=models.CASCADE,
+		related_name="pass_requester"
+	)
 	student = models.ForeignKey(
 		'Student',
 		on_delete=models.CASCADE,

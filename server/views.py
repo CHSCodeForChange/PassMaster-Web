@@ -60,10 +60,10 @@ def student_home(request):
 		old = Pass.get_students_old_passes(request.user)
 
 		if request.method == "GET":
-			request_form = RequestPassForm(user=request.user)
+			request_form = RequestPassForm(user=request.user, requester=request.user.profile.student)
 
 		else:
-			request_form = RequestPassForm(request.POST, user=request.user)
+			request_form = RequestPassForm(request.POST, user=request.user, requester=request.user.profile.student)
 			if request_form.is_valid():
 				request_form.save()
 				return redirect('/student')

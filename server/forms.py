@@ -72,9 +72,10 @@ class RequestPassForm(forms.Form):
 		                                   'style': 'display: none;'}))
 
 	user = User()
-
+	requester = Student()
 	def __init__(self, *args, **kwargs):
 		self.user = kwargs.pop('user')
+		self.requester = kwargs.pop('requester')
 		super(RequestPassForm, self).__init__(*args, **kwargs)
 
 	def save(self, commit=True):
@@ -84,18 +85,21 @@ class RequestPassForm(forms.Form):
 			                       startTimeRequested=self.cleaned_data['start'],
 			                       endTimeRequested=self.cleaned_data['end'], description=self.cleaned_data['reason'],
 			                       student=student, destinationTeacher=self.cleaned_data['destinationTeacher'],
-			                       originTeacher=self.cleaned_data['originTeacher'])
+			                       originTeacher=self.cleaned_data['originTeacher'],
+								   requester = self.requester)
 		elif self.cleaned_data['pass_type'] == '2':
 			new_pass = LocationPass(approved=False, date=self.cleaned_data['date'],
 			                        startTimeRequested=self.cleaned_data['start'],
 			                        endTimeRequested=self.cleaned_data['end'], description=self.cleaned_data['reason'],
 			                        student=student, location=self.cleaned_data['location'],
-			                        originTeacher=self.cleaned_data['originTeacher'])
+			                        originTeacher=self.cleaned_data['originTeacher'],
+									requester = self.requester)
 		elif self.cleaned_data['pass_type'] == '3':
 			new_pass = SRTPass.create(approved=False, date=self.cleaned_data['date'],
 			                          student=student, originTeacher=self.cleaned_data['originTeacher'],
 			                          description=self.cleaned_data['reason'], destinationTeacher=self.cleaned_data['destinationTeacher'],
-			                          session=self.cleaned_data['session'])
+			                          session=self.cleaned_data['session'],
+									  requester = self.requester)
 		else:
 			print('This pass type cannot be created.')
 			return
@@ -188,6 +192,7 @@ class CreatePassForm(forms.Form):
 	def __init__(self, *args, **kwargs):
 		self.user = kwargs.pop('user')
 		self.creator = kwargs.pop('creator')
+
 		super(CreatePassForm, self).__init__(*args, **kwargs)
 
 	def save(self, commit=True):
