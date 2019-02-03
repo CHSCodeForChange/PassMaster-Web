@@ -138,6 +138,8 @@ class PassSerializer(serializers.ModelSerializer):
             'student_info',
             'originTeacher_info',
 
+            'destination',
+
             'description',
 
             'type',
