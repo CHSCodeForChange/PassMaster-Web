@@ -40,7 +40,7 @@ class Profile(models.Model):
     def is_location(profile):
         return profile.member_type == '4'
 
-    @staticmethod
+    
     def get_profile_type(profile):
         if Profile.is_student(profile):
             return "Student"

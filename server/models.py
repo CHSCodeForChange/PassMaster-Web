@@ -440,7 +440,7 @@ class SRTPass(Pass):
 	timeArrivedOrigin = models.TimeField(null=True, blank=True)
 
 	@staticmethod
-	def create(approved, date, student, originTeacher, description, destinationTeacher, session):
+	def create(approved, date, student, originTeacher, description, destinationTeacher, session, creator, requester):
 		if session == '1':
 			startTimeRequested = time(hour=9, minute=50)
 			endTimeRequested = time(hour=10, minute=20)
@@ -459,7 +459,9 @@ class SRTPass(Pass):
 		               destinationTeacher=destinationTeacher,
 		               session=session,
 		               startTimeRequested=startTimeRequested,
-		               endTimeRequested=endTimeRequested)
+		               endTimeRequested=endTimeRequested,
+					   creator=creator,
+					   requester=requester)
 
 	def fill_time(self):
 		if self.session == '1':
@@ -611,7 +613,7 @@ class SpecialSRTPass(Pass):
 	timeArrivedOrigin = models.TimeField(null=True, blank=True)
 
 	@staticmethod
-	def create(approved, date, student, srtTeacher, description, destination, session, initiatingTeacher):
+	def create(approved, date, student, srtTeacher, description, destination, session, initiatingTeacher, creator):
 		if session == '1':
 			startTimeRequested = time(hour=9, minute=50)
 			endTimeRequested = time(hour=10, minute=20)
@@ -632,7 +634,8 @@ class SpecialSRTPass(Pass):
 			session=session,
 			startTimeRequested=startTimeRequested,
 			endTimeRequested=endTimeRequested,
-			initiatingTeacher=initiatingTeacher
+			initiatingTeacher=initiatingTeacher,
+			creator=creator
 		)
 
 	def fill_time(self):
