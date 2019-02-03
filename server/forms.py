@@ -238,8 +238,9 @@ class CreatePassForm(forms.Form):
 		elif self.cleaned_data['pass_type'] == '4':
 			for student in self.cleaned_data['students']:
 				new_pass = SpecialSRTPass.create(
-					self.cleaned_data['date'],
+					date=self.cleaned_data['date'],
 					student=student,
+					approved=True,
 					srtTeacher=self.cleaned_data['originTeacher'],
 					description=self.cleaned_data['reason'],
 					destination=self.cleaned_data['specialDestination'],

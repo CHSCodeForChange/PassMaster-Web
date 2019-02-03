@@ -67,6 +67,15 @@
                         <p style="color: red">{{ error }}</p>
                     {% endfor %}
                 </div>
+
+                {# SRT Teacher Field #}
+                <div id="SRTTeacher">
+                    <div class="form-label" id="SRTTeacherLabel">SRT Teacher</div>
+                    <div> {{ create_form.originTeacher }} </div>
+                    {% for error in create_form.originTeacher.errors %}
+                        <p style="color: red">{{ error }}</p>
+                    {% endfor %}
+                </div>
             </div>
         </div>
         {# Students Field #}
