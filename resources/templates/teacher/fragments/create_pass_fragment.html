@@ -49,9 +49,11 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="col-md-6">
-                {# Origin Teacher Field #}
+            <div class="col-md-3">
+
+                {# Origin/SRT Teacher Field #}
                 <div id="originTeacher">
+                    <div class="form-label" id="SRTTeacherLabel">SRT Teacher</div>
                     <div class="form-label" id="originTeacherLabel">Origin Teacher</div>
                     <div> {{ create_form.originTeacher }} </div>
                     {% for error in create_form.originTeacher.errors %}
@@ -59,23 +61,26 @@
                     {% endfor %}
                 </div>
 
-                {# Initiating Teacher Field #}
-                <div id="initiatingTeacher">
-                    <div class="form-label" id="initiatingTeacherLabel">Initiating Teacher</div>
-                    <div> {{ create_form.initiatingTeacher }} </div>
-                    {% for error in create_form.initiatingTeacher.errors %}
-                        <p style="color: red">{{ error }}</p>
-                    {% endfor %}
-                </div>
+
 
                 {# SRT Teacher Field #}
-                <div id="SRTTeacher">
+                <!-- <div id="SRTTeacher">
                     <div class="form-label" id="SRTTeacherLabel">SRT Teacher</div>
                     <div> {{ create_form.originTeacher }} </div>
                     {% for error in create_form.originTeacher.errors %}
                         <p style="color: red">{{ error }}</p>
                     {% endfor %}
-                </div>
+                </div> -->
+            </div>
+            <div class="col-md-3">
+              {# Initiating Teacher Field #}
+              <div id="initiatingTeacher">
+                  <div class="form-label" id="initiatingTeacherLabel">Initiating Teacher</div>
+                  <div> {{ create_form.initiatingTeacher }} </div>
+                  {% for error in create_form.initiatingTeacher.errors %}
+                      <p style="color: red">{{ error }}</p>
+                  {% endfor %}
+              </div>
             </div>
         </div>
         {# Students Field #}
@@ -151,6 +156,7 @@
     $('#set_type_teacher').click(function(e) {
         $('#id_pass_type').val("1");
         $('#originTeacher').show();
+        $('#originTeacherLabel').show();
         $('#destinationTeacher').show();
         $('#location').hide();
         $('#startTime').show();
@@ -159,6 +165,7 @@
         $('#specialDestination').hide();
         $('#initiatingTeacher').hide();
         $('#SRTTeacher').hide();
+        $('#SRTTeacherLabel').hide();
         $(this).removeClass('btn-secondary').addClass('btn-primary');
         $('#set_type_location').removeClass('btn-primary').addClass('btn-secondary');
         $('#set_type_srt').removeClass('btn-primary').addClass('btn-secondary');
@@ -167,7 +174,9 @@
     $('#set_type_location').click(function(e) {
         $('#id_pass_type').val("2");
         $('#originTeacher').show();
+        $('#originTeacherLabel').show();
         $('#destinationTeacher').hide();
+        $('#SRTTeacherLabel').hide();
         $('#location').show();
         $('#startTime').show();
         $('#endTime').show();
@@ -182,12 +191,14 @@
     });
     $('#set_type_srt').click(function(e) {
         $('#id_pass_type').val("3");
+        $('#originTeacherLabel').show();
         $('#originTeacher').show();
         $('#destinationTeacher').show();
         $('#location').hide();
         $('#startTime').hide();
         $('#endTime').hide();
         $('#session').show();
+        $('#SRTTeacherLabel').hide();
         $('#specialDestination').hide();
         $('#initiatingTeacher').hide();
         $('#SRTTeacher').hide();
@@ -198,7 +209,7 @@
     });
     $('#set_type_library_srt').click(function(e) {
         $('#id_pass_type').val("4");
-        $('#originTeacher').hide();
+        $('#originTeacher').show();
         $('#destinationTeacher').hide();
         $('#location').hide();
         $('#startTime').hide();
@@ -207,6 +218,8 @@
         $('#specialDestination').show();
         $('#initiatingTeacher').show();
         $('#SRTTeacher').show();
+        $('#originTeacherLabel').hide();
+        $('#SRTTeacherLabel').show();
         $(this).removeClass('btn-secondary').addClass('btn-primary');
         $('#set_type_teacher').removeClass('btn-primary').addClass('btn-secondary');
         $('#set_type_location').removeClass('btn-primary').addClass('btn-secondary');
@@ -223,5 +236,7 @@
         $('#specialDestination').hide();
         $('#initiatingTeacher').hide();
         $('#SRTTeacher').hide();
+        $('#SRTTeacherLabel').hide();
+        $('#originTeacherLabel').show();
     });
 </script>
