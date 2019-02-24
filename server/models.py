@@ -358,7 +358,7 @@ class Pass(models.Model):
 		profile = user.profile
 		if profile.is_location:
 			location = profile.location
-			passes = Pass.objects.filter(approved=True, specialsrtpass__destinationTeacher=location).exclude(teacherArrivedDestination=None)
+			passes = Pass.objects.filter(approved=True, specialsrtpass__destinationTeacher=location).exclude(timeArrivedDestination=None)
 
 			if dt is None:
 				return passes

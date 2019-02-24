@@ -204,6 +204,12 @@ class PassListView(generics.ListAPIView):
 
             elif list == 'teacher-old' or list == 'teacher old':
                 passes = Pass.get_teachers_old_passes(user)
+
+            elif list == "location-incoming" or list == "location incoming":
+                passes = Pass.get_locations_incoming_student_passes(user)
+
+            elif list == "location-old" or list == "location old":
+                passes = Pass.get_locations_old_passes(user)
         else:
             Pass.get_passes(self.request.user)
 

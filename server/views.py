@@ -156,19 +156,10 @@ def location_home(request):
 		return redirect('/')
 	incoming = Pass.get_locations_incoming_student_passes(request.user)
 	old = Pass.get_locations_old_passes(request.user)
-	if request.method == "GET":
-		create_form = CreatePassForm(user=request.user)
-
-	else:
-		create_form = CreatePassForm(request.POST, user=request.user)
-		if create_form.is_valid():
-			create_form.save()
-			return redirect('/location')
 
 	return render(request, "location/location_home.html",
 	              {'incoming': incoming,
-	               'old': old,
-	               'create_form': create_form})
+	               'old': old})
 
 
 def handler404(request, exception, template_name="404.html"):
