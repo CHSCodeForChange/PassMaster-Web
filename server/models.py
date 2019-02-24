@@ -304,8 +304,9 @@ class Pass(models.Model):
 						 Pass.objects.filter(approved=True, teacherpass__destinationTeacher=teacher) | \
 						 Pass.objects.filter(approved=True, srtpass__destinationTeacher=teacher)
 
-			passes = passes.exclude(timeArrivedDestination=None).exclude(srtpass__session="1") | \
-					 passes.filter(srtpass__session="1").exclude(srtpass__timeArrivedOrigin=None)
+			passes = passes.exclude(timeArrivedDestination=None).exclude(srtpass__session="1").exclude(specialsrtpass__session="1") | \
+					 passes.filter(srtpass__session="1").exclude(srtpass__timeArrivedOrigin=None) | \
+					 passes.filter(specialsrtpass__session="1").exclude(specialsrtpass__timeArrivedOrigin=None)
 
 			if dt is not None:
 				passes = passes.filter(date=dt)
@@ -323,6 +324,9 @@ class Pass(models.Model):
 			passes = Pass.objects.filter(approved=True, timeArrivedDestination=None, teacherpass__destinationTeacher=teacher) | \
 						Pass.objects.filter(approved=True, timeArrivedDestination=None, srtpass__destinationTeacher=teacher).exclude(srtpass__session="1") | \
 						Pass.objects.filter(approved=True, srtpass__timeArrivedOrigin=None, srtpass__destinationTeacher=teacher, srtpass__session="1")
+						# Pass.objects.filter(approved=True, timeArrivedDestination=None, specialsrtpass__destinationTeacher=location).exclude(specialsrtpass__session="1") | \
+
+						# Pass.objects.filter(approved=True, specialsrtpass__timeArrivedOrigin=None, specialsrtpass__destinationTeacher=teacher, specialsrtpass__session="1")
 
 			if dt is not None:
 				passes = passes.filter(date=dt)
@@ -337,8 +341,9 @@ class Pass(models.Model):
 		profile = user.profile
 		if profile.is_teacher:
 			teacher = profile.teacher
-			passes = Pass.objects.filter(approved=True, timeArrivedDestination=None, originTeacher=teacher).exclude(srtpass__session="1") | \
-					 Pass.objects.filter(approved=True, srtpass__timeArrivedOrigin=None, originTeacher=teacher, srtpass__session="1")
+			passes = Pass.objects.filter(approved=True, timeArrivedDestination=None, originTeacher=teacher).exclude(srtpass__session="1").exclude(specialsrtpass__session="1") | \
+					 Pass.objects.filter(approved=True, srtpass__timeArrivedOrigin=None, originTeacher=teacher, srtpass__session="1") | \
+					 Pass.objects.filter(approved=True, specialsrtpass__timeArrivedOrigin=None, originTeacher=teacher, specialsrtpass__session="1")
 
 			if dt is not None:
 				passes = passes.filter(date=dt)
@@ -440,7 +445,7 @@ class SRTPass(Pass):
 	timeArrivedOrigin = models.TimeField(null=True, blank=True)
 
 	@staticmethod
-	def create(approved, date, student, originTeacher, description, destinationTeacher, session):
+	def create(approved, date, student, originTeacher, description, destinationTeacher, session, creator, requester):
 		if session == '1':
 			startTimeRequested = time(hour=9, minute=50)
 			endTimeRequested = time(hour=10, minute=20)
@@ -459,7 +464,9 @@ class SRTPass(Pass):
 		               destinationTeacher=destinationTeacher,
 		               session=session,
 		               startTimeRequested=startTimeRequested,
-		               endTimeRequested=endTimeRequested)
+		               endTimeRequested=endTimeRequested,
+					   creator=creator,
+					   requester=requester)
 
 	def fill_time(self):
 		if self.session == '1':
@@ -611,7 +618,7 @@ class SpecialSRTPass(Pass):
 	timeArrivedOrigin = models.TimeField(null=True, blank=True)
 
 	@staticmethod
-	def create(approved, date, student, srtTeacher, description, destination, session, initiatingTeacher):
+	def create(approved, date, student, srtTeacher, description, destination, session, initiatingTeacher, creator):
 		if session == '1':
 			startTimeRequested = time(hour=9, minute=50)
 			endTimeRequested = time(hour=10, minute=20)
@@ -632,7 +639,8 @@ class SpecialSRTPass(Pass):
 			session=session,
 			startTimeRequested=startTimeRequested,
 			endTimeRequested=endTimeRequested,
-			initiatingTeacher=initiatingTeacher
+			initiatingTeacher=initiatingTeacher,
+			creator=creator
 		)
 
 	def fill_time(self):

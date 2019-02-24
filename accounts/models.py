@@ -40,7 +40,7 @@ class Profile(models.Model):
     def is_location(profile):
         return profile.member_type == '4'
 
-    @staticmethod
+
     def get_profile_type(profile):
         if Profile.is_student(profile):
             return "Student"
@@ -63,7 +63,7 @@ class Profile(models.Model):
     def get_location(profile):
         return Location.objects.filter(profile=profile).first()
 
-    @staticmethod
+
     def name(profile):
         return profile.user.first_name + ' ' + profile.user.last_name
 

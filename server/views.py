@@ -89,9 +89,14 @@ def teacher_home(request):
 
 	else:
 		create_form = CreatePassForm(request.POST, user=request.user, creator=request.user.profile.teacher)
+
 		if create_form.is_valid():
 			create_form.save()
 			return redirect('/teacher')
+		else:
+			for field in create_form:
+				for error in field.errors:
+					print(error)
 
 	return render(request, "teacher/teacher_home.html",
 	              {'incoming': incoming, 'outgoing': outgoing,
