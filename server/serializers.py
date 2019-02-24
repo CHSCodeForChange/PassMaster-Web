@@ -465,6 +465,8 @@ class SpecialSRTPassSerializer(serializers.ModelSerializer):
             'student',
             'originTeacher',
             'destinationTeacher',
+            'initiatingTeacher',
+
             'student_info',
             'originTeacher_info',
             'destinationTeacher_info',

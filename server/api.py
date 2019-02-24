@@ -236,6 +236,9 @@ class PassCreateView(generics.CreateAPIView):
 
         if pass_type is not None:
             pass_type = pass_type.lower()
+
+            print(pass_type)
+
             if pass_type == "teacher" or pass_type == 'teacherpass':
                 serializer_class = TeacherPassSerializer
             elif pass_type == "location" or pass_type == 'locationpass':

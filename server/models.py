@@ -667,7 +667,7 @@ class SpecialSRTPass(Pass):
 			return "Both sessions"
 
 	def parent(self):
-		return Pass.objects.get(srtpass=self)
+		return Pass.objects.get(specialsrtpass=self)
 
 	def get_destinationTeacher(self):
 		return self.destinationTeacher
