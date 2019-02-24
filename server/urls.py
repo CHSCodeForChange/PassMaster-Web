@@ -11,6 +11,7 @@ rest = [
 	url(r'^rest/users/$', UserListView.as_view(), name='user-list'),
 	url(r'^rest/students/$', StudentListView.as_view(), name='student-list'),
 	url(r'^rest/teachers/$', TeacherListView.as_view(), name='teacher-list'),
+	url(r'^rest/locations/$', LocationListView.as_view(), name='location-list'),
 	url(r'rest/passes/$', PassListView.as_view(), name='pass-list'),
 	url(r'rest/passes/create/$', PassCreateView.as_view(), name='pass-create'),
 	url(r'^rest/passes/(?P<pk>\d+)/$', GenericPassReadView.as_view(), name='pass-read'),

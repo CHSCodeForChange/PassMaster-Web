@@ -83,6 +83,22 @@ class TeacherListView(generics.ListAPIView):
 
         return queryset
 
+class LocationListView(generics.ListAPIView):
+    authentication_classes = (authentication.TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
+    serializer_class = LocationSerializer
+
+    def get_queryset(self):
+        username = self.request.GET.get("username")
+        queryset = Location.objects.all()
+
+        print(queryset)
+
+        if username is not None:
+            queryset = queryset.filter(profile__user__username__icontains=username) | queryset.filter(profile__user__last_name__icontains=username) | queryset.filter(profile__user__first_name__icontains=username)
+
+        return queryset
+
 
 class StudentTopPassView(generics.RetrieveAPIView):
     serializer_class = PassSerializer
