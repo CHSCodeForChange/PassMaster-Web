@@ -12,7 +12,6 @@
             {% endif %}
         {% elif pass.locationpass %}
             <h5 class="card-title"><i class="fas fa-map-marker-alt"></i> {{ pass.student.profile.name }} to {{ pass.locationpass.location }}</h5>
-        {% endif %}
         {% elif pass.specialsrtpass %}
             {% if pass.specialsrtpass.session == '1' %}
                 <h5 class="card-title"><i class="fas fa-hourglass-start"></i> {{ pass.student.profile.name }}</h5>
