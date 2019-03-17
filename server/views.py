@@ -125,13 +125,20 @@ def checkin(request, pass_id):
 		return redirect('/login')
 	if not request.user.profile.is_teacher() and not request.user.profile.is_location():
 			return redirect('/')
-	else:
+	elif request.user.profile.is_teacher():
 		try:
 			pass_obj = Pass.objects.get(id=pass_id)
 		except Pass.DoesNotExist:
 			return redirect('/teacher')
 		pass_obj.sign_in(request.user.profile.teacher)
 		return redirect('/teacher')
+	else:
+		try:
+			pass_obj = Pass.objects.get(id=pass_id)
+		except Pass.DoesNotExist:
+			return redirect('/location')
+		pass_obj.sign_in(request.user.profile.location)
+		return redirect('/location')
 
 
 @login_required
@@ -140,13 +147,20 @@ def checkout(request, pass_id):
 		return redirect('/login')
 	if not request.user.profile.is_teacher() and not request.user.profile.is_location():
 		return redirect('/')
-	else:
+	elif request.user.profile.is_teacher():
 		try:
 			pass_obj = Pass.objects.get(id=pass_id)
 		except Pass.DoesNotExist:
 			return redirect('/teacher')
 		pass_obj.sign_out(request.user.profile.teacher)
 		return redirect('/teacher')
+	else:
+		try:
+			pass_obj = Pass.objects.get(id=pass_id)
+		except Pass.DoesNotExist:
+			return redirect('/location')
+		pass_obj.sign_out(request.user.profile.location)
+		return redirect('/location')
 
 @login_required
 def location_home(request):
