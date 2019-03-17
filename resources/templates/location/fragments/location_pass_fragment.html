@@ -116,7 +116,7 @@
                     {# Only shows the next time button when the student has arrived at the destination #}
                     {% if pass.specialsrtpass.session == '1' and pass.specialsrtpass.timeArrivedDestination != None %}
                         <li class="list-group-item">
-                        {% if user.profile.is_teacher and pass.specialsrtpass.destinationTeacher == user.profile.get_teacher and pass.specialsrtpass.timeLeftDestination == None %}
+                        {% if user.profile.is_location and pass.specialsrtpass.destinationTeacher == user.profile.get_location and pass.specialsrtpass.timeLeftDestination == None %}
                             <a href="/teacher/checkout/{{ pass.id }}">
                                 <button class="btn btn-primary btn-block btn-round">Check Out</button>
                             </a>
@@ -128,7 +128,7 @@
                     {# Only shows the next time button when the student has left the destination #}
                     {% if pass.specialsrtpass.session == '1' and pass.specialsrtpass.timeLeftDestination != None %}
                         <li class="list-group-item">
-                        {% if user.profile.is_teacher and pass.originTeacher == user.profile.get_teacher and pass.specialsrtpass.timeArrivedOrigin == None %}
+                        {% if user.profile.is_location and pass.originTeacher == user.profile.get_location and pass.specialsrtpass.timeArrivedOrigin == None %}
                             <a href="/teacher/checkin/{{ pass.id }}">
                                 <button class="btn btn-primary btn-block btn-round">Check In</button>
                             </a>
@@ -139,7 +139,7 @@
                     {% endif %}
                 {% else %}
                     <li class="list-group-item">
-                    {% if user.profile.is_teacher and pass.originTeacher == user.profile.get_teacher and pass.timeArrivedDestination == None %}
+                    {% if user.profile.is_location and pass.originTeacher == user.profile.get_location and pass.timeArrivedDestination == None %}
                         <a href="/teacher/checkin/{{ pass.id }}">
                             <button class="btn btn-primary btn-block btn-round">Check In</button>
                         </a>
