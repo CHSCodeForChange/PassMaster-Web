@@ -102,7 +102,7 @@
                     </li>
                     {% elif pass.specialsrtpass %}
                             <li class="list-group-item">
-                            {% if user.profile.is_location and pass.specialsrtpass.destinationTeacher == user.profile.get_location and pass.timeArrivedDestination == None %}
+                            {% if user.profile.is_teacher and pass.specialsrtpass.destinationTeacher == user.profile.get_teacher and pass.timeArrivedDestination == None %}
                                 <a href="/teacher/checkin/{{ pass.id }}">
                                     <button class="btn btn-primary btn-block btn-round">Check In</button>
                                 </a>
