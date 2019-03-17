@@ -32,6 +32,8 @@
         {% if pass.srtpass %}
             <li class="list-group-item">{{ pass.srtpass.sessionStr }}</li>
         {% endif %}
+        {% if pass.specialsrtpass %}
+            <li class="list-group-item">{{ pass.specialsrtpass.sessionStr }}</li>
         {# Shows the approve button if the student is not approved #}
         {% if not pass.approved %}
             {% if pass.originTeacher == user.profile.get_teacher %}

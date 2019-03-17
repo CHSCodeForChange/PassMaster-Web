@@ -195,8 +195,8 @@
       <file leaf-file-name="location_pass_fragment.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/templates/location/fragments/location_pass_fragment.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="104" column="122" selection-start-line="104" selection-start-column="122" selection-end-line="104" selection-end-column="122" />
+            <state relative-caret-position="265">
+              <caret line="35" column="76" selection-start-line="35" selection-start-column="76" selection-end-line="35" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -254,7 +254,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>&quot;){</find>
       <find>if(window</find>
       <find>close</find>
       <find>card</find>
@@ -284,6 +283,7 @@
       <find>arrive</find>
       <find>get_destination</find>
       <find>request</find>
+      <find>session</find>
     </findStrings>
     <replaceStrings>
       <replace>self, user</replace>
@@ -1053,8 +1053,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/templates/location/fragments/location_pass_fragment.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="104" column="122" selection-start-line="104" selection-start-column="122" selection-end-line="104" selection-end-column="122" />
+        <state relative-caret-position="265">
+          <caret line="35" column="76" selection-start-line="35" selection-start-column="76" selection-end-line="35" selection-end-column="76" />
         </state>
       </provider>
     </entry>
