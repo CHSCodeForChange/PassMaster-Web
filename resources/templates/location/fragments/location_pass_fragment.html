@@ -13,6 +13,15 @@
         {% elif pass.locationpass %}
             <h5 class="card-title"><i class="fas fa-map-marker-alt"></i> {{ pass.student.profile.name }} to {{ pass.locationpass.location }}</h5>
         {% endif %}
+        {% elif pass.specialsrtpass %}
+            {% if pass.specialsrtpass.session == '1' %}
+                <h5 class="card-title"><i class="fas fa-hourglass-start"></i> {{ pass.student.profile.name }}</h5>
+            {% elif pass.specialsrtpass.session == '2' %}
+                <h5 class="card-title"><i class="fas fa-hourglass-end"></i> {{ pass.student.profile.name }}</h5>
+            {% elif pass.specialsrtpass.session == '3' %}
+                <h5 class="card-title"><i class="fas fa-hourglass"></i> {{ pass.student.profile.name }}</h5>
+            {% endif %}
+        {% endif %}
         <h6 class="card-subtitle mb-2 text-muted">{{ pass.date|date:"N j Y" }}</h6>
         <h6 class="card-subtitle mb-2 text-muted">
             {{ pass.startTimeRequested|date:"P" }}

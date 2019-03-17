@@ -8,11 +8,11 @@
             <div class="col-md-8">
                 {% csrf_token %}
                 {% for field in form %}
-                    <div class="my-2">
+                    <div class="my-2" align="center">
                         {{ field }}
                     </div>
                 {% endfor %}
-                <button type="submit" class="btn btn-block btn-primary">Login</button>
+                <button type="submit" class="btn btn-block btn-primary">Sign Up</button>
                 <p class="text-center"> Have an account? <a href="/login" class="">Login</a></p>
             </div>
 
@@ -25,7 +25,7 @@
 {% for field in form %}
     {% ifnotequal field.errors None %}
         {% for error in field.errors %}
-            <div class="alert alert-info" role="alert">
+            <div class="alert alert-info" role="alert" style="text-align: center !important;margin:  auto; margin-bottom: 15px;">
                 <strong>{{ field.label }}:</strong> {{ error }}
             </div>
         {% endfor %}
